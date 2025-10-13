@@ -7,11 +7,18 @@ if (!isset($path))
     require($path);
 }
 
-require_once("../../Templates/MemoryLog.php");
+WEB::$browser->navigate("https://rpa-bot.ru/wiki/search.php?q=scroll&PAGEN_1=2");
 
-$memLog = new MemoryLog();
-$memLogFilePath = __DIR__ . '.memory/memory.log';
-$memLog->updateMemoryLog($memLogFilePath);
+
+
+// Вывести все ссылки (href) на текущей странице
+$allHrefs = DOM::$anchor->get_all()->get_href();
+foreach($allHrefs as $href)
+	echo($href . "\n");
+
+// Найти ссылки на страницу news и вывести их
+$newsHrefs = DOM::$anchor->get_all_hrefs_by_attribute("href", "news", false, "\n", "-1");
+echo($newsHrefs . "\n");
 
 /*
 function get_all_hrefs()
