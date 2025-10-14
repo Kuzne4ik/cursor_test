@@ -1,0 +1,33 @@
+<?php
+
+// Сценарий: Для текущей страницы найти DOM элемент <body> по номеру и добавить к нему дочерний DOM элемент как код HTML
+// Описание: Для текущей страницы Браузера найти DOM элемент <body> по номеру 0 и добавить к нему дочерний DOM элемент anchor как код HTML
+// Используемые классы: XHEAnchor, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
+if (!isset($path))
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
+
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
+
+
+// Пример 1: Получить объект body и получить его как XHEInterface
+$targetBody = DOM::$body->get_by_number(0);
+
+// Добавим anchor в объект body как код HTML
+$targetBody->add_child("a","<a href=\"http://ya.ru\">yandex.ru</a>");
+
+
+
+// Остановить работу
+WINDOW::$app->quit();
+?>
