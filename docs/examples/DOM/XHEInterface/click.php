@@ -19,7 +19,8 @@ if (!isset($path))
 // Перейти на страницу полигона, если ранее страница не была загружена
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Пример 1: Получить объект anchor по порядковому номеру 1 среди input этого типа и выполнить click
+// Пример 1: Получить объект anchor по порядковому номеру 1 среди input этого типа и выполнить click.
+
 // Получить объект anchor по порядковому номеру 1 среди input этого типа и получить его как XHEInterface
 $targetAnchor = DOM::$anchor->get_by_number(1);
 // Для найденного anchor выполнить click

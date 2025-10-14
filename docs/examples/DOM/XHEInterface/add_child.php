@@ -20,7 +20,7 @@ if (!isset($path))
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 
-// Пример 1: Получить объект body и добавить дочерний DOM элемент anchor, как код HTML
+// Пример 1: Получить объект body и добавить к нему дочерний DOM элемент anchor, как код HTML.
 // Получить объект body по номеру 0 как XHEInterface
 $targetBody = DOM::$body->get_by_number(0);
 // Добавить дочерний DOM элемент anchor, как код HTML

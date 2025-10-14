@@ -19,14 +19,14 @@ if (!isset($path))
 // Перейти на страницу полигона, если ранее страница не была загружена
 WEB::$browser->navigate(TEST_POLYGON_URL . "checkbox.html");
 
-// Пример 1: Найти DOM элемент checkbox и установить на нем отметку
+// Пример 1: Найти DOM элемент checkbox и установить на нем отметку.
 // Получить объект input с типом checkbox по порядковому номеру 1 среди input этого типа и получить его как XHEInterface
 $targetCheckBox = DOM::$checkbox->get_by_number(1);
 // Для найденного checkbox установить отметку (добавить атрибут checked)
 $targetCheckBox->check(true);
 
 
-// Пример 2: Найти DOM элемент checkbox и снять на нем отметку
+// Пример 2: Найти DOM элемент checkbox и снять на нем отметку.
 // Получить объект input с типом checkbox по порядковому номеру 1 среди input этого типа и получить его как XHEInterface
 $targetCheckBox = DOM::$checkbox->get_by_number(1);
 // Для найденного checkbox снять отметку (удалить атрибут checked)

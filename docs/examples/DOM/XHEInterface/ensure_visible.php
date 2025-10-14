@@ -1,43 +1,34 @@
 <?php
-$xhe_host = "127.0.0.1:7094";
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и убедится что этот элемент попадает в видимую область страницы
+// Описание: Для текущей страницы найти DOM элемент <a> и убедится что этот элемент попадает в видимую область страницы
+// Используемые классы: XHEAnchor, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_SITE_URL) . "<br>";
+// Пример 1: Получить объект anchor по порядковому номеру 1 среди input этого типа и убедится что этот элемент попадает в видимую область страницы.
 
-// 2 
-echo "2. Виден ли с нулевым номером: ";
-echo $anchor->get_by_number(0)->is_view_now() . "<br>";
+// Получить объект anchor по порядковому номеру 1 среди input этого типа и получить его как XHEInterface.
+$targetAnchor = DOM::$anchor->get_by_number(1);
+// Для найденного anchor выполнить команду и получить результат выполнения метода как переменную.
+// Результат выполнения присвоить переменной типа bool.
+// Если значение переменной true, то элемент DOM находится в видимой область страницы Браузера.
+// Если значение переменной false, то элемент DOM не находится в видимой область страницы Браузера.
+$elementIsVisibled = $targetAnchor->ensure_visible();
 
-// 3 
-echo "3. Виден ли 100 anchor: ";
-if (!$anchor->get_by_number(100)->is_view_now())
-	echo "Не виден<br>";
-
-// 4
-echo "4. Покажем 100 номер плавно: ";
-echo $anchor->get_by_number(100)->ensure_visible(true) . "\n";
-	
-// 5
-echo "5. Виден ли 100 anchor: ";
-echo $anchor->get_by_number(100)->is_view_now() . "\n";
-
-sleep(3);
-// 6
-echo "6. Покажем 50 номер быстро: ";
-echo $anchor->get_by_number(50)->ensure_visible() . "\n";
-
-// конец
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>
