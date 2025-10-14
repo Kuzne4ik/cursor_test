@@ -20,6 +20,12 @@ foreach($allHrefs as $href)
 $newsHrefs = DOM::$anchor->get_all_hrefs_by_attribute("href", "news", false, "\n", "-1");
 echo($newsHrefs . "\n");
 
+// Получить все href для anchor, у которых id содержит "23"
+$hrefsId23 = DOM::$anchor->get_all_hrefs_by_attribute("id", "23", false, "\n", "-1");
+echo($hrefsId23 . "\n");
+
+
+
 /*
 function get_all_hrefs()
 {
