@@ -1,32 +1,30 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и выполнить на нем click
+// Описание: Для текущей страницы найти DOM элемент <a> и на найденном anchor выполнить click
+// Используемые классы: XHECheckButton, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// чтобы быстрее
-$browser->set_wait_params(5,1);
+// Пример 1: Получить объект anchor по порядковому номеру 1 среди input этого типа и выполнить click
+// Получить объект anchor по порядковому номеру 1 среди input этого типа и получить его как XHEInterface
+$targetAnchor = DOM::$anchor->get_by_number(1);
+// Для найденного anchor выполнить click
+$targetAnchor->click();
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
-
-// 2 
-echo "2. Щелкнем по элементу с href равным " . TEST_SITE_URL . " : ";
-echo $anchor->get_by_attribute("href",TEST_SITE_URL,true)->click()."<br>";
-
-// 3 
-echo "3. Кликнем по элементу с содержащем SEO и выведем его координаты : ";
-$obj=$anchor->get_by_inner_text("SEO",false);
-echo $obj->get_x()." ".$obj->get_y()." ".$obj->click()."<br>";
-
-// конец
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>

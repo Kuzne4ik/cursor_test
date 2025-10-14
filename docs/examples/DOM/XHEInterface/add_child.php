@@ -1,7 +1,7 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент <body> по номеру и добавить к нему дочерний DOM элемент как код HTML
-// Описание: Для текущей страницы Браузера найти DOM элемент <body> по номеру 0 и добавить к нему дочерний DOM элемент anchor как код HTML
+// Сценарий: Для текущей страницы найти DOM элемент и добавить к нему дочерний DOM элемент как код HTML
+// Описание: Для текущей страницы Браузера найти DOM элемент <body> и добавить к нему дочерний DOM элемент anchor как код HTML
 // Используемые классы: XHEAnchor, XHEBrowser, XHEApplication
 
 // Строка подключения к API XHE
@@ -20,12 +20,11 @@ if (!isset($path))
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 
-// Пример 1: Получить объект body и получить его как XHEInterface
+// Пример 1: Получить объект body и добавить дочерний DOM элемент anchor, как код HTML
+// Получить объект body по номеру 0 как XHEInterface
 $targetBody = DOM::$body->get_by_number(0);
-
-// Добавим anchor в объект body как код HTML
+// Добавить дочерний DOM элемент anchor, как код HTML
 $targetBody->add_child("a","<a href=\"http://ya.ru\">yandex.ru</a>");
-
 
 
 // Остановить работу

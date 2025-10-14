@@ -1,42 +1,37 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент checkbox и для него установить отметку
+// Описание: Для текущей страницы найти DOM элемент <input type="checkbox"> и для найденного checkbox установить или снять отметку
+// Используемые классы: XHECheckButton, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "checkbox.html");
 
-// чтобы быстрее
-$browser->set_wait_params(5,1);
-			
-// 1 
-echo("1. Перейдем на полигон: ");
-echo($browser->navigate(TEST_POLYGON_URL . "checkbox.html")."<br>");
+// Пример 1: Найти DOM элемент checkbox и установить на нем отметку
+// Получить объект input с типом checkbox по порядковому номеру 1 среди input этого типа и получить его как XHEInterface
+$targetCheckBox = DOM::$checkbox->get_by_number(1);
+// Для найденного checkbox установить отметку (добавить атрибут checked)
+$targetCheckBox->check(true);
 
-// 2 
-echo("2. Чекнем : ");
-echo($checkbox->get_by_number(4)->check()."<br>");
 
-// 3 
-echo("3. Получим чекнутость : ");
-echo($checkbox->get_by_number(4)->is_checked()."<br>");
+// Пример 2: Найти DOM элемент checkbox и снять на нем отметку
+// Получить объект input с типом checkbox по порядковому номеру 1 среди input этого типа и получить его как XHEInterface
+$targetCheckBox = DOM::$checkbox->get_by_number(1);
+// Для найденного checkbox снять отметку (удалить атрибут checked)
+$targetCheckBox->check(false);
 
-sleep(2);
-
-// 4 
-echo("4. Уберем чекнутость : ");
-echo($checkbox->get_by_number(4)->check(false)."<br>");
-
-// 5
-echo("5. Получим чекнутость : ");
-if (!$checkbox->get_by_number(4)->is_checked())
-    echo("не чекнут");
-
-// конец
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>
