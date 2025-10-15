@@ -1,29 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и получить дочерний DOM элемент по выражению xpath
+// Описание: Для текущей страницы найти 0 DOM элемент <form> и получить его дочерний DOM элемент по выражению xpath
+// Используемые классы: XHEForm, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// чтобы быстрее
-$browser->set_wait_params(5,1);
+// Пример 1: Для текущей страницы получить 0 DOM элемент <form> и получить его первый дочерний DOM элемент по выражению xpath, поиск на первом уровне дерева
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Получить DOM элемент <form> по номеру 0
+$targetForm = DOM::$form->get_by_number(0);
 
-// 2 
-echo "2. Получить х и y у элемента с заданным  xpath : ";
-$elm = $body->get_by_number(0);
-$obj = $elm->get_child_by_xpath("/a[2]");
-echo $obj->get_x()." ".$obj->get_y();
+// Получить первый найденный дочерний DOM элемент по выражению xpath как XHEInterface, точное соответствие значения, поиск потомка на первом уровне дерева
+$targetFormChild = $targetForm->get_child_by_xpath("/a[2]");
 
-// конец
-echo "<hr><br>";
+// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+$targetFormChild->get_tag();
 
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>

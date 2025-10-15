@@ -1,31 +1,41 @@
-<?php $xhe_host = "127.0.0.1:7024";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и получить количество его дочерних DOM элементов
+// Описание: Для текущей страницы найти 0 DOM элемент <form> и получить количество его дочерних DOM элементов
+// Используемые классы: XHEForm, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// чтобы быстрее
-$browser->set_wait_params(5,1);
+// Пример 1: Для текущей страницы найти и получить 0 DOM элемент <form> и получить количество его дочерних DOM элементов, поиск всех дочерних элементов на первом уровне дерева
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Получить DOM элемент <form> по номеру 0
+$targetForm = DOM::$form->get_by_number(0);
 
-// 2 
-echo "2. Получим число дочерних элементов первого уровня в body : ";
-echo $body->get_by_number(0)->get_child_count() . "\n";
+// Получить и вывести количество дочерних элементов первого уровня
+echo($targetForm->get_child_count(false));
 
-// 3
-echo "\n3. Получим число дочерних элементов любого уровня в body : ";
-echo $body->get_by_number(0)->get_child_count(true);
 
-// конец
-echo "<hr><br>";
+// Пример 2: Для текущей страницы найти и получить 0 DOM элемент <form>, и получить количество его дочерних DOM элементов, поиск всех дочерних элементов на любом уровне дерева
 
-// Quit
-$app->quit();
+// Получить DOM элемент <form> по номеру 0
+$targetForm = DOM::$form->get_by_number(0);
+
+// Получить и вывести количество дочерних элементов на любом уровне дерева
+echo($targetForm->get_child_count(true));
+
+// Остановить работу
+WINDOW::$app->quit();
 ?>

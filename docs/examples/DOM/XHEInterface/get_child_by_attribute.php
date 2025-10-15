@@ -1,37 +1,47 @@
-<?php $xhe_host = "127.0.0.1:7024";
+<?php 
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и получить дочерний DOM элемент по значению атрибута
+// Описание: Для текущей страницы найти 0 DOM элемент <form> и получить дочерний DOM элемент по значению атрибута
+// Используемые классы: XHEForm, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// чтобы быстрее
-$browser->set_wait_params(5,1);
+// Пример 1: Для текущей страницы получить 0 DOM элемент <form> и получить первый дочерний DOM элемент по значению атрибута id, поиск на первом уровне дерева
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "btn.html")."<br>";
+// Получить DOM элемент <form> по номеру 0
+$targetForm = DOM::$form->get_by_number(0);
 
-// 2 
-echo "2. Получим тэги элементов в 0 форме по значению атрибута и  его части : ";
-$frm0=$form->get_by_number(0);
-echo $frm0->get_child_by_attribute("id","inputs")->get_tag()." ";
-echo $frm0->get_child_by_attribute("id","i",false)->get_tag();
+// Получить первый найденный дочерний DOM элемент по значению атрибута 'id' как XHEInterface, точное соответствие значения атрибута, поиск потомка на первом уровне дерева
+$targetFormChild = $targetForm->get_child_by_attribute("id","inputs", true, false);
 
-// 3
-echo "\n3. Получим тэг элемента в 0 форме по значению атрибута и его части (включая подэлементы): ";
-echo $frm0->get_child_by_attribute("href","#",false,true)->get_tag();
+// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+$targetFormChild->get_tag();
 
-// 3
-echo "\n3. Получим тэг элемента в 0 форме по значению атрибута, используя решулярные выражения (включая подэлементы): ";
-echo $frm0->get_child_by_attribute("href","/#/i",2,true)->get_tag();
 
-// конец
-echo "<hr><br>";
+// Пример 2: Для текущей страницы получить 0 DOM элемент <form> и получить первый дочерний DOM элемент по значению атрибута id, поиск потомка на любом уровне дерева
 
-// Quit
-$app->quit();
+// Получить DOM элемент <form> по номеру 0
+$targetForm = DOM::$form->get_by_number(0);
+
+// Получить первый найденный дочерний DOM элемент по значению атрибута 'id' как XHEInterface, точное соответствие значения атрибута, поиск на первом уровне дерева
+$targetFormChild = $targetForm->get_child_by_attribute("id","inputs", true, true);
+
+// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+$targetFormChild->get_tag();
+
+// Остановить работу
+WINDOW::$app->quit();
 ?>

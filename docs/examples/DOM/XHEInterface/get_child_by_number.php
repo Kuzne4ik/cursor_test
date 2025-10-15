@@ -1,37 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7024";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и получить дочерний DOM элемент по номеру
+// Описание: Для текущей страницы найти 0 DOM элемент <form> и получить его дочерний DOM элемент по номеру
+// Используемые классы: XHEForm, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
-
-// чтобы быстрее
-$browser->set_wait_params(5,1);
-
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "btn.html")."<br>";
-
-// 2 
-echo "2. Получим тэги всех элементов в 0 форме : ";
-$frm0=$form->get_by_number(0);
-for ($i=0;$i<$frm0->get_child_count();$i++)
-	echo $frm0->get_child_by_number($i)->get_tag()." ";
-
-// 3
-echo "\n3. Получим тэги всех элементов в 0 форме (включая подэлементы): ";
-$frm0=$form->get_by_number(0);
-for ($i=0;$i<$frm0->get_child_count(true);$i++)
 {
-	echo $frm0->get_child_by_number($i,true)->get_tag()." ";
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
 }
 
-// конец
-echo "<hr><br>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// Quit
-$app->quit();
+// Пример 1: Для текущей страницы получить 0 DOM элемент <form> и получить его первый дочерний DOM элемент по номеру, поиск на первом уровне дерева
+
+// Получить DOM элемент <form> по номеру 0
+$targetForm = DOM::$form->get_by_number(0);
+
+// Получить первый найденный дочерний DOM элемент по номеру как XHEInterface, точное соответствие значения, поиск потомка на первом уровне дерева
+$targetFormChild = $targetForm->get_child_by_number("0");
+
+// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+$targetFormChild->get_tag();
+
+// Остановить работу
+WINDOW::$app->quit();
 ?>

@@ -1,29 +1,34 @@
 <?php
+
+// Сценарий: Для текущей страницы найти DOM элемент и получить его порядковый номер
+// Описание: Для текущей страницы найти DOM элемент <form> и получить его порядковый номер
+// Используемые классы: XHEForm, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
 $xhe_host = "127.0.0.1:7010";
 
-// подключим функциональные объекты, если еще не подключен
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "form.html") . "<br>";
+// Пример 1: Для текущей страницы получить DOM элемент <form>, как XHEInterface по порядковому номеру 2 и получить его порядковый номер
 
-// 2 
-echo "2. Получить номер формы у элемента ввода с 2 номером: ";
-echo $input->get_by_number(2)->get_form_number() ."<br>";
+// Получить DOM элемент <form>, как XHEInterface по порядковому номеру 2
+$targetForm = DOM::$form->get_by_number(2);
 
-// 3 
-echo "3. Получить номер формы несуществующего элемента: ";
-echo $button->get_by_number(2)->get_form_number() . "<br>";
+// Получить для элемента DOM его порядковый номер (итоговое значение должно быть равно 2)
+$targetFormNumber = $targetForm->get_form_number();
 
-// конец
-echo "<hr><br>";
 
-// Quit
-$app->quit();
+
+// Остановить работу
+WINDOW::$app->quit();
 ?>
