@@ -1,30 +1,32 @@
 <?php
-$xhe_host = "127.0.0.1:7094";
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент image и получить значение его атрибута 'alt'.
+// Описание: Для текущей страницы Браузера найти DOM элемент <image>, и получить его как XHEInterface и получить значение его атрибута 'alt'
+// Используемые классы: XHEImage, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "image.html") . "\n";
+// Пример 1: Получить объект image по атрибуту 'src' и получить значение его атрибута 'alt'.
 
-// 2 
-echo "2. Получить alt рисунка по его имени : ";
-echo $image->get_by_name("screen1")->get_alt() . "\n";
+// Получить объект image как XHEInterface по атрибуту 'name', не строгое соответствие значения атрибута
+$targetImageInterface = DOM::$image->get_by_attribute("name", "screen1", false);
 
-// 3 
-echo "3. Получить alt рисунка и его размеры по его имени : ";
-$obj=$image->get_by_name("screen1");
-echo $obj->get_alt()." ".$obj->get_width()." ".$obj->get_height() . "\n";
+// Для найденного объекта image получить значение его атрибута 'alt', как переменную
+$targetImageInterfaceAlt = $targetImageInterface->get_alt();
 
-// конец
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>

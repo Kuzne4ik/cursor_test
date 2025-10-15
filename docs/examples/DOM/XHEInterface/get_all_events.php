@@ -1,30 +1,37 @@
 <?php
+
+// Сценарий: Для текущей страницы найти DOM элемент и получить все названия событий-атрибутов
+// Описание: Для текущей страницы найти DOM элемент как XHEInterface и получить все названия событий-атрибутов
+// Используемые классы: XHEAnchor, XHEBrowser, XHEApplication, XHEInterface
+
+// Строка подключения к API XHE
 $xhe_host = "127.0.0.1:7010";
 
-// подключим функциональные объекты, если еще не подключен
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html") . "\n";
+// Пример 1: Получить DOM элемент anchor по id с текстом 'onclick' и получить все названия событий-атрибутов
 
-// 2 
-echo "2. Получим объект с именем 'onclick': ";
-$obj=$anchor->get_by_name("onclick");
-echo $obj->inner_number . "\n";
+// Получить объект anchor по id с текстом 'onclick', значение атрибута не точное соответствие и получить его как XHEInterface
+$targetAnchor = DOM::$anchor->get_by_attribute('id', 'onclick', false);
 
-// 3 
-echo "3. Получим все события у элемента с именем onclick: \n";
-echo $obj->get_all_events() . "\n";
+// Получить все названия событий-атрибутов для объекта anchor, как строку с разделителем '<br>'
+$targetAnchorEventsString = $targetAnchor->get_all_events();
+// Разделить строку на массив
+$targetAnchorEvents = explode("<br>", $targetAnchorEventsString);
+// Вывести все названия событий-атрибутов в консоль по одной
+foreach($targetAnchorEvents as $targetAnchorEvent)
+    echo($targetAnchorEvent . "\n");
 
-// конец
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>

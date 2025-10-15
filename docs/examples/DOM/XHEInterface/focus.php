@@ -1,31 +1,31 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и для него выполнить фокусировку (focus)
+// Описание: Для текущей страницы Браузера найти DOM элемент <a> и получить его как XHEInterface и для него выполнить фокусировку (focus)
+// Используемые классы: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Пример 1: Получить объект anchor по атрибуту 'src' и для него выполнить фокусировку (focus)
 
-// 2 
-echo "2. Установим фокус на элементе с заданным id : ";
-echo $anchor->get_by_id("id_onclick")->focus()."<br>";
+// Получить объект anchor как XHEInterface по атрибуту 'src', не строгое соответствие значения атрибута
+$targetAnchorInterface = DOM::$anchor->get_by_src("list_id", false);
+// Для найденного объекта anchor выполнить фокусировку (focus)
+$targetAnchorInterface->focus();
 
-sleep(4);
-
-// 3 
-echo "3. Установим фокус на элементе с заданным именем  и получим его размеры: ";
-$obj=$anchor->get_by_name("igvard",0);
-echo $obj->focus()." ".$obj->get_width()." ".$obj->get_height()."<br>";
-
-// конец
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>

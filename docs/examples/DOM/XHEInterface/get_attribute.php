@@ -1,29 +1,32 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и получить значение его атрибута
+// Описание: Для текущей страницы найти DOM элемент <a> и получить значение его атрибута
+// Используемые классы: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Пример 1: Получить DOM элемент anchor по id с текстом 'onclick' и получить значения его атрибута id
 
-// 2 
-echo "2. Получим атрибут 'href' у элемента с текстом, содержащим onclick : ";
-echo $anchor->get_by_inner_text("onclick",false)->get_attribute("href")."<br>";
+// Получить объект anchor по id с текстом 'onclick', значение атрибута не точное соответствие и получить объект anchor как XHEInterface
+$targetAnchor = DOM::$anchor->get_by_attribute('id', 'onclick', false);
 
-// 3 
-echo "3. Получим атрибут 'href' , 'id' , 'name' у элемента с текстом, содержащим onclick : ";
-$obj=$anchor->get_by_inner_text("onclick",false);
-echo $obj->get_attribute("href")." ".$obj->get_attribute("id")." ".$obj->get_attribute("name")."<br>";
+// Для найденного объекта image получить значение его атрибута 'id', как переменную
+$targetImageInterfaceAlt = $targetAnchor->get_attribute('id');
 
-// конец
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>

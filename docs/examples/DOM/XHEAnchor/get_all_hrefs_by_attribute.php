@@ -11,7 +11,7 @@ $xhe_host = "127.0.0.1:7010";
 if (!isset($path))
 {
     // Путь к файлу init.php для подключения к API XHE
-    $path = "../../Templates/init.php";
+    $path = "../../../../../../Templates/init.php";
     // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
     require($path);
 }

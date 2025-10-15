@@ -1,29 +1,39 @@
 <?php
-$xhe_host = "127.0.0.1:3035";
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и получить названия тэг (tag) всех его родителей в DOM дереве
+// Описание: Для текущей страницы найти DOM элемент как XHEInterface и получить названия тэг (tag) цепочки всех его родителей в DOM дереве
+// Используемые классы: XHEAnchor, XHEBrowser, XHEApplication, XHEInterface, XHEInterfaces
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// чтобы быстрее
-$browser->set_wait_params(5,1);
+// Пример 1: Получить DOM элемент anchor по id с текстом 'onclick' и получить названия тэг (tag) всех его родителей в DOM дереве
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html") . "\n";
+// Получить объект anchor по id с текстом 'onclick', значение атрибута не точное соответствие и получить его как XHEInterface
+$targetAnchor = DOM::$anchor->get_by_attribute('id', 'onclick', false);
 
-// 2 
-echo "2. Получим тэги родительских элементов: ";
-$objs=$anchor->get_by_name("seonote")->get_all_parents();
-print_r($objs->get_tag());
+// Получить все родительские элементы для текущего элемента DOM anchor, как объект-коллекцию типа XHEInterfaces
+$divParents = $targetAnchor->get_all_parents();
 
-// конец
-echo "<hr><br>";
+// Вызвать для объект-коллекции типа XHEInterfaces на каждом элементе коллекции метод get_tag() для получения названия его тэг (tag).
+// В результате выполнения будет возвращен массив строк тэг (tag) для родительских элементов текущего элемента DOM.
+$targetDivParentTags = $divParents->get_tag();
+// Вывести все тэг (tag) в консоль по одному
+foreach ($targetDivParentTags as $parentTag)
+    echo($parentTag . "\n");
 
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>

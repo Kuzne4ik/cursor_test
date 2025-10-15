@@ -29,10 +29,19 @@ echo($newsHrefs . "\n");
 $hrefsId23 = DOM::$anchor->get_all_hrefs_by_attribute("id", "23", false, "\n", "-1");
 echo($hrefsId23 . "\n");
 
-// Получить элемент anchor по атрибуту id как интерфейс и выполнить на нем клик
-$anchorObj = DOM::$anchor->get_by_attribute("id", "some_id_value"); // подставьте актуальный id вместо some_id_value
-echo $anchorObj->click() . "\n";
+// Получить элемент anchor по атрибуту id как интерфейс и убедиться, что он в видимой области страницы
+$anchorId = "some_id_value"; // подставьте актуальный id вместо some_id_value
+$anchorObj = DOM::$anchor->get_by_attribute("id", $anchorId);
+$isVisible = $anchorObj->ensure_visible();
+echo ($isVisible ? "true" : "false") . "\n";
 
+// Получить у нулевого div его дочерние элементы, у которых атрибут 'class' содержит 'inner',
+// и для каждого дочернего элемента вывести значение атрибута 'class'
+$div0 = DOM::$div->get_by_number(0);
+$childrenWithInner = $div0->get_all_child_by_attribute("class", "inner", false, false);
+$classes = $childrenWithInner->get_attribute("class");
+foreach ($classes as $classValue)
+	echo($classValue . "\n");
 
 // Остановить работу
 WINDOW::$app->quit();

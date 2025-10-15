@@ -1,30 +1,31 @@
 <?php
-$xhe_host = "127.0.0.1:7094";
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и послать для него JS событие
+// Описание: Для текущей страницы Браузера найти DOM элемент <a> и получить его как XHEInterface, и послать для него JS событие
+// Используемые классы: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "input.html")."<br>";
+// Пример 1: Получить объект anchor и послать для него JS событие "onclick"
 
-// 2 
-echo "2. Пошлем событие onclick элементу с именем 'Name1': ";
-echo $input->get_by_name("Name1")->event("onclick")."<br>";
+// Получить объект anchor по атрибуту 'name', как XHEInterface
+$targetAnchorInterface = DOM::$anchor->get_by_name("list");
+// Для найденного объекта anchor послать JS событие "onclick"
+$targetAnchorInterface->event("onclick");
 
-// 3 
-echo "3. Пошлем событие onclick элементу с именем Name1 в нулевом фрейме и получим его размеры: ";
-$obj=$input->get_by_name("Name1",0);
-echo $obj->event("onclick")." ".$obj->get_width()." ".$obj->get_height()."<br>";
-
-// конец
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>
