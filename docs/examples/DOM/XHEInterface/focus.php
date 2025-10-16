@@ -23,8 +23,12 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 // Получить объект anchor как XHEInterface по атрибуту 'src', не строгое соответствие значения атрибута
 $targetAnchorInterface = DOM::$anchor->get_by_src("list_id", false);
-// Для найденного объекта anchor выполнить фокусировку (focus)
-$targetAnchorInterface->focus();
+
+// Проверить, что элемент DOM получен
+if ($targetAnchorInterface->inner_number != -1) {
+    // Для найденного объекта anchor выполнить фокусировку (focus)
+    $targetAnchorInterface->focus();
+}
 
 // Остановить работу
 WINDOW::$app->quit();

@@ -25,14 +25,10 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 $targetAnchorInterface = DOM::$anchor->get_by_name("list");
 
 // Проверить, что элемент DOM получен
-if ($targetAnchorInterface->is_exist())
+if ($targetAnchorInterface->inner_number != -1)
 {
     // Для найденного объекта anchor послать JS событие "onclick"
     $targetAnchorInterface->event("onclick");
-}
-else
-{
-    echo("Не удалось Получить элемент DOM по атрибуту");
 }
 
 // Остановить работу

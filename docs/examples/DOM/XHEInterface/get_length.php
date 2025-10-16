@@ -1,24 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы получить DOM элемент <select> и получить количество опций для выбора
+// Описание: Для текущей страницы получить DOM элемент <select> по 'id' и получить количество опций для выбора
+// Используемые классы: XHESelectElement, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "listbox.html")."<br>";
+// Пример 1: Для текущей страницы получить DOM элемент <select> по 'id' и получить количество опций для выбора
 
-// 2 
-echo "2. Получим число опций : ";
-echo $listbox->get_by_number(1)->get_length()."<br>";
+// Для текущей страницы получить DOM элемент <select> по 'id', не точное соответствие значения атрибута
+$targetListbox = DOM::$listbox->get_by_attribute('id', 'id1', false);
 
-// конец
-echo "<hr><br>";
+// Проверить, что элемент DOM получен
+if ($targetListbox->inner_number == -1) {
+    // Для DOM элемента получить его высоту
+    $targetListbox->get_length();
+}
 
-// Quit
-$app->quit();
+// Остановить работу
+WINDOW::$app->quit();
 ?>

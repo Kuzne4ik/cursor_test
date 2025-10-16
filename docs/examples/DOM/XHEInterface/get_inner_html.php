@@ -1,24 +1,37 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы получить DOM элемент и получить его внутренний HTML
+// Описание: Для текущей страницы получить DOM элемент <div> по 'id' и получить его внутренний HTML
+// Используемые классы: XHEDiv, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Пример 1: Для текущей страницы получить DOM элемент <div> по 'id' и получить значение его внутреннего HTML
 
-// 2 
-echo "2. Получим html текст элемента с id равным id_click : ";
-echo $element->get_by_attribute("id","id_onclick",true)->get_inner_html()."<br>";
+// Для текущей страницы получить DOM элемент <div> по 'id', не точное соответствие значения атрибута
+$targetAnchor = DOM::$anchor->get_by_attribute("id",'id1', false);
 
-// конец
-echo "<hr><br>";
+// Проверить, что элемент DOM получен
+if ($targetAnchor->inner_number != -1)
+{
+    // Для DOM элемента получить значение внутреннего HTML
+    $targetAnchor->get_inner_html();
+}
 
-// Quit
-$app->quit();
+
+// Остановить работу
+WINDOW::$app->quit();
 ?>

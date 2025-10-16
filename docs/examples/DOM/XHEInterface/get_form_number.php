@@ -24,9 +24,11 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 // Получить DOM элемент <form>, как XHEInterface по порядковому номеру 2
 $targetForm = DOM::$form->get_by_number(2);
 
-// Получить для элемента DOM его порядковый номер (итоговое значение должно быть равно 2)
-$targetFormNumber = $targetForm->get_form_number();
-
+// Проверить, что элемент DOM получен
+if ($targetForm->inner_number != -1) {
+    // Получить для элемента DOM его порядковый номер (итоговое значение должно быть равно 2)
+    $targetFormNumber = $targetForm->get_form_number();
+}
 
 
 // Остановить работу

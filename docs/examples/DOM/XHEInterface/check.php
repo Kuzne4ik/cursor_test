@@ -24,14 +24,10 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "checkbox.html");
 $targetCheckBox = DOM::$checkbox->get_by_number(1);
 
 // Проверить, что элемент DOM получен
-if ($$targetCheckBox->is_exist())
+if ($targetCheckBox->inner_number != -1)
 {
     // Для найденного checkbox установить отметку (добавить атрибут checked)
     $targetCheckBox->check(true);
-}
-else
-{
-    echo("Не удалось Получить элемент DOM по номеру");
 }
 
 
@@ -40,14 +36,10 @@ else
 $targetCheckBox = DOM::$checkbox->get_by_number(1);
 
 // Проверить, что элемент DOM получен
-if ($targetCheckBox->is_exist())
+if ($targetCheckBox->inner_number != -1)
 {
     // Для найденного checkbox снять отметку (удалить атрибут checked)
     $targetCheckBox->check(false);
-}
-else
-{
-    echo("Не удалось Получить элемент DOM по номеру");
 }
 
 // Остановить работу

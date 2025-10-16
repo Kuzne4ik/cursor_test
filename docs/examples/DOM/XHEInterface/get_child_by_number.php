@@ -24,11 +24,17 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 // Получить DOM элемент <form> по номеру 0
 $targetForm = DOM::$form->get_by_number(0);
 
-// Получить первый найденный дочерний DOM элемент по номеру как XHEInterface, точное соответствие значения, поиск потомка на первом уровне дерева
-$targetFormChild = $targetForm->get_child_by_number("0");
+// Проверить, что элемент DOM получен
+if ($targetForm->inner_number != -1) {
+    // Получить первый найденный дочерний DOM элемент по номеру как XHEInterface, точное соответствие значения, поиск потомка на первом уровне дерева
+    $targetFormChild = $targetForm->get_child_by_number("0");
 
-// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
-$targetFormChild->get_tag();
+    // Проверить, что элемент DOM получен
+    if ($targetFormChild->inner_number != -1) {
+        // Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+        $targetFormChild->get_tag();
+    }
+}
 
 // Остановить работу
 WINDOW::$app->quit();

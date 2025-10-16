@@ -25,17 +25,13 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 $targetAnchor = DOM::$anchor->get_by_number(1);
 
 // Проверить, что элемент DOM получен
-if ($targetAnchor->is_exist())
+if ($targetAnchor->inner_number != -1)
 {
     // Для найденного anchor выполнить команду и получить результат выполнения метода как переменную.
     // Результат выполнения присвоить переменной типа bool.
     // Если значение переменной true, то элемент DOM находится в видимой область страницы Браузера.
     // Если значение переменной false, то элемент DOM не находится в видимой область страницы Браузера.
     $elementIsVisibled = $targetAnchor->ensure_visible();
-}
-else
-{
-    echo("Не удалось Получить элемент DOM по номеру");
 }
 
 // Остановить работу

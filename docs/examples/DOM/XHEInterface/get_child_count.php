@@ -24,8 +24,11 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 // Получить DOM элемент <form> по номеру 0
 $targetForm = DOM::$form->get_by_number(0);
 
-// Получить и вывести количество дочерних элементов первого уровня
-echo($targetForm->get_child_count(false));
+// Проверить, что элемент DOM получен
+if ($targetForm->inner_number != -1) {
+    // Получить и вывести количество дочерних элементов первого уровня
+    echo($targetForm->get_child_count(false));
+}
 
 
 // Пример 2: Для текущей страницы найти и получить 0 DOM элемент <form>, и получить количество его дочерних DOM элементов, поиск всех дочерних элементов на любом уровне дерева
@@ -33,8 +36,11 @@ echo($targetForm->get_child_count(false));
 // Получить DOM элемент <form> по номеру 0
 $targetForm = DOM::$form->get_by_number(0);
 
-// Получить и вывести количество дочерних элементов на любом уровне дерева
-echo($targetForm->get_child_count(true));
+// Проверить, что элемент DOM получен
+if ($targetForm->inner_number != -1) {
+    // Получить и вывести количество дочерних элементов на любом уровне дерева
+    echo($targetForm->get_child_count(true));
+}
 
 // Остановить работу
 WINDOW::$app->quit();

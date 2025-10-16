@@ -1,25 +1,37 @@
 <?php
-$xhe_host = "127.0.0.1:7094";
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы получить DOM элемент и получить его атрибут 'href'
+// Описание: Для текущей страницы получить DOM элемент <anchor> по 'href' и получить его атрибут 'href'
+// Используемые классы: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html") . "\n";
+// Пример 1: Для текущей страницы получить DOM элемент <anchor> по 'href' и получить значение его атрибута 'href'
 
-// 2 
-echo "2. Получим href у ссылки с текстом Блог : ";
-echo $anchor->get_by_inner_text("Блог")->get_href() . "\n";
+// Для текущей страницы получить DOM элемент <anchor> по 'href', не точное соответствие значения атрибута
+$targetAnchor = DOM::$anchor->get_by_attribute("href",'site.com', false);
 
-// конец
-echo "<hr><br>";
+// Проверить, что элемент DOM получен
+if ($targetAnchor->inner_number != -1)
+{
+    // Для DOM элемента получить значение атрибута 'href'
+    $targetAnchor->get_href();
+}
 
-// Quit
-$app->quit();
+
+// Остановить работу
+WINDOW::$app->quit();
 ?>

@@ -24,8 +24,11 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
 // Получить объект image как XHEInterface по атрибуту 'name', не строгое соответствие значения атрибута
 $targetImageInterface = DOM::$image->get_by_attribute("name", "screen1", false);
 
-// Для найденного объекта image получить значение его атрибута 'alt', как переменную
-$targetImageInterfaceAlt = $targetImageInterface->get_alt();
+// Проверить, что элемент DOM получен
+if ($targetImageInterface->inner_number != -1) {
+    // Для найденного объекта image получить значение его атрибута 'alt', как переменную
+    $targetImageInterfaceAlt = $targetImageInterface->get_alt();
+}
 
 // Остановить работу
 WINDOW::$app->quit();

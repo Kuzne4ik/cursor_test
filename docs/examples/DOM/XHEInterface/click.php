@@ -25,14 +25,10 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 $targetAnchor = DOM::$anchor->get_by_number(1);
 
 // Проверить, что элемент DOM получен
-if ($targetAnchor->is_exist())
+if ($targetAnchor->inner_number != -1)
 {
     // Для найденного anchor выполнить click
     $targetAnchor->click();
-}
-else
-{
-    echo("Не удалось Получить элемент DOM по номеру");
 }
 
 // Остановить работу

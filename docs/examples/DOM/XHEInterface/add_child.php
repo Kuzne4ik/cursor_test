@@ -25,16 +25,12 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 $targetBody = DOM::$body->get_by_number(0);
 
 // Проверить, что элемент DOM получен
-if ($targetBody->is_exist())
+if ($targetBody->inner_number != -1)
 {
     // Добавить дочерний DOM элемент anchor, как код HTML
     $targetBody->add_child("a", "<a href=\"http://ya.ru\">yandex.ru</a>");
 }
-else 
-{
-    
-    echo("Не удалось Получить элемент DOM по номеру");
-}
+
 
 // Остановить работу
 WINDOW::$app->quit();

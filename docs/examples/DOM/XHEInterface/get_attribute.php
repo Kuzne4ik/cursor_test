@@ -24,8 +24,11 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 // Получить объект anchor по id с текстом 'onclick', значение атрибута не точное соответствие и получить объект anchor как XHEInterface
 $targetAnchor = DOM::$anchor->get_by_attribute('id', 'onclick', false);
 
-// Для найденного объекта image получить значение его атрибута 'id', как переменную
-$targetImageInterfaceAlt = $targetAnchor->get_attribute('id');
+// Проверить, что элемент DOM получен
+if ($targetAnchor->inner_number != -1) {
+    // Для найденного объекта image получить значение его атрибута 'id', как переменную
+    $targetImageInterfaceAlt = $targetAnchor->get_attribute('id');
+}
 
 // Остановить работу
 WINDOW::$app->quit();

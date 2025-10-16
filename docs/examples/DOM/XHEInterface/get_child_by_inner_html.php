@@ -27,8 +27,11 @@ $targetForm = DOM::$form->get_by_number(0);
 // Получить первый найденный дочерний DOM элемент по значению внутреннего HTML как XHEInterface, точное соответствие значения, поиск потомка на первом уровне дерева
 $targetFormChild = $targetForm->get_child_by_inner_html("ссылка onmouseover",false,false);
 
-// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
-$targetFormChild->get_tag();
+// Проверить, что элемент DOM получен
+if ($targetFormChild->inner_number != -1) {
+    // Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+    $targetFormChild->get_tag();
+}
 
 // Пример 2: Для текущей страницы получить 0 DOM элемент <form> и получить его первый дочерний DOM элемент по значению внутреннего HTML, поиск потомка на любом уровне дерева
 
@@ -38,8 +41,11 @@ $targetForm = DOM::$form->get_by_number(0);
 // Получить первый найденный дочерний DOM элемент по значению внутреннего HTML как XHEInterface, точное соответствие значения, поиск потомка на первом уровне дерева
 $targetFormChild = $targetForm->get_child_by_inner_html("ссылка onmouseover",true,true);
 
-// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
-$targetFormChild->get_tag();
+// Проверить, что элемент DOM получен
+if ($targetFormChild->inner_number != -1) {
+    // Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+    $targetFormChild->get_tag();
+}
 
 
 // Остановить работу
