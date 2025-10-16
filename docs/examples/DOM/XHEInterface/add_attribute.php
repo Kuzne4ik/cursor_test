@@ -20,10 +20,20 @@ if (!isset($path))
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 // Пример 1: Получить объект anchor и добавить к нему новый атрибут 'label1' со значением 'value1'
+
 // Получить объект anchor по атрибуту 'name', как XHEInterface
 $targetAnchorInterface = DOM::$anchor->get_by_name("list");
-// Для найденного объекта anchor добавить новый атрибут 'label1' со значением 'value1'
-$targetAnchorInterface->add_attribute("label1", "value1");
+
+// Проверить, что элемент DOM получен
+if ($targetAnchorInterface->is_exist())
+{
+    // Для найденного объекта anchor добавить новый атрибут 'label1' со значением 'value1'
+    $targetAnchorInterface->add_attribute("label1", "value1");
+}
+else
+{
+    echo("Не удалось Получить элемент DOM по атрибуту");
+}
 
 
 // Остановить работу

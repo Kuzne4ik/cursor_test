@@ -23,8 +23,17 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 // Получить объект anchor по атрибуту 'name', как XHEInterface
 $targetAnchorInterface = DOM::$anchor->get_by_name("list");
-// Для найденного объекта anchor послать JS событие "onclick"
-$targetAnchorInterface->event("onclick");
+
+// Проверить, что элемент DOM получен
+if ($targetAnchorInterface->is_exist())
+{
+    // Для найденного объекта anchor послать JS событие "onclick"
+    $targetAnchorInterface->event("onclick");
+}
+else
+{
+    echo("Не удалось Получить элемент DOM по атрибуту");
+}
 
 // Остановить работу
 WINDOW::$app->quit();

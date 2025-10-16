@@ -23,8 +23,17 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 // Получить объект anchor по порядковому номеру 1 среди input этого типа и получить его как XHEInterface
 $targetAnchor = DOM::$anchor->get_by_number(1);
-// Для найденного anchor выполнить click
-$targetAnchor->click();
+
+// Проверить, что элемент DOM получен
+if ($targetAnchor->is_exist())
+{
+    // Для найденного anchor выполнить click
+    $targetAnchor->click();
+}
+else
+{
+    echo("Не удалось Получить элемент DOM по номеру");
+}
 
 // Остановить работу
 WINDOW::$app->quit();

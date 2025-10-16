@@ -13,35 +13,93 @@ if (!isset($path))
 }
 
 // Перейти на страницу полигона, если ранее не был переход на эту страницу
-WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
+//WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 
-// Вывести все ссылки (href) на текущей странице
-$allHrefs = DOM::$anchor->get_all()->get_href();
-foreach($allHrefs as $href)
-	echo($href . "\n");
+/*
 
-// Найти ссылки на страницу news и вывести их
-$newsHrefs = DOM::$anchor->get_all_hrefs_by_attribute("href", "news", false, "\n", "-1");
-echo($newsHrefs . "\n");
 
-// Получить все href для anchor, у которых id содержит "23"
-$hrefsId23 = DOM::$anchor->get_all_hrefs_by_attribute("id", "23", false, "\n", "-1");
-echo($hrefsId23 . "\n");
+	// Ввести номер ЛС и запустить поиск, затем проверить появление строки в таблице
+	$accountNumber = "5500019625";
 
-// Получить элемент anchor по атрибуту id как интерфейс и убедиться, что он в видимой области страницы
-$anchorId = "some_id_value"; // подставьте актуальный id вместо some_id_value
-$anchorObj = DOM::$anchor->get_by_attribute("id", $anchorId);
-$isVisible = $anchorObj->ensure_visible();
-echo ($isVisible ? "true" : "false") . "\n";
+	// Найти поле ввода по метке "Номер договора"
+	$label = DOM::$label->get_by_inner_text("Номер договора", false);
+	$inputInterface = null;
+	if ($label && $label->is_exist())
+	{
+		$forId = $label->get_attribute("for");
+		if (!empty($forId))
+		{
+			$inputInterface = DOM::$input->get_by_id($forId, true);
+		}
+		if (!$inputInterface || !$inputInterface->is_exist())
+		{
+			// Попытка найти input рядом с меткой
+			$inputInterface = $label->get_child_by_xpath(".//input");
+			if (!$inputInterface || !$inputInterface->is_exist())
+			{
+				$parent = $label->get_parent();
+				if ($parent && $parent->is_exist())
+				{
+					$inputInterface = $parent->get_child_by_xpath(".//input");
+				}
+			}
+		}
+	}
 
-// Получить у нулевого div его дочерние элементы, у которых атрибут 'class' содержит 'inner',
-// и для каждого дочернего элемента вывести значение атрибута 'class'
-$div0 = DOM::$div->get_by_number(0);
-$childrenWithInner = $div0->get_all_child_by_attribute("class", "inner", false, false);
-$classes = $childrenWithInner->get_attribute("class");
-foreach ($classes as $classValue)
-	echo($classValue . "\n");
+	if ($inputInterface && $inputInterface->is_exist())
+	{
+		$inputInterface->focus();
+		$inputInterface->set_value($accountNumber);
+	}
+	else
+	{
+		WINDOW::$debug->set_tab_content("Консоль", "Не удалось найти поле ввода для метки 'Номер лицевого счета'", true);
+	}
+
+	// Найти и нажать кнопку "Поиск"
+	$searchBtn = null;
+	// Попробовать общий элемент по тексту
+	$searchBtn = DOM::$element->get_by_inner_text("Поиск", true);
+	if (!$searchBtn || !$searchBtn->is_exist())
+	{
+		// Попробовать кнопки разных типов
+		$searchBtn = DOM::$btn->get_by_inner_text("Поиск", true);
+	}
+	if (!$searchBtn || !$searchBtn->is_exist())
+	{
+		$searchBtn = DOM::$button->get_by_value("Поиск", true);
+	}
+	if ($searchBtn && $searchBtn->is_exist())
+	{
+		$searchBtn->click(true);
+	}
+	else
+	{
+		WINDOW::$debug->set_tab_content("Консоль", "Не найдена кнопка 'Поиск'", true);
+	}
+
+	// Ожидать появления строки с номером в таблице
+	$found = false;
+	for ($i = 0; $i < 60; $i++)
+	{
+		if (DOM::$tr->is_exist_by_inner_text($accountNumber, false) || DOM::$table->is_exist_by_inner_text($accountNumber, false))
+		{
+			$found = true;
+			break;
+		}
+		usleep(250000);
+	}
+
+	if ($found)
+	{
+		WINDOW::$debug->set_tab_content("Консоль", "Загрузка произошла. Найден номер: " . $accountNumber, true);
+	}
+	else
+	{
+		WINDOW::$debug->set_tab_content("Консоль", "Не удалось обнаружить номер в таблице: " . $accountNumber, true);
+	}
+*/
 
 // Остановить работу
 WINDOW::$app->quit();
