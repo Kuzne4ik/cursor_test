@@ -1,24 +1,37 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// подключим функциональные объекты, если еще не подключен
+// Сценарий: Для текущей страницы найти DOM элемент и получить его значение атрибута 'name'
+// Описание: Для текущей страницы найти 0 DOM элемент <input> и получить его значение атрибута 'name'
+// Используемые классы: XHEInput, XHEInterface, XHEBrowser, XHEApplication
+
+// Строка подключения к API XHE
+$xhe_host = "127.0.0.1:7010";
+
+// Путь к файлу init.php
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Путь к файлу init.php для подключения к API XHE
+    $path = "../../../../../../Templates/init.php";
+    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    require($path);
+}
 
-// начало
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Перейти на страницу полигона, если ранее страница не была загружена
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Пример 1: Для текущей страницы найти и получить 0 DOM элемент <input> и получить его значение атрибута 'name'
 
-// 2 
-echo "2. Получить имя у ссылки с 5 номером : ";
-echo $anchor->get_by_number(5)->get_name()."<br>";
+// Получить DOM элемент <input> по номеру 0
+$targetForm = DOM::$input->get_by_number(0);
 
-// конец
-echo "<hr><br>";
+// Проверить, что элемент DOM получен
+if ($targetForm->inner_number != -1) {
+    // Для найденного объекта <input> получить значение атрибута 'name'
+    echo($targetForm->get_name());
+}
 
-// Quit
-$app->quit();
+
+
+// Остановить работу
+WINDOW::$app->quit();
 ?>

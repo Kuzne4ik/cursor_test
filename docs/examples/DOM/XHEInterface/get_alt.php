@@ -26,7 +26,7 @@ $targetImageInterface = DOM::$image->get_by_attribute("name", "screen1", false);
 
 // Проверить, что элемент DOM получен
 if ($targetImageInterface->inner_number != -1) {
-    // Для найденного объекта image получить значение его атрибута 'alt', как переменную
+    // Для найденного объекта <image> получить значение его атрибута 'alt', как переменную
     $targetImageInterfaceAlt = $targetImageInterface->get_alt();
 }
 
