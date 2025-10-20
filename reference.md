@@ -1,5936 +1,9809 @@
-# PHP RPA Reference
+# Category `DOM`
 
-## DOM
+## Class: XHEBaseObject
 
-### `XHEBaseObject` — Base class XHEBaseObject to implementing request to API
+Base class XHEBaseObject to implementing request to API
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+### Methods
 
-- `call(string $command, int $timeout = -1): mixed`  
+**__construct(string $server, string $password = ''): void**
 
-- `call_boolean(string $command, array $params, int $timeout = -1): bool`  
+Initialization
 
-- `call_int(string $command, array $params, int $timeout = -1): int`  
+**call(string $command, int $timeout = -1): mixed**
 
-- `call_get(string $command, array $params, int $timeout = -1): mixed`  
+Call a command on the server
 
-- `get_command_string(string $command, array $params): string`  
+**call_boolean(string $command, array $params, int $timeout = -1): bool**
 
----
+Call a command on the server as boolean
 
-### `XHEBaseList` — Базовый класс для классов реализующий запросы к ядру согласно правилам системы
+**call_int(string $command, array $params, int $timeout = -1): int**
 
-**Методы**:
-- `__construct(string $inner_numbers, string $server, string $password = ''): void`  
+Call a command on the server as int
 
-- `__call(string $name, array $arguments): array`  
+**call_get(string $command, array $params, int $timeout = -1): mixed**
 
-- `offsetExists(mixed $offset): bool`  
+Call a command on the server
 
-- `offsetGet(mixed $offset): mixed`  
+**get_command_string(string $command, array $params): string**
 
-- `offsetSet(mixed $offset, mixed $value): void`  
+Get command string
 
-- `offsetUnset(mixed $offset): void`  
+## Class: XHEBaseList
 
-- `getIterator(): Traversable`  
+Базовый класс для классов реализующий запросы к ядру согласно правилам системы
 
-- `count(): int`  
+### Methods
 
-- `get_count(): int`  
+**__construct(string $inner_numbers, string $server, string $password = ''): void**
 
-- `get(int $index): false|mixed`  
+Constructor
 
----
+**__call(string $name, array $arguments): array**
 
-### `XHEPosition` — Для представления объекта координат
 
-**Методы**:
-- `__construct(string $x, string $y): void`  
 
----
+**offsetExists(mixed $offset): bool**
 
-### `XHERange` — Для представления объекта Range для работы с Excel файлами
 
-**Методы**:
-- `__construct(string $left, int $top, string $right, int $bottom): void`  
 
-- `__toString(): string`  
+**offsetGet(mixed $offset): mixed**
 
----
 
-### `XHEFont` — Для хранения данных Шрифта
 
-**Методы**:
-- `__toString(): string`  
+**offsetSet(mixed $offset, mixed $value): void**
 
----
 
-### `XHEWebGLParams` — WebGL Context Info
 
-**Методы**:
----
+**offsetUnset(mixed $offset): void**
 
-### `XHEBaseDOM` — Base class for handling DOM elements in current loaded HTML page
 
-**Методы**:
----
 
-### `XHEBaseDOMVisual` — Base class for handling DOM elements in current loaded HTML page
+**getIterator(): Traversable**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
 
-- `wait_element_exist_by_number(int $number, string $frame = '-1'): bool`  
 
-- `wait_element_exist_by_name(string $name, string $frame = '-1'): bool`  
+**count(): int**
 
-- `wait_element_exist_by_id(string $id, bool $exactly = true, string $frame = '-1'): bool`  
 
-- `wait_element_exist_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): bool`  
 
-- `wait_element_exist_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): bool`  
+**get_count(): int**
 
-- `wait_element_exist_by_outer_text(string $outer_text, bool $exactly = true, string $frame = '-1'): bool`  
 
-- `wait_element_exist_by_outer_html(string $outer_html, bool $exactly = true, string $frame = '-1'): bool`  
 
-- `wait_element_exist_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool`  
+**get(int $index): false|mixed**
 
-- `wait_element_exist_by_xpath(string $xpath): bool`  
+Get element by index
 
-- `wait_element_exist_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, string $form_name, string $frame = '-1'): bool`  
+## Class: XHEPosition
 
-- `wait_element_exist_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, int $form_number, string $frame = '-1'): bool`  
+Для представления объекта координат
 
-- `click_by_number(int $number, string $frame = '-1', bool $wait_browser = true): bool`  
+### Methods
 
-- `click_by_name(string $name, string $frame = '-1', bool $wait_browser = true): bool`  
+**__construct(string $x, string $y): void**
 
-- `click_by_id(string $id, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool`  
 
-- `click_by_value(string $value, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool`  
 
-- `click_by_alt(string $alt, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool`  
+## Class: XHERange
 
-- `click_by_src(string $src, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool`  
+Для представления объекта Range для работы с Excel файлами
 
-- `click_by_href(string $url, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool`  
+### Methods
 
-- `click_by_inner_text(string $text, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool`  
+**__construct(string $left, int $top, string $right, int $bottom): void**
 
-- `click_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool`  
+Конструктор
 
-- `click_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool`  
+**__toString(): string**
 
-- `click_by_number_by_form_number(int $number, int $form_number, string $frame = '-1', bool $wait_browser = true): bool`  
 
-- `click_by_name_by_form_number(string $name, int $form_number, string $frame = '-1', bool $wait_browser = true): bool`  
 
-- `click_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, int $form_number, string $frame = '-1', bool $wait_browser = true): bool`  
+## Class: XHEFont
 
-- `click_by_number_by_form_name(int $number, string $form_name, string $frame = '-1', bool $wait_browser = true): bool`  
+Для хранения данных Шрифта
 
-- `click_by_name_by_form_name(string $name, string $form_name, string $frame = '-1', bool $wait_browser = true): bool`  
+### Methods
 
-- `click_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, string $form_name, string $frame = '-1', bool $wait_browser = true): bool`  
+**__toString(): string**
 
-- `click_random(string $frame = '-1', bool $wait_browser = true): int`  
 
-- `send_event_by_number(int $number, string $event, string $frame = '-1', bool $wait_browser = true): bool`  
 
-- `send_event_by_name(string $name, string $event, string $frame = '-1', bool $wait_browser = true): bool`  
+## Class: XHEWebGLParams
 
-- `send_event_by_id(string $id, mixed $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool`  
+WebGL Context Info
 
-- `send_event_by_href(string $url, mixed $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool`  
+## Class: XHEBaseDOM
 
-- `send_event_by_inner_text(string $text, bool $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool`  
+Base class for handling DOM elements in current loaded HTML page
 
-- `send_event_by_inner_html(string $html, bool $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool`  
+## Class: XHEBaseDOMVisual
 
-- `send_event_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool`  
+Base class for handling DOM elements in current loaded HTML page
 
-- `set_focus_by_number(int $number, string $frame = '-1'): bool`  
+### Methods
 
-- `set_focus_by_name(string $name, string $frame = '-1'): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `set_focus_by_href(string $href, bool $exactly = true, string $frame = '-1'): bool`  
+Конструктор
 
-- `set_focus_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): bool`  
+**wait_element_exist_by_number(int $number, string $frame = '-1'): bool**
 
-- `set_focus_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по номеру | Check and wait element exist by number
 
-- `set_focus_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool`  
+**wait_element_exist_by_name(string $name, string $frame = '-1'): bool**
 
-- `set_value_by_number(int $number, string $value, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по атрибуту name | Check and wait element exist by name
 
-- `set_value_by_name(string $name, string $value, string $frame = '-1'): bool`  
+**wait_element_exist_by_id(string $id, bool $exactly = true, string $frame = '-1'): bool**
 
-- `set_value_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $value, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по атрибуту id | Check and wait element exist by id
 
-- `set_value_by_number_by_form_number(int $number, string $value, int $form_number, string $frame = '-1'): bool`  
+**wait_element_exist_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): bool**
 
-- `set_value_by_name_by_form_number(string $name, string $value, int $form_number, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по внутреннему поиску | Check and wait element exist by inner text
 
-- `set_value_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, string $value, int $form_number, string $frame = '-1'): bool`  
+**wait_element_exist_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): bool**
 
-- `set_value_by_number_by_form_name(int $number, string $value, string $form_name, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по внутреннему HTML | Check and wait element exist by inner html
 
-- `set_value_by_name_by_form_name(string $name, string $value, string $form_name, string $frame = '-1'): bool`  
+**wait_element_exist_by_outer_text(string $outer_text, bool $exactly = true, string $frame = '-1'): bool**
 
-- `set_value_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, string $value, string $form_name, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по внешнему тексту | Check and wait element exist by outer text
 
-- `set_inner_text_by_number(int $number, string $text, string $frame = '-1'): bool`  
+**wait_element_exist_by_outer_html(string $outer_html, bool $exactly = true, string $frame = '-1'): bool**
 
-- `set_inner_text_by_name(string $name, string $text, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по внешнему HTML | Check and wait element exist by outer html
 
-- `set_inner_text_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $text, string $frame = '-1'): bool`  
+**wait_element_exist_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `set_inner_html_by_number(int $number, string $html, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по значению атрибута | Check and wait element exist by attribute
 
-- `set_inner_html_by_name(string $name, string $html, string $frame = '-1'): bool`  
+**wait_element_exist_by_xpath(string $xpath): bool**
 
-- `set_inner_html_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $html, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по XPath | Check and wait element exist by xpath
 
-- `add_attribute_by_number(int $number, string $name_attr, string $value_attr, string $frame = '-1'): bool`  
+**wait_element_exist_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, string $form_name, string $frame = '-1'): bool**
 
-- `add_attribute_by_name(string $name, string $name_attr, string $value_attr, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по атрибуту в форме, форму найти по атрибуту name | Check and wait element exist by attribute in form by name
 
-- `add_attribute_by_inner_text(string $inner_text, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool`  
+**wait_element_exist_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, int $form_number, string $frame = '-1'): bool**
 
-- `add_attribute_by_inner_html(string $inner_html, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool`  
+Ожидание появления элемента DOM по атрибуту в форме, форму найти по номеру | Check and wait element exist by attribute in form by number
 
-- `add_attribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool`  
+**click_by_number(int $number, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `set_attribute_by_number(int $number, string $name_atr, string $value_atr, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `set_attribute_by_name(string $name, string $name_atr, string $value_atr, string $frame = '-1'): bool`  
+**click_by_name(string $name, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `set_attribute_by_inner_text(string $inner_text, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click on DOM element by name
 
-- `set_attribute_by_inner_html(string $inner_html, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool`  
+**click_by_id(string $id, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `set_attribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту id | Click on DOM element by id
 
-- `remove_attribute_by_number(int $number, string $name_atr, string $frame = '-1'): bool`  
+**click_by_value(string $value, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `remove_attribute_by_name(string $name, string $name_atr, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту value | Click on DOM element by attribute 'value'
 
-- `remove_attribute_by_inner_text(string $inner_text, bool $exactly, string $name_atr, string $frame = '-1'): bool`  
+**click_by_alt(string $alt, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `remove_attribute_by_inner_html(string $inner_html, bool $exactly, string $name_atr, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту alt | Click on DOM element by alt
 
-- `remove_attribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame = '-1'): bool`  
+**click_by_src(string $src, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `screenshot_by_number(string $file_path, int $number, string $frame = '-1', bool $as_gray = false): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту src | Click on DOM element by src
 
-- `screenshot_by_name(string $file_path, string $name, string $frame = '-1', bool $as_gray = false): bool`  
+**click_by_href(string $url, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `screenshot_by_src(string $file_path, string $src, bool $exactly = true, string $frame = '-1', bool $as_gray = false): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту href | Click on DOM element by href
 
-- `screenshot_by_attribute(string $file_path, string $atr_name, string $atr_value, bool $exactly = true, string $frame = '-1', bool $as_gray = false): bool`  
+**click_by_inner_text(string $text, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `is_exist_by_number(int $number, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по внутреннему тексту | Click on DOM element by inner text
 
-- `is_exist_by_name(string $name, string $frame = '-1'): bool`  
+**click_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `is_exist_by_id(string $id, bool $exactly = true, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по внутреннему HTML | Click on DOM element by inner HTML
 
-- `is_exist_by_href(string $href, bool $exactly = true, string $frame = '-1'): bool`  
+**click_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `is_exist_by_alt(string $alt, bool $exactly = true, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `is_exist_by_src(string $src, bool $exactly = true, string $frame = '-1'): bool`  
+**click_by_number_by_form_number(int $number, int $form_number, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `is_exist_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру в форме с заданным номером | Click on DOM element by number in form by form number
 
-- `is_exist_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): bool`  
+**click_by_name_by_form_number(string $name, int $form_number, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `is_exist_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name в форме с заданным номером | Click on DOM element by name in form by form number
 
-- `is_exist_by_xpath(string $xpath): bool`  
+**click_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, int $form_number, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `is_exist_by_attribute_by_form_number(string $atr_name, string $atr_value, bool $exactly, int $form_number, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута в форме с заданным номером | Click on DOM element by attribute in form by form number
 
-- `is_exist_by_attribute_by_form_name(string $atr_name, string $atr_value, bool $exactly, string $form_name, string $frame = '-1'): bool`  
+**click_by_number_by_form_name(int $number, string $form_name, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_number_by_name(string $name, string $frame = '-1'): int`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру в форме с заданным именем| Click on DOM element by number in form by form name
 
-- `get_number_by_id(string $id, string $frame = '-1'): int`  
+**click_by_name_by_form_name(string $name, string $form_name, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_number_by_src(string $src, bool $exactly = true, string $frame = '-1'): int`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name в форме с заданным именем| Click on DOM element by name in form by form name
 
-- `get_number_by_href(string $href, bool $exactly = true, string $frame = '-1'): int`  
+**click_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, string $form_name, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_number_by_inner_text(string $innertext, bool $exactly = true, string $frame = '-1'): int`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута в форме с заданным именем| Click on DOM element by attribute in form by form name
 
-- `get_number_by_inner_html(string $innerhtml, bool $exactly = true, string $frame = '-1'): int`  
+**click_random(string $frame = '-1', bool $wait_browser = true): int**
 
-- `get_number_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, string $frame = '-1'): int`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `get_name_by_number(int $number, string $frame = '-1'): string|bool`  
+**send_event_by_number(int $number, string $event, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_attribute_by_number(int $number, string $name_atr, string $frame = '-1'): string|bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `get_attribute_by_name(string $name, string $name_atr, string $frame = '-1'): string|bool`  
+**send_event_by_name(string $name, string $event, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_attribute_by_src(string $src, bool $exactly, string $name_atr, string $frame = '-1'): string|bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `get_attribute_by_inner_text(string $inner_text, bool $exactly, string $name_atr, string $frame = '-1'): string|bool`  
+**send_event_by_id(string $id, mixed $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_attribute_by_inner_html(string $inner_html, bool $exactly, string $name_atr, string $frame = '-1'): string`  
+Послать событие элементу DOM, который найти по атрибуту id | Send event to DOM element by id
 
-- `get_attribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame = '-1'): string|bool`  
+**send_event_by_href(string $url, mixed $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_value_by_number(int $number, string $frame = '-1'): string|bool`  
+Послать событие элементу DOM, который найти по атрибуту href | Send event to DOM element by href
 
-- `get_value_by_name(string $name, string $frame = '-1'): string|bool`  
+**send_event_by_inner_text(string $text, bool $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_value_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, string $frame = '-1'): string|bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `get_src_by_number(int $number, string $frame = '-1'): string|bool`  
+**send_event_by_inner_html(string $html, bool $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_src_by_name(string $name, string $frame = '-1'): string|bool`  
+Послать событие элементу DOM, который найти по внутреннему HTML| Send event to DOM element by inner HTML
 
-- `get_alt_by_number(int $number, string $frame = '-1'): string|bool`  
+**send_event_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame = '-1', bool $wait_browser = true): bool**
 
-- `get_alt_by_name(string $name, string $frame = '-1'): string|bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `get_href_by_number(int $number, string $frame = '-1'): string|bool`  
+**set_focus_by_number(int $number, string $frame = '-1'): bool**
 
-- `get_href_by_name(string $name, string $frame = '-1'): string|bool`  
+Задать фокус элементу DOM, который найти по номеру | Set focus to element by name
 
-- `get_href_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): string|bool`  
+**set_focus_by_name(string $name, string $frame = '-1'): bool**
 
-- `get_inner_text_by_number(int $number, string $frame = '-1'): string|bool`  
+Задать фокус элементу DOM, который найти по атрибуту name | Set focus to element by name
 
-- `get_inner_text_by_name(string $name, string $frame = '-1'): string|bool`  
+**set_focus_by_href(string $href, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_inner_text_by_id(string $id, string $frame = '-1'): string|bool`  
+Задать фокус элементу DOM, который найти по атрибуту href | Set focus to element by href
 
-- `get_inner_text_by_href(string $href, bool $exactly = true, string $frame = '-1'): string|bool`  
+**set_focus_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_inner_text_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): string|bool`  
+Задать фокус элементу DOM, который найти по внутреннему тексту | Set focus to element by inner text
 
-- `get_inner_html_by_number(int $number, string $frame = '-1'): string|bool`  
+**set_focus_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_inner_html_by_name(string $name, string $frame = '-1'): string|bool`  
+Задать фокус элементу DOM, который найти по внутреннему HTML | Set focus to element by inner HTML
 
-- `get_inner_html_by_id(string $id, string $frame = '-1'): string`  
+**set_focus_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_inner_html_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): string|bool`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `is_disabled_by_number(int $number, string $frame = '-1'): bool`  
+**set_value_by_number(int $number, string $value, string $frame = '-1'): bool**
 
-- `is_disabled_by_name(string $name, string $frame = '-1'): bool`  
+Задать значение атрибуту value элементу DOM, который найти по номеру | Set value by number
 
-- `get_all_attributes_by_number(int $number, string $frame = '-1'): string`  
+**set_value_by_name(string $name, string $value, string $frame = '-1'): bool**
 
-- `get_all_attributes_by_name(string $name, string $frame = '-1'): string`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту name | Set value by name
 
-- `get_all_attributes_by_src(string $src, bool $exactly = true, string $frame = '-1'): string`  
+**set_value_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $value, string $frame = '-1'): bool**
 
-- `get_all_attributes_values_by_number(int $number, string $frame = '-1'): string`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту | Set value by attribute
 
-- `get_all_attributes_values_by_name(string $name, string $frame = '-1'): string`  
+**set_value_by_number_by_form_number(int $number, string $value, int $form_number, string $frame = '-1'): bool**
 
-- `get_all_attributes_values_by_src(string $src, bool $exactly = true, string $frame = '-1'): string`  
+Задать значение атрибуту value элементу DOM, который найти по номеру и номеру формы | Set value by number in form by form number (no wait exist mode)
 
-- `get_all_events_by_number(int $number, string $frame = '-1'): string`  
+**set_value_by_name_by_form_number(string $name, string $value, int $form_number, string $frame = '-1'): bool**
 
-- `get_all_events_by_name(string $name, string $frame = '-1'): string`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту name и номеру формы | Set value by name in form by form number
 
-- `get_all_events_by_src(string $src, bool $exactly = true, string $frame = '-1'): string`  
+**set_value_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, string $value, int $form_number, string $frame = '-1'): bool**
 
-- `get_numbers_child_by_number(int $number, string $element_type = '', string $frame = '-1', bool $include_subchildren = false): string`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту и номеру формы | Set value by attribute in form by form number
 
-- `get_numbers_child_by_name(string $name, string $element_type = '', string $frame = '-1', bool $include_subchildren = false): string`  
+**set_value_by_number_by_form_name(int $number, string $value, string $form_name, string $frame = '-1'): bool**
 
-- `get_numbers_child_by_id(string $id, string $element_type = '', string $frame = '-1', bool $include_subchildren = false): string`  
+Задать значение атрибуту value элементу DOM, который найти по номеру и атрибуту name формы | Set value by number in form by form name (no wait exist mode)
 
-- `get_numbers_child_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $element_type = '', string $frame = '-1', bool $include_subchildren = false): string`  
+**set_value_by_name_by_form_name(string $name, string $value, string $form_name, string $frame = '-1'): bool**
 
-- `get_x_by_number(int $number, string $frame = '-1'): int`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту name и значению атрибута name формы | Set value by name in form by form name
 
-- `get_x_by_name(string $name, string $frame = '-1'): int`  
+**set_value_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, string $value, string $form_name, string $frame = '-1'): bool**
 
-- `get_x_by_href(string $href, bool $exactly = true, string $frame = '-1'): int`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту и атрибуту name формы | Set value by attribute in form by form name
 
-- `get_x_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): int`  
+**set_inner_text_by_number(int $number, string $text, string $frame = '-1'): bool**
 
-- `get_x_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): int`  
+Установить внутренний текст DOM элемента, который найти по значению атрибута name | Set inner text by number
 
-- `get_x_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): int`  
+**set_inner_text_by_name(string $name, string $text, string $frame = '-1'): bool**
 
-- `get_y_by_number(int $number, string $frame = '-1'): int`  
+Установить внутренний текст DOM элемента, который найти по значению атрибута name | Set inner text by name
 
-- `get_y_by_name(string $name, string $frame = '-1'): int`  
+**set_inner_text_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $text, string $frame = '-1'): bool**
 
-- `get_y_by_href(string $href, bool $exactly = true, string $frame = '-1'): int`  
+Установить внутренний текст DOM элемента, который найти по значению атрибута | Set inner text by any attribute
 
-- `get_y_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): int`  
+**set_inner_html_by_number(int $number, string $html, string $frame = '-1'): bool**
 
-- `get_y_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): int`  
+Установить внутренний HTML DOM элемента, который найти по номеру | Set inner HTML by number
 
-- `get_y_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): int`  
+**set_inner_html_by_name(string $name, string $html, string $frame = '-1'): bool**
 
-- `get_width_by_number(int $number, string $frame = '-1'): int`  
+Установить внутренний HTML DOM элемента, который найти по значению атрибута name | Set inner HTML by name
 
-- `get_width_by_name(string $name, string $frame = '-1'): int`  
+**set_inner_html_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $html, string $frame = '-1'): bool**
 
-- `get_width_by_src(string $src, bool $exactly = true, string $frame = '-1'): int`  
+Установить внутренний HTML DOM элемента, который найти по значению атрибута | Set inner html by any attribute
 
-- `get_width_by_href(string $href, bool $exactly = true, string $frame = '-1'): int`  
+**add_attribute_by_number(int $number, string $name_attr, string $value_attr, string $frame = '-1'): bool**
 
-- `get_width_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): int`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `get_height_by_number(int $number, string $frame = '-1'): int`  
+**add_attribute_by_name(string $name, string $name_attr, string $value_attr, string $frame = '-1'): bool**
 
-- `get_height_by_name(string $name, string $frame = '-1'): int`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту name| Add/Set attribute by name
 
-- `get_height_by_src(string $src, bool $exactly = true, string $frame = '-1'): int`  
+**add_attribute_by_inner_text(string $inner_text, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool**
 
-- `get_height_by_href(string $href, bool $exactly = true, string $frame = '-1'): int`  
+Добавить/Установить атрибут DOM элемента, который найти по внутреннему тексту | Add/Set attribute by inner text
 
-- `get_height_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): int`  
+**add_attribute_by_inner_html(string $inner_html, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool**
 
-- `send_keyboard_input_by_number(int $number, string $string, string $timeout = '0:2', string $frame = '-1'): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по внутреннему HTML | Add/Set attribute by inner HTML
 
-- `send_keyboard_input_by_name(string $name, string $string, string $timeout = '0:2', string $frame = '-1'): bool`  
+**add_attribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool**
 
-- `send_keyboard_input_by_inner_text(string $inner_text, bool $exactly, string $string, string $timeout = '0:2', string $frame = '-1'): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `send_keyboard_input_by_inner_html(string $inner_html, bool $exactly, string $string, string $timeout = '0:2', string $frame = '-1'): bool`  
+**set_attribute_by_number(int $number, string $name_atr, string $value_atr, string $frame = '-1'): bool**
 
-- `send_keyboard_input_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $string, string $timeout = '0:2', string $frame = '-1'): bool`  
+Задать значение атрибута элемента DOM, который найти по номеру | Set attribute by number
 
-- `get_count(string $frame = '-1'): int`  
+**set_attribute_by_name(string $name, string $name_atr, string $value_atr, string $frame = '-1'): bool**
 
-- `get_count_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): int`  
+Задать значение атрибута элемента DOM, который найти по атрибуту name | Set attribute by name
 
-- `get_all_numbers_by_inner_text(string $text, bool $exactly = false, string $frame = '-1'): array`  
+**set_attribute_by_inner_text(string $inner_text, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool**
 
-- `get_all_numbers_by_inner_html(string $html, bool $exactly = false, string $frame = '-1'): array`  
+Задать значение атрибута элемента DOM, который найти по внутреннему тексту | Set any attribute by inner text
 
-- `get_all_numbers_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): array`  
+**set_attribute_by_inner_html(string $inner_html, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool**
 
-- `get_all_inner_texts(string $separator = '<br>', string $text_filter = '', string $frame = '-1'): string`  
+Задать значение атрибута элемента DOM, который найти по внутреннему HTML | Set any attribute by inner HTML
 
-- `get_all_inner_texts_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): array`  
+**set_attribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $value_atr, string $frame = '-1'): bool**
 
-- `get_all_inner_htmls_by_inner_text(string $text, bool $exactly = false, string $frame = '-1'): array`  
+Задать значение атрибута элемента DOM, который найти по атрибуту | Set attribute by attribute
 
-- `get_all_inner_htmls_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): array`  
+**remove_attribute_by_number(int $number, string $name_atr, string $frame = '-1'): bool**
 
-- `get_all_attributes_by_inner_text(string $attr_name_need, string $text, bool $exactly = false, string $frame = '-1'): array`  
+Удалить атрибут DOM элемента, который найти по номеру | Remove attribute by number
 
-- `get_all_attributes_by_attribute(string $attr_name_need, string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): array`  
+**remove_attribute_by_name(string $name, string $name_atr, string $frame = '-1'): bool**
 
-- `get_by_number(int $number, string $frame = '-1'): XHEInterface`  
+Удалить атрибут DOM у элемента, который найти по name | Remove attribute by name
 
-- `get_by_name(string $name, string $frame = '-1'): XHEInterface`  
+**remove_attribute_by_inner_text(string $inner_text, bool $exactly, string $name_atr, string $frame = '-1'): bool**
 
-- `get_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+Удалить атрибут DOM элемента, который найти по внутреннему тексту | Remove attribute by inner text
 
-- `get_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+**remove_attribute_by_inner_html(string $inner_html, bool $exactly, string $name_atr, string $frame = '-1'): bool**
 
-- `get_by_outer_text(string $outer_text, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+Удалить атрибут DOM элемента, который найти по внутреннему HTML | Remove attribute by inner HTML
 
-- `get_by_outer_html(string $outer_html, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+**remove_attribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame = '-1'): bool**
 
-- `get_by_id(string $id, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+Удалить атрибут DOM элемента, который найти по атрибуту | Remove attribute by attribute
 
-- `get_by_src(string $src, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+**screenshot_by_number(string $file_path, int $number, string $frame = '-1', bool $as_gray = false): bool**
 
-- `get_by_class(string $class, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+Сделать скриншот элемента с заданным номером
 
-- `get_by_href(string $href, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+**screenshot_by_name(string $file_path, string $name, string $frame = '-1', bool $as_gray = false): bool**
 
-- `get_by_alt(string $alt, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+Сделать скриншот DOM элемента, который найти по атрибуту name |Save screenshot to file by name
 
-- `get_by_value(string $value, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+**screenshot_by_src(string $file_path, string $src, bool $exactly = true, string $frame = '-1', bool $as_gray = false): bool**
 
-- `get_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): XHEInterface`  
+Сделать скриншот DOM элемента, который найти по атрибуту src | Save screenshot to file by number by src
 
-- `get_by_properties(string $properties, string $frame = '-1'): XHEInterface`  
+**screenshot_by_attribute(string $file_path, string $atr_name, string $atr_value, bool $exactly = true, string $frame = '-1', bool $as_gray = false): bool**
 
-- `get_by_xpath(string $xpath): XHEInterface`  
+Сделать скриншот DOM элемента, который найти по атрибуту | Save screenshot to file by attribute
 
-- `get_all(string $frame = '-1'): XHEInterfaces`  
+**is_exist_by_number(int $number, string $frame = '-1'): bool**
 
-- `get_all_by_number(string $numbers, string $frame = '-1'): XHEInterfaces`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `get_all_by_inner_text(string $inner_text, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**is_exist_by_name(string $name, string $frame = '-1'): bool**
 
-- `get_all_by_inner_html(string $inner_html, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `get_all_by_outer_text(string $outer_text, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**is_exist_by_id(string $id, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_all_by_outer_html(string $outer_html, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Проверить существование DOM элемента, который найти по атрибуту id | Is exist by id (no wait exist mode)
 
-- `get_all_by_name(string $name, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**is_exist_by_href(string $href, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_all_by_id(string $id, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Проверить существование DOM элемента, который найти по атрибуту href | Is element exist by href (no wait exist mode)
 
-- `get_all_by_class(string $class, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**is_exist_by_alt(string $alt, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_all_by_src(string $src, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Проверить существование DOM элемента, который найти по атрибуту alt | Is element exist by alt (no wait exist mode)
 
-- `get_all_by_href(string $href, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**is_exist_by_src(string $src, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_all_by_alt(string $alt, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Проверить существование DOM элемента, который найти по атрибуту src | Is element exist by src (no wait exist mode)
 
-- `get_all_by_value(string $value, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**is_exist_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_all_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Проверить существование элемента DOM по внутреннему поиску | Check and wait element exist by inner text
 
-- `get_all_by_xpath(string $xpath): XHEInterfaces`  
+**is_exist_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_all_by_properties(string $properties, string $frame = '-1'): XHEInterfaces`  
+Проверить существование DOM элемента, который найти по внутреннему HTML | Is element exist by inner HTML (no wait exist mode)
 
-- `run_js_by_number(int $number, string $js, string $frame = '-1'): string`  
+**is_exist_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `run_js_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $js, string $frame = '-1'): string`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
----
+**is_exist_by_xpath(string $xpath): bool**
 
-### `XHEBaseCaptcha_1` — Базовый класс для классов которые работают с API сервисами по распознаванию каптч
+Проверить существование DOM элемента по XPath | Is exist by XPath
 
-**Методы**:
-- `getBaseUrl(): string`  
+**is_exist_by_attribute_by_form_number(string $atr_name, string $atr_value, bool $exactly, int $form_number, string $frame = '-1'): bool**
 
-- `get_last_capcha_id(): string`  
+Проверить существование DOM элемента, который найти по атрибуту и номеру формы | Is element exist by attribute in form by number (no wait exist mode)
 
-- `get_last_capcha_filename(): string`  
+**is_exist_by_attribute_by_form_name(string $atr_name, string $atr_value, bool $exactly, string $form_name, string $frame = '-1'): bool**
 
-- `get_last_capcha_result(): string`  
+Проверить существование DOM элемента, который найти по атрибуту и атрибуту name формы | Is element exist by attribute in form by name (no wait exist mode)
 
-- `__construct(string $server, int $soft_id = 0, bool $is_ssl = true): void`  
+**get_number_by_name(string $name, string $frame = '-1'): int**
 
-- `call(string $command): string`  
+Получить номер DOM элемента, который найти по атрибуту name | Get attribute name by name
 
-- `set_default_params(): bool`  
+**get_number_by_id(string $id, string $frame = '-1'): int**
 
-- `recognize_image(string $filename): false|string`  
+Получить номер DOM элемента, который найти по атрибуту id | Get attribute name by id
 
-- `report_bug_capcha(string $key, string $id): string`  
+**get_number_by_src(string $src, bool $exactly = true, string $frame = '-1'): int**
 
-- `recognize(string $filename, string $apikey, string $path = '', bool $is_verbose = true, int $rtimeout = 5, int $mtimeout = 120, int $is_phrase = 0, int $is_regsense = 0, int $is_numeric = 0, int $min_len = 0, int $max_len = 0, int $language = 0, int $is_question = 0, int $is_calc = 0, string $instructions = '', string $textcaptcha = '', int $id_constructor = 0, int $is_invoice = 0, int $is_recaptcha = 0, string $textinstructions = '', string $imginstructions = '', int $coordinatescaptcha = 0, string $method = '', int $angle = 0, string $file_1 = '', string $file_2 = '', string $file_3 = '', int $is_audio_recaptcha = 0, int $is_solveaudio = 0): false|string`  
+Получить номер DOM элемента, который найти по атрибуту src | Get attribute name by src
 
-- `get_result(string $apikey, string $path, string $task_id, bool $is_verbose = true, int $rtimeout = 5, int $mtimeout = 120, int $is_invoice = 0): false|string`  
+**get_number_by_href(string $href, bool $exactly = true, string $frame = '-1'): int**
 
-- `recognize_userrecaptcha(string $apikey, string $path, string $pageurl, string $googlekey, int $invisible = 0, string $proxy = '', string $proxytype = '', string $method = 'userrecaptcha'): bool|string`  
+Получить номер DOM элемента, который найти по атрибуту href | Get attribute name by href
 
-- `recognize_geetest_captcha(string $apikey, string $path, string $pageurl, string $gt, string $challenge, string $api_server = '', string $proxy = '', string $proxytype = '', string $method = 'geetest'): false|string`  
+**get_number_by_inner_text(string $innertext, bool $exactly = true, string $frame = '-1'): int**
 
----
+Получить номер DOM элемента, который найти по внутреннему тексту | Get number by inner text
 
-### `XHEBaseSMS` — API SMS service
+**get_number_by_inner_html(string $innerhtml, bool $exactly = true, string $frame = '-1'): int**
 
-**Методы**:
-- `__construct(string $api = '', string $servis = 'https://api.sms-activate.ae', string $ref = ''): void`  
+Получить номер DOM элемента, который найти по внутреннему HTML | Get number by inner HTML
 
-- `change_service(string $api, string $servis, string $ref): void`  
+**get_number_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, string $frame = '-1'): int**
 
-- `get_numbers_status(int $country = 0, string $operator = 'any'): false|string`  
+Получить номер DOM элемента, который найти по атрибуту | Get number by attribute
 
-- `get_balance(): false|string`  
+**get_name_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `get_phone_number(string $service = 'ot', string $operator = 'any', int $country = 0): bool`  
+Получить значение атрибута name DOM элемента по номеру | Get attribute name by number
 
-- `get_code(int $wt = 10, int $timeout = 10): bool`  
+**get_attribute_by_number(int $number, string $name_atr, string $frame = '-1'): string|bool**
 
-- `set_status(int $status = 6): bool`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
----
+**get_attribute_by_name(string $name, string $name_atr, string $frame = '-1'): string|bool**
 
-### `XHEAnchor` — For handling DOM anchor elements in current loaded HTML page
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_attribute_by_src(string $src, bool $exactly, string $name_atr, string $frame = '-1'): string|bool**
 
-- `get_all_hrefs(string $separator = '<br>', string $frame = '-1'): string`  
-  **Примеры**:
-  ```php
-  DOM::$anchor->get_all_hrefs(';', -1)
-  ```
+Получить значение атрибута DOM элемента по значению атрибута src | Get attribute by src
 
-- `get_all_hrefs_by_inner_text(string $inner_text, string $separator = '<br>', string $frame = '-1'): string`  
-  **Примеры**:
-  ```php
-  DOM::$anchor->get_all_hrefs_by_inner_text('search text', ';', -1)
-  ```
+**get_attribute_by_inner_text(string $inner_text, bool $exactly, string $name_atr, string $frame = '-1'): string|bool**
 
-- `get_all_hrefs_by_inner_text_2(string $inner_text, bool $exactly = true, string $separator = '<br>', string $frame = '-1'): string`  
+Получить значение атрибута DOM элемента по внутреннему тексту | Get attribute by inner text
 
-- `get_all_hrefs_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $separator = '<br>', string $frame = '-1'): string`  
+**get_attribute_by_inner_html(string $inner_html, bool $exactly, string $name_atr, string $frame = '-1'): string**
 
-- `get_all_inner_texts_by_href(string $href, string $separator = '<br>', bool $exactly = true, string $frame = '-1'): string`  
+Получить значение атрибута DOM элемента по внутреннему HTML | Get attribute by inner HTML
 
-- `get_all_external_inner_texts_and_hrefs(string $href, bool $navigate = false, string $separator = '<br>', string $frame = '-1'): string`  
+**get_attribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame = '-1'): string|bool**
 
-- `get_all_internal_inner_texts_and_hrefs(string $href, bool $navigate = false, string $separator = '<br>', string $frame = '-1'): string`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**get_value_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Получить значение атрибута value элемента DOM, который найти по номеру | Get value by number
 
-- `is_exist_with_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**get_value_by_name(string $name, string $frame = '-1'): string|bool**
 
-- `is_exist_with_attribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+Получить значение атрибута value элемента DOM, который найти по атрибуту name | Get value by name
 
-- `is_exist_with_name(string $name): bool`  
+**get_value_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, string $frame = '-1'): string|bool**
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Получить значение атрибута value элемента DOM, который найти по значению атрибута | Get value by attribute
 
-- `is_exist_with_inner_text(string $text, bool $exactly = true): bool`  
+**get_src_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `is_exist_with_href(string $href, bool $exactly = true): bool`  
+Получить значение атрибута src элемента DOM, который найти по номеру | Get src by number
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**get_src_by_name(string $name, string $frame = '-1'): string|bool**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Получить значение атрибута src элемента DOM, который найти по значению атрибута name | Get src by name
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**get_alt_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Получить значение атрибута alt элемента DOM, который найти по номеру | Get alt by number
 
-- `remove_atribute_by_name(string $name, string $name_atr): bool`  
+**get_alt_by_name(string $name, string $frame = '-1'): string|bool**
 
-- `remove_atribute_by_number(int $number, string $name_atr): bool`  
+Получить значение атрибута alt элемента DOM, который найти по значению атрибута name | Get alt by name
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+**get_href_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `add_atribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $value_atr): bool`  
+Получить значение атрибута href элемента DOM, который найти по номеру | Get href by number
 
-- `add_atribute_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $value_atr): bool`  
+**get_href_by_name(string $name, string $frame = '-1'): string|bool**
 
-- `get_number_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): int`  
+Получить значение атрибута href элемента DOM, который найти по значению атрибута name | Get href by name
 
-- `set_focus_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): bool`  
+**get_href_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): string|bool**
 
-- `is_exist_with_atribute_in_frame_by_number(string $atr_name, string $atr_value, bool $exactly, string $frame_number): bool`  
+Получить значение атрибута href элемента DOM, который найти по внутреннему тексту | Get href by inner text
 
-- `remove_atribute_by_name_in_frame(string $name, string $name_atr, string $frame_number): bool`  
+**get_inner_text_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `remove_atribute_by_number_in_frame(int $number, string $name_atr, string $frame_number): bool`  
+Получить внутренний текст DOM элемента, который найти по номеру | Get inner text by number
 
-- `remove_atribute_by_attribute_in_frame_by_number(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame_number): bool`  
+**get_inner_text_by_name(string $name, string $frame = '-1'): string|bool**
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Получить внутренний текст DOM элемента, который найти по атрибуту name | Get inner text by name
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**get_inner_text_by_id(string $id, string $frame = '-1'): string|bool**
 
-- `is_exist_by_atribute_in_frame(string $atr_name, string $atr_value, string $frame, bool $exactly = true): bool`  
+Получить внутренний текст DOM элемента, который найти по атрибуту id | Get inner text by id
 
-- `get_all_urls(string $separator = '<br>'): string`  
+**get_inner_text_by_href(string $href, bool $exactly = true, string $frame = '-1'): string|bool**
 
-- `get_all_urls_by_inner_text(string $inner_text, string $separator = '<br>'): string`  
+Получить внутренний текст DOM элемента, который найти по атрибуту href | Get inner text by href
 
-- `get_all_urls_in_frame(string $frame, string $separator = '<br>'): string`  
+**get_inner_text_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): string|bool**
 
-- `get_all_urls_by_inner_text_in_frame(string $inner_text, string $frame, string $separator = '<br>'): string`  
+Получить внутренний текст DOM элемента, который найти по значению атрибута | Get inner text by attribute
 
-- `get_all_external_texts_and_url(string $url, bool $navigate = false, string $separator = '<br>'): string`  
+**get_inner_html_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `get_all_external_texts_and_url_in_frame(string $url, string $frame, string $separator = '<br>'): string`  
+Получить внутренний HTML DOM элемента, который найти по номеру | Get inner HTML by number
 
-- `click_within_iframe_by_name(string $name, string $frame): bool`  
+**get_inner_html_by_name(string $name, string $frame = '-1'): string|bool**
 
-- `click_within_iframe_by_number(int $number, string $frame): bool`  
+Получить внутренний HTML DOM элемента, который найти по атрибуту name | Get inner HTML by name
 
-- `click_within_iframe_by_inner_text(string $text, bool $exactly, string $frame): bool`  
+**get_inner_html_by_id(string $id, string $frame = '-1'): string**
 
-- `click_within_iframe_by_href(string $url, mixed $exactly, string $frame): bool`  
+Получить внутренний HTML DOM элемента, который найти по атрибуту id | Get inner HTML by id
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+**get_inner_html_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): string|bool**
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Получить внутренний HTML DOM элемента, который найти по значению атрибута | Get inner html by attribute
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+**is_disabled_by_number(int $number, string $frame = '-1'): bool**
 
-- `remove_attribute_by_attribute_in_frame_by_number(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame_number): bool`  
+Проверить отключен или нет DOM элемент, который найти по номеру | Is disabled by number
 
-- `get_count_within_iframe_by_number(string $number): int`  
+**is_disabled_by_name(string $name, string $frame = '-1'): bool**
 
-- `is_exist_by_name_in_frame(string $name, string $frame): bool`  
+Проверить отключен или нет DOM элемент, который найти по значению атрибута name | Is disabled by name
 
-- `click_by_name_in_frame(string $name, string $frame): bool`  
+**get_all_attributes_by_number(int $number, string $frame = '-1'): string**
 
-- `add_attribute_by_attribute_in_frame(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+Получить все названия атрибутов DOM элемента, который найти по номеру | Get all attributes names by number
 
-- `click_by_number_in_frame(int $number, string $frame): bool`  
+**get_all_attributes_by_name(string $name, string $frame = '-1'): string**
 
-- `click_by_attribute_in_frame(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+Получить все названия атрибутов DOM элемента, который найти по атрибуту name | Get all attributes names by name
 
-- `click_by_href_in_frame(string $url, mixed $exactly, string $frame): bool`  
+**get_all_attributes_by_src(string $src, bool $exactly = true, string $frame = '-1'): string**
 
-- `click_by_inner_text_in_frame(string $text, bool $exactly, string $frame): bool`  
+Получить все названия атрибутов DOM элемента, который найти по значению атрибута src | Get all attributes names by src
 
-- `click_random_in_frame(string $frame): int`  
+**get_all_attributes_values_by_number(int $number, string $frame = '-1'): string**
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+Получить все значения атрибутов DOM элемента, который найти по номеру | Get all attributes values by number
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+**get_all_attributes_values_by_name(string $name, string $frame = '-1'): string**
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+Получить все названия атрибутов DOM элемента, который найти по значению атрибута name | Get all attributes values by name
 
-- `send_event_by_href_in_frame(string $url, bool $exactly, string $event, string $frame): bool`  
+**get_all_attributes_values_by_src(string $src, bool $exactly = true, string $frame = '-1'): string**
 
-- `send_event_by_atribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame): bool`  
+Получить все значения атрибутов DOM элемента, который найти по значению атрибута src | Get all attributes values by src
 
-- `send_event_by_attribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame): bool`  
+**get_all_events_by_number(int $number, string $frame = '-1'): string**
 
-- `set_focus_by_attribute_in_frame(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Получить все события-атрибуты DOM элемента, который найти по номеру | Get all events by number
 
-- `remove_attribute_by_name_in_frame(string $name, string $name_atr, string $frame_number): bool`  
+**get_all_events_by_name(string $name, string $frame = '-1'): string**
 
-- `remove_attribute_by_number_in_frame(int $number, string $name_atr, string $frame_number): bool`  
+Получить все события-атрибуты DOM элемента, который найти по значению атрибута name | Get all attribute events by name
 
-- `remove_attribute_by_attribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame_number): bool`  
+**get_all_events_by_src(string $src, bool $exactly = true, string $frame = '-1'): string**
 
-- `is_exist_by_inner_text_in_frame(string $text, string $frame, bool $exactly = true): bool`  
+Получить все события-атрибуты DOM элемента, который найти по значению атрибута src | Get all events by src
 
-- `is_exist_by_href_in_frame(string $href, string $frame, bool $exactly = true): bool`  
+**get_numbers_child_by_number(int $number, string $element_type = '', string $frame = '-1', bool $include_subchildren = false): string**
 
-- `is_exist_by_attribute_in_frame(string $atr_name, string $atr_value, string $frame, bool $exactly = true): bool`  
+Получить номера потомков DOM элемента, который найти по номеру | Get the numbers of descendants of a DOM element found by number
 
-- `get_attribute_by_attribute_in_frame(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**get_numbers_child_by_name(string $name, string $element_type = '', string $frame = '-1', bool $include_subchildren = false): string**
 
-- `get_all_inner_texts_in_frame(string $frame, string $separator = '<br>'): string`  
+Получить номера потомков DOM элемента, который найти по значению атрибута name | Get the numbers of descendants of a DOM element found by the value of the name attribute
 
-- `get_all_hrefs_in_frame(string $frame, string $separator = '<br>'): string`  
+**get_numbers_child_by_id(string $id, string $element_type = '', string $frame = '-1', bool $include_subchildren = false): string**
 
-- `get_all_hrefs_by_inner_text_in_frame(string $inner_text, string $frame, string $separator = '<br>'): string`  
+Получить номера потомков DOM элемента, который найти по значению атрибута id | Get the numbers of descendants of a DOM element found by the value of the id attribute
 
-- `get_all_external_inner_texts_and_hrefs_in_frame(string $url, string $frame, bool $navigate = false, string $separator = '<br>'): string`  
+**get_numbers_child_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $element_type = '', string $frame = '-1', bool $include_subchildren = false): string**
 
----
+Получить номера потомков DOM элемента, который найти по значению атрибута | Get the numbers of descendants of a DOM element found by the value of the attribute value
 
-### `XHEB` — For handling DOM elements tag <b> in current loaded HTML page
+**get_x_by_number(int $number, string $frame = '-1'): int**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить координату X DOM элемента, который найти по номеру | Get X of element by number
 
----
+**get_x_by_name(string $name, string $frame = '-1'): int**
 
-### `XHEBlockquote` — For handling Blockquote DOM elements in current loaded HTML page
+Получить координату X DOM элемента, который найти по атрибуту name | Get X of element by attribute name
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_x_by_href(string $href, bool $exactly = true, string $frame = '-1'): int**
 
----
+Получить координату X DOM элемента, который найти по атрибуту href | Get X of element by attribute href
 
-### `XHEBody` — For handling body DOM elements in current loaded HTML page
+**get_x_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): int**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить координату X DOM элемента, который найти по внутреннему текст | Get X of element by inner text
 
-- `disable_onunload_message(string $frame = '-1'): bool`  
+**get_x_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): int**
 
-- `set_text_within_iframe_by_name(string $name, string $text, string $framenum): bool`  
+Получить координату X DOM элемента, который найти по внутреннему HTML | Get X of element by inner HTML
 
-- `set_text_within_iframe_by_number(int $number, string $text, string $framenum): bool`  
+**get_x_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): int**
 
-- `get_text_within_iframe_by_name(string $name, string $framenum): string`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `get_text_within_iframe_by_number(int $number, string $framenum): string`  
+**get_y_by_number(int $number, string $frame = '-1'): int**
 
-- `set_text_by_name(string $name, string $text, string $frame = '-1'): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `set_text_by_number(int $number, string $text, string $frame = '-1'): bool`  
+**get_y_by_name(string $name, string $frame = '-1'): int**
 
-- `get_text_by_name(string $name, string $frame = '-1'): string`  
+Получить координату Y DOM элемента, который найти по атрибуту name | Get Y of element by attribute name
 
-- `get_text_by_number(int $number, string $frame = '-1'): string`  
+**get_y_by_href(string $href, bool $exactly = true, string $frame = '-1'): int**
 
----
+Получить координату Y DOM элемента, который найти по атрибуту href | Get Y of element by attribute href
 
-### `XHEButton` — For handling button DOM elements in current loaded HTML page
+**get_y_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): int**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить координату Y DOM элемента, который найти по внутреннему текст | Get Y of element by inner text
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**get_y_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): int**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Получить координату Y DOM элемента, который найти по внутреннему HTML | Get Y of element by inner HTML
 
-- `get_count_within_iframe_by_number(string $number): int`  
+**get_y_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): int**
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+**get_width_by_number(int $number, string $frame = '-1'): int**
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+Получить ширину DOM элемента, который найти по номеру | Get width by number
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**get_width_by_name(string $name, string $frame = '-1'): int**
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+Получить ширину DOM элемента, который найти по атрибуту name | Get width by name
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+**get_width_by_src(string $src, bool $exactly = true, string $frame = '-1'): int**
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+Получить ширину DOM элемента, который найти по атрибуту src | Get width by src
 
-- `click_within_iframe_by_name(string $name, string $frame): bool`  
+**get_width_by_href(string $href, bool $exactly = true, string $frame = '-1'): int**
 
-- `click_within_iframe_by_number(int $number, string $frame): bool`  
+Получить ширину DOM элемента, который найти по атрибуту href | Get width by href
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+**get_width_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): int**
 
-- `click_random_in_frame(string $frame): int`  
+Получить ширину DOM элемента, который найти по атрибуту | Get width by attribute
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+**get_height_by_number(int $number, string $frame = '-1'): int**
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+Получить высоту DOM элемента, который найти по номеру | Get height by number
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+**get_height_by_name(string $name, string $frame = '-1'): int**
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Получить высоту DOM элемента, который найти по атрибуту name | Get height by name
 
-- `is_exist_with_inner_text(string $text, bool $exactly = true): bool`  
+**get_height_by_src(string $src, bool $exactly = true, string $frame = '-1'): int**
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+Получить высоту DOM элемента, который найти по атрибуту src | Get height by src
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+**get_height_by_href(string $href, bool $exactly = true, string $frame = '-1'): int**
 
-- `is_exist_with_inner_text_in_frame_by_number(string $text, bool $exactly, string $frame_num): bool`  
+Получить высоту DOM элемента, который найти по атрибуту href | Get height by href
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**get_height_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): int**
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Получить высоту DOM элемента, который найти по атрибуту | Get height by attribute
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**send_keyboard_input_by_number(int $number, string $string, string $timeout = '0:2', string $frame = '-1'): bool**
 
----
+Выполнить эмуляцию события клавиатуры ввода текста в DOM элемент, который найти по номеру | Send keyboard input by number using JS events.
 
-### `XHECanvas` — For handling canvas DOM elements in current loaded HTML page
+**send_keyboard_input_by_name(string $name, string $string, string $timeout = '0:2', string $frame = '-1'): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Выполнить эмуляцию события клавиатуры ввода текста в DOM элемент, который найти по значению атрибута name | Send keyboard input by name using JS events.
 
-- `draw_image_by_number(int $number, string $path, string $frame = '-1'): bool`  
+**send_keyboard_input_by_inner_text(string $inner_text, bool $exactly, string $string, string $timeout = '0:2', string $frame = '-1'): bool**
 
----
+Выполнить эмуляцию события клавиатуры ввода текста в DOM элемент, который найти по внутреннему тексту | Send keyboard input by inner text using JS events
 
-### `XHECheckButton` — For handling checkbutton DOM elements  in current loaded HTML page
+**send_keyboard_input_by_inner_html(string $inner_html, bool $exactly, string $string, string $timeout = '0:2', string $frame = '-1'): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Выполнить эмуляцию события клавиатуры ввода текста в DOM элемент, который найти по внутреннему HTML | Send keyboard input by inner HTML using JS events
 
-- `click_all(string $frame = '-1'): bool`  
+**send_keyboard_input_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $string, string $timeout = '0:2', string $frame = '-1'): bool**
 
-- `check_by_number(int $number, bool $check, string $frame = '-1'): bool`  
+Выполнить эмуляцию события клавиатуры ввода текста в DOM элемент, который найти по внутреннему HTML | Send keyboard input by attribute using JS events
 
-- `check_by_name(string $name, bool $check, string $frame = '-1'): bool`  
+**get_count(string $frame = '-1'): int**
 
-- `check_by_value(string $value, bool $exactly, bool $check, string $frame = '-1'): bool`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `check_by_attribute(string $attr_name, string $attr_value, bool $exactly, bool $check, string $frame = '-1'): bool`  
+**get_count_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): int**
 
-- `check_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, bool $check, int $form_number, string $frame = '-1'): bool`  
+Получить количество DOM элементов на странице, искать по значению атрибута | Get counts by attribute
 
-- `check_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, bool $check, string $form_name, string $frame = '-1'): bool`  
+**get_all_numbers_by_inner_text(string $text, bool $exactly = false, string $frame = '-1'): array**
 
-- `check_all(bool $check = true, string $frame = '-1'): bool`  
+Получить внутренние тексты всех DOM элементов, которых найти по внутреннему тексту | Get all numbers by inner text (no wait exist mode)
 
-- `is_check_by_name(string $name, string $frame = '-1'): bool`  
+**get_all_numbers_by_inner_html(string $html, bool $exactly = false, string $frame = '-1'): array**
 
-- `is_check_by_number(int $number, string $frame = '-1'): bool`  
+Получить номера всех DOM элементов, которых найти по внутреннему HTML | Get all numbers by inner HTML (no wait exist mode)
 
-- `is_check_by_value(string $value, bool $exactly = true, string $frame = '-1'): bool`  
+**get_all_numbers_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): array**
 
-- `is_check_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool`  
+Получить номера всех DOM элементов, которых найти по значению атрибута | Get all numbers by attribute (no wait exist mode)
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**get_all_inner_texts(string $separator = '<br>', string $text_filter = '', string $frame = '-1'): string**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Получить все значения внутреннего текста у DOM элементов | Get all inner texts (no wait exist mode)
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**get_all_inner_texts_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): array**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Получить внутренние тексты всех DOM элементов, которых найти по значению атрибута | Get all inner text by attribute (no wait exist mode)
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**get_all_inner_htmls_by_inner_text(string $text, bool $exactly = false, string $frame = '-1'): array**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Получить внутренние HTML всех DOM элементов, которых найти по внутреннему тексту | Get all inner HTMLs by inner text (no wait exist mode)
 
-- `get_count_within_iframe_by_number(string $number): int`  
+**get_all_inner_htmls_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): array**
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+Получить внутренние HTML всех DOM элементов, которых найти по значению атрибута | Get all inner HTMLs by attribute (no wait exist mode)
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+**get_all_attributes_by_inner_text(string $attr_name_need, string $text, bool $exactly = false, string $frame = '-1'): array**
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+Получить значение атрибута всех DOM элементов, которых найти по внутреннему тексту | Get all attribute values by inner text (no wait exist mode)
 
-- `click_random_in_frame(string $frame): int`  
+**get_all_attributes_by_attribute(string $attr_name_need, string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): array**
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+Получить значение атрибута всех DOM элементов, которых найти по атрибуту | Get all attribute values by attribute (no wait exist mode)
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+**get_by_number(int $number, string $frame = '-1'): XHEInterface**
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+Получить интерфейс DOM элемента, который найти по номеру | Get interface by number
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+**get_by_name(string $name, string $frame = '-1'): XHEInterface**
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+Получить интерфейс DOM элемента, который найти по атрибуту name | Get interface by name
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+**get_by_inner_text(string $inner_text, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Получить интерфейс DOM элемента, который найти по внутреннему тексту | Get interface by inner text
 
-- `set_checked_by_name(string $name, bool $check): bool`  
+**get_by_inner_html(string $inner_html, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-- `set_checked_by_number(int $number, bool $check): bool`  
+Получить интерфейс DOM элемента, который найти по внутреннему HTML | Get interface by inner HTML
 
-- `set_checked_by_value(string $value, bool $check): bool`  
+**get_by_outer_text(string $outer_text, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-- `set_all_checked(bool $check): bool`  
+Получить интерфейс DOM элемента, который найти по внешнему тексту | Get interface by outer text
 
-- `is_checked_by_name(string $name): bool`  
+**get_by_outer_html(string $outer_html, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-- `is_checked_by_number(int $number): bool`  
+Получить интерфейс DOM элемента, который найти по внешнему HTML | Get interface by outer html
 
-- `is_checked_by_value(string $value): bool`  
+**get_by_id(string $id, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+Получить интерфейс DOM элемента, который найти по атрибуту id | Get interface by id
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**get_by_src(string $src, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Получить интерфейс DOM элемента, который найти по атрибуту src | Get interface by src
 
----
+**get_by_class(string $class, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-### `XHECode` — For handling code DOM elements in current loaded HTML page
+Получить интерфейс DOM элемента, который найти по атрибуту class | Get interface by class
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_by_href(string $href, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
----
+Получить интерфейс DOM элемента, который найти по атрибуту href | Get interface by href
 
-### `XHEDiv` — For handling div DOM elements in current loaded HTML page
+**get_by_alt(string $alt, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить интерфейс DOM элемента, который найти по атрибуту alt | Get interface by alt
 
----
+**get_by_value(string $value, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-### `XHEElement` — For handling DOM elements in current loaded HTML page
+Получить интерфейс DOM элемента, который найти по атрибуту value | Get interface by value
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): XHEInterface**
 
-- `get_tag_by_number(int $number, string $frame = '-1'): string`  
+Получить интерфейс DOM элемента, который найти по атрибуту | Get interface by attribute
 
-- `get_x_by_tag_by_number(string $tag, int $number, string $frame = '-1'): int`  
+**get_by_properties(string $properties, string $frame = '-1'): XHEInterface**
 
-- `get_y_by_tag_by_number(string $tag, int $number, string $frame = '-1'): int`  
+Получить элемент с заданными свойствами | Get interface by properties
 
-- `get_all_by_tag(string $tag, string $frame = '-1'): XHEInterfaces`  
+**get_by_xpath(string $xpath): XHEInterface**
 
-- `convert_number(int $number, string $object_name, string $frame = '-1'): int`  
+Получить интерфейс DOM элемента, который найти по XPath | Get interface by XPath
 
-- `get_by_query_selector(string $selector, string $frame = '-1'): XHEInterface`  
+**get_all(string $frame = '-1'): XHEInterfaces**
 
-- `get_all_by_query_selector(string $selector, string $frame = '-1'): XHEInterfaces`  
+Получить все интерфейсы DOM элементов | Get all interfaces
 
-- `get_by_js(string $js, string $add_file = '', string $frame = '-1'): XHEInterface`  
+**get_all_by_number(string $numbers, string $frame = '-1'): XHEInterfaces**
 
-- `get_all_by_js(string $js, string $add_file = '', string $frame = '-1'): XHEInterfaces`  
+Получить все интерфейсы DOM элементов, найти по номерам | Get all interfaces by numbers
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**get_all_by_inner_text(string $inner_text, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Получить все интерфейсы DOM элементов, найти по внутреннему тексту | Get all interfaces by inner text
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**get_all_by_inner_html(string $inner_html, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Получить все интерфейсы DOM элементов, найти по внутреннему HTML | Get all interfaces by inner HTML
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**get_all_by_outer_text(string $outer_text, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Получить все интерфейсы DOM элементов, найти по внешнему тексту | Get all interfaces by outer text
 
-- `get_element_value_by_name(string $name, string $frame = '-1'): string`  
+**get_all_by_outer_html(string $outer_html, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `get_element_innerText_by_name(string $name, string $frame = '-1'): string`  
+Получить все интерфейсы DOM элементов, найти по внешнему HTML | Get all interfaces by outer HTML
 
-- `get_element_innerHtml_by_name(string $name, string $frame = '-1'): string`  
+**get_all_by_name(string $name, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `get_element_innerText_by_number(int $number, string $frame = '-1'): string`  
+Получить все интерфейсы DOM элементов, найти по атрибуту name | Get all interfaces by name
 
-- `get_element_innerHtml_by_number(int $number, string $frame = '-1'): string`  
+**get_all_by_id(string $id, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `get_element_innerText_by_id(string $id, string $frame = '-1'): string`  
+Получить все интерфейсы DOM элементов, найти по атрибуту id | Get all interfaces by id
 
-- `get_element_innerHtml_by_id(string $id, string $frame = '-1'): string`  
+**get_all_by_class(string $class, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `get_element_attribute_by_name(string $name, string $attribute, string $frame = '-1'): string`  
+Получить все интерфейсы DOM элементов, найти по атрибуту class | Get all interfaces by class
 
-- `get_element_attribute_by_number(int $number, string $attribute, string $frame = '-1'): string`  
+**get_all_by_src(string $src, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `is_exist_with_name(string $name): bool`  
+Получить все интерфейсы DOM элементов, найти по атрибуту src | Get all interfaces by src
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+**get_all_by_href(string $href, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `set_element_attribute_by_name(string $name, string $attribute, string $value): bool`  
+Получить все интерфейсы DOM элементов, найти по атрибуту href | Get all interfaces by href
 
-- `set_element_value_by_name(string $name, string $text): bool`  
+**get_all_by_alt(string $alt, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `click_on_element_by_name(string $name): bool`  
+Получить все интерфейсы DOM элементов, найти по атрибуту alt | Get all interfaces by alt
 
-- `click_on_element_by_number(int $number): bool`  
+**get_all_by_value(string $value, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `click_on_element_by_inner_text(string $inner_text, bool $exactly = true): bool`  
+Получить все интерфейсы DOM элементов, найти по атрибуту value | Get all interfaces by value
 
-- `get_left_offset_on_page_by_att(string $name_attr, string $value_attr, bool $exactly = true, string $frame = '-1'): int`  
+**get_all_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `get_top_offset_on_page_by_att(string $name_attr, string $value_attr, bool $exactly = true, string $frame = '-1'): int`  
+Получить все интерфейсы DOM элементов, найти по атрибуту | Get all interfaces by attribute
 
-- `get_left_offset_on_page_by_name(string $name): int`  
+**get_all_by_xpath(string $xpath): XHEInterfaces**
 
-- `get_top_offset_on_page_by_name(string $name): int`  
+Получить все интерфейсы DOM элементов, найти по XPath | Get all interfaces by XPath
 
-- `get_left_offset_on_page_by_href(string $href, bool $exactly = false): int`  
+**get_all_by_properties(string $properties, string $frame = '-1'): XHEInterfaces**
 
-- `get_top_offset_on_page_by_href(string $href, bool $exactly = false): int`  
+Получить все интерфейсы DOM элементов, заданным свойствам | Get all interfaces by XPath
 
-- `get_left_offset_on_page_by_tag_by_number(string $tag, int $number): int`  
+**run_js_by_number(int $number, string $js, string $frame = '-1'): string**
 
-- `get_top_offset_on_page_by_tag_by_number(string $tag, int $number): int`  
+Выполнить JS для DOM элемента, который найти по номеру
 
-- `click_on_element_by_name_withiniframe(string $name, string $frame): bool`  
+**run_js_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $js, string $frame = '-1'): string**
 
-- `click_on_element_by_inner_text_withiniframe(string $inner_text, string $frame, bool $exactly): bool`  
+Выполнить JS для DOM элемента, который найти по атрибуту
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+## Class: XHEBaseCaptcha_1
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+Базовый класс для классов которые работают с API сервисами по распознаванию каптч
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+### Methods
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+**getBaseUrl(): string**
 
-- `send_event_by_href_in_frame(string $url, bool $exactly, string $event, string $frame): bool`  
+Получить базовый URL для API | Get API base URL
 
-- `send_event_by_atribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame): bool`  
+**get_last_capcha_id(): string**
 
-- `send_event_by_attribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame): bool`  
+ID текущей капчи | Get last captcha ID капчи
 
-- `get_count_within_iframe_by_number(string $number): int`  
+**get_last_capcha_filename(): string**
 
-- `set_text_html_by_attribute(string $attr_name, string $attr_value, string $html, bool $exactly = true, string $frame = '-1'): bool`  
+Получить последний путь к файлу капчи | Get last captcha file
 
-- `set_inner_html_by_atribute(string $attr_name, string $attr_value, string $html, bool $exactly = true, string $frame = '-1'): bool`  
+**get_last_capcha_result(): string**
 
-- `set_inner_text_by_atribute(string $attr_name, string $attr_value, string $text, bool $exactly = true, string $frame = '-1'): bool`  
+Последний результат распознания | Get last captcha result
 
----
+**__construct(string $server, int $soft_id = 0, bool $is_ssl = true): void**
 
-### `XHEEmbed` — For handling embed DOM elements in current loaded HTML page
+Constructor
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**call(string $command): string**
 
-- `click_in_by_number(int $number, int $x = -1, int $y = -1, string $frame = '-1'): bool`  
+Выполнить команду | Call a command on the server
 
-- `click_in_by_name(string $name, int $x = -1, int $y = -1, string $frame = '-1'): bool`  
+**set_default_params(): bool**
 
-- `click_in_by_src(string $src, bool $exactly = true, int $x = -1, int $y = -1, string $frame = '-1'): bool`  
+Задать параметры распознания по умолчанию (сбросить значения для полей) | Reset params to default
 
-- `click_in_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, int $x = -1, int $y = -1, string $frame = '-1'): bool`  
+**recognize_image(string $filename): false|string**
 
----
+Распознать картинку | Recognize image
 
-### `XHEFlash` — For flash anchor DOM elements in current loaded HTML page
+**report_bug_capcha(string $key, string $id): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Послать отчет об ошибке при распознавании | Send report about bug captcha
 
-- `get_version_by_number(int $number, string $frame = '-1'): void`  
+**recognize(string $filename, string $apikey, string $path = '', bool $is_verbose = true, int $rtimeout = 5, int $mtimeout = 120, int $is_phrase = 0, int $is_regsense = 0, int $is_numeric = 0, int $min_len = 0, int $max_len = 0, int $language = 0, int $is_question = 0, int $is_calc = 0, string $instructions = '', string $textcaptcha = '', int $id_constructor = 0, int $is_invoice = 0, int $is_recaptcha = 0, string $textinstructions = '', string $imginstructions = '', int $coordinatescaptcha = 0, string $method = '', int $angle = 0, string $file_1 = '', string $file_2 = '', string $file_3 = '', int $is_audio_recaptcha = 0, int $is_solveaudio = 0): false|string**
 
-- `get_ready_state_by_number(int $number, string $frame = '-1'): void`  
+Распознать капчу | Recognize
 
-- `is_playing_by_number(int $number, string $frame = '-1'): bool`  
+**get_result(string $apikey, string $path, string $task_id, bool $is_verbose = true, int $rtimeout = 5, int $mtimeout = 120, int $is_invoice = 0): false|string**
 
-- `play_by_number(int $number, string $frame = '-1'): bool`  
+Получить результат выполнения задания по ID
 
-- `forward_by_number(int $number, string $frame = '-1'): bool`  
+**recognize_userrecaptcha(string $apikey, string $path, string $pageurl, string $googlekey, int $invisible = 0, string $proxy = '', string $proxytype = '', string $method = 'userrecaptcha'): bool|string**
 
-- `back_by_number(int $number, string $frame = '-1'): bool`  
+Распознать капчу Recaptcha
 
-- `stop_by_number(int $number, string $frame = '-1'): bool`  
+**recognize_geetest_captcha(string $apikey, string $path, string $pageurl, string $gt, string $challenge, string $api_server = '', string $proxy = '', string $proxytype = '', string $method = 'geetest'): false|string**
 
-- `go_to_frame_by_number(mixed $frame_number, int $number, string $frame = '-1'): bool`  
+Распознать GeeTest капчу | Recognize GeeTest captcha
 
-- `get_current_frame_by_number(int $number, string $frame = '-1'): void`  
+## Class: XHEBaseSMS
 
-- `get_frame_count_by_number(int $number, string $frame = '-1'): void`  
+API SMS service
 
-- `get_background_color_by_number(int $number, string $frame = '-1'): void`  
+### Methods
 
-- `set_background_color_by_number(mixed $color, int $number, string $frame = '-1'): bool`  
+**__construct(string $api = '', string $servis = 'https://api.sms-activate.ae', string $ref = ''): void**
 
-- `get_movie_by_number(int $number, string $frame = '-1'): void`  
+Constructor
 
-- `set_movie_by_number(mixed $path, int $number, string $frame = '-1'): bool`  
+**change_service(string $api, string $servis, string $ref): void**
 
-- `get_current_label_by_number(mixed $time, int $number, string $frame = '-1'): void`  
+Установить новые настройки SMS API сервиса | Change new settings for SMS API
 
-- `call_label_by_number(mixed $label, mixed $time, int $number, string $frame = '-1'): bool`  
+**get_numbers_status(int $country = 0, string $operator = 'any'): false|string**
 
-- `call_frame_by_number(mixed $frame_number, mixed $time, int $number, string $frame = '-1'): bool`  
+Запросить количество доступных номеров | Get numbers
 
-- `get_variable_by_number(mixed $name, int $number, string $frame = '-1'): void`  
+**get_balance(): false|string**
 
-- `set_variable_by_number(mixed $name, mixed $value, int $number, string $frame = '-1'): bool`  
+Получить баланс | Get balance
 
----
+**get_phone_number(string $service = 'ot', string $operator = 'any', int $country = 0): bool**
 
-### `XHEFooter` — For handling footer DOM elements in current loaded HTML page
+Получить новый номер телефона для сервиса | Get a new phone number for the service
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_code(int $wt = 10, int $timeout = 10): bool**
 
----
+Получить от API SMS сообщение с кодом (например для активации сервиса) | Receive SMS message with code from API
 
-### `XHEForm` — For handling form DOM elements in current loaded HTML page
+**set_status(int $status = 6): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Изменить статуса активации для текущего номера | Change activation status for current number
 
-- `submit_by_number(int $number, string $frame = '-1'): bool`  
+## Class: XHEAnchor
 
-- `submit_by_name(string $name, string $frame = '-1'): bool`  
+For handling DOM anchor elements in current loaded HTML page
 
-- `submit_by_id(string $id, string $frame = '-1'): bool`  
+### Methods
 
-- `submit_by_action(string $action, bool $exactly = true, string $frame = '-1'): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `submit_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool`  
+Конструктор
 
-- `reset_by_number(int $number, string $frame = '-1'): bool`  
+**get_all_hrefs(string $separator = '<br>', string $frame = '-1'): string**
 
-- `reset_by_name(string $name, string $frame = '-1'): bool`  
+Получить все значения атрибута href (ссылки) у DOM элементов anchor | Retrieves all href attributes from anchor elements in the DOM.
 
-- `get_action_by_number(int $number, string $frame = '-1'): string`  
+**get_all_hrefs_by_inner_text(string $inner_text, string $separator = '<br>', string $frame = '-1'): string**
 
-- `get_action_by_name(string $name, string $frame = '-1'): string`  
+Получить все значения атрибута href у DOM элемента anchor по внутреннему тексту элемента anchor | Get all attribute href values by inner text
 
-- `get_action_by_id(string $id, string $frame = '-1'): string`  
+**get_all_hrefs_by_inner_text_2(string $inner_text, bool $exactly = true, string $separator = '<br>', string $frame = '-1'): string**
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+Получить все значения атрибута href у DOM элемента anchor по внутреннему тексту элемента anchor | Get all attribute href values by inner text
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+**get_all_hrefs_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $separator = '<br>', string $frame = '-1'): string**
 
-- `get_content_by_name(string $name, bool $as_html, string $frame = '-1'): string`  
+Получить все href с определенным значением атрибута | Retrieves all href attributes from anchor elements with a specific attribute name and value
 
-- `get_content_by_id(string $id, bool $as_html, string $frame = '-1'): string`  
+**get_all_inner_texts_by_href(string $href, string $separator = '<br>', bool $exactly = true, string $frame = '-1'): string**
 
-- `get_content_by_number(int $number, bool $as_html, string $frame = '-1'): string`  
+Получить все внутренние тексты | Retrieves all inner texts from anchor elements with a specific href
 
-- `get_all_elements_by_name(string $name, string $element_type = '', string $frame = '-1'): string`  
+**get_all_external_inner_texts_and_hrefs(string $href, bool $navigate = false, string $separator = '<br>', string $frame = '-1'): string**
 
-- `get_all_elements_by_id(string $id, string $element_type = '', string $frame = '-1'): string`  
+Получить все внешние ссылки и тексты anchor | Retrieves all inner texts and hrefs from anchor elements with a specific external href
 
-- `get_all_elements_by_number(int $number, string $element_type = '', string $frame = '-1'): string`  
+**get_all_internal_inner_texts_and_hrefs(string $href, bool $navigate = false, string $separator = '<br>', string $frame = '-1'): string**
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+Получить все внутренние ссылки и тексты anchor для WEB страницы | Retrieves all inner texts and hrefs from anchor elements with a specific internal href
 
----
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-### `XHEFrame` — For handling frame DOM elements in current loaded HTML page
+Клик на DOM элемент по атрибуту | Click on element by any attribute
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `get_body_by_number(int $number, bool $as_html, string $frame = '-1'): string`  
+Выполнить событие на DOM элементе | Send event to element by any attribute
 
-- `set_body_by_number(int $number, string $html_body, string $frame = '-1'): bool`  
+**is_exist_with_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+Проверить существование DOM элемента по атрибуту | Is exist by attribute
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+**is_exist_with_attribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `get_all_elements_by_number(int $number, string $frame = '-1'): string`  
+Проверить существование DOM элемента по атрибуту | Is anchor exist by attribute
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+**is_exist_with_name(string $name): bool**
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Проверить существование DOM элемента по атрибуту name | Is anchor exist by name
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
----
+Получить значение атрибута DOM элемента, который найдем по значению другого атрибута | Get the attribute value founded by attribute in frame
 
-### `XHEH` — For handling h (header) DOM elements in current loaded HTML page
+**is_exist_with_inner_text(string $text, bool $exactly = true): bool**
 
-**Методы**:
-- `__construct(string $server, int $number, string $password = ''): void`  
+Проверить существование элемента DOM по внутреннему тексту | Is anchor exist by inner text
 
----
+**is_exist_with_href(string $href, bool $exactly = true): bool**
 
-### `XHEHead` — For handling head DOM elements in current loaded HTML page
+Проверить существование элемента DOM по значению атрибута href | Is anchor exist by href
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
----
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-### `XHEHeader` — For handling header DOM elements in current loaded HTML page
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
----
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-### `XHEHiddenInput` — For handling hiddeninput DOM elements in current loaded HTML page
+Получить значение атрибута DOM элемента, который найдем по значению другого атрибута | Get the attribute value founded by attribute
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
----
+Получить значение атрибута DOM элемента, который найдем по значению другого атрибута | Get attribute by attribute in frame by number
 
-### `XHEHtml` — For handling HTML DOM elements in current loaded HTML page
+**remove_atribute_by_name(string $name, string $name_atr): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Удалить атрибут DOM элемента, который найдем по значению атрибута name | Remove attribute by name
 
----
+**remove_atribute_by_number(int $number, string $name_atr): bool**
 
-### `XHEI` — For handling i DOM elements in current loaded HTML page
+Удалить атрибут DOM элемента, который найдем по номеру | Remove attribute by number
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
----
+Добавить/Установить атрибут DOM элемента, который найдем по номеру | Add (or set) attribute by number
 
-### `XHEImage` — For handling image DOM elements in current loaded HTML page
+**add_atribute_by_attribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $value_atr): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Добавить/Установить атрибут DOM элемента, который найдем по атрибуту | Add (or set) attribute by attribute
 
-- `show_by_number(int $number, string $frame = '-1'): bool`  
+**add_atribute_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $value_atr): bool**
 
-- `show_by_name(string $name, string $frame = '-1'): bool`  
+Добавить/Установить атрибут DOM элемента, который найдем по атрибуту | Add (or set) attribute by attribute
 
-- `show_by_src(string $src, bool $exactly = true, string $frame = '-1'): bool`  
+**get_number_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): int**
 
-- `show_by_alt(string $alt, bool $exactly = true, string $frame = '-1'): bool`  
+Получить номер DOM элемента, который найдем по атрибуту | Get number by attribute
 
-- `show_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool`  
+**set_focus_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): bool**
 
-- `is_complete_by_number(int $number, string $frame = '-1'): bool`  
+Установить фокус на DOM элемент, который найдем по атрибуту | Set focus by attribute
 
-- `is_complete_by_name(string $name, string $frame = '-1'): bool`  
+**is_exist_with_atribute_in_frame_by_number(string $atr_name, string $atr_value, bool $exactly, string $frame_number): bool**
 
-- `get_file_create_date_by_number(int $number, string $frame = '-1'): string`  
+Проверить существование DOM элемента, который найдем по атрибуту | Is exist by attribute
 
-- `get_file_create_date_by_name(string $name, string $frame = '-1'): string`  
+**remove_atribute_by_name_in_frame(string $name, string $name_atr, string $frame_number): bool**
 
-- `get_file_modification_date_by_number(int $number, string $frame = '-1'): string`  
+Удалить атрибут DOM у элемента, который найдем по name | Remove attribute by name
 
-- `get_file_modification_date_by_name(string $name, string $frame = '-1'): string`  
+**remove_atribute_by_number_in_frame(int $number, string $name_atr, string $frame_number): bool**
 
-- `get_file_size_by_number(int $number, string $frame = '-1'): int`  
+Удалить атрибут DOM элемента, который найдем по номеру | Remove attribute by number
 
-- `get_file_size_by_name(string $name, string $frame = '-1'): int`  
+**remove_atribute_by_attribute_in_frame_by_number(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame_number): bool**
 
-- `recognize_captcha(string $file_path, int $type): string`  
+Удалить атрибут DOM элемента, который найдем по атрибуту | Remove attribute by attribute
 
-- `recognize_by_anticaptcha(string $src, string $file_path, string $key, string $path = 'https://anti-captcha.com', bool $is_verbose = true, int $rtimeout = 5, int $mtimeout = 120, bool $is_phrase = false, bool $is_regsense = false, bool $is_numeric = false, int $min_len = 0, int $max_len = 0, string $frame = '-1', int $is_russian = 0): string`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `recognize_by_rucaptcha(string $src, string $file_path, string $key, string $path = 'http://rucaptcha.com', bool $is_verbose = true, int $rtimeout = 5, int $mtimeout = 120, bool $is_phrase = false, bool $is_regsense = false, bool $is_numeric = false, int $min_len = 0, int $max_len = 0, string $frame = '-1', int $is_russian = 0): string`  
+Получить координату X DOM элемента, который найдем по атрибуту | Get x of element by attribute
 
-- `recognize_by_bypasscaptcha(string $systemkey, string $file_path, string $src = '', string $frame = '-1'): string`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_image(string $src_path, string $image_path, int $x, int $y, int $width, int $height): bool`  
+Получить координату Y DOM элемента, который найдем по атрибуту | Get Y of element by attribute
 
-- `get_x_of_image(string $src_path, string $image_path, float $koeff = 0.95): int`  
+**is_exist_by_atribute_in_frame(string $atr_name, string $atr_value, string $frame, bool $exactly = true): bool**
 
-- `get_y_of_image(string $src_path, string $image_path, float $koeff = 0.95): int`  
+Проверить существование DOM элемента, который найдем по атрибуту | Is exist by attribute
 
-- `get_pos_of_image(string $src_path, string $image_path, float $koeff = 0.95): XHEPosition`  
+**get_all_urls(string $separator = '<br>'): string**
 
-- `get_all_pos_of_image(string $src_path, string $image_path, float $koeff = 0.95): array`  
+Получить все значения атрибута href у DOM элементов anchor | Get all attribute href values
 
-- `add_image(string $src_path, string $image_path, string $side = 'right'): bool`  
+**get_all_urls_by_inner_text(string $inner_text, string $separator = '<br>'): string**
 
-- `create_median_image_by_folder_of_images(string $image_path, string $folder): bool`  
+Получить все значения атрибута href у DOM элементов anchor найденных по внутреннему тексту | Get all attribute href values by inner text
 
-- `save_as_gray(string $inpath, string $outpath): bool`  
+**get_all_urls_in_frame(string $frame, string $separator = '<br>'): string**
 
-- `save_as_blackhat(string $inpath, string $outpath): bool`  
+Получить все значения атрибута href у DOM элементов anchor во фрэйме | Get all hrefs on page in frame
 
-- `resize(string $inpath, string $outpath, float $scale, int $scaleType = 1): bool`  
+**get_all_urls_by_inner_text_in_frame(string $inner_text, string $frame, string $separator = '<br>'): string**
 
-- `invert(string $inpath, string $outpath): bool`  
+Получить все значения атрибута href (ссылки) у DOM элемента anchor по внутреннему тексту элемента anchor (без проверки существует ли элемент)| Get all attribute href values by inner text
 
-- `remove_noise(string $inpath, string $outpath, int $kernel_size = 3): bool`  
+**get_all_external_texts_and_url(string $url, bool $navigate = false, string $separator = '<br>'): string**
 
-- `get_mrz_image(string $inpath, string $outpath): bool`  
+Получить все внешние ссылки и тексты anchor для WEB страницы (без проверки существует ли элемент)
 
-- `fix_skew_text(string $inpath, string $outpath): bool`  
+**get_all_external_texts_and_url_in_frame(string $url, string $frame, string $separator = '<br>'): string**
 
-- `parse_mrz(string $mrz, string $mrz_type = 'PNRUS'): false|\stdClass`  
+Получить все внешние ссылки и тексты anchor для WEB страницы (без проверки существует ли элемент)
 
-- `preprocess_for_ocr(string $inpath, string $outpath, int $image_size = 1800, int $binary_treshhold = 180, bool $need_deskew = true): bool`  
+**click_within_iframe_by_name(string $name, string $frame): bool**
 
-- `convert(string $inpath, string $outpath): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click by name in frame
 
-- `unborder(string $inpath, string $outpath, int $struct_x = 220, int $struct_y = 20, int $smooth_xy = 3): bool`  
+**click_within_iframe_by_number(int $number, string $frame): bool**
 
-- `get_rotated_angle(string $inpath, int $min = -8, int $max = 8, int $step = 1): int`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `rotate(string $inpath, string $outpath, int $angle, float $center_x = -1, float $center_y = -1): bool`  
+**click_within_iframe_by_inner_text(string $text, bool $exactly, string $frame): bool**
 
-- `rewidth(string $inpath, string $outpath, int $width): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по внутреннему тексту | Click on DOM element by inner text
 
-- `get_qr_code(string $inpath, string $outpath): bool`  
+**click_within_iframe_by_href(string $url, mixed $exactly, string $frame): bool**
 
-- `recognize_qr_code(string $path): string`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту href | Click on DOM element by href
 
-- `create_qr_code(string $path, string $text, int $width = 300, int $height = 300): bool`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `remove_lines(string $inpath, string $outpath, bool $is_remove_h = true, bool $is_remove_v = true, int $struct_h = 50, int $struct_v = 50, int $thickness = 5): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `get_lines(string $path, bool $is_h = true, bool $is_v = true, int $struct_h = 50, int $struct_v = 50, bool $is_draw = false): mixed|null`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `filter_by_color(string $inpath, string $outpath, string $min_color, string $max_color): bool`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `get_dpi(string $path, bool $is_horizontal = true, bool $in_pixels = false): string`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `is_complete(int $number): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `get_href_by_name(string $name, string $frame = '-1'): string`  
+**remove_attribute_by_attribute_in_frame_by_number(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame_number): bool**
 
-- `get_href_by_number(int $number, string $frame = '-1'): string`  
+Удалить атрибут DOM элемента, который найти по атрибуту | Remove attribute by attribute
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**is_exist_by_name_in_frame(string $name, string $frame): bool**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**click_by_name_in_frame(string $name, string $frame): bool**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click by name in frame
 
-- `get_count_within_iframe_by_number(string $number): int`  
+**add_attribute_by_attribute_in_frame(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+**click_by_number_in_frame(int $number, string $frame): bool**
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `click_random_in_frame(string $frame): bool`  
+**click_by_attribute_in_frame(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+**click_by_href_in_frame(string $url, mixed $exactly, string $frame): bool**
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту href | Click on DOM element by href
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+**click_by_inner_text_in_frame(string $text, bool $exactly, string $frame): bool**
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по внутреннему тексту | Click on DOM element by inner text
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**click_random_in_frame(string $frame): int**
 
-- `save_to_file_by_number(int $number, string $file_path): bool`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `save_to_file_by_name(string $name, string $file_path): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `save_to_file_by_url(string $url, string $file_path, bool $exactly = true): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `save_to_file_by_number_withinIframe_number(int $number, string $file_path, string $framenum): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `save_to_file_by_name_withinIframe_number(string $name, string $file_path, string $framenum): bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `save_to_file_by_url_withinIframe_number(string $url, string $file_path, string $framenum, bool $exactly = true): bool`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**send_event_by_href_in_frame(string $url, bool $exactly, string $event, string $frame): bool**
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Послать событие элементу DOM, который найти по атрибуту href | Send event to DOM element by href
 
-- `recognize_captcha_by_url(mixed $url, mixed $exactly, mixed $login, mixed $password): void`  
+**send_event_by_atribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame): bool**
 
----
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-### `XHEInput` — For handling input DOM elements in current loaded HTML page
+**send_event_by_attribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `get_alt_text_by_name(string $name): string`  
+**set_focus_by_attribute_in_frame(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `get_alt_text_by_number(int $number): string`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**remove_attribute_by_name_in_frame(string $name, string $name_atr, string $frame_number): bool**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Удалить атрибут DOM у элемента, который найти по name | Remove attribute by name
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**remove_attribute_by_number_in_frame(int $number, string $name_atr, string $frame_number): bool**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Удалить атрибут DOM элемента, который найти по номеру | Remove attribute by number
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**remove_attribute_by_attribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $name_atr, string $frame_number): bool**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Удалить атрибут DOM элемента, который найти по атрибуту | Remove attribute by attribute
 
-- `get_count_within_iframe_by_number(string $number): int`  
+**is_exist_by_inner_text_in_frame(string $text, string $frame, bool $exactly = true): bool**
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+Проверить существование элемента DOM по внутреннему поиску | Check and wait element exist by inner text
 
-- `is_exist_within_iframe_with_name(string $name, string $frame): bool`  
+**is_exist_by_href_in_frame(string $href, string $frame, bool $exactly = true): bool**
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+Проверить существование DOM элемента, который найти по атрибуту href | Is element exist by href (no wait exist mode)
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+**is_exist_by_attribute_in_frame(string $atr_name, string $atr_value, string $frame, bool $exactly = true): bool**
 
-- `click_random_in_frame(string $frame): int`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+**get_attribute_by_attribute_in_frame(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+Получить значение атрибута DOM элемента, который найдем по значению другого атрибута | Get the attribute value founded by attribute in frame
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+**get_all_inner_texts_in_frame(string $frame, string $separator = '<br>'): string**
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Получить все значения внутреннего текста у DOM элементов anchor во фрэйме | Get all inner texts in frame
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+**get_all_hrefs_in_frame(string $frame, string $separator = '<br>'): string**
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+Получить все значения атрибута href у DOM элементов anchor во фрэйме | Get all hrefs on page in frame
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**get_all_hrefs_by_inner_text_in_frame(string $inner_text, string $frame, string $separator = '<br>'): string**
 
-- `set_value_within_iframe_by_name(string $name, string $value, string $frame): bool`  
+Получить все значения атрибута href (ссылки) у DOM элемента anchor по внутреннему тексту элемента anchor (без проверки существует ли элемент)| Get all attribute href values by inner text
 
-- `set_value_within_iframe_by_number(int $number, string $value, string $frame): bool`  
+**get_all_external_inner_texts_and_hrefs_in_frame(string $url, string $frame, bool $navigate = false, string $separator = '<br>'): string**
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+Получить все внешние ссылки и тексты anchor для WEB страницы (без проверки существует ли элемент)
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+## Class: XHEB
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+For handling DOM elements tag <b> in current loaded HTML page
 
----
+### Methods
 
-### `XHEInputButton` — For handling input type button DOM elements in current loaded HTML page
+**__construct(string $server, string $password = ''): void**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Конструктор
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+## Class: XHEBlockquote
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+For handling Blockquote DOM elements in current loaded HTML page
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+### Methods
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+Конструктор
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+## Class: XHEBody
 
-- `get_count_within_iframe_by_number(string $number): int`  
+For handling body DOM elements in current loaded HTML page
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+### Methods
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `click_within_iframe_by_name(string $name, string $frame): bool`  
+Конструктор
 
-- `click_within_iframe_by_number(int $number, string $frame): bool`  
+**disable_onunload_message(string $frame = '-1'): bool**
 
-- `click_within_iframe_num_by_name(string $name, string $frame): bool`  
+Запретить сообщение, подтверждающее желание покинуть текущую страницу (без учета проверки: существует ли элемент) | Disable onunload message
 
-- `click_within_iframe_num_by_number(int $number, string $frame): bool`  
+**set_text_within_iframe_by_name(string $name, string $text, string $framenum): bool**
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+Установить внутренний HTML DOM элемента, который найти по значению атрибута name | Set inner HTML by name
 
-- `click_random_in_frame(string $frame): int`  
+**set_text_within_iframe_by_number(int $number, string $text, string $framenum): bool**
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+Установить внутренний HTML DOM элемента, который найти по номеру | Set inner HTML by number
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+**get_text_within_iframe_by_name(string $name, string $framenum): string**
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+Получить внутренний HTML DOM элемента, который найти по атрибуту name | Get inner id by name
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+**get_text_within_iframe_by_number(int $number, string $framenum): string**
 
-- `is_exist_with_inner_text(string $text, bool $exactly = true): bool`  
+Получить внутренний HTML DOM элемента, который найти по номеру | Get inner HTML by number
 
-- `is_exist_with_inner_text_in_frame_by_number(string $text, bool $exactly, string $frame_num): bool`  
+**set_text_by_name(string $name, string $text, string $frame = '-1'): bool**
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+Установить внутренний HTML DOM элемента, который найти по значению атрибута name | Set inner HTML by name
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+**set_text_by_number(int $number, string $text, string $frame = '-1'): bool**
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Установить внутренний HTML DOM элемента, который найти по номеру | Set inner HTML by number
 
-- `get_all_inner_texts_in_frame_by_number(string $frame_num, string $separator = '<br>'): string`  
+**get_text_by_name(string $name, string $frame = '-1'): string**
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+Получить внутренний HTML DOM элемента, который найти по атрибуту name | Get inner id by name
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**get_text_by_number(int $number, string $frame = '-1'): string**
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Получить внутренний HTML DOM элемента | Get text by number
 
----
+## Class: XHEButton
 
-### `XHEInputFile` — For handling input type file DOM elements in current loaded HTML page
+For handling button DOM elements in current loaded HTML page
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+### Methods
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Конструктор
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `get_count_within_iframe_by_number(int $number): int`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `click_random_in_frame(string $frame): int`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `set_value_by_name_by_frame_num(string $name, string $value, string $framenum): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `set_value_by_number_by_frame_num(int $number, string $value, string $framenum): bool`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
 
----
 
-### `XHEInputImage` — For handling input type image DOM elements in current loaded HTML page
+**click_within_iframe_by_name(string $name, string $frame): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click on DOM element by name
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**click_within_iframe_by_number(int $number, string $frame): bool**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**click_random_in_frame(string $frame): int**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `get_count_within_iframe_by_number(string $number): int`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `click_within_iframe_by_name(string $name, string $frame): bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `click_within_iframe_by_number(int $number, string $frame): bool`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `click_random_in_frame(string $frame): int`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+**is_exist_with_inner_text(string $text, bool $exactly = true): bool**
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Проверить существование элемента DOM по внутреннему поиску | Check and wait element exist by inner text
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `save_to_file_by_number(int $number, string $file_path): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `save_to_file_by_name(string $name, string $file_path): bool`  
+**is_exist_with_inner_text_in_frame_by_number(string $text, bool $exactly, string $frame_num): bool**
 
-- `save_to_file_by_attribute(string $atr_name, string $atr_value, string $file_path, bool $exactly = true): bool`  
+Проверить существование элемента DOM по внутреннему поиску | Check and wait element exist by inner text
 
-- `save_to_file_by_atribute(string $atr_name, string $atr_value, string $file_path, bool $exactly = true): bool`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
----
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-### `XHEInterface` — For handling DOM elements as interface in current loaded HTML page
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-**Методы**:
-- `__construct(int $inner_number, string $server, string $password = ''): void`  
+## Class: XHECanvas
 
-- `__destruct(): void`  
+For handling canvas DOM elements in current loaded HTML page
 
-- `__toString(): string`  
+### Methods
 
-- `get_clone(): XHEInterface`  
+**__construct(string $server, string $password = ''): void**
 
-- `meta_click(bool $wait_browser = true): bool`  
+Конструктор
 
-- `click(bool $wait_browser = true): bool`  
-  **Примеры**:
-  ```php
-  $objInterface->click();
-  ```
+**draw_image_by_number(int $number, string $path, string $frame = '-1'): bool**
 
-- `event(string $event, bool $wait_browser = true): bool`  
-  **Примеры**:
-  ```php
-  $objInterface->event('onchange');
-  ```
+Нарисовать картинку с заданным номером
 
-- `focus(): bool`  
-  **Примеры**:
-  ```php
-  $objInterface->focus()
-  ```
+## Class: XHECheckButton
 
-- `scroll_to_view(string $start, bool $smooth = false): bool`  
+For handling checkbutton DOM elements  in current loaded HTML page
 
-- `scroll(string $scroll_action): bool`  
+### Methods
 
-- `check(bool $needCheck = true): bool`  
-  **Примеры**:
-  ```php
-  $objInterface->check(true);
-  ```
+**__construct(string $server, string $password = ''): void**
 
-- `select_index(int $index): bool`  
+Конструктор
 
-- `select_text(string $text, bool $exactly = true): bool`  
+**click_all(string $frame = '-1'): bool**
 
-- `select_value(string $value, bool $exactly = true): bool`  
-  **Примеры**:
-  ```php
-  $objInterface->select_value('Europe');
-  ```
+Эмулировать клик по все элементам DOM левой клавишей мыши | Click on all elements (no wait exist mode)
 
-- `select_random(): bool`  
+**check_by_number(int $number, bool $check, string $frame = '-1'): bool**
 
-- `multi_select_indexes(string $indexes): bool`  
+Отметить DOM элемент чекбокс по номеру | Check checkbox by number
 
-- `multi_select_values(string $values): bool`  
+**check_by_name(string $name, bool $check, string $frame = '-1'): bool**
 
-- `multi_select_texts(string $texts): bool`  
+Отметить DOM элемент чекбокс по по значению атрибута name | Check checkbox by name
 
-- `get_length(): int`  
+**check_by_value(string $value, bool $exactly, bool $check, string $frame = '-1'): bool**
 
-- `get_selected_index(): int`  
+Отметить DOM элемент чекбокс по значению атрибута value | Check checkbox by value
 
-- `get_selected_text(): string`  
+**check_by_attribute(string $attr_name, string $attr_value, bool $exactly, bool $check, string $frame = '-1'): bool**
 
-- `seek_to_end(): bool`  
+Отметить DOM элемент чекбокс по значению атрибута | Check checkbox by attribute
 
-- `seek_to_pos(int $pos): bool`  
+**check_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, bool $check, int $form_number, string $frame = '-1'): bool**
 
-- `set_value(string $value): bool`  
+Отметить DOM элемент чекбокс по значению атрибута в форме с заданным номером (без учета проверки: существует ли элемент) | Check checkbox by attribute and form by form number
 
-- `set_inner_text(string $inner_text): bool`  
+**check_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, bool $check, string $form_name, string $frame = '-1'): bool**
 
-- `set_inner_html(string $inner_html): bool`  
+Отметить DOM элемент чекбокс по значению атрибута в форме с заданным именем (без учета проверки: существует ли элемент) | Check checkbox by attribute and form by name
 
-- `add_attribute(string $name_atr, string $value_atr): bool`  
+**check_all(bool $check = true, string $frame = '-1'): bool**
 
-- `set_attribute(string $name_atr, string $value_atr): bool`  
+Отметить DOM элемент чекбокс все элементы (без учета проверки: существует ли элемент) | Check all checkboxes
 
-- `remove_attribute(string $name_atr): bool`  
+**is_check_by_name(string $name, string $frame = '-1'): bool**
 
-- `screenshot(string $file_path, bool $as_gray = false): bool`  
+Проверить есть отметка на DOM элементе чекбокс по номеру | Check box is checked by name
 
-- `save(string $file_path): bool`  
+**is_check_by_number(int $number, string $frame = '-1'): bool**
 
-- `run_js(string $js): mixed`  
+Проверить есть отметка на DOM элементе чекбокс по номеру | Check box is checked by number
 
-- `get_tag(): string`  
+**is_check_by_value(string $value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_type(): string`  
+Проверить есть отметка на DOM элементе чекбокс по value | Check box is checked by value
 
-- `get_name(): string`  
+**is_check_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_id(): string`  
+Проверить есть отметка на DOM элементе чекбокс по значению атрибута | Check box is checked by attribute
 
-- `get_number(string $object_name = ''): int`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `get_inner_text(): string`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `get_inner_html(): string`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `get_outer_text(): string`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `get_outer_html(): string`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `get_computed_style(string $style_name = '', string $pseudo = ''): string`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `get_value(): string`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `get_href(): string`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `get_src(): string`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `get_alt(): string`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_attribute(string $name_atr): string`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `get_frame_number(): string`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_form_number(): int`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `get_all_attributes(): string`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `get_all_attributes_values(): string`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-- `get_all_events(): string`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `is_disabled(): bool`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `is_checked(): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `is_exist(): bool`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `is_visibled(): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `is_view_now(): bool`  
+**click_random_in_frame(string $frame): int**
 
-- `ensure_visible(bool $smooth = false, string $side = 'start'): bool`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `get_numbers_child(string $element_type = '', bool $include_subchildren = false): string`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `get_x(bool $in_view = false): int`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `get_y(bool $in_view = false): int`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `get_width(): int`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `get_height(): int`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `get_xpath(): string`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `get_parents_count(): int`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `get_all_parents(): XHEInterfaces`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `get_parent(int $level = 1): XHEInterface`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `get_parent_by_attribute(string $atr_name, string $atr_value, bool $exactly = true): XHEInterface`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `get_next(): XHEInterface`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `get_prev(): XHEInterface`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `add_child(string $tag, string $inner_html): bool`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `insert_before(string $tag, string $inner_html): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `remove(): bool`  
+**set_checked_by_name(string $name, bool $check): bool**
 
-- `get_child_count(bool $include_subchildren = false): int`  
+Отметить DOM элемент чекбокс по по значению атрибута name | Check checkbox by name
 
-- `get_child_by_number(int $number, bool $include_subchildren = false): XHEInterface`  
+**set_checked_by_number(int $number, bool $check): bool**
 
-- `get_shadow_root(): XHEInterface`  
+Отметить DOM элемент чекбокс по номеру | Check checkbox by number
 
-- `get_child_by_inner_text(string $inner_text, bool $exactly = false, bool $include_subchildren = false): XHEInterface`  
+**set_checked_by_value(string $value, bool $check): bool**
 
-- `get_child_by_inner_html(string $inner_html, bool $exactly = false, bool $include_subchildren = false): XHEInterface`  
+Отметить DOM элемент чекбокс по значению атрибута value | Check checkbox by value
 
-- `get_child_by_outer_text(string $outer_text, bool $exactly = false, bool $include_subchildren = false): XHEInterface`  
+**set_all_checked(bool $check): bool**
 
-- `get_child_by_outer_html(string $outer_html, bool $exactly = false, bool $include_subchildren = false): XHEInterface`  
+Отметить DOM элемент чекбокс все элементы (без учета проверки: существует ли элемент) | Check all checkboxes
 
-- `get_child_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, bool $include_subchildren = false): XHEInterface`  
+**is_checked_by_name(string $name): bool**
 
-- `get_child_by_xpath(string $xpath): XHEInterface`  
+Проверить есть отметка на DOM элементе чекбокс по номеру | Check box is checked by name
 
-- `get_all_child_by_xpath(string $xpath): XHEInterfaces`  
+**is_checked_by_number(int $number): bool**
 
-- `get_all_child_by_inner_text(string $inner_text, bool $exactly = false, bool $include_subchildren = false): XHEInterfaces`  
+Проверить есть отметка на DOM элементе чекбокс по номеру | Check box is checked by number
 
-- `get_all_child_by_inner_html(string $inner_html, bool $exactly = false, bool $include_subchildren = false): XHEInterfaces`  
+**is_checked_by_value(string $value): bool**
 
-- `get_all_child_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, bool $include_subchildren = false): XHEInterfaces`  
+Проверить есть отметка на DOM элементе чекбокс по value | Check box is checked by value
 
-- `mouse_move_to(int $dx = -1, int $dy = -1, string $type_ = 'curve', int $time_ = 1000): bool`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `mouse_move(int $dx = -1, int $dy = -1, int $time = 0, int $tremble = 0): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `mouse_click(int $dx = -1, int $dy = -1): bool`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `mouse_double_click(int $dx = -1, int $dy = -1): bool`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `mouse_left_down(int $dx = -1, int $dy = -1): bool`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `mouse_left_up(int $dx = -1, int $dy = -1): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `mouse_right_click(int $dx = -1, int $dy = -1): bool`  
+## Class: XHECode
 
-- `mouse_right_down(int $dx = -1, int $dy = -1): bool`  
+For handling code DOM elements in current loaded HTML page
 
-- `mouse_right_up(int $dx = -1, int $dy = -1): bool`  
+### Methods
 
-- `send_mouse_move_to(int $dx = -1, int $dy = -1, string $type_ = 'curve', int $time_ = 1000): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `send_touch(int $id, int $touch_type, int $dx = -1, int $dy = -1, int $radiusX = 0, int $radiusY = 0, float $rotationAngle = 0, float $pressure = 0, int $modiefiers = 0, int $pointerType = 0): bool`  
+Конструктор
 
-- `send_mouse_move(int $dx = -1, int $dy = -1, int $time = 0, int $tremble = 0, string $buttons = ''): bool`  
+## Class: XHEDiv
 
-- `send_mouse_click(int $dx = -1, int $dy = -1, bool $addCtrl = false): bool`  
+For handling div DOM elements in current loaded HTML page
 
-- `send_mouse_double_click(int $dx = -1, int $dy = -1): bool`  
+### Methods
 
-- `send_mouse_left_down(int $dx = -1, int $dy = -1): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `send_mouse_left_up(int $dx = -1, int $dy = -1): bool`  
+Конструктор
 
-- `send_mouse_right_click(int $dx = -1, int $dy = -1): bool`  
+## Class: XHEElement
 
-- `send_mouse_right_down(int $dx = -1, int $dy = -1): bool`  
+For handling DOM elements in current loaded HTML page
 
-- `send_mouse_right_up(int $dx = -1, int $dy = -1): bool`  
+### Methods
 
-- `send_input(string $string, string $timeout = '0:2', bool $inFlash = false, bool $auto_change = true): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `send_key(string $key, bool $is_key = false): bool`  
+Конструктор
 
-- `send_key_down(string $key, bool $is_key = false): bool`  
+**get_tag_by_number(int $number, string $frame = '-1'): string**
 
-- `send_key_up(string $key, bool $is_key = false): bool`  
+Получить тэг DOM элемента по номеру | Get tag by number
 
-- `input(string $_string, string $timeout = '0:2', bool $inFlash = false, bool $auto_change = true): bool`  
+**get_x_by_tag_by_number(string $tag, int $number, string $frame = '-1'): int**
 
-- `key(string $code): bool`  
+Получить координату X DOM элемента с заданным тэг-ом по номеру
 
-- `key_down(string $key): bool`  
+**get_y_by_tag_by_number(string $tag, int $number, string $frame = '-1'): int**
 
-- `key_up(string $key): bool`  
+Получить координату Y DOM элемента с заданным тэг-ом по номеру
 
-- `press_key_by_code(string $code): bool`  
+**get_all_by_tag(string $tag, string $frame = '-1'): XHEInterfaces**
 
----
+Получить все интерфейсы элементов DOM с заданным тэг-ом
 
-### `XHEInterfaces` — A collection class for working with Interface DOM elements
+**convert_number(int $number, string $object_name, string $frame = '-1'): int**
 
-**Методы**:
-- `__construct(string $inner_numbers, string $server, string $password = ''): void`  
+Преобразовать номер элемента DOM в номер заданного объекта
 
-- `get_by_xxx(string $xxx, string $condition, bool $exactly): false|mixed`  
+**get_by_query_selector(string $selector, string $frame = '-1'): XHEInterface**
 
-- `get_by_name(string $name, bool $exactly = true): false|\XHEInterface`  
+Получить интерфейс объекта через запрос (document.querySelector)
 
-- `get_by_id(string $id, bool $exactly = true): false|\XHEInterface`  
+**get_all_by_query_selector(string $selector, string $frame = '-1'): XHEInterfaces**
 
-- `get_by_inner_text(string $inner_text, bool $exactly = true): false|\XHEInterface`  
+Получить интерфейсы объектов через запросы (document.querySelectorAll)
 
-- `get_by_inner_html(string $inner_html, bool $exactly = true): false|\XHEInterface`  
+**get_by_js(string $js, string $add_file = '', string $frame = '-1'): XHEInterface**
 
-- `get_by_outer_text(string $outer_text, bool $exactly = true): false|\XHEInterface`  
+Получить интерфейс объекта используя js
 
-- `get_by_outer_html(string $outer_html, bool $exactly = true): false|\XHEInterface`  
+**get_all_by_js(string $js, string $add_file = '', string $frame = '-1'): XHEInterfaces**
 
-- `get_by_src(string $src, bool $exactly = true): false|\XHEInterface`  
+Получить интерфейсы объектов используя JS
 
-- `get_by_href(string $href, bool $exactly = true): false|\XHEInterface`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `get_by_alt(string $alt, bool $exactly = true): false|\XHEInterface`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `get_by_value(string $value, bool $exactly = true): false|\XHEInterface`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `get_by_attribute(string $attr_name, string $attr_value, bool $exactly = true): false|\XHEInterface`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `get_all_by_xxx(string $xxx, string $condition, bool $exactly): XHEInterfaces`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `get_all_by_name(string $name, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `get_all_by_id(string $id, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `get_all_by_inner_text(string $inner_text, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `get_all_by_inner_html(string $inner_html, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `get_all_by_src(string $src, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_all_by_href(string $href, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `get_all_by_alt(string $alt, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_all_by_value(string $value, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+**get_element_value_by_name(string $name, string $frame = '-1'): string**
 
-- `get_all_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): XHEInterfaces`  
+Получить значение атрибута value элемента DOM, который найти по атрибуту name | Get value by name
 
----
+**get_element_innerText_by_name(string $name, string $frame = '-1'): string**
 
-### `XHELabel` — For handling label DOM elements in current loaded HTML page
+Получить внутренний текст DOM элемента, который найти по атрибуту name | Get inner text by name
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_element_innerHtml_by_name(string $name, string $frame = '-1'): string**
 
----
+Получить внутренний HTML DOM элемента, который найти по атрибуту name | Get inner id by name
 
-### `XHELi` — For handling li DOM elements in current loaded HTML page
+**get_element_innerText_by_number(int $number, string $frame = '-1'): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить внутренний текст DOM элемента, который найти по номеру | Get inner text by number
 
----
+**get_element_innerHtml_by_number(int $number, string $frame = '-1'): string**
 
-### `XHEMeta` — For handling meta DOM elements in current loaded HTML page
+Получить внутренний HTML DOM элемента, который найти по номеру | Get inner HTML by number
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_element_innerText_by_id(string $id, string $frame = '-1'): string**
 
----
+Получить внутренний текст DOM элемента, который найти по атрибуту id | Get inner text by id
 
-### `XHEObject` — Base class for handling object DOM elements in current loaded HTML page
+**get_element_innerHtml_by_id(string $id, string $frame = '-1'): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить внутренний HTML DOM элемента, который найти по атрибуту id | Get inner HTML by id
 
-- `click_in_by_number(int $number, int $x = -1, int $y = -1, string $frame = '-1'): bool`  
+**get_element_attribute_by_name(string $name, string $attribute, string $frame = '-1'): string**
 
-- `click_in_by_name(string $name, int $x = -1, int $y = -1, string $frame = '-1'): bool`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `click_in_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, int $x = -1, int $y = -1, string $frame = '-1'): bool`  
+**get_element_attribute_by_number(int $number, string $attribute, string $frame = '-1'): string**
 
----
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-### `XHEOption` — For handling option DOM elements in current loaded HTML page
+**is_exist_with_name(string $name): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
----
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-### `XHEP` — For handling p DOM elements in current loaded HTML page
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**set_element_attribute_by_name(string $name, string $attribute, string $value): bool**
 
----
+Задать значение атрибута элемента DOM, который найти по атрибуту name | Set attribute by name
 
-### `XHEPre` — For handling pre DOM elements in current loaded HTML page
+**set_element_value_by_name(string $name, string $text): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту name | Set value by name
 
----
+**click_on_element_by_name(string $name): bool**
 
-### `XHERadioButton` — For handling input type radio DOM elements in current loaded HTML page
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click on DOM element by name
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**click_on_element_by_number(int $number): bool**
 
-- `click_by_name_and_value(string $name, string $value = '', string $frame = '-1', bool $wait_browser = true): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `check_by_number(int $number, bool $check, string $frame = '-1'): bool`  
+**click_on_element_by_inner_text(string $inner_text, bool $exactly = true): bool**
 
-- `check_by_name(string $name, bool $check, string $frame = '-1'): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по внутреннему тексту | Click on DOM element by inner text
 
-- `check_by_value(string $value, bool $exactly, bool $check, string $frame = '-1'): bool`  
+**get_left_offset_on_page_by_att(string $name_attr, string $value_attr, bool $exactly = true, string $frame = '-1'): int**
 
-- `check_by_attribute(string $attr_name, string $attr_value, bool $exactly, bool $check, string $frame = '-1'): bool`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `check_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, bool $check, int $form_number, string $frame = '-1'): bool`  
+**get_top_offset_on_page_by_att(string $name_attr, string $value_attr, bool $exactly = true, string $frame = '-1'): int**
 
-- `check_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, bool $check, string $form_name, string $frame = '-1'): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `check_all(bool $check = true, string $frame = '-1'): bool`  
+**get_left_offset_on_page_by_name(string $name): int**
 
-- `is_check_by_number(int $number, string $frame = '-1'): bool`  
+Получить координату X DOM элемента, который найти по атрибуту name | Get X of element by attribute name
 
-- `is_check_by_name(string $name, string $frame = '-1'): bool`  
+**get_top_offset_on_page_by_name(string $name): int**
 
-- `is_check_by_value(string $value, bool $exactly = true, string $frame = '-1'): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту name | Get Y of element by attribute name
 
-- `is_check_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool`  
+**get_left_offset_on_page_by_href(string $href, bool $exactly = false): int**
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+Получить координату X DOM элемента, который найти по атрибуту href | Get X of element by attribute href
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+**get_top_offset_on_page_by_href(string $href, bool $exactly = false): int**
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+Получить координату Y DOM элемента, который найти по атрибуту href | Get Y of element by attribute href
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+**get_left_offset_on_page_by_tag_by_number(string $tag, int $number): int**
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+Получить координату X DOM элемента с заданным тэг-ом по номеру
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**get_top_offset_on_page_by_tag_by_number(string $tag, int $number): int**
 
-- `get_count_within_iframe_by_number(string $number): int`  
+Получить координату Y DOM элемента с заданным тэг-ом по номеру
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+**click_on_element_by_name_withiniframe(string $name, string $frame): bool**
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click on DOM element by name
 
-- `click_within_iframe_by_name(string $name, string $frame): bool`  
+**click_on_element_by_inner_text_withiniframe(string $inner_text, string $frame, bool $exactly): bool**
 
-- `click_within_iframe_by_number(int $number, string $frame): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по внутреннему тексту | Click on DOM element by inner text
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `click_random_in_frame(string $frame): int`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+**send_event_by_href_in_frame(string $url, bool $exactly, string $event, string $frame): bool**
 
-- `set_checked_by_name(string $name, bool $check): bool`  
+Послать событие элементу DOM, который найти по атрибуту href | Send event to DOM element by href
 
-- `set_checked_by_number(int $number, bool $check): bool`  
+**send_event_by_atribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame): bool**
 
-- `set_checked_by_value(string $value, bool $check): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `is_checked_by_name(string $name): bool`  
+**send_event_by_attribute_in_frame(string $atr_name, string $atr_value, bool $exactly, string $event, string $frame): bool**
 
-- `is_checked_by_number(int $number): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**set_text_html_by_attribute(string $attr_name, string $attr_value, string $html, bool $exactly = true, string $frame = '-1'): bool**
 
----
+Установить внутренний HTML DOM элемента, который найти по значению атрибута | Set inner html by any attribute
 
-### `XHES` — For handling s DOM elements in current loaded HTML page
+**set_inner_html_by_atribute(string $attr_name, string $attr_value, string $html, bool $exactly = true, string $frame = '-1'): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Установить внутренний HTML DOM элемента, который найти по значению атрибута | Set inner html by any attribute
 
----
+**set_inner_text_by_atribute(string $attr_name, string $attr_value, string $text, bool $exactly = true, string $frame = '-1'): bool**
 
-### `XHEScriptElement` — For handling script DOM elements in current loaded HTML page
+Установить внутренний HTML DOM элемента, который найти по значению атрибута | Set inner html by any attribute
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+## Class: XHEEmbed
 
-- `set_defer_by_number(int $number, bool $defer, string $frame = '-1'): bool`  
+For handling embed DOM elements in current loaded HTML page
 
-- `set_defer_by_src(string $src, bool $defer, string $frame = '-1'): bool`  
+### Methods
 
-- `set_htmlFor_by_number(int $number, string $htmlFor, string $frame = '-1'): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `set_htmlFor_by_src(string $src, string $htmlFor, string $frame = '-1'): bool`  
+Конструктор
 
-- `set_event_by_number(int $number, string $event, string $frame = '-1'): bool`  
+**click_in_by_number(int $number, int $x = -1, int $y = -1, string $frame = '-1'): bool**
 
-- `set_event_by_src(string $src, string $event, string $frame = '-1'): bool`  
+Выполнить эмуляцию клика в элементе DOM левой клавишей мыши, который найти по номеру | Click on element by number
 
-- `set_src_by_number(int $number, string $src, string $frame = '-1'): bool`  
+**click_in_by_name(string $name, int $x = -1, int $y = -1, string $frame = '-1'): bool**
 
-- `set_text_by_number(int $number, string $text, string $frame = '-1'): bool`  
+Выполнить эмуляцию клика в элементе DOM левой клавишей мыши, который найти по атрибуту name | Click on element by name
 
-- `set_text_by_src(string $src, string $text, string $frame = '-1'): bool`  
+**click_in_by_src(string $src, bool $exactly = true, int $x = -1, int $y = -1, string $frame = '-1'): bool**
 
-- `set_type_by_number(string $number, string $type, string $frame = '-1'): bool`  
+Выполнить эмуляцию клика в элементе DOM левой клавишей мыши, который найти по атрибуту src | Click on element by src
 
-- `set_type_by_src(string $src, string $type, string $frame = '-1'): bool`  
+**click_in_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, int $x = -1, int $y = -1, string $frame = '-1'): bool**
 
-- `get_defer_by_number(int $number, string $frame = '-1'): bool`  
+Выполнить эмуляцию клика в элементе DOM левой клавишей мыши, который найти по атрибуту | Click on element by attribute
 
-- `get_defer_by_src(string $src, string $frame = '-1'): bool`  
+## Class: XHEFlash
 
-- `get_htmlFor_by_number(int $number, string $frame = '-1'): string|bool`  
+For flash anchor DOM elements in current loaded HTML page
 
-- `get_htmlFor_by_src(string $src, string $frame = '-1'): string|bool`  
+### Methods
 
-- `get_event_by_number(int $number, string $frame = '-1'): string|bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_event_by_src(string $src, string $frame = '-1'): string|bool`  
+Конструктор
 
-- `get_readyState_by_number(int $number, string $frame = '-1'): string|bool`  
+**get_version_by_number(int $number, string $frame = '-1'): void**
 
-- `get_readyState_by_src(string $src, string $frame = '-1'): string|bool`  
 
-- `get_text_by_number(int $number, string $frame = '-1'): string|bool`  
 
-- `get_text_by_src(string $src, string $frame = '-1'): string|bool`  
+**get_ready_state_by_number(int $number, string $frame = '-1'): void**
 
-- `get_type_by_number(int $number, string $frame = '-1'): string|bool`  
 
-- `get_type_by_src(string $src, string $frame = '-1'): string|bool`  
 
-- `is_all_completed(): bool`  
+**is_playing_by_number(int $number, string $frame = '-1'): bool**
 
-- `get_count_within_iframe_by_number(string $number): int`  
 
----
 
-### `XHESection` — For handling section DOM elements in current loaded HTML page
+**play_by_number(int $number, string $frame = '-1'): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
 
----
 
-### `XHESelectElement` — For handling listbox DOM elements in current loaded HTML page
+**forward_by_number(int $number, string $frame = '-1'): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
 
-- `select_index_by_number(int $number, int $index, string $frame = '-1'): bool`  
 
-- `select_index_by_name(string $name, int $index, string $frame = '-1'): bool`  
+**back_by_number(int $number, string $frame = '-1'): bool**
 
-- `select_index_by_attribute(string $attr_name, string $attr_value, bool $exactly_attr, int $index, string $frame = '-1'): bool`  
 
-- `select_text_by_number(int $number, string $text, bool $exactly = true, string $frame = '-1'): bool`  
 
-- `select_text_by_name(string $name, string $text, bool $exactly = true, string $frame = '-1'): bool`  
+**stop_by_number(int $number, string $frame = '-1'): bool**
 
-- `select_text_by_attribute(string $attr_name, string $attr_value, bool $exactly_attr, string $text, bool $exactly = true, string $frame = '-1'): bool`  
 
-- `select_value_by_number(int $number, string $value, bool $exactly = true, string $frame = '-1'): bool`  
 
-- `select_value_by_name(string $name, string $value, bool $exactly = true, string $frame = '-1'): bool`  
+**go_to_frame_by_number(mixed $frame_number, int $number, string $frame = '-1'): bool**
 
-- `select_value_by_attribute(string $attr_name, string $attr_value, bool $exactly_attr, string $value, bool $exactly = true, string $frame = '-1'): bool`  
 
-- `select_index_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly_attr, int $index, int $form_number, string $frame = '-1'): bool`  
 
-- `select_index_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly_attr, int $index, string $form_name, string $frame = '-1'): bool`  
+**get_current_frame_by_number(int $number, string $frame = '-1'): void**
 
-- `select_text_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly_attr, string $text, bool $exactly, int $form_number, string $frame = '-1'): bool`  
 
-- `select_text_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly_attr, string $text, bool $exactly, string $form_name, string $frame = '-1'): bool`  
 
-- `select_value_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly_attr, string $value, bool $exactly, int $form_number, string $frame = '-1'): bool`  
+**get_frame_count_by_number(int $number, string $frame = '-1'): void**
 
-- `select_value_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly_attr, string $value, bool $exactly, string $form_name, string $frame = '-1'): bool`  
 
-- `select_random_by_number(int $number, string $frame = '-1'): bool`  
 
-- `select_random_by_name(string $name, string $frame = '-1'): bool`  
+**get_background_color_by_number(int $number, string $frame = '-1'): void**
 
-- `select_random_by_attribute(string $attr_name, string $attr_value, bool $exactly_attr = true, string $frame = '-1'): bool`  
 
-- `multi_select_indexes_by_number(int $number, string $indexes, string $frame = '-1'): bool`  
 
-- `multi_select_indexes_by_name(string $name, string $indexes, string $frame = '-1'): bool`  
+**set_background_color_by_number(mixed $color, int $number, string $frame = '-1'): bool**
 
-- `multi_select_values_by_number(int $number, string $values, string $frame = '-1'): bool`  
 
-- `multi_select_values_by_name(string $name, string $values, string $frame = '-1'): bool`  
 
-- `multi_select_texts_by_number(int $number, string $texts, string $frame = '-1'): bool`  
+**get_movie_by_number(int $number, string $frame = '-1'): void**
 
-- `multi_select_texts_by_name(string $name, string $texts, string $frame = '-1'): bool`  
 
-- `get_selected_index_by_number(int $number, string $frame = '-1'): bool`  
 
-- `get_selected_index_by_name(string $name, string $frame = '-1'): int`  
+**set_movie_by_number(mixed $path, int $number, string $frame = '-1'): bool**
 
-- `get_selected_index_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): int`  
 
-- `get_selected_text_by_number(int $number, string $frame = '-1'): false|string`  
 
-- `get_selected_text_by_name(string $name, string $frame = '-1'): false|string`  
+**get_current_label_by_number(mixed $time, int $number, string $frame = '-1'): void**
 
-- `get_selected_text_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): false|string`  
 
-- `get_size_by_number(int $number, string $frame = '-1'): int`  
 
-- `get_size_by_name(string $name, string $frame = '-1'): int`  
+**call_label_by_number(mixed $label, mixed $time, int $number, string $frame = '-1'): bool**
 
-- `get_size_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): int`  
 
-- `get_length_by_number(int $number, string $frame = '-1'): int`  
 
-- `get_length_by_name(string $name, string $frame = '-1'): int`  
+**call_frame_by_number(mixed $frame_number, mixed $time, int $number, string $frame = '-1'): bool**
 
-- `get_length_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): int`  
 
-- `get_type_by_number(int $number, string $frame = '-1'): string`  
 
-- `get_type_by_name(string $name, string $frame = '-1'): string`  
+**get_variable_by_number(mixed $name, int $number, string $frame = '-1'): void**
 
-- `get_type_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): string`  
 
-- `get_all_texts_by_number(int $number, string $frame = '-1'): string`  
 
-- `get_all_texts_by_name(string $name, string $frame = '-1'): string`  
+**set_variable_by_number(mixed $name, mixed $value, int $number, string $frame = '-1'): bool**
 
-- `get_all_texts_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): string`  
 
-- `get_all_values_by_number(int $number, string $frame = '-1'): string`  
 
-- `get_all_values_by_name(string $name, string $frame = '-1'): string`  
+## Class: XHEFooter
 
-- `get_all_values_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): string`  
+For handling footer DOM elements in current loaded HTML page
 
-- `add_option_by_number(int $number, string $text, string $value, string $frame = '-1'): bool`  
+### Methods
 
-- `add_option_by_name(string $name, string $text, string $value, string $frame = '-1'): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+Конструктор
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, mixed $event): void`  
+## Class: XHEForm
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+For handling form DOM elements in current loaded HTML page
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+### Methods
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, mixed $frame_number): string`  
+Конструктор
 
-- `select_random_value_by_num(int $num): bool`  
+**submit_by_number(int $number, string $frame = '-1'): bool**
 
-- `select_value_by_num(string $value, int $num): bool`  
+ВВыполнить отправку данных DOM элемента форма, который найти по номеру | Find form by number and call submit
 
-- `select_option_value_by_num(int $num, string $innername): bool`  
+**submit_by_name(string $name, string $frame = '-1'): bool**
 
-- `get_count_within_iframe_by_number(string $number): int`  
+Выполнить отправку данных DOM элемента форма, который найти по значению атрибута name | Find form by name and call submit
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+**submit_by_id(string $id, string $frame = '-1'): bool**
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+Выполнить отправку данных DOM элемента форма, который найти по значению атрибута id | Find form by id and call submit
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+**submit_by_action(string $action, bool $exactly = true, string $frame = '-1'): bool**
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+Выполнить отправку данных DOM элемента форма, который найти по значению атрибута action | Find form by action and call submit
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+**submit_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+Выполнить отправку данных DOM элемента форма, который найти по значению атрибута action | Find form by action and call submit
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, mixed $frame_num): bool`  
+**reset_by_number(int $number, string $frame = '-1'): bool**
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+ВВыполнить сброс данных DOM элемента форма, который найти по номеру | Find form by number and reset
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+**reset_by_name(string $name, string $frame = '-1'): bool**
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Выполнить сброс данных DOM элемента форма, который найти по значению атрибута name | Find form by name and reset
 
-- `add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool`  
+**get_action_by_number(int $number, string $frame = '-1'): string**
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Получить значение атрибута action DOM элемента форма, который найти по номеру | Find form by number and get action
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**get_action_by_name(string $name, string $frame = '-1'): string**
 
-- `select_part_value_by_name(string $name, string $value, bool $exactly): bool`  
+Получить значение атрибута action DOM элемента форма, который найти по значению атрибута name | Find form by name and get action
 
-- `select_random_value_by_name(string $name): bool`  
+**get_action_by_id(string $id, string $frame = '-1'): string**
 
-- `select_random_value_by_number(int $num): bool`  
+Получить значение атрибута action DOM элемента форма, который найти по значению атрибута id | Find form by id and get action
 
-- `select_num_value_by_name(string $name, mixed $num): bool`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `select_num_value_by_number(int $number, int $num): bool`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `select_num_by_inner_name(int $num, string $innername): bool`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `select_name_by_inner_name(string $name, string $innername): bool`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `select_option_text_by_name(string $name, string $value): bool`  
+**get_content_by_name(string $name, bool $as_html, string $frame = '-1'): string**
 
-- `select_option_text_by_num(string $value, int $num): bool`  
+Получить внутренний внутренний текст или HTML DOM элемента, который найти по атрибуту name | Get content by name
 
-- `select_option_value_by_number(int $num, string $innername): bool`  
+**get_content_by_id(string $id, bool $as_html, string $frame = '-1'): string**
 
-- `select_option_value_by_name(string $name, string $innername): bool`  
+Получить внутренний внутренний текст или HTML DOM элемента, который найти по атрибуту id | Get content by id
 
-- `get_cur_option_text_by_name(string $name): false|string`  
+**get_content_by_number(int $number, bool $as_html, string $frame = '-1'): string**
 
-- `get_cur_option_text_by_number(int $number): false|string`  
+Получить внутренний текст или HTML DOM элемента, который найти по номеру | Get content by number
 
-- `select_value_within_iframe_by_name(string $name, string $value, string $frame): bool`  
+**get_all_elements_by_name(string $name, string $element_type = '', string $frame = '-1'): string**
 
-- `select_value_within_iframe_by_num(string $value, int $num, string $frame): bool`  
+Получить номера потомков DOM элемента, который найти по значению атрибута name | Get the numbers of descendants of a DOM element found by the value of the name attribute
 
-- `select_part_value_within_iframe_by_name(string $name, string $value, bool $exactly, string $frame): bool`  
+**get_all_elements_by_id(string $id, string $element_type = '', string $frame = '-1'): string**
 
-- `select_num_value_within_iframe_by_name(string $name, int $num, string $frame): bool`  
+Получить номера потомков DOM элемента, который найти по значению атрибута id | Get the numbers of descendants of a DOM element found by the value of the id attribute
 
-- `select_num_value_within_iframe_by_number(int $number, int $num, string $frame): bool`  
+**get_all_elements_by_number(int $number, string $element_type = '', string $frame = '-1'): string**
 
-- `select_num_within_iframe_by_inner_name(int $num, string $innername, string $frame): bool`  
+Получить номера потомков DOM элемента, который найти по номеру | Get the numbers of descendants of a DOM element found by number
 
-- `select_name_within_iframe_by_inner_name(string $name, string $innername, string $frame): bool`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `multi_select_name_by_number(string $name, string $values): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `multi_select_name_by_num(string $name, string $values): bool`  
+## Class: XHEFrame
 
-- `multi_select_name_by_text(string $name, string $values): bool`  
+For handling frame DOM elements in current loaded HTML page
 
-- `multi_select_num_by_text(int $num, string $values): bool`  
+### Methods
 
-- `multi_select_name_by_inner_name(string $name, string $values): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `multi_select_num_by_inner_name(int $num, string $values): bool`  
+Конструктор
 
----
+**get_body_by_number(int $number, bool $as_html, string $frame = '-1'): string**
 
-### `XHESpan` — For handling span DOM elements in current loaded HTML page
+Получить тело фрейма, который найти по номеру
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**set_body_by_number(int $number, string $html_body, string $frame = '-1'): bool**
 
----
+Установить тело фрейма, который найти по номеру
 
-### `XHEStrong` — For handling strong DOM elements in current loaded HTML page
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
----
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-### `XHEStyle` — For handling style DOM elements in current loaded HTML page
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_all_elements_by_number(int $number, string $frame = '-1'): string**
 
----
+Получить номера потомков DOM элемента, который найти по номеру | Get the numbers of descendants of a DOM element found by number
 
-### `XHETable` — For handling table DOM elements in current loaded HTML page
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `export_to_csv(string $file_path, int $number, string $rows = '', string $cols = '', bool $as_html = true, string $separator = ';', string $frame = '-1'): bool`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `export_to_xml(string $file_path, int $number, string $rows = '', string $cols = '', bool $as_html = true, string $frame = '-1'): bool`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `get_cells_by_number(int $number, string $frame = '-1'): int`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_rows_by_number(int $number, string $frame = '-1'): int`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `get_cols_by_number(int $number, string $frame = '-1', int $row = 0): int`  
+## Class: XHEH
 
-- `get_cell_by_number(int $number, int $row, int $col, bool $as_html = false, string $frame = '-1'): string`  
+For handling h (header) DOM elements in current loaded HTML page
 
-- `get_cell_by_pos_by_number(int $number, int $pos, bool $as_html = false, string $frame = '-1'): string`  
+### Methods
 
-- `get_row_by_number(int $number, int $row, bool $as_html = false, string $frame = '-1'): string`  
+**__construct(string $server, int $number, string $password = ''): void**
 
-- `get_col_by_number(int $number, int $col, bool $as_html = false, string $frame = '-1'): string`  
+Конструктор
 
-- `get_rows_cols_by_number(int $number, string $rows, string $cols, bool $as_html = false, string $separator = '<br>', string $frame = '-1'): string`  
+## Class: XHEHead
 
-- `get_cell_x_by_number(int $number, int $row, int $col, string $frame = '-1'): int`  
+For handling head DOM elements in current loaded HTML page
 
-- `get_cell_x_by_inner_text(string $inner_text, bool $exactly, int $row, int $col, string $frame = '-1'): int`  
+### Methods
 
-- `get_cell_x_by_attribute(string $attr_name, string $attr_value, bool $exactly, int $row, int $col, string $frame = '-1'): int`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_cell_y_by_number(int $number, int $row, int $col, string $frame = '-1'): int`  
+Конструктор
 
-- `get_cell_y_by_inner_text(string $inner_text, bool $exactly, int $row, int $col, string $frame = '-1'): int`  
+## Class: XHEHeader
 
-- `get_cell_y_by_attribute(string $attr_name, string $attr_value, bool $exactly, int $row, int $col, string $frame = '-1'): int`  
+For handling header DOM elements in current loaded HTML page
 
-- `get_count_within_iframe_by_number(string $number): int`  
+### Methods
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Конструктор
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+## Class: XHEHiddenInput
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+For handling hiddeninput DOM elements in current loaded HTML page
 
-- `get_inner_html(int $number, string $frame = '-1'): string`  
+### Methods
 
-- `get_cell_count_by_number(int $number, string $frame = '-1'): int`  
+**__construct(string $server, string $password = ''): void**
 
----
+Конструктор
 
-### `XHETD` — For handling td DOM elements in current loaded HTML page
+## Class: XHEHtml
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+For handling HTML DOM elements in current loaded HTML page
 
----
+### Methods
 
-### `XHETextArea` — For handling textarea DOM elements in current loaded HTML page
+**__construct(string $server, string $password = ''): void**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Конструктор
 
-- `seek_to_end_by_number(int $number, string $frame = '-1'): bool`  
+## Class: XHEI
 
-- `seek_to_end_by_name(string $name, string $frame = '-1'): bool`  
+For handling i DOM elements in current loaded HTML page
 
-- `seek_to_end_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): bool`  
+### Methods
 
-- `seek_to_pos_by_number(int $number, int $pos, string $frame = '-1'): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `seek_to_pos_by_name(string $name, int $pos, string $frame = '-1'): bool`  
+Конструктор
 
-- `seek_to_pos_by_attribute(string $attr_name, string $attr_value, bool $exactly, int $pos, string $frame = '-1'): bool`  
+## Class: XHEImage
 
-- `set_readonly_by_number(int $number, bool $readonly, string $frame = '-1'): bool`  
+For handling image DOM elements in current loaded HTML page
 
-- `set_readonly_by_name(string $name, bool $readonly, string $frame = '-1'): bool`  
+### Methods
 
-- `get_readonly_by_number(int $number, string $frame = '-1'): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_readonly_by_name(string $name, string $frame = '-1'): bool`  
+Конструктор
 
-- `get_rows_by_number(int $number, string $frame = '-1'): int`  
+**show_by_number(int $number, string $frame = '-1'): bool**
 
-- `get_rows_by_name(string $name, string $frame = '-1'): int`  
+Показать спрятанную картинку, DOM элемент найти по номеру | Show image by number
 
-- `get_cols_by_number(int $number, string $frame = '-1'): int`  
+**show_by_name(string $name, string $frame = '-1'): bool**
 
-- `get_cols_by_name(string $name, string $frame = '-1'): int`  
+Показать спрятанную картинку, DOM элемент найти по значению атрибута name | Show image by name
 
-- `click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool`  
+**show_by_src(string $src, bool $exactly = true, string $frame = '-1'): bool**
 
-- `send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool`  
+Показать спрятанную картинку, DOM элемент найти по значению атрибута src | Show image by src
 
-- `get_atribute_by_name(string $name, string $name_attr): string`  
+**show_by_alt(string $alt, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_atribute_by_number(int $number, string $name_attr): string`  
+Показать спрятанную картинку, DOM элемент найти по значению атрибута alt | Show image by alt
 
-- `get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string`  
+**show_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Показать спрятанную картинку, DOM элемент найти по значению атрибута alt | Show image by alt
 
-- `get_count_within_iframe_by_number(string $number): int`  
+**is_complete_by_number(int $number, string $frame = '-1'): bool**
 
-- `is_exist_with_name(string $name, string $frame = '-1'): bool`  
+Проверить что картинка загружена, DOM элемент найти по номеру | Is complete by number
 
-- `click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool`  
+**is_complete_by_name(string $name, string $frame = '-1'): bool**
 
-- `click_random_in_frame(string $frame): int`  
+Проверить что картинка загружена, DOM элемент найти по номеру | Is complete by name
 
-- `send_event_by_name_in_frame(string $name, string $event, string $frame): bool`  
+**get_file_create_date_by_number(int $number, string $frame = '-1'): string**
 
-- `send_event_by_number_in_frame(int $number, string $event, string $frame): bool`  
+Получить дату создания картинки, DOM элемент найти по номеру | Get image created date by number
 
-- `send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool`  
+**get_file_create_date_by_name(string $name, string $frame = '-1'): string**
 
-- `set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool`  
+Получить дату создания картинки, DOM элемент найти по значению атрибута name | Get image created date by name
 
-- `add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool`  
+**get_file_modification_date_by_number(int $number, string $frame = '-1'): string**
 
-- `set_value_within_iframe_by_name(string $name, string $value, string $frame): bool`  
+Получить дату изменения картинки, DOM элемент найти по номеру | Get image modified date by number
 
-- `set_value_within_iframe_by_number(int $number, string $value, string $frame): bool`  
+**get_file_modification_date_by_name(string $name, string $frame = '-1'): string**
 
-- `is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool`  
+Получить дату изменения картинки, DOM элемент найти по значению атрибута name | Get image modified date by name
 
-- `is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool`  
+**get_file_size_by_number(int $number, string $frame = '-1'): int**
 
-- `get_value_within_iframe_by_name(string $name, string $frame): string`  
+Получить размер картинки, DOM элемент найти по номеру | Get image file size by number
 
-- `get_value_within_iframe_by_number(int $number, string $frame): string`  
+**get_file_size_by_name(string $name, string $frame = '-1'): int**
 
-- `get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string`  
+Получить размер картинки, DOM элемент найти по значению атрибута name | Get image file size by name
 
-- `add_atribute_by_number(int $number, string $name_atr, mixed $value_atr): bool`  
+**recognize_captcha(string $file_path, int $type): string**
 
-- `get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+Распознать капчу из картинки встроенными функциями | Recognize captcha
 
-- `get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int`  
+**recognize_by_anticaptcha(string $src, string $file_path, string $key, string $path = 'https://anti-captcha.com', bool $is_verbose = true, int $rtimeout = 5, int $mtimeout = 120, bool $is_phrase = false, bool $is_regsense = false, bool $is_numeric = false, int $min_len = 0, int $max_len = 0, string $frame = '-1', int $is_russian = 0): string**
 
----
+Распознать капчу из картинки через сервис antigate.com | Recognize captcha by antigate.com
 
-### `XHETH` — For handling th DOM elements in current loaded HTML page
+**recognize_by_rucaptcha(string $src, string $file_path, string $key, string $path = 'http://rucaptcha.com', bool $is_verbose = true, int $rtimeout = 5, int $mtimeout = 120, bool $is_phrase = false, bool $is_regsense = false, bool $is_numeric = false, int $min_len = 0, int $max_len = 0, string $frame = '-1', int $is_russian = 0): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Распознать капчу из картинки через сервис распознать капчу из картинки через сервис rucaptcha.com | Recognize captcha by rucaptcha.com
 
----
+**recognize_by_bypasscaptcha(string $systemkey, string $file_path, string $src = '', string $frame = '-1'): string**
 
-### `XHETR` — For handling TR DOM elements in current loaded HTML page
+Распознать капчу из картинки через сервис bypasscaptcha.com | Recognize captcha by bypasscaptcha.com
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_image(string $src_path, string $image_path, int $x, int $y, int $width, int $height): bool**
 
----
+Получить новую картинку - как часть существующей | Get new image as part of current
 
-### `XHEU` — For handling U DOM elements in current loaded HTML page
+**get_x_of_image(string $src_path, string $image_path, float $koeff = 0.95): int**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить координату X вхождения заданной картинки | Get coordinate X of the image
 
----
+**get_y_of_image(string $src_path, string $image_path, float $koeff = 0.95): int**
 
-### `XHEUl` — For handling UL DOM elements in current loaded HTML page
+Получить координату Y вхождения заданной картинки | Get coordinate Y of the image
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_pos_of_image(string $src_path, string $image_path, float $koeff = 0.95): XHEPosition**
 
----
+Получить позицию (XHEPosition) вхождения заданной картинки | Get position of the image
 
-### `XHEVideo` — For handling video DOM elements in current loaded HTML page
+**get_all_pos_of_image(string $src_path, string $image_path, float $koeff = 0.95): array**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить все позиции вхождения заданной картинки | Get all positions of the image
 
----
+**add_image(string $src_path, string $image_path, string $side = 'right'): bool**
 
-## OTHER
+Добавить картинку к заданной | Add image to another one
 
-### `EncodedVariable` — Encoded Variable
+**create_median_image_by_folder_of_images(string $image_path, string $folder): bool**
 
-**Методы**:
-- `__construct(string $unique_name): void`  
+Создать медианное изображение для папки с изображениями (для теста водяных знаков) | Create median image by images from the folder
 
-- `__toString(): string`  
+**save_as_gray(string $inpath, string $outpath): bool**
 
----
+Сохранить картинку как черно-белую GrayScale | Save image like GrayScale
 
-### `EncodedString` — Encoded String
+**save_as_blackhat(string $inpath, string $outpath): bool**
 
-**Методы**:
-- `__construct(string $str, string $key): void`  
+Сохранить картинку как Blackhat | Save image like Blackhat
 
-- `__toString(): string`  
+**resize(string $inpath, string $outpath, float $scale, int $scaleType = 1): bool**
 
----
+Изменить размер (масштабировать) картинку | Resize the image
 
-### `XHEExcelFileCompatible` — Класс базовый для XHEExcelFile. Для устаревших функций
+**invert(string $inpath, string $outpath): bool**
 
-**Методы**:
-- `convert(string $inpath, string $outpath, int $timeout = 600): bool`  
+Инвертировать картинку | Invert the image
 
-- `set_col_number_format(string $path, int $sheet, string $col, string $format, bool $is_predefined = true, bool $except_header = false): bool`  
+**remove_noise(string $inpath, string $outpath, int $kernel_size = 3): bool**
 
-- `set_cell_number_format(string $path, int $sheet, int $row, string $col, string $format, bool $is_predefined = true): bool`  
+Удалить шумы на картинке | Remove noise from the image
 
-- `set_range_number_format(string $path, int $sheet, string $range, string $format, bool $is_predefined = true): bool`  
+**get_mrz_image(string $inpath, string $outpath): bool**
 
-- `set_range_type(string $path, int $sheet, string $range, string $type_): bool`  
+Получить MRZ область картинки как картинку | Get MRZ region from the image as image
 
-- `set_col_type(string $path, int $sheet, string $col, string $type_, bool $except_header = false): bool`  
+**fix_skew_text(string $inpath, string $outpath): bool**
 
-- `set_cell_type(string $path, int $sheet, int $row, string $col, string $type_): bool`  
+Исправить наклонный текст на картинке | Fix skew text on the image
 
----
+**parse_mrz(string $mrz, string $mrz_type = 'PNRUS'): false|\stdClass**
 
-### `XHEFile_osCompatible` — XHEFile_osCompatible
+Распарсить строку текста MRZ | Parse MRZ image
 
-**Методы**:
-- `get_file_name(mixed $path): void`  
+**preprocess_for_ocr(string $inpath, string $outpath, int $image_size = 1800, int $binary_treshhold = 180, bool $need_deskew = true): bool**
 
-- `get_file_title(mixed $path): void`  
+Преобразовать картинку перед передачей OCR | Preprocess image for next process OCR
 
-- `get_file_ext(mixed $path): void`  
+**convert(string $inpath, string $outpath): bool**
 
-- `get_file_folder(mixed $path): void`  
+Конвертация картинки в другой тип | Convert the image to another type
 
-- `get_file_disk(mixed $path): void`  
+**unborder(string $inpath, string $outpath, int $struct_x = 220, int $struct_y = 20, int $smooth_xy = 3): bool**
 
----
+Убрать границы у картинки | Remove borders form the image
 
-### `XHEFolderCompatible` — XHEFolderCompatible
+**get_rotated_angle(string $inpath, int $min = -8, int $max = 8, int $step = 1): int**
 
-**Методы**:
-- `create_folder(mixed $path): void`  
+Получить угол наклона картинки | Get the tilt angle of the image
 
-- `get_folder_name(mixed $path): void`  
+**rotate(string $inpath, string $outpath, int $angle, float $center_x = -1, float $center_y = -1): bool**
 
-- `get_folder_disk(mixed $path): void`  
+Повернуть картинку на заданный угол | Rotate the image by an angle
 
----
+**rewidth(string $inpath, string $outpath, int $width): bool**
 
-### `XHEWordCompatible` — XHEWordCompatible
+Изменить ширину картинки (с сохранением пропорций) | Change image width
 
-**Методы**:
-- `get_page_count(mixed $path): void`  
+**get_qr_code(string $inpath, string $outpath): bool**
 
----
+Получить область на картинке с QR кодом, как картинку и сохранить в отдельный файл | Get the area on the image with the QR code as an image and save it to a separate file
 
-### `XHEWordFileCompatible` — XHEWordFileCompatible
+**recognize_qr_code(string $path): string**
 
-**Методы**:
-- `convert(string $inpath, string $outpath, int $timeout = 600): void`  
+Распознать картинку с QR кодом | Recognize QR code
 
-- `get_page_count(string $path): void`  
+**create_qr_code(string $path, string $text, int $width = 300, int $height = 300): bool**
 
-- `export_pages(string $inpath, string $outpath, int $from_page, int $count = 1): void`  
+Создать (генерировать) картинку с QR кодом | Crete new QR code
 
-- `export_all_pages(string $inpath, string $to_folder, string $ext = 'pdf'): void`  
+**remove_lines(string $inpath, string $outpath, bool $is_remove_h = true, bool $is_remove_v = true, int $struct_h = 50, int $struct_v = 50, int $thickness = 5): bool**
 
-- `read_table_by_number(string $path, int $number, bool $as_array = false): void`  
+Удалить вертикальные и горизонтальные линии с картинки | Remove lines from the image
 
-- `compare(string $inpath1, string $inpath2): void`  
+**get_lines(string $path, bool $is_h = true, bool $is_v = true, int $struct_h = 50, int $struct_v = 50, bool $is_draw = false): mixed|null**
 
----
+Получить вертикальные и горизонтальные линии с картинки | Get lines from the image
 
-### `XHEBd` — Perform operations with Data base. Supported Data bases: "mysql", "mssql", "postgresql", "oracle", "sqlite"
+**filter_by_color(string $inpath, string $outpath, string $min_color, string $max_color): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Отфильтровать пиксели заданного диапазона цветов исходной картинки и результат сохранить в файл | Filer pixels by color range and save it
 
-- `connect(string $alias, string $connection_str, string $bd_type = 'mysql'): bool`  
+**get_dpi(string $path, bool $is_horizontal = true, bool $in_pixels = false): string**
 
-- `disconnect(string $alias): bool`  
+Получить плотность пикселей картинки по диагонали/горизонтали/вертикали | Get the pixel density of an image diagonal/horizontal/vertical
 
-- `query(string $alias, string $query, int $timeout = 60): string`  
+**is_complete(int $number): bool**
 
-- `query_arrays(string $alias, string $query, int $timeout = 60): ?array`  
+Проверить что картинка загружена, DOM элемент найти по номеру | Is complete by number
 
-- `query_dicts(string $alias, string $query, int $timeout = 60): ?array`  
+**get_href_by_name(string $name, string $frame = '-1'): string**
 
----
+Получить значение атрибута src элемента DOM, который найти по значению атрибута name | Get src by name
 
-### `XHEClipboard` — Perform operations with operating system clipboard
+**get_href_by_number(int $number, string $frame = '-1'): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить значение атрибута src элемента DOM, который найти по номеру | Get src by number
 
-- `get_text(): string`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `clear(): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `put_text(string $text): bool`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `put_html(string $html, string $url = ''): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
----
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-### `XHECryptography` — Performs encryption and decryption operations
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `crypt_text(string $text, string $key): string`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `uncrypt_text(string $text, string $key): string`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `hash_text(string $text): string`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `crypt_file(string $inpath, string $outpath, string $key): bool`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `uncrypt_file(string $inpath, string $outpath, string $key): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `hash_file(string $path, string $algoritm = 'sha256'): string`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `get_totp(string $key, int $step = 30, string $algoritm = 'sha1'): string`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `get_hotp(string $key, int $counter, string $algoritm = 'sha1'): string`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
----
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-### `XHEExcel` — Perform operations with Excel files used Microsoft Excel application
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `create(string $path, string $sheet_name, mixed $header_datas = '', int $timeout = 6000): bool`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `open(string $path, bool $read_only = false, bool $visibled = false, int $timeout = 3000, string $password = ''): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `connect_by_hwnd(string $hwnd, string $path_alias, int $timeout = 3000): bool`  
+**click_random_in_frame(string $frame): bool**
 
-- `save(string $path, int $timeout = 3000, string $password = ''): bool`  
+click on random element in frame
 
-- `close(string $path): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `open_app(string $path): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `get_sheets_count(string $path): int`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `get_sheets_names(string $path): ?array`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `get_sheet_name(string $path, int $sheet): string`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `set_sheet_name(string $path, int $sheet, string $name): bool`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `set_sheet_zoom(string $path, int $sheet, int $zoom): bool`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `get_sheet(string $path, int $sheet, int $timeout = 3000, mixed $only_visible = false, bool $use_value2 = true): ?array`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `set_sheet(string $path, int $sheet, array $sheet_array, int $timeout = 3000, int $row = 1, string $col = 'A'): bool`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `add_sheet(string $path, string $name): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `remove_sheet_by_number(string $path, int $number): bool`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `remove_sheet_by_name(string $path, string $name): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_sheet_number_by_name(string $path, string $name, bool $exactly = true): int`  
+**save_to_file_by_number(int $number, string $file_path): bool**
 
-- `sort_sheet(string $path, int $sheet, string $col, bool $is_ascending = true, bool $is_header_exists = false, int $timeout = 3000): bool`  
+Сделать скриншот элемента с заданным номером
 
-- `dedupe_sheet(string $path, int $sheet, string $use_cols = '*', int $timeout = 3000): bool`  
+**save_to_file_by_name(string $name, string $file_path): bool**
 
-- `get_rows_count(string $path, int $sheet): int`  
+Сделать скриншот DOM элемента, который найти по атрибуту name |Save screenshot to file by name
 
-- `add_row(string $path, int $sheet, array $row_array): bool`  
+**save_to_file_by_url(string $url, string $file_path, bool $exactly = true): bool**
 
-- `get_row(string $path, int $sheet, int $row, bool $use_value2 = true, bool $only_visible = false): ?array`  
+Сделать скриншот DOM элемента, который найти по атрибуту src | Save screenshot to file by number by src
 
-- `set_row(string $path, int $sheet, int $row, array $row_array): bool`  
+**save_to_file_by_number_withinIframe_number(int $number, string $file_path, string $framenum): bool**
 
-- `add_rows(string $path, int $sheet, array $rows_array, int $timeout = 3000): bool`  
+Сделать скриншот элемента с заданным номером
 
-- `remove_row(string $path, int $sheet, int $row): bool`  
+**save_to_file_by_name_withinIframe_number(string $name, string $file_path, string $framenum): bool**
 
-- `remove_rows_by_number(string $path, int $sheet, int $row, int $count): bool`  
+Сделать скриншот DOM элемента, который найти по атрибуту name |Save screenshot to file by name
 
-- `remove_rows_by_text(string $path, int $sheet, string $text, string $col = ''): bool`  
+**save_to_file_by_url_withinIframe_number(string $url, string $file_path, string $framenum, bool $exactly = true): bool**
 
-- `remove_rows_by_ranges(string $path, int $sheet, string $ranges): bool`  
+Сделать скриншот DOM элемента, который найти по атрибуту src | Save screenshot to file by number by src
 
-- `set_row_format(string $path, int $sheet, int $row, string $format): bool`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `autosize_row(string $path, int $sheet, int $row = -1, int $timeout = 3000): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `set_row_height(string $path, int $sheet, int $row, float $height, int $timeout = 3000): bool`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `show_row(string $path, int $sheet, int $row, bool $show = true): bool`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `is_row_hidden(string $path, int $sheet, int $row): bool`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_cols_count(string $path, int $sheet, int $row = -1): int`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `set_col_format(string $path, int $sheet, string $col, string $format): bool`  
+**recognize_captcha_by_url(mixed $url, mixed $exactly, mixed $login, mixed $password): void**
 
-- `autosize_col(string $path, int $sheet, string $col = '', int $timeout = 3000): bool`  
 
-- `set_col_width(string $path, int $sheet, string $col, float $width, int $timeout = 3000): bool`  
 
-- `get_cell(string $path, int $sheet, int $row, string $col, bool $use_value2 = true): string`  
+## Class: XHEInput
 
-- `set_cell(string $path, int $sheet, int $row, string $col, string $text): bool`  
+For handling input DOM elements in current loaded HTML page
 
-- `clear_cell(string $path, int $sheet, int $row, string $col): bool`  
+### Methods
 
-- `set_cell_format(string $path, int $sheet, int $row, string $col, string $format): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `merge_cells(string $path, int $sheet, string $begin_address, string $end_address, bool $across = false): bool`  
+Конструктор
 
-- `unmerge_cells(string $path, int $sheet, string $begin_address, string $end_address): bool`  
+**get_alt_text_by_name(string $name): string**
 
-- `get_cell_font(string $path, int $sheet, int $row, string $col): ?stdClass`  
+Получить значение атрибута alt элемента DOM, который найти по значению атрибута name | Get alt by name
 
-- `set_cell_font(string $path, int $sheet, int $row, string $col, XHEFont $font): bool`  
+**get_alt_text_by_number(int $number): string**
 
-- `set_cell_font_bold(string $path, int $sheet, int $row, string $col, bool $is_bold = true): bool`  
+Получить значение атрибута alt элемента DOM, который найти по номеру | Get alt by number
 
-- `set_cell_font_italic(string $path, int $sheet, int $row, string $col, bool $is_italic = true): bool`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `set_cell_font_underline(string $path, int $sheet, int $row, string $col, bool $is_underline = true): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `set_cell_font_striketrough(string $path, int $sheet, int $row, string $col, bool $is_striketrough = true): bool`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `set_cell_font_shadow(string $path, int $sheet, int $row, string $col, bool $is_shadow = true): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `set_cell_font_size(string $path, int $sheet, int $row, string $col, float $size): bool`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `set_cell_font_name(string $path, int $sheet, int $row, string $col, string $name): bool`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `kill(): bool`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `convert(string $inpath, string $outpath, int $timeout = 3000, string $delimeter = ''): bool`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `export_sheets(string $path, string $to_folder, int $timeout = 3000): bool`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `split_sheet_by_rows(string $path, string $to_folder, int $sheet_number, int $rows_per_file, int $timeout = 3000): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `export_to_access(string $path, string $dbpath, string $sheet_name, string $table_name, int $timeout = 3000): bool`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `run_macro_by_name(string $path, int $active_sheet, string $macro_name, string $file_name = '', array $macro_args = null): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `add_macro(string $path, string $macro_name, string $macro_code): bool`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `add_macro_from_file(string $path, string $macro_name, string $macro_file): bool`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `add_link(string $path, int $sheet, int $row, string $col, string $text, string $address, string $tip = ''): bool`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-- `follow_link_by_number(string $path, int $active_sheet, int $number, int $timeout = 3000): bool`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `follow_link_by_text(string $path, int $active_sheet, string $text, bool $exactly = false, int $skip = 0, int $timeout = 3000): bool`  
+**is_exist_within_iframe_with_name(string $name, string $frame): bool**
 
-- `get_pos_by_text(string $path, int $sheet, string $text, bool $exactly = true, bool $is_match_case = true, string $col = '', int $timeout = 3000): XHEPosition`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `get_all_pos_by_text(string $path, int $sheet, string $text, bool $exactly = true, bool $is_match_case = true, string $col = '', int $timeout = 3000): array`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `get_range(string $path, int $sheet, string $begin_cell, string $end_cell, int $timeout = 3000): ?array`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `get_and_clear_range(string $path, int $sheet, string $begin_cell, string $end_cell, int $timeout = 3000): ?array`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `set_range_name(string $path, int $sheet, string $begin_cell, string $end_cell, string $name, int $timeout = 3000): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `copy_range_to_clipboard(string $path, int $sheet, string $begin_cell, string $end_cell, int $timeout = 3000): bool`  
+**click_random_in_frame(string $frame): int**
 
-- `cut_range_to_clipboard(string $path, int $sheet, string $begin_cell, string $end_cell, int $timeout = 3000): bool`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `paste_range_from_clipboard(string $path, int $sheet, int $row, string $col, int $timeout = 3000): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `dedupe_range(string $path, int $sheet, string $begin_cell, string $end_cell, string $use_cols = '*', int $timeout = 3000): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `cut_range_and_paste_to_range(string $path, int $src_sheet, int $target_sheet, string $src_begin_cell, string $src_end_cell, string $target_begin_cell, string $target_end_cell, int $timeout = 3000): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `copy_range_and_paste_to_range(string $path, int $src_sheet, int $target_sheet, string $src_begin_cell, string $src_end_cell, string $target_begin_cell, string $target_end_cell, int $timeout = 3000): bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `add_autofilter(string $path, int $sheet, string $range, int $col, string $condition1 = '', string $operator1 = '', string $condition2 = '', int $timeout = 3000): bool`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `clear_autofilters(string $path, int $sheet, int $timeout = 3000): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `set_connection_source_data_file_by_number(string $path, int $number, string $source_data_file_path): bool`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `refresh_sheet(string $path, int $sheet): bool`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
----
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-### `XHEExcelDataReader` — Perform operations with Excel files used ExcelDataReader library
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `set_password(string $excelpassword): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `get_sheet_name(string $path, int $sheet): string`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `get_sheets_count(string $path): int`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_sheet(string $path, int $sheet, int $timeout = 3000): ?array`  
+**set_value_within_iframe_by_name(string $name, string $value, string $frame): bool**
 
-- `get_rows_count(string $path, int $sheet): int`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту name | Set value by name
 
-- `get_row(string $path, int $sheet, int $row): ?array`  
+**set_value_within_iframe_by_number(int $number, string $value, string $frame): bool**
 
-- `get_cols_count(string $path, int $sheet): int`  
+Задать значение атрибуту value элементу DOM, который найти по номеру | Set value by number
 
-- `get_cell(string $path, int $sheet, int $row, int $col): string`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
----
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-### `XHEExcelFile` — Perform operations with Excel files used library ClosedXML
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `create(string $path, string $sheet_name, mixed $header_datas = '', int $timeout = 6000): bool`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `open(string $path, int $timeout = 3000, bool $is_wait_busy = false, int $wait_busy_seconds = 180): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `is_opened(string $path): bool`  
+## Class: XHEInputButton
 
-- `save(string $path, int $timeout = 3000): bool`  
+For handling input type button DOM elements in current loaded HTML page
 
-- `close(string $path): bool`  
+### Methods
 
-- `extract_images(string $path, string $to_folder): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_sheets_count(string $path): int`  
+Конструктор
 
-- `set_sheet_zoom(string $path, int $sheet, int $zoom): bool`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `get_sheets_names(string $path): ?array`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `get_name_for_new_sheet(string $path, string $name): string`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `add_sheet(string $path, string $name): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `remove_sheet_by_number(string $path, int $number): bool`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `remove_sheet_by_name(string $path, string $name): bool`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `remove_sheets_by_name(string $path, array $names): bool`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `get_sheet_number_by_name(string $path, string $name, bool $exactly = true): int`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `get_active_sheet_number(string $path): int`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `set_active_sheet_by_number(string $path, int $sheet): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `read_sheet(string $path, int $sheet, int $timeout = 3000): string`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `get_sheet(string $path, int $sheet, int $timeout = 3000): ?array`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_sheet_by_page(string $path, int $sheet, int $skip = 0, int $limit = 10, int $timeout = 3000): ?array`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `set_sheet(string $path, int $sheet, array $sheet_array, int $timeout = 3000, int $row = 1, string $col = 'A'): bool`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `get_sheet_name(string $path, int $sheet): string`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-- `set_sheet_name(string $path, int $sheet, string $name): bool`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `clear_sheet(string $path, int $sheet): bool`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `copy_sheet(string $path, int $sheet_number, string $newSheetName = ''): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `set_sheet_color(string $path, int $sheet, string $color): bool`  
+**click_within_iframe_by_name(string $name, string $frame): bool**
 
-- `sort_sheet(string $path, int $sheet, string $cols, bool $is_ascending = true, bool $is_header_exists = false, int $timeout = 3000): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click on DOM element by name
 
-- `dedupe_sheet(string $path, int $sheet, string $use_cols = '*', bool $is_header_exists = false, int $timeout = 3000, int $header_length = 1): bool`  
+**click_within_iframe_by_number(int $number, string $frame): bool**
 
-- `split_sheet_by_rows(string $path, string $to_folder, int $sheet_number, int $rows_per_file, int $timeout = 3000): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `get_rows_count(string $path, int $sheet, bool $only_used = false): int`  
+**click_within_iframe_num_by_name(string $name, string $frame): bool**
 
-- `get_row(string $path, int $sheet, int $row): ?array`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click on DOM element by name
 
-- `set_row(string $path, int $sheet, int $row, array $row_array): bool`  
+**click_within_iframe_num_by_number(int $number, string $frame): bool**
 
-- `add_row(string $path, int $sheet, array $row_array): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `insert_row(string $path, int $sheet, int $row, int $count = 1): bool`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `remove_row(string $path, int $sheet, int $row): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `add_rows(string $path, int $sheet, array $rows_array, int $timeout = 3000): bool`  
+**click_random_in_frame(string $frame): int**
 
-- `remove_rows_by_number(string $path, int $sheet, int $row, int $count): bool`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `remove_rows_by_text(string $path, int $sheet, string $text, mixed $col = ''): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `remove_rows_by_ranges(string $path, int $sheet, string $ranges): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `clear_row(string $path, int $sheet, int $row): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `copy_row(string $in_path, string $in_sheet, string $in_row, string $out_path, string $out_sheet, string $out_row): bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `get_col(string $path, int $sheet, string $col): ?array`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `set_col(string $path, int $sheet, string $col, array $col_array): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `add_col(string $path, int $sheet, array $col_array): bool`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `insert_col(string $path, int $sheet, string $col, int $count = 1): bool`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `remove_col(string $path, int $sheet, string $col, bool $shift_to_left = true): bool`  
+**is_exist_with_inner_text(string $text, bool $exactly = true): bool**
 
-- `clear_col(string $path, int $sheet, string $col): bool`  
+Проверить существование элемента DOM по внутреннему поиску | Check and wait element exist by inner text
 
-- `set_row_color(string $path, int $sheet, int $row, string $color): bool`  
+**is_exist_with_inner_text_in_frame_by_number(string $text, bool $exactly, string $frame_num): bool**
 
-- `set_row_background_color(string $path, int $sheet, int $row, string $color): bool`  
+Проверить существование элемента DOM по внутреннему поиску | Check and wait element exist by inner text
 
-- `set_row_border(string $path, int $sheet, int $row, string $color, int $border_type = 13, string $aligment = 'all'): bool`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `autosize_row(string $path, int $sheet, int $row = -1, int $timeout = 3000): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `set_row_height(string $path, int $sheet, int $row, float $height, int $timeout = 3000): bool`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `get_cols_count(string $path, int $sheet, int $row = -1, bool $only_used = false): int`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `autosize_col(string $path, int $sheet, string $col = '', int $timeout = 3000): bool`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `set_col_width(string $path, int $sheet, string $col, float $width, int $timeout = 3000): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `set_col_color(string $path, int $sheet, string $col, string $color): bool`  
+**get_all_inner_texts_in_frame_by_number(string $frame_num, string $separator = '<br>'): string**
 
-- `set_col_background_color(string $path, int $sheet, string $col, string $color): bool`  
+Получить все значения внутреннего текста у DOM элементов | Get all inner texts (no wait exist mode)
 
-- `set_col_border(string $path, int $sheet, string $col, string $color, int $border_type = 13, string $aligment = 'all'): bool`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `set_col_format(string $path, int $sheet, string $col, string $format, bool $is_predefined = false, bool $except_header = false): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `add_cell(string $path, int $sheet, int $row, string $text): bool`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_cell(string $path, int $sheet, int $row, string $col): string`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `set_cell(string $path, int $sheet, int $row, string $col, string $text, string $type = ''): bool`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `clear_cell(string $path, int $sheet, int $row, mixed $col): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `get_cell_type(string $path, int $sheet, int $row, string $col): string`  
+## Class: XHEInputFile
 
-- `set_cell_format(string $path, int $sheet, int $row, string $col, string $format, bool $is_predefined = true): bool`  
+For handling input type file DOM elements in current loaded HTML page
 
-- `set_cell_color(string $path, int $sheet, int $row, string $col, string $color): bool`  
+### Methods
 
-- `set_cell_background_color(string $path, int $sheet, int $row, string $col, string $color): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `set_cell_border(string $path, int $sheet, int $row, string $col, string $color, int $border_type = 13, string $aligment = 'all'): bool`  
+Конструктор
 
-- `get_cell_color(string $path, int $sheet, int $row, string $col): string`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `get_cell_background_color(string $path, int $sheet, int $row, string $col): string`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `get_cell_font(string $path, int $sheet, int $row, string $col): ?stdClass`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `set_cell_font(string $path, int $sheet, int $row, string $col, XHEFont $font): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `get_merged_cell_range(string $path, int $sheet, int $row, string $col): false|\XHERange`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `get_pos_by_text(string $path, int $sheet, string $text, bool $exactly = true, string $col = '', int $timeout = 3000): XHEPosition`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `get_all_pos_by_text(string $path, int $sheet, string $text, bool $exactly = true, string $col = '', int $timeout = 3000): array`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `add_link(string $path, int $sheet, int $row, string $col, string $text, string $address, string $tip = ''): bool`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `set_range_name(string $path, int $sheet, string $range, string $name): bool`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `clear_range(string $path, int $sheet, string $range, string $options = 'All'): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `copy_range(string $path, int $sheet, string $range, int $to_sheet, int $row, string $col): bool`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `move_range(string $path, int $sheet, string $range, int $to_sheet, int $row, string $col): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `set_range_format(string $path, int $sheet, string $range, string $format, bool $is_predefined = true): bool`  
+**get_count_within_iframe_by_number(int $number): int**
 
-- `set_range_border(string $path, int $sheet, string $range, string $color, int $border_type = 13, string $aligment = 'all'): bool`  
+get count of elements
 
-- `dedupe_range(string $path, int $sheet, string $range, string $use_cols = '*', int $timeout = 3000): bool`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-- `add_autofilter(string $path, int $sheet, string $range, int $col, string $condition1 = '', string $value1 = '', string $operator1 = '', string $condition2 = '', string $value2 = '', int $timeout = 3000): bool`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `clear_autofilters(string $path, int $sheet, int $timeout = 3000): bool`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `get_range(string $path, int $sheet, string $range, int $timeout = 3000): ?array`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `get_and_clear_range(string $path, int $sheet, string $range, int $timeout = 3000): ?array`  
+**click_random_in_frame(string $frame): int**
 
-- `convert(string $inpath, string $outpath, int $timeout = 600): bool`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `set_col_number_format(string $path, int $sheet, string $col, string $format, bool $is_predefined = true, bool $except_header = false): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `set_cell_number_format(string $path, int $sheet, int $row, string $col, string $format, bool $is_predefined = true): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `set_range_number_format(string $path, int $sheet, string $range, string $format, bool $is_predefined = true): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `set_range_type(string $path, int $sheet, string $range, string $type_): bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `set_col_type(string $path, int $sheet, string $col, string $type_, bool $except_header = false): bool`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `set_cell_type(string $path, int $sheet, int $row, string $col, string $type_): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
----
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-### `XHEFile_os` — Perform operations with files
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `copy(string $path, string $new_path, bool $fail_if_exist = false): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `move(string $path, string $new_path, bool $fail_if_exist = false): bool`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `rename(string $path, string $new_path): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `delete(string $path): bool`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `wait_copy(string $path, int $wait_count = 2000, int $wait_step = 5, bool $is_verbose = true): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `unzip(string $path, string $to_folder, string $encoding = 'cp866'): bool`  
+**set_value_by_name_by_frame_num(string $name, string $value, string $framenum): bool**
 
-- `un7z(string $path, string $to_folder, string $path_to_7z = 'C:\\Program Files\\7-Zip'): bool`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту name | Set value by name
 
-- `wait_for_exist(string $path, int $wait_count = 60, int $wait_step = 1, bool $is_verbose = true): bool`  
+**set_value_by_number_by_frame_num(int $number, string $value, string $framenum): bool**
 
-- `is_exist(string $path): bool`  
+Задать значение атрибуту value элементу DOM, который найти по номеру | Set value by number
 
-- `get_name(string $path): string`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `get_title(string $path): string`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `get_ext(string $path): string`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_folder(string $path, int $level = 0): string`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `get_disk(string $path): string|false`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_size(string $path): int`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `get_random_file_content(string $folder, string $ext, bool $include_subfolders, int $timeout = -1): string|false`  
+## Class: XHEInputImage
 
-- `get_creation_date(string $path, bool $time = false): string|false`  
+For handling input type image DOM elements in current loaded HTML page
 
-- `get_modification_date(string $path, bool $time = false): string|false`  
+### Methods
 
-- `get_lastacess_date(string $path, bool $time = false): string|false`  
+**__construct(string $server, string $password = ''): void**
 
-- `is_normal(string $path): bool`  
+Конструктор
 
-- `is_readonly(string $path): bool`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `is_hidden(string $path): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `is_system(string $path): bool`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `is_archive(string $path): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `set_normal(string $path, bool $on = true): bool`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `set_readonly(string $path, bool $on = true): bool`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `set_hidden(string $path, bool $on = true): bool`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `set_system(string $path, bool $on = true): bool`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `set_archive(string $path, bool $on = true): bool`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `get_file_name(string $path): string`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_file_title(string $path): string`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `get_file_ext(string $path): string`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_file_folder(string $path): string`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `get_file_disk(string $path): string|bool`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
----
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-### `XHEFolder` — Perform operations with folders
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `create(string $path): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `copy(string $path, string $new_folder_place, bool $flag_fail_exist = true, int $timeout = 3000): bool`  
+**click_within_iframe_by_name(string $name, string $frame): bool**
 
-- `move(string $path, string $new_folder_place, int $timeout = 3000): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click on DOM element by name
 
-- `rename(string $path, string $new_folder_name, int $timeout = 3000): bool`  
+**click_within_iframe_by_number(int $number, string $frame): bool**
 
-- `delete(string $path): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `clear(string $path, int $timeout = 3000): bool`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `rar(string $path, string $path_to_rar = '', string $options = 'u -m5 -mdE -s -r -ed -ep1', int $timeout = 3000): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `zip(string $path, string $to_file, int $timeout = 3000): bool`  
+**click_random_in_frame(string $frame): int**
 
-- `is_exist(string $path): bool`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `get_name(string $path): string`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `get_disk(string $path): string|false`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `get_size(string $path): int`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `get_items_count(string $path, bool $include_subfolders = false, bool $only_folders = false, int $timeout = 3000): int`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `get_all_items(string $path, bool $include_subfolders = false, bool $only_folders = false, int $timeout = 3000): string|false`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `get_all_files(string $path, bool $include_subfolders = false, string $mask = '*.*', int $timeout = 3000): ?array`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `get_all_folders(string $path, bool $include_subfolders = false, string $mask = '*.*', int $timeout = 3000): ?string`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `get_random_file(string $path, string $extension = 'txt', bool $include_subfolders = false, int $timeout = 3000): bool|string`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `get_creation_date(string $path, bool $time = false): string|false`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `get_modification_date(string $path, bool $time = false): string|false`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `get_lastacess_date(string $path, bool $time = false): string|false`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `is_normal(string $path): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `is_readonly(string $path): bool`  
+**save_to_file_by_number(int $number, string $file_path): bool**
 
-- `is_hidden(string $path): bool`  
+Сделать скриншот элемента с заданным номером
 
-- `is_system(string $path): bool`  
+**save_to_file_by_name(string $name, string $file_path): bool**
 
-- `is_archive(string $path): bool`  
+Сделать скриншот DOM элемента, который найти по атрибуту name |Save screenshot to file by name
 
-- `set_normal(string $path, bool $on = true): bool`  
+**save_to_file_by_attribute(string $atr_name, string $atr_value, string $file_path, bool $exactly = true): bool**
 
-- `set_readonly(string $path, bool $on = true): bool`  
+Сделать скриншот DOM элемента, который найти по атрибуту | Save screenshot to file by attribute
 
-- `set_hidden(string $path, bool $on = true): bool`  
+**save_to_file_by_atribute(string $atr_name, string $atr_value, string $file_path, bool $exactly = true): bool**
 
-- `set_system(string $path, bool $on = true): bool`  
+Сделать скриншот DOM элемента, который найти по атрибуту | Save screenshot to file by attribute
 
-- `set_archive(string $path, bool $on = true): bool`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `create_folder(string $path): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `get_folder_name(string $path): string`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_folder_disk(string $path): string|false`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
----
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-### `XHEKeyboard` — Performs text input operations from the keyboard
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+## Class: XHEInterface
 
-- `input(string $string, string $timeout = '20:40', bool $inFlash = false, bool $auto_change = true): bool`  
+For handling DOM elements as interface in current loaded HTML page
 
-- `key(string $code, bool $is_key = true, bool $ctrl = false, bool $alt = false, bool $shift = false): bool`  
+### Methods
 
-- `key_down(string $key, bool $is_key = true): bool`  
+**__construct(int $inner_number, string $server, string $password = ''): void**
 
-- `key_up(string $key, bool $is_key = true): bool`  
+Конструктор
 
-- `press_key_by_code(string $code, bool $ctrl = false, bool $alt = false, bool $shift = false): bool`  
+**__destruct(): void**
 
-- `send_input(string $string, string $timeout = '0:2', bool $inFlash = false, bool $auto_change = true): bool`  
+Деструктор (для очистки памяти)
 
-- `send_key(string $key, bool $is_key = false, mixed $ctrl = false, mixed $alt = false, mixed $shift = false): bool`  
+**__toString(): string**
 
-- `send_key_down(string $key, bool $is_key = false): bool`  
+Вывести как строку
 
-- `send_key_up(string $key, bool $is_key = false): bool`  
+**get_clone(): XHEInterface**
 
-- `set_ctrl_prefix(bool $on): bool`  
+Клонировать интерфейс к DOM | Clone interface
 
-- `set_alt_prefix(bool $on): bool`  
+**meta_click(bool $wait_browser = true): bool**
 
-- `set_shift_prefix(bool $on): bool`  
+Выполнить мета клик (фокус, перемещение мыши и клик левой клавишей мышью по случайной координате) | Meta click
 
-- `press_caps_lock(): bool`  
+**click(bool $wait_browser = true): bool**
 
-- `press_num_lock(): bool`  
+Эмулировать клик левой клавишей мыши | Click
 
-- `press_scroll_lock(): bool`  
+**event(string $event, bool $wait_browser = true): bool**
 
-- `is_caps_lock_pressed(): bool`  
+Послать JS событие | Send event
 
-- `is_num_lock_pressed(): bool`  
+**focus(): bool**
 
-- `is_scroll_lock_pressed(): bool`  
+Задать фокус | Set focus
 
-- `get_current_language(): string`  
+**scroll_to_view(string $start, bool $smooth = false): bool**
 
-- `set_current_language(string $language): bool`  
+Скроллировать страницу, используя Java Script так, чтобы элемент стал виден | Scroll to view element
 
----
+**scroll(string $scroll_action): bool**
 
-### `XHELibreOffice` — Perform operations with Excel files used library ClosedXML LibreOffice application
+Скроллировать | Do scroll
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**check(bool $needCheck = true): bool**
 
-- `set_install_folder(string $folder): bool`  
+Отметить элемент (Чекнуть) | Check option
 
-- `convert(string $inpath, string $outpath, string $infilter = '', int $timeout = 3000): bool`  
+**select_index(int $index): bool**
 
----
+Отметить в элементе лист-бокс опцию по ее индексу | Check option by index
 
-### `XHELibreOfficeCalc` — Для работы с файлами OpenDocumentFormat на базе библиотеки
+**select_text(string $text, bool $exactly = true): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Отметить в элементе лист-бокс опцию по ее тексту | Check option by text
 
-- `get_sheet_name(string $path, int $sheet): string`  
+**select_value(string $value, bool $exactly = true): bool**
 
-- `get_sheets_count(string $path): int`  
+Отметить в элементе лист-бокс опцию по значению атрибута value | Check option by value
 
-- `get_sheets_names(string $path): ?array`  
+**select_random(): bool**
 
-- `get_sheet(string $path, int $sheet, int $timeout = 3000): ?array`  
+Отметить в элементе лист-бокс случайную опцию | Check any option
 
-- `get_sheet_number_by_name(string $path, string $table_name, bool $exactly = true): int`  
+**multi_select_indexes(string $indexes): bool**
 
-- `get_cell(string $path, int $sheet, int $row, int $col): string`  
+Отметить в элементе лист-бокс несколько опций по их индексам | Check options by indexes
 
-- `get_cell_by_position(string $path, int $sheet, string $cell_position): string`  
+**multi_select_values(string $values): bool**
 
-- `set_cell_color(string $path, int $sheet, int $row, int $col, string $foreground_color, string $background_color): bool`  
+Отметить в элементе лист-бокс несколько опций по значениям атрибута value | Check options by values
 
-- `set_cell_color_by_position(string $path, int $sheet, string $cell_position, string $foreground_color, string $background_color): bool`  
+**multi_select_texts(string $texts): bool**
 
-- `set_cell(string $path, int $sheet, int $row, int $col, string $cell_content): bool`  
+Отметить в элементе лист-бокс несколько опций по тексту | Check options by texts
 
-- `set_cell_by_position(string $path, int $sheet, string $cell_position, string $cell_content): bool`  
+**get_length(): int**
 
-- `cell_add_annotation(string $path, int $sheet, int $row, int $col, string $annotation_author, string $annotation_comment, string $json_annotation_settings = ''): bool`  
+Получить количество опций в элементе лист-бокс | Get option count
 
-- `cell_add_annotation_by_position(string $path, int $sheet, string $cell_position, string $annotation_author, string $annotation_comment, string $json_annotation_settings = ''): bool`  
+**get_selected_index(): int**
 
-- `add_define_range_name(string $path, string $range_name, string $range): bool`  
+Получить индекс выбранной опции в элементе лист-бокс | Get checked option index
 
-- `add_row(string $path, int $sheet, array $row_array): bool`  
+**get_selected_text(): string**
 
-- `get_row(string $path, int $sheet, int $row): ?array`  
+Получить текст выбранной опции в элементе лист-бокс | Get checked option text
 
-- `get_rows_count(string $path, int $sheet): int`  
+**seek_to_end(): bool**
 
-- `set_row_height(string $path, int $sheet, int $row, string $height, int $timeout = 3000): bool`  
+Переместить курсор ввода в конец строки | Move the insertion cursor to the end of the line
 
-- `get_cols_count(string $path, int $sheet): int`  
+**seek_to_pos(int $pos): bool**
 
-- `set_col_width(string $path, int $sheet, int $col, string $width, int $timeout = 3000): bool`  
+Переместить курсор ввода к заданной позиции | Move the input cursor to a given position
 
----
+**set_value(string $value): bool**
 
-### `XHEMouse` — Perform operations with Computer mouse
+Задать значение атрибута value элемента DOM | Set value
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**set_inner_text(string $inner_text): bool**
 
-- `click(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+Задать внутренний текст элемента DOM | Set inner text
 
-- `click_to_screen(int $x = -1, int $y = -1): bool`  
+**set_inner_html(string $inner_html): bool**
 
-- `double_click(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+Задать внутренний HTML элемента DOM | Set inner HTML
 
-- `left_button_down(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+**add_attribute(string $name_atr, string $value_atr): bool**
 
-- `left_button_up(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+Добавить/Установить атрибут DOM элемента | Add/Set an attribute
 
-- `right_button_click(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+**set_attribute(string $name_atr, string $value_atr): bool**
 
-- `right_button_click_to_screen(int $x = -1, int $y = -1): bool`  
+Задать атрибут DOM элемента | Set an attribute
 
-- `right_button_down(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+**remove_attribute(string $name_atr): bool**
 
-- `right_button_up(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+Удалить атрибут DOM элемента | Remove an attribute
 
-- `move(int $x, int $y, bool $scroll = true, int $time = 0, int $tremble = 2, string $buttons = ''): bool`  
+**screenshot(string $file_path, bool $as_gray = false): bool**
 
-- `move_on_screen(int $x, int $y, int $time = 0, int $tremble = 2, string $buttons = ''): bool`  
+Сделать скриншот DOM элемента, который найти по атрибуту name | Save screenshot to file by name
 
-- `wheel(int $time, int $x = -1, int $y = -1): bool`  
+**save(string $file_path): bool**
 
-- `move_to(int $x, int $y, string $type_, int $time_): bool`  
+Сохранить содержимое элемента в файл (для картинки и флэша сохраняются исходные данные с сайта) | Save content to file
 
-- `send_click(int $x = -1, int $y = -1, bool $scroll = true, bool $addCtrl = false): bool`  
+**run_js(string $js): mixed**
 
-- `send_double_click(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+Выполнить скрипт JS на DOM элементе | Run JS
 
-- `send_left_button_down(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+**get_tag(): string**
 
-- `send_left_button_up(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+Получить тэг DOM элемента | Get tag
 
-- `send_right_button_click(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+**get_type(): string**
 
-- `send_right_button_down(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+Получить тип DOM элемента | Get type
 
-- `send_right_button_up(int $x = -1, int $y = -1, bool $scroll = true): bool`  
+**get_name(): string**
 
-- `send_move(int $x = -1, int $y = -1, bool $scroll = true, int $time = 0, int $tremble = 5, string $buttons = ''): bool`  
+Получить значение атрибута name DOM элемента | Get name
 
-- `send_wheel(int $n, int $x = 1200, int $y = 600, int $key = 0): bool`  
+**get_id(): string**
 
-- `send_move_to(int $x, int $y, string $type_, int $time_): bool`  
+Получить значение атрибута id DOM элемента | Get id
 
-- `send_touch(int $id, int $touch_type, int $x = -1, int $y = -1, int $radiusX = 0, int $radiusY = 0, float $rotationAngle = 0, float $pressure = 0, int $modiefiers = 0, int $pointerType = 0): bool`  
+**get_number(string $object_name = ''): int**
 
-- `send_touch_to(int $x0, int $y0, int $x, int $y, string $type_, int $time_): bool`  
+Получить номер элемента | Get number
 
-- `get_position(bool $in_browser = false, bool $virtual = false): string`  
+**get_inner_text(): string**
 
-- `get_x(bool $in_browser = false, bool $virtual = false): int`  
+Получить внутренний текст DOM элемента | Get inner text
 
-- `get_y(bool $in_browser = false, bool $virtual = false): int`  
+**get_inner_html(): string**
 
-- `send_click_to_flash_player(int $x, int $y, int $flash_num, bool $bUseFlashXY = false, bool $scroll = true): bool`  
+Получить внутренний HTML DOM элемента | Get inner HTML
 
-- `send_right_click_to_flash_player(int $x, int $y, int $flash_num, bool $bUseFlashXY = false, bool $scroll = true): bool`  
+**get_outer_text(): string**
 
-- `send_mouse_move_to_flash_player(int $x, int $y, int $flash_num, bool $bUseFlashXY = false, bool $scroll = true): bool`  
+Получить внешний текст DOM элемента | Get outer text
 
-- `get_mouse_pos_to_flash_player(int $flash_num, string $x = '', string $y = ''): string`  
+**get_outer_html(): string**
 
----
+Получить внешний HTML DOM элемента | Get outer HTML
 
-### `XHEMsgFile` — Perform operations with a file containing a letter in Outlook format (.msg)
+**get_computed_style(string $style_name = '', string $pseudo = ''): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить вычисляемый стиль | Get computed style
 
-- `read(string $path): ?XHEMailMessage`  
+**get_value(): string**
 
-- `save_attachments(string $path, string $to_folder): bool`  
+Получить значение атрибута value DOM элемента | Get value
 
----
+**get_href(): string**
 
-### `XHEPdfFile` — Perform operations with PDF files
+Получить значение атрибута href DOM элемента | Get href
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_src(): string**
 
-- `is_pdf_file(string $path): bool`  
+Получить значение атрибута src DOM элемента | Get src
 
-- `get_info(string $path, string $name): string`  
+**get_alt(): string**
 
-- `get_page_count(string $path, int $timeout = 6000): int`  
+Получить значение атрибута alt DOM элемента | Get alt
 
-- `get_images_count(string $path): int`  
+**get_attribute(string $name_atr): string**
 
-- `get_links_count(string $path): int`  
+Получить значение атрибута DOM элемента | Get attribute value
 
-- `get_link_by_number(string $path, int $number): string`  
+**get_frame_number(): string**
 
-- `get_all_links(string $path): ?array`  
+Получить номер фрейма DOM элемента | Get frame number
 
-- `read(string $path, string $method = ''): string`  
+**get_form_number(): int**
 
-- `read_page(string $path, int $page, string $method = ''): string`  
+Получить номер формы DOM элемента | Get form number
 
-- `get_page_number_by_text(string $path, string $text, int $exactly = 1, int $skip = 0, string $method = ''): string`  
+**get_all_attributes(): string**
 
-- `write(string $path, string $content): bool`  
+Получить имена всех атрибутов DOM элемента | Get all names for all attributes
 
-- `combine(string $outpath, array $inpaths, bool $is_compressed = false, int $timeout = 6000, string $method = ''): bool`  
+**get_all_attributes_values(): string**
 
-- `extract_images(string $path, string $to_folder, int $timeout = 6000): bool`  
+Получить значения всех атрибутов DOM элемента | Get values for all attributes
 
-- `compress_images(string $inpath, string $outpath, int $quality = 20, int $timeout = 6000): bool`  
+**get_all_events(): string**
 
-- `print_pages(string $path, string $to_folder, float $scale = 1, int $timeout = 6000): bool`  
+Получить все события-атрибуты DOM элемента | Get all attribute events
 
-- `split(string $path, mixed $to_folder, int $pages_per_file = 1, int $timeout = 6000): bool`  
+**is_disabled(): bool**
 
-- `insert_image(string $path, int $page, string $image_path, int $x, int $y, int $timeout = 6000): bool`  
+Проверить отключен или нет DOM элемент | Is disabled
 
----
+**is_checked(): bool**
 
-### `XHESound` — For converting and playing audio files
+Проверить установленна отметка или нет | Is checked
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**is_exist(): bool**
 
-- `beep(): bool`  
+Проверить существование DOM элемента | Is exist
 
-- `play_sound(string $path): bool`  
+**is_visibled(): bool**
 
-- `convert_file(string $src_path, string $new_path, string $Hz = '', int $timeout = 60): bool`  
+Проверить видим DOM элемент | Is exist
 
-- `recognize_file_with_digits(string $path, int $timeout = 60): string|bool`  
+**is_view_now(): bool**
 
-- `recognize_file(string $path, string $dict, string $jsgf, string $hmm, string $add_params = '', int $timeout = 60): string|bool`  
+Проверить что DOM элемент попадает в видимую область страницы | Is view
 
----
+**ensure_visible(bool $smooth = false, string $side = 'start'): bool**
 
-### `XHETextFile` — Perform operations with text files
+Выполнить прокрутку страницы, чтобы DOM элемент попадал в видимую область страницы (прокрутить до видимости) | Ensure visible
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_numbers_child(string $element_type = '', bool $include_subchildren = false): string**
 
-- `get_file_folder(string $path, int $timeout = -1): string`  
+Получить номера дочерних элементов заданного типа | Get child numbers
 
-- `get_lines_count(string $path, int $timeout = -1): int`  
+**get_x(bool $in_view = false): int**
 
-- `get_encoding(string $path): string`  
+Получить координату X DOM элемента, который найти по атрибуту name | Get X of element
 
-- `create_folder(string $path, int $timeout = -1): bool`  
+**get_y(bool $in_view = false): int**
 
-- `generate_folders_by_strings_file(string $file, string $folder, int $timeout = -1): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту name | Get Y of element
 
-- `get_all_files_in_folder(string $path, string $masks = '', bool $include_subfolders = false, mixed $only_folders = false, int $timeout = -1): string|false`  
+**get_width(): int**
 
-- `collect_from_folders_to_file(string $infolderpath, string $outfilepath, int $timeout = -1, string $extension = 'txt'): bool`  
+Получить ширину DOM элемента | Get width
 
-- `split_to_part(string $infilepath, string $outfilepath, int $numparts, int $timeout = -1): bool`  
+**get_height(): int**
 
-- `collect_from_folders_to_folder(string $infolderpath, string $outfolderpath, int $timeout = -1): bool`  
+Получить высоту DOM элемента | Get height
 
-- `sort(string $infilepath, string $outfilepath, int $timeout = 1000, string $encoding = 'utf-8'): bool`  
+**get_xpath(): string**
 
-- `dedupe(string $infilepath, string $outfilepath, int $timeout = -1, string $encoding = ''): bool`  
+Получить XPath DOM элемента | Get XPath
 
-- `randomize_to(string $infilepath, string $outfilepath, int $timeout = -1): bool`  
+**get_parents_count(): int**
 
-- `revert_strings_file(string $infile, string $outfile, int $timeout = -1): bool`  
+Получить количество родителей DOM элемента | Get parents count
 
-- `replace_string(string $infile, string $outfile, string $old_str, string $new_str, int $timeout = -1): bool`  
+**get_all_parents(): XHEInterfaces**
 
-- `exclude_strings_file_from_file(string $infile, string $excluding_file, string $outfile, int $timeout = -1): bool`  
+Получить интерфейсы всех родителей DOM элемента | Get all parents
 
-- `file_links(string $infilepath, string $outfilepath, int $num_lines, string $type_make = 'L', int $timeout = -1): bool`  
+**get_parent(int $level = 1): XHEInterface**
 
-- `write_file(string $file, string $content, int $timeout = -1, bool $create_folders = false, string $encoding = ''): bool`  
+Получить интерфейс родителя DOM элемента | Get parent
 
-- `add_string_to_file(string $file, string $str, int $timeout = -1, string $encoding = ''): bool`  
+**get_parent_by_attribute(string $atr_name, string $atr_value, bool $exactly = true): XHEInterface**
 
-- `set_string_to_file(string $file, string $str, int $line, bool $add = true, int $timeout = -1): bool`  
+Получить интерфейс родителя DOM элемента по атрибуту | Get parent by attribute
 
-- `read_file(string $file, int $timeout = -1, string $encoding = 'windows-1251'): bool|string`  
+**get_next(): XHEInterface**
 
-- `get_line_from_file(string $file, bool $rand, int $line, int $timeout = -1): bool|string`  
+Получить интерфейс следующего DOM элемента | Get next interface
 
-- `delete_line_from_file(string $file, int $line, int $timeout = -1): bool`  
+**get_prev(): XHEInterface**
 
-- `get_lines_from_file(string $file, int $beg_line, int $lines_count, int $timeout = -1): bool|string`  
+Получить интерфейс предыдущего DOM элемента | Get prev interface
 
----
+**add_child(string $tag, string $inner_html): bool**
 
-### `XHEWord` — Perform operations with folders used Microsoft Word application
+Добавить DOM элемент как потомка | Add child element
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**insert_before(string $tag, string $inner_html): bool**
 
-- `create(string $path, string $text = ''): bool`  
+Добавить DOM элемент после этого на этом же уровне | Insert element before
 
-- `open(string $path, bool $read_only = true, int $timeout = 3000): bool`  
+**remove(): bool**
 
-- `connect_by_hwnd(string $hwnd, string $path_alias, int $timeout = 3000): bool`  
+Удалить этот DOM элемент | Remove this element
 
-- `save(string $path, int $timeout = 3000): bool`  
+**get_child_count(bool $include_subchildren = false): int**
 
-- `close(string $path): bool`  
+Получить количество дочерних DOM элементов | Get get child count
 
-- `kill(): bool`  
+**get_child_by_number(int $number, bool $include_subchildren = false): XHEInterface**
 
-- `remove_info(string $inpath, string $outpath, string $info = 'PersonalInformation', int $timeout = 3000): bool`  
+Получить интерфейс потомка DOM элемента по номеру | Get child interface by number
 
-- `convert(string $inpath, string $outpath, int $timeout = 3000): bool`  
+**get_shadow_root(): XHEInterface**
 
-- `compare(string $inpath1, string $inpath2, int $timeout = 3000): bool`  
+Получить теневой root (интерфейс) DOM элемента | Get shadow root
 
-- `get_pages_count(string $path): int`  
+**get_child_by_inner_text(string $inner_text, bool $exactly = false, bool $include_subchildren = false): XHEInterface**
 
-- `export_pages(string $inpath, string $outpath, int $from_page = 1, int $count = 1, int $timeout = 3000): bool`  
+Получить интерфейс потомка DOM элемента по внутреннему тексту | Get child interface by inner text
 
-- `export_all_pages(string $inpath, string $to_folder, string $ext = 'pdf', string $filters = '', bool $is_match_all = false, int $timeout = 3000): bool`  
+**get_child_by_inner_html(string $inner_html, bool $exactly = false, bool $include_subchildren = false): XHEInterface**
 
-- `read_page(string $path, int $page, int $timeout = 3000): string`  
+Получить интерфейс потомка DOM элемента по внутреннему HTML | Get child interface by inner html
 
-- `add_text(string $path, string $text, bool $to_new_paragraph = false): bool`  
+**get_child_by_outer_text(string $outer_text, bool $exactly = false, bool $include_subchildren = false): XHEInterface**
 
-- `add_page_break(string $path): bool`  
+Получить интерфейс потомка DOM элемента по внешнему тексту | Get child interface by outer text
 
-- `get_text(string $path): string`  
+**get_child_by_outer_html(string $outer_html, bool $exactly = false, bool $include_subchildren = false): XHEInterface**
 
-- `replace_text(string $path, string $text, string $new_text): bool`  
+Получить интерфейс потомка DOM элемента по внешнему HTML | Get child interface by outer html
 
-- `get_paragraphs_count(string $path): int`  
+**get_child_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, bool $include_subchildren = false): XHEInterface**
 
-- `get_paragraph_text_by_number(string $path, string $number): string`  
+Получить интерфейс потомка DOM элемента по значению атрибута | Get child interface by attribute
 
-- `set_paragraph_text_by_number(string $path, string $number, string $text): bool`  
+**get_child_by_xpath(string $xpath): XHEInterface**
 
-- `get_paragraph_number_by_text(string $path, string $text, bool $exactly = false, int $skip = 0): int`  
+Получить интерфейс потомка DOM элемента по XPath | Get child by xpath
 
-- `delete_paragraph_by_number(string $path, string $number): bool`  
+**get_all_child_by_xpath(string $xpath): XHEInterfaces**
 
-- `delete_paragraph_by_text(string $path, string $text, bool $exactly = false, int $skip = 0): bool`  
+Получить интерфейсы потомков DOM элемента по XPath | Get all childs by xpath
 
-- `get_tables_count(string $path): int`  
+**get_all_child_by_inner_text(string $inner_text, bool $exactly = false, bool $include_subchildren = false): XHEInterfaces**
 
-- `add_table(string $path, array $table): bool`  
+Получить интерфейсы потомков DOM элемента по внутреннему тексту | Get all child interfaces by inner text
 
-- `add_image(string $path, string $image_path): bool`  
+**get_all_child_by_inner_html(string $inner_html, bool $exactly = false, bool $include_subchildren = false): XHEInterfaces**
 
-- `get_shapes_count(string $path): int`  
+Получить интерфейсы потомков DOM элемента по внутреннему HTML | Get all child interfaces by inner html
 
-- `get_page_count(string $path): int`  
+**get_all_child_by_attribute(string $atr_name, string $atr_value, bool $exactly = true, bool $include_subchildren = false): XHEInterfaces**
 
----
+Получить интерфейсы потомков DOM элемента по значению атрибута | Get all child interfaces by attribute
 
-### `XHEWordFile` — Perform operations with Excel files used ClosedXML.Excel library
+**mouse_move_to(int $dx = -1, int $dy = -1, string $type_ = 'curve', int $time_ = 1000): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Полная эмуляция перемещения мыши к элементу по заданной траектории | Full mouse move to element by given trajectory
 
-- `create(string $path, string $text = ''): bool`  
+**mouse_move(int $dx = -1, int $dy = -1, int $time = 0, int $tremble = 0): bool**
 
-- `open(string $path, bool $is_read_only = true): bool`  
+Полная эмуляция перемещения мыши к элементу | Full mouse move to element
 
-- `save(string $path): bool`  
+**mouse_click(int $dx = -1, int $dy = -1): bool**
 
-- `close(string $path): bool`  
+Полная эмуляция щелчка левой клавишей мыши по элементу | Full mouse click on element
 
-- `get_page_count(string $path): int`  
+**mouse_double_click(int $dx = -1, int $dy = -1): bool**
 
-- `get_table_count(string $path): int`  
+Полная эмуляция двойного щелчка левой клавишей мыши по элементу со смещением | Full double mouse click on element with offset
 
-- `read(string $path, int $timeout = 3000): string`  
+**mouse_left_down(int $dx = -1, int $dy = -1): bool**
 
-- `get_table_by_number(string $path, int $number, bool $as_array = false): string|array|null`  
+Полная эмуляция нажатия левой кнопки мыши down на элементе со смещением down | Full mouse left down on element with offset
 
-- `extract_images(string $path, string $to_folder): bool`  
+**mouse_left_up(int $dx = -1, int $dy = -1): bool**
 
-- `get_shapes_count(string $path): int`  
+Полная эмуляция отжатия левой кнопки мыши up на элементе со смещением up | Full mouse left up on element with offset
 
-- `get_shape_properties(string $path, int $number): string`  
+**mouse_right_click(int $dx = -1, int $dy = -1): bool**
 
-- `convert(string $inpath, string $outpath, int $timeout = 600): bool`  
+Полная эмуляция нажатия правой кнопки мыши на элементе со смещением | Full mouse right click on element with offset
 
-- `export_pages(string $inpath, string $outpath, int $from_page, int $count = 1): bool`  
+**mouse_right_down(int $dx = -1, int $dy = -1): bool**
 
-- `export_all_pages(string $inpath, string $to_folder, string $ext = 'pdf'): bool`  
+Полная эмуляция нажатия правой кнопки мыши down на элементе со смещением down | Full mouse right down on element with offset
 
-- `read_table_by_number(string $path, int $number, bool $as_array = false): array|string|null`  
+**mouse_right_up(int $dx = -1, int $dy = -1): bool**
 
-- `compare(string $inpath1, string $inpath2): bool`  
+Полная эмуляция отжатия правой кнопки мыши up на элементе со смещением up | Full mouse right up on element with offset
 
----
+**send_mouse_move_to(int $dx = -1, int $dy = -1, string $type_ = 'curve', int $time_ = 1000): bool**
 
-### `XHEFineReaderOCR` — To control the FineReader application for recognize image
+Переместить мышь к элементу с помощью событий JS | Move mouse to element with JS events
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**send_touch(int $id, int $touch_type, int $dx = -1, int $dy = -1, int $radiusX = 0, int $radiusY = 0, float $rotationAngle = 0, float $pressure = 0, int $modiefiers = 0, int $pointerType = 0): bool**
 
-- `set_language(string $language = 'Russian English'): bool`  
+Нажать пальцами по элементу | Press fingers on element
 
-- `set_program_folder(string $path): bool`  
+**send_mouse_move(int $dx = -1, int $dy = -1, int $time = 0, int $tremble = 0, string $buttons = ''): bool**
 
-- `recognize(string $path): string`  
+Передвинуть мышь к элементу со смещением с помощью событий JS | Move mouse to element with offset with JS events
 
-- `convert(string $inpath, string $outpath, int $timeout = 3000): bool`  
+**send_mouse_click(int $dx = -1, int $dy = -1, bool $addCtrl = false): bool**
 
----
+Щелчок левой кнопки мыши по элементу с помощью событий JS | Mouse left click on element with JS events
 
-### `XHETesseractOCR` — To control the Tesseract OCR application
+**send_mouse_double_click(int $dx = -1, int $dy = -1): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Двойной щелчок левой клавишей мыши по элементу с помощью событий JS | Mouse double left click on element with JS events
 
-- `recognize(string $path, string $language = 'rus+eng', int $tesseract_version = 5, int $timeout = 600): string`  
+**send_mouse_left_down(int $dx = -1, int $dy = -1): bool**
 
-- `get_segmented_regions(string $path, string $language = 'rus+eng', int $pageLevel = 3): ?array`  
+Нажать down правую кнопку мыши на элементе со смещением с помощью событий JS | Press down right mouse button on element with offset with JS events
 
-- `get_region_by_text(string $path, string $text, string $language = 'rus+eng'): ?array`  
+**send_mouse_left_up(int $dx = -1, int $dy = -1): bool**
 
-- `set_allowed_chars(string $allowed_chars = ''): bool`  
+Отпустить up правую кнопку мыши на элементе со смещением с помощью событий JS | Release up right mouse button on element with offset with JS events
 
-- `set_denieded_chars(string $denieded_chars = ''): bool`  
+**send_mouse_right_click(int $dx = -1, int $dy = -1): bool**
 
-- `set_params(string $params_str = ''): bool`  
+Нажать правой кнопки мыши на элемент со смещением с помощью событий JS | Press right mouse button on element with offset with JS events
 
-- `get_params(int $version = 5): string`  
+**send_mouse_right_down(int $dx = -1, int $dy = -1): bool**
 
----
+Нажать правой кнопки мыши down на элементе со смещением с помощью событий JS | Press down right mouse button on element with offset with JS events
 
-### `XHEYandexVision` — To control the Yandex Vision
+**send_mouse_right_up(int $dx = -1, int $dy = -1): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Нажать правой кнопки мыши up на элементе со смещением с помощью событий JS | Press up right mouse button on element with offset with JS events
 
-- `set_language(string $language = 'ru+en'): bool`  
+**send_input(string $string, string $timeout = '0:2', bool $inFlash = false, bool $auto_change = true): bool**
 
-- `set_folder_id(string $folder_id): bool`  
+Ввод строки в DOM элемент браузера с помощью событий JS, даже если DOM элемент скрыт | Input string to DOM element browser with JS events
 
-- `set_auth_token(string $token): bool`  
+**send_key(string $key, bool $is_key = false): bool**
 
-- `set_api_key(string $api_key): bool`  
+Ввод символа с клавиши клавиатуры, для ввода одного символа в DOM элемент браузера с помощью событий JS, даже если DOM элемент скрыт | Input character from keyboard to DOM element browser with JS events
 
-- `recognize(string $path, string $type_image = 'image'): string`  
+**send_key_down(string $key, bool $is_key = false): bool**
 
-- `get_segmented_regions(string $path): ?string`  
+Нажать down клавиши с клавиатуры, для ввода одного символа в DOM элемент браузера с помощью событий JS, даже если DOM элемент скрыт | Press down keyboard key to DOM element browser with JS events
 
-- `get_region_by_text(string $path, string $text): ?string`  
+**send_key_up(string $key, bool $is_key = false): bool**
 
----
+Отжать up клавиши с клавиатуры, для ввода одного символа в DOM элемент браузера с помощью событий JS, даже если DOM элемент скрыт | Release up keyboard key to DOM element browser with JS events
 
-### `MSExchangeMailHelper` — Helper class for working with email using the MS Exchange API
+**input(string $_string, string $timeout = '0:2', bool $inFlash = false, bool $auto_change = true): bool**
 
-**Методы**:
----
+Полная эмуляция ввода строки в DOM элемент браузера | Full input string to DOM element browser
 
-### `Anticaptcha` — Class для работы с API anti-captcha.com.
+**key(string $code): bool**
 
-**Методы**:
-- `setHost(string $host): void`  
+Полная эмуляция ввода одной клавиши клавиатуры, для ввода символа в DOM элемент браузера по Alt-коду | Press key by ALt code
 
-- `setScheme(string $scheme): void`  
+**key_down(string $key): bool**
 
-- `setKey(string $key): void`  
+Полная эмуляция down нажатия одной клавиши клавиатуры, для ввода символа в DOM элемент браузера по Alt-коду | Press down keyboard key to DOM element browser by Alt code
 
-- `getVerboseMode(): bool`  
+**key_up(string $key): bool**
 
-- `setVerboseMode(bool $mode): void`  
+Полная эмуляция up отжатия одной клавиши клавиатуры, для ввода символа в DOM элемент браузера по Alt-коду | Release up keyboard key to DOM element browser by Alt code
 
-- `getTaskInfo(): bool|mixed`  
+**press_key_by_code(string $code): bool**
 
-- `getTaskResult(): string`  
+Полная эмуляция ввода одной клавиши клавиатуры, для ввода символа в DOM элемент браузера по Alt-коду | Press key by ALt code
 
-- `getTaskId(): string`  
+## Class: XHEInterfaces
 
-- `setTaskId(string $taskId): void`  
+A collection class for working with Interface DOM elements
 
-- `setErrorMessage(string $message): void`  
+### Methods
 
-- `getErrorMessage(): string`  
+**__construct(string $inner_numbers, string $server, string $password = ''): void**
 
-- `get_last_capcha_id(): string`  
 
-- `get_last_capcha_filename(): string`  
 
-- `get_last_capcha_result(): string`  
+**get_by_xxx(string $xxx, string $condition, bool $exactly): false|mixed**
 
-- `report_bug_capcha(string $id): false|string`  
+Получить интерфейс объекта по заданному условию
 
-- `createTask(): bool`  
+**get_by_name(string $name, bool $exactly = true): false|\XHEInterface**
 
-- `waitForResult(int $maxSeconds = 60, int $currentSecond = 0): bool`  
+Получить интерфейс по атрибуту name | Get interface by name
 
-- `getBalance(): string|bool`  
+**get_by_id(string $id, bool $exactly = true): false|\XHEInterface**
 
-- `get_balance(): string|bool`  
+Получить интерфейс по атрибуту id | Get interface by id
 
-- `reportIncorrectImageCaptcha(string $id): false|string`  
+**get_by_inner_text(string $inner_text, bool $exactly = true): false|\XHEInterface**
 
-- `jsonPostRequest(string $methodName, array $postData): false|mixed`  
+Получить интерфейс по внутреннему тексту | Get interface by inner text
 
-- `debout(string $message, string $color = 'white'): void`  
+**get_by_inner_html(string $inner_html, bool $exactly = true): false|\XHEInterface**
 
----
+Получить интерфейс по внутреннему HTML | Get interface by inner HTML
 
-### `ImageToText` — ImageToText
+**get_by_outer_text(string $outer_text, bool $exactly = true): false|\XHEInterface**
 
-**Методы**:
-- `setPhraseFlag(bool $value): void`  
+Получить интерфейс по внешнему тексту | Get interface by outer text
 
-- `setCaseFlag(bool $value): void`  
+**get_by_outer_html(string $outer_html, bool $exactly = true): false|\XHEInterface**
 
-- `setNumericFlag(int $value): void`  
+Получить интерфейс по внешнему HTML | Get interface by outer HTML
 
-- `setMathFlag(bool $value): void`  
+**get_by_src(string $src, bool $exactly = true): false|\XHEInterface**
 
-- `setMinLengthFlag(int $value): void`  
+Получить интерфейс по атрибуту src | Get interface by src
 
-- `setMaxLengthFlag(int $value): void`  
+**get_by_href(string $href, bool $exactly = true): false|\XHEInterface**
 
-- `getPostData(): array`  
+Получить интерфейс по атрибуту href | Get interface by href
 
-- `setTaskInfo(mixed $taskInfo): void`  
+**get_by_alt(string $alt, bool $exactly = true): false|\XHEInterface**
 
-- `getTaskSolution(): string`  
+Получить интерфейс по атрибуту alt | Get interface by alt
 
-- `setFile(string $fileName): bool`  
+**get_by_value(string $value, bool $exactly = true): false|\XHEInterface**
 
-- `set_default_params(): bool`  
+Получить интерфейс по атрибуту value | Get interface by value
 
-- `recognize_image(string $path): false|string`  
+**get_by_attribute(string $attr_name, string $attr_value, bool $exactly = true): false|\XHEInterface**
 
----
+Получить интерфейс по атрибуту | Get interface by attribute
 
-### `NoCaptcha` — NoCaptcha
+**get_all_by_xxx(string $xxx, string $condition, bool $exactly): XHEInterfaces**
 
-**Методы**:
-- `setWebsiteURL(string $value): void`  
+Получить все интерфейсы по заданному условию
 
-- `setWebsiteKey(string $value): void`  
+**get_all_by_name(string $name, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `setWebsiteSToken(string $value): void`  
+Получить все интерфейсы по атрибуту name | Get interfaces by name
 
-- `setProxyType(string $value): void`  
+**get_all_by_id(string $id, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `setProxyAddress(string $value): void`  
+Получить все интерфейсы по атрибуту id | Get interfaces by id
 
-- `setProxyPort(int $value): void`  
+**get_all_by_inner_text(string $inner_text, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `setProxyLogin(string $value): void`  
+Получить все интерфейсы по внутреннему тексту | Get interfaces by inner text
 
-- `setProxyPassword(string $value): void`  
+**get_all_by_inner_html(string $inner_html, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `setUserAgent(string $value): void`  
+Получить интерфейсы по внутреннему HTML | Get interfaces by inner HTM:
 
-- `setCookies(mixed $value): void`  
+**get_all_by_src(string $src, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `getPostData(): array`  
+Получить все интерфейсы по атрибуту src | Get interfaces by src
 
-- `setTaskInfo(mixed $taskInfo): void`  
+**get_all_by_href(string $href, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `getTaskSolution(): string`  
+Получить все интерфейсы по атрибуту href | Get interfaces by href
 
----
+**get_all_by_alt(string $alt, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-### `NoCaptchaProxyless` — NoCaptchaProxyless
+Получить все интерфейсы по атрибуту alt | Get interfaces by alt
 
-**Методы**:
-- `setWebsiteURL(string $value): void`  
+**get_all_by_value(string $value, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `setWebsiteKey(string $value): void`  
+Получить все интерфейсы по атрибуту value | Get interfaces by value
 
-- `setWebsiteSToken(string $value): void`  
+**get_all_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): XHEInterfaces**
 
-- `getPostData(): array`  
+Получить все интерфейсы по атрибуту | Get interfaces by attribute
 
-- `setTaskInfo(mixed $taskInfo): void`  
+## Class: XHELabel
 
-- `getTaskSolution(): string`  
+For handling label DOM elements in current loaded HTML page
 
----
+### Methods
 
-### `XHE2capcha` — XHE2capcha
+**__construct(string $server, string $password = ''): void**
 
-**Методы**:
-- `__construct(string $server, bool $is_ssl = true): void`  
+Конструктор
 
-- `recognize_text(string $text): bool|string`  
+## Class: XHELi
 
-- `recognize_like_images(string $filename): bool|string`  
+For handling li DOM elements in current loaded HTML page
 
-- `recognize_invoice(string $filename): bool|string`  
+### Methods
 
-- `recognize_recaptcha_2_with_text(string $filename, string $textinstructions): bool|string`  
+**__construct(string $server, string $password = ''): void**
 
-- `recognize_recaptcha_2_with_image(string $filename, string $imageinstructions): bool|string`  
+Конструктор
 
-- `recognize_click_captcha(string $filename, string $textinstructions = ''): bool|string`  
+## Class: XHEMeta
 
-- `recognize_rotate_captcha(string $filename, string $file_1, string $file_2 = '', string $file_3 = '', int $angle = 40): bool|string`  
+For handling meta DOM elements in current loaded HTML page
 
-- `recognize_recaptcha_v2(string $pageurl, string $googlekey, int $invisible = 0, string $proxy = '', string $proxytype = ''): bool|string`  
+### Methods
 
-- `recognize_geetest(string $pageurl, string $gt, string $challenge, string $api_server = '', string $proxy = '', string $proxytype = ''): bool|string`  
+**__construct(string $server, string $password = ''): void**
 
----
+Конструктор
 
-### `XHE5Simnet` — XHE5Simnet
+## Class: XHEObject
 
-**Методы**:
-- `__construct(string $api = '', string $servis = 'http://sms-activate.api.5sim.net', string $ref = ''): void`  
+Base class for handling object DOM elements in current loaded HTML page
 
----
+### Methods
 
-### `XHEAnticapcha` — XHEAnticapcha
+**__construct(string $server, string $password = ''): void**
 
-**Методы**:
-- `__construct(string $server, bool $is_ssl = true): void`  
+Конструктор
 
----
+**click_in_by_number(int $number, int $x = -1, int $y = -1, string $frame = '-1'): bool**
 
-### `XHEAnticaptcha2` — XHEAnticaptcha2
+Выполнить эмуляцию клика в элементе DOM левой клавишей мыши, который найти по номеру | Click on element by number
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**click_in_by_name(string $name, int $x = -1, int $y = -1, string $frame = '-1'): bool**
 
-- `get_balance(): float`  
+Выполнить эмуляцию клика в элементе DOM левой клавишей мыши, который найти по атрибуту name | Click on element by name
 
-- `set_api_key(string $key): bool`  
+**click_in_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, int $x = -1, int $y = -1, string $frame = '-1'): bool**
 
-- `set_verbose(bool $is_verbose = true): bool`  
+Выполнить эмуляцию клика в элементе DOM левой клавишей мыши, который найти по атрибуту | Click on element by attribute
 
-- `image_to_text(string $path, int $timeout = 3000): string`  
+## Class: XHEOption
 
-- `get_recaptchaV2(string $site_url, string $site_key): string`  
+For handling option DOM elements in current loaded HTML page
 
-- `get_recaptchaV3(string $site_url, string $site_key): string`  
+### Methods
 
-- `get_hcaptcha(string $site_url, string $site_key, string $user_agent): string`  
+**__construct(string $server, string $password = ''): void**
 
----
+Конструктор
 
-### `XHEBrowser` — To manage the current browser instance
+## Class: XHEP
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+For handling p DOM elements in current loaded HTML page
 
-- `set_count(int $count): bool`  
+### Methods
 
-- `get_count(): int`  
+**__construct(string $server, string $password = ''): void**
 
-- `set_active_browser(int $num, bool $activate = true): bool`  
+Конструктор
 
-- `get_active_browser(): int`  
+## Class: XHEPre
 
-- `add_tab(): bool`  
+For handling pre DOM elements in current loaded HTML page
 
-- `close(): bool`  
+### Methods
 
-- `close_all_tabs(string $close_type = ''): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `set_active_page(int $page): bool`  
+Конструктор
 
-- `navigate(string $url, bool $use_cache = true, bool $use_wait = true): bool`  
+## Class: XHERadioButton
 
-- `get_last_navigation_error(): string`  
+For handling input type radio DOM elements in current loaded HTML page
 
-- `refresh(bool $ignore_cache = true): bool`  
+### Methods
 
-- `stop(): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `go_back(): bool`  
+Конструктор
 
-- `go_forward(): bool`  
+**click_by_name_and_value(string $name, string $value = '', string $frame = '-1', bool $wait_browser = true): bool**
 
-- `set_home_page(string $url): bool`  
+Кликнуть по радиобокс, найти по атрибуту name и по атрибуту value (без учета проверки: существует ли элемент) | Click by radiobox ba name
 
-- `navigate_to_home_page(): bool`  
+**check_by_number(int $number, bool $check, string $frame = '-1'): bool**
 
-- `wait_for(int $Try_Navigate_Second = 15, int $Try_Navigate_Count = 1): bool`  
+Установить отметку по радиобокс, найти по номеру (без учета проверки: существует ли элемент) | Check by number
 
-- `wait_js(int $Try_Second = 30): bool`  
+**check_by_name(string $name, bool $check, string $frame = '-1'): bool**
 
-- `wait(int $num = -1): bool`  
+Отметить DOM элемент радиобокс по значению атрибута name | Check radiobox by name
 
-- `is_busy(int $num = -1): bool`  
+**check_by_value(string $value, bool $exactly, bool $check, string $frame = '-1'): bool**
 
-- `get_ready_state(): string`  
+Отметить DOM элемент радиобокс по значению атрибута value | Check radiobox by value
 
-- `set_wait_params(int $Try_Navigate_Second = -1, int $Try_Navigate_Count = -1): bool`  
+**check_by_attribute(string $attr_name, string $attr_value, bool $exactly, bool $check, string $frame = '-1'): bool**
 
-- `enable_images(bool $enable = true, bool $refresh = true): bool`  
+Отметить DOM элемент радиобокс по значению атрибута | Check radiobox by attribute
 
-- `enable_java_script(bool $enable = true, bool $refresh = true): bool`  
+**check_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly, bool $check, int $form_number, string $frame = '-1'): bool**
 
-- `enable_sounds(bool $enable = true, bool $refresh = true): bool`  
+Отметить DOM элемент радиобокс по значению атрибута в форме с заданным номером (без учета проверки: существует ли элемент) | Check radiobox by attribute and form by form
 
-- `enable_video(bool $enable = true, bool $refresh = true): bool`  
+**check_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly, bool $check, string $form_name, string $frame = '-1'): bool**
 
-- `enable_activex(bool $enable = true, bool $refresh = true): bool`  
+Отметить DOM элемент радиобокс по значению атрибута в форме с заданным именем (без учета проверки: существует ли элемент) | Check radiobox by attribute and form by name
 
-- `enable_java(bool $enable = true, bool $refresh = true): bool`  
+**check_all(bool $check = true, string $frame = '-1'): bool**
 
-- `enable_frames(bool $enable = true, bool $refresh = true): bool`  
+Отметить DOM элемент чекбокс все элементы (без учета проверки: существует ли элемент) | Check all radioboxes
 
-- `enable_fonts(bool $enable = true, bool $refresh = true): bool`  
+**is_check_by_number(int $number, string $frame = '-1'): bool**
 
-- `enable_remote_fonts(bool $enable = true, bool $refresh = true): bool`  
+Проверить есть отметка на DOM элементе радиобокс по номеру | Radio box is checked by number
 
-- `enable_popup(bool $enable = true, bool $refresh = true): bool`  
+**is_check_by_name(string $name, string $frame = '-1'): bool**
 
-- `disable_script_error(bool $enable = true, bool $refresh = true): bool`  
+Проверить есть отметка на DOM элементе радиобокс по номеру | Radio box is checked by name
 
-- `disable_security_problem_dialogs(bool $disable = true): bool`  
+**is_check_by_value(string $value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `enable_quiet_regime(bool $enable = true, bool $refresh = true): bool`  
+Проверить есть отметка на DOM элементе радиобокс по value | Radio box is checked by value
 
-- `enable_cache(bool $enable = true, bool $refresh = true): bool`  
+**is_check_by_attribute(string $attr_name, string $attr_value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `enable_dom_storage(bool $enable = true, bool $refresh = true): bool`  
+Проверить есть отметка на DOM элементе радиобокс по значению атрибута | Radio box is checked by attribute
 
-- `enable_callback(bool $enable = true, bool $refresh = true): bool`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `enable_view_json(bool $enable = true, bool $refresh = true): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `enable_web_rtc(bool $enable = true, bool $refresh = true): bool`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `enable_web_socket(bool $enable = true, bool $refresh = true): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `enable_common_cache_and_cookies(bool $enable = true, bool $refresh = true): bool`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `enable_directx(bool $enable = true): bool`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `enable_gpu_rendering(bool $enable = true): bool`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `enable_browser_notification(bool $enable = true, bool $show = false, bool $refresh = true): bool`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `is_enable_images(): bool`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `is_enable_java_script(): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `is_enable_sounds(): bool`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `is_enable_video(): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `is_enable_activex(): bool`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `is_enable_java(): bool`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `is_enable_popup(): bool`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-- `is_enable_frames(): bool`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `is_disable_script_error(): bool`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `is_enable_quiet_regime(): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `is_enable_cache(): bool`  
+**click_within_iframe_by_name(string $name, string $frame): bool**
 
-- `is_enable_dom_storage(): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по атрибуту name | Click on DOM element by name
 
-- `is_enable_callback(): bool`  
+**click_within_iframe_by_number(int $number, string $frame): bool**
 
-- `is_enable_view_json(): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по номеру | Click on DOM element by number
 
-- `is_enable_web_rtc(): bool`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `is_enable_web_socket(): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `is_enable_common_cache_and_cookies(): bool`  
+**click_random_in_frame(string $frame): int**
 
-- `set_popup_type(int $popup_type): bool`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `set_google_api_key(string $api_key): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `set_google_default_client_id(string $client_id): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `set_google_default_client_secret(string $client_secret): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `enable_isolate_tabs(bool $enable = true): bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `set_do_not_track(bool $doNotTrack = true): bool`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `set_blocked_chipers(string $blocked_chipers, bool $refresh = false): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `call_java_script(string $func, string $parametrs): bool`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `run_java_script(string $script_text, string $add_file = '', int $timeout = 60): string`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `set_init_java_script(string $script_text, string $add_file = ''): void`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `set_document_complete_java_script(string $script_text, string $add_file = ''): void`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `run_jquery(string $script_text, string $ver = '3'): string`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `run_dojo(string $script_text): string`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `enable_proxy(string $connection, string $proxy, bool $recreate = true): bool`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `disable_proxy(string $connection = '', bool $recreate = true): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_current_proxy(string $connection = '', bool $with_auth = false): string`  
+**set_checked_by_name(string $name, bool $check): bool**
 
-- `get_version(bool $numerica = true): string`  
+Отметить DOM элемент радиобокс по имени | Check radiobox by name
 
-- `get_user_agent(): string`  
+**set_checked_by_number(int $number, bool $check): bool**
 
-- `get_cookies_folder(): string`  
+Установить отметку по радиобокс, найти по номеру (без учета проверки: существует ли элемент) | Check by number
 
-- `get_cache_folder(): string`  
+**set_checked_by_value(string $value, bool $check): bool**
 
-- `set_cookies_folder(string $folder, bool $refresh = true): bool`  
+Отметить DOM элемент радиобокс по value | Check radiobox by value
 
-- `set_cache_folder(string $folder, bool $refresh = true): bool`  
+**is_checked_by_name(string $name): bool**
 
-- `flash_cookies_save(string $folder, string $site = ''): bool`  
+Проверить есть отметка на DOM элементе радиобокс по номеру | Radio box is checked by name
 
-- `flash_cookies_restore(string $folder, string $site = ''): bool`  
+**is_checked_by_number(int $number): bool**
 
-- `flash_cookies_delete(string $site = ''): bool`  
+Проверить есть отметка на DOM элементе радиобокс по номеру | Radio box is checked by number
 
-- `set_user_agent(string $agent_string, bool $refresh = true): bool`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `set_model(string $model): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `get_model(): string`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_page_width(): int`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `get_page_height(): int`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `set_width(int $width): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `get_window_width(): int`  
+## Class: XHES
 
-- `set_height(int $height): bool`  
+For handling s DOM elements in current loaded HTML page
 
-- `get_window_height(): int`  
+### Methods
 
-- `get_selected_text(bool $as_html): string`  
+**__construct(string $server, string $password = ''): void**
 
-- `set_vertical_scroll_pos(int $y): bool`  
+Конструктор
 
-- `get_vertical_scroll_pos(): int`  
+## Class: XHEScriptElement
 
-- `set_horizontal_scroll_pos(int $x): bool`  
+For handling script DOM elements in current loaded HTML page
 
-- `get_horizontal_scroll_pos(): int`  
+### Methods
 
-- `clear_cookies(string $match_name, bool $clear_session = false, bool $clear_flash = true): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `clear_local_storage(): bool`  
+Конструктор
 
-- `clear_indexed_db(): bool`  
+**set_defer_by_number(int $number, bool $defer, string $frame = '-1'): bool**
 
-- `set_cookie(string $cookie): bool`  
+Задать атрибут defer у скрипта по номеру | Set the defer attribute in the script by number
 
-- `set_cookie_for_url(string $url, string $name, string $cookie, string $expires = '', string $domain = '', string $path = '', bool $httpOnly = false, bool $secure = false, bool $session = false, string $sameSite = '', string $priority = ''): bool`  
+**set_defer_by_src(string $src, bool $defer, string $frame = '-1'): bool**
 
-- `get_cookie(bool $as_json = false): string`  
+Задать атрибут defer у скрипта с заданным атрибутом src | Set the defer attribute on a script with a given src attribute
 
-- `get_cookie_for_url(string $url, string $name, bool $as_json = false): string`  
+**set_htmlFor_by_number(int $number, string $htmlFor, string $frame = '-1'): bool**
 
-- `import_cookies(string $url, string $cookies): bool`  
+Задать атрибут htmlFor у скрипта по номеру | Set the htmlFor attribute for the script by number
 
-- `get_popup_source(string $url, bool $exactly): string`  
+**set_htmlFor_by_src(string $src, string $htmlFor, string $frame = '-1'): bool**
 
-- `close_popup(string $url, bool $exactly): bool`  
+Задать атрибут htmlFor у скрипта с заданным атрибутом src | Set the htmlFor attribute to a script with a given src attribute
 
-- `enable_browser_message_boxes(bool $enable = true, string $default_answer = 'Ok'): bool`  
+**set_event_by_number(int $number, string $event, string $frame = '-1'): bool**
 
-- `get_last_messagebox_caption(): string`  
+Задать event у скрипта по номеру | Set event for script with given number
 
-- `get_last_messagebox_text(): string`  
+**set_event_by_src(string $src, string $event, string $frame = '-1'): bool**
 
-- `get_last_messagebox_type(): string`  
+Задать event у скрипта с заданным атрибутом src | Set event to script with given src attribute
 
-- `clear_last_messagebox_info(): bool`  
+**set_src_by_number(int $number, string $src, string $frame = '-1'): bool**
 
-- `set_default_authorization(string $login, string $password): bool`  
+Задать атрибут src у скрипта по номеру | Set the src attribute of the script by number
 
-- `reset_default_authorization(): bool`  
+**set_text_by_number(int $number, string $text, string $frame = '-1'): bool**
 
-- `set_default_certificate(string $text): bool`  
+Задать текст у скрипта по номеру | Set the text for the script by number
 
-- `enable_download_file_dialog(bool $enable): bool`  
+**set_text_by_src(string $src, string $text, string $frame = '-1'): bool**
 
-- `is_enable_download_file_dialog(): bool`  
+Задать текст у скрипта с заданным атрибутом src | Set the text of the script with the given src attribute
 
-- `set_default_download(string $folder): bool`  
+**set_type_by_number(string $number, string $type, string $frame = '-1'): bool**
 
-- `reset_default_download(): bool`  
+Задать атрибут type у скрипта по номеру | Set the type attribute for the script by number
 
-- `get_last_download_id(): int`  
+**set_type_by_src(string $src, string $type, string $frame = '-1'): bool**
 
-- `is_download_complete(int $id): bool|int`  
+Задать атрибут type у скрипта с заданным атрибутом src | Set the type attribute of a script with a given src attribute
 
-- `get_download_info(int $id, string $infoPart = 'all'): string`  
+**get_defer_by_number(int $number, string $frame = '-1'): bool**
 
-- `cancel_download(int $id): bool`  
+Получить значение атрибута defer у скрипта по номеру | Get the value of the defer attribute of the script by number
 
-- `wait_download_and_get_file_path(int $wait_time_in_seconds = 3000): string`  
+**get_defer_by_src(string $src, string $frame = '-1'): bool**
 
-- `set_accept(string $accept_string): bool`  
+Получить значение атрибута defer у скрипта с заданным атрибутом src | Get the value of the defer attribute of a script with a given src attribute
 
-- `set_accept_language(string $accept_string): bool`  
+**get_htmlFor_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `set_language(string $language = ''): bool`  
+Получить значение атрибута htmlFor у скрипта по номеру | Get the value of the htmlFor attribute of a script by number
 
-- `set_accept_encoding(string $accept_string): bool`  
+**get_htmlFor_by_src(string $src, string $frame = '-1'): string|bool**
 
-- `set_referer(string $referer = ''): bool`  
+Получить значение атрибута htmlFor у скрипта с заданным атрибутом src | Get the value of the htmlFor attribute of a script with a given src attribute
 
-- `get_referer(): string`  
+**get_event_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `set_platform(string $platform = '', string $cpuClass = ''): bool`  
+Получить event у скрипта по номеру | Get event from script by number
 
-- `get_cpu_class(): string`  
+**get_event_by_src(string $src, string $frame = '-1'): string|bool**
 
-- `set_geo(string $latitude = '', string $longitude = '', string $accuracy = '', string $altitude = '', string $altitudeAccuracy = '', string $heading = '', string $speed = ''): bool`  
+Получить event у скрипта с заданным атрибутом src | Get event from script with given src attribute
 
-- `set_permissions(string $state = ''): bool`  
+**get_readyState_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `set_hardware_info(int $hardwareConcurrency = -1, int $deviceMemory = -1, int $devicePixelRatio = -1): bool`  
+Получить значение свойства readyState у скрипта по номеру | Get the value of the readyState property of a script by number
 
-- `set_screen_resolution(int $width = -1, int $height = -1, int $pixelDepth = -1): bool`  
+**get_readyState_by_src(string $src, string $frame = '-1'): string|bool**
 
-- `set_app_info(string $appName = '', string $appCodeName = '', string $appMinorVersion = '', string $product = '', string $productSub = '', string $vendor = '', string $vendorSub = ''): bool`  
+Получить значение свойства readyState у скрипта с заданным src | Get the value of the readyState property of the script with the given src
 
-- `set_plugins_info(string $plugins_info = '', string $mime_types = ''): bool`  
+**get_text_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `set_time_zone(int $time_zone = -100): bool`  
+Получить текст скрипта по номеру | Get script text by number
 
-- `set_internationalization(string $locale = '', string $timeZone = '', string $calendar = '', string $numberingSystem = '', string $year = '', string $month = '', string $day = ''): bool`  
+**get_text_by_src(string $src, string $frame = '-1'): string|bool**
 
-- `set_touch_info(string $max_points = '', string $ontouchevent = ''): bool`  
+Получить текст скрипта с заданным атрибутом src | Get the text of the script with the given src attribute
 
-- `set_canvas_toDataURL(string $toDataURL = '', string $jsChangeNoise = ''): bool`  
+**get_type_by_number(int $number, string $frame = '-1'): string|bool**
 
-- `set_random_webgl_fingerprint(bool $enable = true, string $noiseImage = '', string $noiseParams = '', string $unmaskedVendor = '', string $unmaskedRenderer = '', string $glVersion = '', string $shadingLanguageVersion = '', string $vendor = '', string $renderer = ''): bool`  
+Получить значение атрибута type скрипта по номеру | Get the value of the script type attribute by number
 
-- `set_webgl_params(XHEWebGLParams $webgl_params): bool`  
+**get_type_by_src(string $src, string $frame = '-1'): string|bool**
 
-- `set_random_audio_fingerprint(string $noiseAudio = '', string $noiseFrequence = ''): bool`  
+Получить значение атрибута type скрипта с заданным атрибутом src | Get the value of the type attribute of a script with a given src attribute
 
-- `set_random_bounds_fingerprint(int $noise = -1): bool`  
+**is_all_completed(): bool**
 
-- `set_battery_api(string $level = '', bool $charging = true, string $charging_time = '', string $discharging_time = '', bool $refresh = false): bool`  
+Проверить что все скрипты находятся в незапущенном состоянии (без учета проверки: существует ли элемент) | Check that all scripts are in a non-running state
 
-- `paste(string $text = ''): bool`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `save_page_as(string $file): bool`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `get_zoom(): string`  
+## Class: XHESection
 
-- `set_zoom(int $zoom): bool`  
+For handling section DOM elements in current loaded HTML page
 
-- `run_command(string $command): bool`  
+### Methods
 
-- `send_get_query(string $url, string $data = '', bool $use_current_proxy = true): string|bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `send_post_query(string $url, string $data = '', string $type = 'application/x-www-form-urlencoded', bool $set_as_page = false, string $add_header = '', bool $use_current_proxy = true): string|bool`  
+Конструктор
 
-- `check_internet_connection(): bool`  
+## Class: XHESelectElement
 
-- `check_connection(string $url, int $timeout, bool $use_cache = false, int $num = -1): bool`  
+For handling listbox DOM elements in current loaded HTML page
 
-- `clear_cache(): bool`  
+### Methods
 
-- `clear_history(): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `clear_address_bar_history(): bool`  
+Конструктор
 
-- `set_redraw(bool $enable): bool`  
+**select_index_by_number(int $number, int $index, string $frame = '-1'): bool**
 
-- `set_fps(int $fps): bool`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by index
 
-- `recreate(): bool`  
+**select_index_by_name(string $name, int $index, string $frame = '-1'): bool**
 
-- `save_profile(string $path, string $name = '', string $description = ''): bool`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by index
 
-- `load_profile(string $path): bool`  
+**select_index_by_attribute(string $attr_name, string $attr_value, bool $exactly_attr, int $index, string $frame = '-1'): bool**
 
-- `set_default_profile_path(string $path): bool`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по значению атрибута | Find listbox by attribute and select option by index
 
-- `get_cli(): string`  
+**select_text_by_number(int $number, string $text, bool $exactly = true, string $frame = '-1'): bool**
 
-- `set_cli(string $cli): bool`  
+Выбрать опцию по тексту в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by text
 
-- `start_video_record(string $path, int $fps = 10, int $quality = 70, int $x = -1, int $y = -1, int $width = -1, int $height = -1, bool $as_gray = false, float $zoom = 0.3): bool`  
+**select_text_by_name(string $name, string $text, bool $exactly = true, string $frame = '-1'): bool**
 
-- `stop_video_record(): bool`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by text
 
-- `clear_cash(): bool`  
+**select_text_by_attribute(string $attr_name, string $attr_value, bool $exactly_attr, string $text, bool $exactly = true, string $frame = '-1'): bool**
 
-- `disable_download_file_dialog(bool $enable): bool`  
+Выбрать опцию по тексту в DOM элементе листбокс, который найти по значению атрибута | Find listbox by name and select option by text
 
-- `is_disable_download_file_dialog(): bool`  
+**select_value_by_number(int $number, string $value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `change_cookies_folder(string $folder): bool`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by value
 
-- `change_cache_folder(string $folder): bool`  
+**select_value_by_name(string $name, string $value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `set_accept_charset(string $accept_string): bool`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by value
 
-- `set_internazionalization(string $locale = '', string $timeZone = '', string $calendar = '', string $numberingSystem = '', string $year = '', string $month = '', string $day = ''): bool`  
+**select_value_by_attribute(string $attr_name, string $attr_value, bool $exactly_attr, string $value, bool $exactly = true, string $frame = '-1'): bool**
 
-- `add_plugins(array $paths_to_plugins, bool $refresh = true): bool`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по значению атрибута| Find listbox by name and select option by attribute value
 
-- `get_webdriver_session(): string`  
+**select_index_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly_attr, int $index, int $form_number, string $frame = '-1'): bool**
 
----
+Выбрать опцию по индексу в DOM элементе листбокс в форме, DOM элемент найти по значению атрибута, форму найти по номеру | Find listbox by attribute in form found by number and select option by index
 
-### `XHEBypasscaptcha` — XHEBypasscaptcha
+**select_index_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly_attr, int $index, string $form_name, string $frame = '-1'): bool**
 
-**Методы**:
-- `set_system_key(mixed $key): void`  
+Выбрать опцию по индексу в DOM элементе листбокс в форме, DOM элемент найти по значению атрибута, форму найти по значению атрибута name | Find listbox by name in form found by name and select option by index
 
-- `get_last_capcha_filename(): string`  
+**select_text_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly_attr, string $text, bool $exactly, int $form_number, string $frame = '-1'): bool**
 
-- `get_last_capcha_result(): mixed`  
+Выбрать опцию по тексту в DOM элементе листбокс в форме, DOM элемент найти по значению атрибута, форму найти по номеру | Find listbox by name in form found by number and select option by text
 
-- `__construct(): void`  
+**select_text_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly_attr, string $text, bool $exactly, string $form_name, string $frame = '-1'): bool**
 
-- `recognize(string $file): mixed|null`  
+Выбрать опцию по тексту в DOM элементе листбокс в форме, DOM элемент найти по значению атрибута, форму найти по значение атрибута name | Find listbox by attribute in form found by name and select option by text
 
-- `report(int $result): void`  
+**select_value_by_attribute_by_form_number(string $attr_name, string $attr_value, bool $exactly_attr, string $value, bool $exactly, int $form_number, string $frame = '-1'): bool**
 
-- `get_last_capcha_id(): mixed`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс в форме, DOM элемент найти по значению атрибута, форму найти по номеру | Find listbox by attribute in form found by number and select option by value
 
-- `get_balance(): mixed`  
+**select_value_by_attribute_by_form_name(string $attr_name, string $attr_value, bool $exactly_attr, string $value, bool $exactly, string $form_name, string $frame = '-1'): bool**
 
----
+Выбрать опцию по значению атрибута value в DOM элементе листбокс в форме, DOM элемент найти по значению атрибута, форму найти по значению атрибута name | Find listbox by attribute in form found by name and select option by value
 
-### `XHECheapsms` — XHECheapsms
+**select_random_by_number(int $number, string $frame = '-1'): bool**
 
-**Методы**:
-- `__construct(string $api = '', string $servis = 'https://cheapsms.pro', string $ref = ''): void`  
+Выбрать случайную опцию в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and select random option
 
----
+**select_random_by_name(string $name, string $frame = '-1'): bool**
 
-### `XHEConnection` — For connect to: RAS, VPN, PROXY
+Выбрать случайную опцию в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by attribute name and select random option
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**select_random_by_attribute(string $attr_name, string $attr_value, bool $exactly_attr = true, string $frame = '-1'): bool**
 
-- `dial_ras(string $name, string $login, string $password): bool`  
+Выбрать случайную опцию в DOM элементе листбокс, DOM элемент найти по значению атрибута | Find listbox by attribute and select random option
 
-- `hang_up_ras(): bool`  
+**multi_select_indexes_by_number(int $number, string $indexes, string $frame = '-1'): bool**
 
-- `create_vpn(string $name, string $server, string $user, string $password, string $psk, int $type): bool`  
+Выбрать опции по индексам в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and select options by indexes
 
-- `get_name_by_number_ras(int $number): string`  
+**multi_select_indexes_by_name(string $name, string $indexes, string $frame = '-1'): bool**
 
-- `get_all_connection_ras(): string`  
+Выбрать опции по индексам в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and select options by indexes
 
-- `restart_lan_by_name(string $name): bool`  
+**multi_select_values_by_number(int $number, string $values, string $frame = '-1'): bool**
 
-- `restart_lan_by_number(int $number): bool`  
+Выбрать опции по значениям атрибута value в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and select options by values
 
-- `set_local_ip(int $number, string $ip, string $subnetMask = '', string $gateway = '', string $defaultDNS = '', string $subDNS = ''): bool`  
+**multi_select_values_by_name(string $name, string $values, string $frame = '-1'): bool**
 
-- `get_local_ip(): string`  
+Выбрать опции по значениям атрибута value в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and select options by values
 
-- `get_real_ip(): string`  
+**multi_select_texts_by_number(int $number, string $texts, string $frame = '-1'): bool**
 
-- `get_mac_address_by_number(int $number): string`  
+Выбрать опции по значениям текста в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and select options by texts
 
-- `set_mac_address_by_number(int $number, string $mac): bool`  
+**multi_select_texts_by_name(string $name, string $texts, string $frame = '-1'): bool**
 
-- `check_ping_site(string $site): bool`  
+Выбрать опции по значениям текста в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and select options by texts
 
-- `is_connect_to_internet(): bool`  
+**get_selected_index_by_number(int $number, string $frame = '-1'): bool**
 
-- `get_connection_parameters(): string`  
+Получить индекс выбранной опции в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and get selected option index
 
-- `enable_proxy(string $connection, string $proxy): bool`  
+**get_selected_index_by_name(string $name, string $frame = '-1'): int**
 
-- `disable_proxy(string $connection): bool`  
+Получить индекс выбранной опции в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get selected option index
 
-- `get_current_proxy(string $connection): string`  
+**get_selected_index_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): int**
 
----
+Получить индекс выбранной опции в DOM элементе листбокс, DOM элемент найти по значению атрибута | Find listbox by attribute and get selected option index
 
-### `XHEFTP` — Perform operations with the FTP server
+**get_selected_text_by_number(int $number, string $frame = '-1'): false|string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить текст выбранной опции в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and get selected option text
 
-- `connect(string $server, string $user = '', string $password = '', string $iport = '', bool $flag_passive = true, int $timeout = -1, string $encoding = ''): bool`  
+**get_selected_text_by_name(string $name, string $frame = '-1'): false|string**
 
-- `disconnect(string $server): bool`  
+Получить текст выбранной опции в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get selected option text
 
-- `disconnect_all(): bool`  
+**get_selected_text_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): false|string**
 
-- `list_files(string $server, string $folder = ''): ?array`  
+Получить текст выбранной опции в DOM элементе листбокс, DOM элемент найти по значению атрибута | Find listbox by attribute and get selected option text
 
-- `list_folders(string $server, string $folder = ''): ?array`  
+**get_size_by_number(int $number, string $frame = '-1'): int**
 
-- `is_directory_exists(string $server, string $dir_name): bool`  
+Получить значение атрибута size в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and get size
 
-- `create_directory(string $server, string $dir_name): bool`  
+**get_size_by_name(string $name, string $frame = '-1'): int**
 
-- `remove_directory(string $server, string $dir_name): bool`  
+Получить количество опций в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get size
 
-- `clear_directory(string $server, string $dir_name): bool`  
+**get_size_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): int**
 
-- `get_directory(string $server, string $remote_folder, string $local_folder, bool $flag_file_exist = true): bool`  
+Получить значение атрибута size в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get size
 
-- `put_directory(string $server, string $local_folder, string $remote_folder): bool`  
+**get_length_by_number(int $number, string $frame = '-1'): int**
 
-- `is_file_exists(string $server, string $remote_file): bool`  
+Получить количество опций в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and get the number of options
 
-- `get_file(string $server, string $remote_file, string $local_file, bool $flag_file_exist = true): bool`  
+**get_length_by_name(string $name, string $frame = '-1'): int**
 
-- `put_file(string $server, string $local_file, string $remote_file, bool $flag_file_exist = true): bool`  
+Получить количество опций в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get the number of options
 
-- `remove_file(string $server, string $file_name): bool`  
+**get_length_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): int**
 
-- `rename(string $server, string $exist_file_name, string $new_file_name): bool`  
+Получить количество опций в DOM элементе листбокс, DOM элемент найти по значению атрибута | Find listbox by name and get the number of options
 
-- `command(string $server, string $command, string $working_folder): mixed`  
+**get_type_by_number(int $number, string $frame = '-1'): string**
 
-- `command_texts(string $server, string $command, string $working_folder): ?array`  
+Получить тип выбора опций в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and get select type of options
 
-- `create_directoy(string $server, string $dir_name): bool`  
+**get_type_by_name(string $name, string $frame = '-1'): string**
 
-- `disconect(string $server): bool`  
+Получить тип выбора опций в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get select type of options
 
-- `disconect_all(): bool`  
+**get_type_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): string**
 
----
+Получить тип выбора опций в DOM элементе листбокс, DOM элемент найти по значению атрибута | Find listbox by attribute and get select type of options
 
-### `XHEHarvestor` — Для сбора страниц сайтов
+**get_all_texts_by_number(int $number, string $frame = '-1'): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить тексты всех опций в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and get all texts of options
 
-- `init(string $in_file, string $proxy_file = '', bool $proceed_js = true): bool`  
+**get_all_texts_by_name(string $name, string $frame = '-1'): string**
 
-- `make_screenshots(bool $enable = true): bool`  
+Получить тексты всех опций в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get all texts of options
 
-- `set_browser_size(int $width, int $height): bool`  
+**get_all_texts_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): string**
 
-- `start(bool $is_wait = true): bool`  
+Получить тексты всех опций в DOM элементе листбокс, DOM элемент найти по атрибуту | Find listbox by attribute and get all texts of options
 
-- `stop(): bool`  
+**get_all_values_by_number(int $number, string $frame = '-1'): string**
 
-- `is_finished(): bool`  
+Получить значения атрибута value всех опций в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and get all values of options
 
-- `get_html(int $position): string`  
+**get_all_values_by_name(string $name, string $frame = '-1'): string**
 
-- `get_screenshot_path(int $position): string`  
+Получить значения атрибута value всех опций в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get all values of options
 
-- `get_completed_count(): int`  
+**get_all_values_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame = '-1'): string**
 
----
+Получить значения атрибута value всех опций в DOM элементе листбокс, DOM элемент найти по атрибуту | Find listbox by attribute and get all values of options
 
-### `XHEMail` — To send and receive emails using SMTP, IMAP, POP3 protocols
+**add_option_by_number(int $number, string $text, string $value, string $frame = '-1'): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Добавить новую опцию в DOM элемент листбокс, DOM элемент найти по номеру | Find listbox by number and add option
 
-- `set_proxy(string $proxy): bool`  
+**add_option_by_name(string $name, string $text, string $value, string $frame = '-1'): bool**
 
-- `send_mail_via_outlook(string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', ?array $attachments = null, int $timeout = 300, string $replyTo = ''): bool`  
+Добавить новую опцию в DOM элемент листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and add option
 
-- `smtp_connect(string $server, int $port, string $login, string $password, int $ssl_option = 1, string $cert_type = 's, c, h, e', int $timeout = 3000, string $log_path = ''): bool`  
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-- `smtp_disconnect(): bool`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `check_smtp_auth(): bool`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, mixed $event): void**
 
-- `send_mail_via_smtp(string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', ?array $attachments = null, int $timeout = 300, string $replyTo = ''): bool`  
 
-- `pop3_connect(string $server, int $port, string $login, string $password, int $ssl_option = 1, string $cert_type = 's, c, h, e', int $timeout = 3000, string $log_path = ''): bool`  
 
-- `pop3_disconnect(): bool`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `get_message_count_via_pop3(int $timeout = 300): int`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `get_message_by_number_via_pop3(int $number, int $timeout = 300): XHEMailMessage`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `get_message_by_id_via_pop3(string $id, int $timeout = 300): XHEMailMessage`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `get_message_by_subject_via_pop3(string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `get_message_by_from_via_pop3(string $from, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `get_message_by_attachment_name_via_pop3(string $name, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, mixed $frame_number): string**
 
-- `get_message_by_text_via_pop3(string $text, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `delete_message_by_number_via_pop3(int $number, int $timeout = 300): bool`  
+**select_random_value_by_num(int $num): bool**
 
-- `delete_message_by_from_via_pop3(string $from, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+Выбрать случайную опцию в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and select random option
 
-- `delete_message_by_subject_via_pop3(string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+**select_value_by_num(string $value, int $num): bool**
 
-- `delete_message_by_text_via_pop3(string $text, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by value
 
-- `delete_all_messages_via_pop3(int $timeout = 300): bool`  
+**select_option_value_by_num(int $num, string $innername): bool**
 
-- `imap_connect(string $server, int $port, string $login, string $password, int $ssl_option = 1, string $cert_type = 's, c, h, e', int $timeout = 3000, string $log_path = ''): bool`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by value
 
-- `imap_disconnect(): bool`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `get_message_count_via_imap(string $folder = '', int $timeout = 300): int`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `get_message_by_number_via_imap(string $folder, int $number, int $timeout = 300): XHEMailMessage`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-- `get_message_by_id_via_imap(string $folder, string $id, int $timeout = 300): XHEMailMessage`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `get_message_by_subject_via_imap(string $folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `get_message_by_from_via_imap(string $folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `get_message_by_text_via_imap(string $folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
-- `get_message_by_attachment_name_via_imap(string $folder, string $name, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `delete_message_by_number_via_imap(string $folder, int $number, int $timeout = 300): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `delete_message_by_id_via_imap(string $folder, string $id, int $timeout = 300): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `delete_all_messages_via_imap(string $folder, int $timeout = 300): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `move_message_by_number_via_imap(string $from_folder, string $to_folder, int $number, int $timeout = 300): bool`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `move_message_by_id_via_imap(string $from_folder, string $to_folder, string $id, int $timeout = 300): bool`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `move_message_by_subject_via_imap(string $from_folder, string $to_folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `move_message_by_from_via_imap(string $from_folder, string $to_folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, mixed $frame_num): bool**
 
-- `move_message_by_text_via_imap(string $from_folder, string $to_folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `save_message_attachments_by_number_via_imap(string $path, string $folder, int $number, int $timeout = 300): bool`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `save_message_attachments_by_id_via_imap(string $path, string $folder, string $id, int $timeout = 300): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `save_message_attachments_by_from_via_imap(string $path, string $folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
-- `save_message_attachments_by_subject_via_imap(string $path, string $folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `save_message_attachments_by_text_via_imap(string $path, string $folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300): bool`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `set_message_readed_by_id_via_imap(string $folder, string $id, bool $is_readed = true, int $timeout = 300): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `add_message_flag_by_id_via_imap(string $folder, string $id, string $flag, int $timeout = 300): bool`  
+**add_atribute_by_number(int $number, string $name_atr, string $value_atr): bool**
 
-- `add_message_via_imap(string $folder, string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', ?array $attachments = null, int $timeout = 300, string $replyTo = ''): mixed`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
----
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-### `XHEMsExchange` — To work with email using the MS Exchange API
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `connect(string $url, string $email = '', string $password = ''): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `disconnect(): bool`  
+**select_part_value_by_name(string $name, string $value, bool $exactly): bool**
 
-- `send_mail(string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', string $replyTo = '', array $attachments = null, int $timeout = 300): bool`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by text
 
-- `forward(string $folder, string $id, string $to, int $timeout = 300): bool`  
+**select_random_value_by_name(string $name): bool**
 
-- `reply(string $folder, string $id, string $subject, string $message, int $type, string $cc = '', string $bcc = '', array $attachments = null, bool $replyAll = false, int $timeout = 300): bool`  
+Выбрать случайную опцию в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by attribute name and select random option
 
-- `get_folder_id_by_name(string $folder = '', int $timeout = 300): string`  
+**select_random_value_by_number(int $num): bool**
 
-- `get_folders(string $folder = '', bool $firstLevelOnly = true, int $timeout = 300): ?array`  
+Выбрать случайную опцию в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and select random option
 
-- `get_message_count(string $folder = '', bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): int`  
+**select_num_value_by_name(string $name, mixed $num): bool**
 
-- `get_message_by_number(string $folder, int $number, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by index
 
-- `get_message_by_number_as_xhe_obj(string $folder, int $number, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+**select_num_value_by_number(int $number, int $num): bool**
 
-- `get_message_by_subject(string $folder, string $subject, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by index
 
-- `get_message_by_subject_as_xhe_obj(string $folder, string $subject, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+**select_num_by_inner_name(int $num, string $innername): bool**
 
-- `get_message_by_from(string $folder, string $from, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by value
 
-- `get_message_by_from_as_xhe_obj(string $folder, string $from, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+**select_name_by_inner_name(string $name, string $innername): bool**
 
-- `get_message_by_text(string $folder, string $text, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by text
 
-- `get_message_by_category(string $folder, string $category, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+**select_option_text_by_name(string $name, string $value): bool**
 
-- `get_message_by_attachment_name(string $folder, string $name, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by text
 
-- `get_message_by_id(string $folder, string $id, int $timeout = 300): ?object`  
+**select_option_text_by_num(string $value, int $num): bool**
 
-- `delete_message_by_id(string $folder, string $id, int $timeout = 300): bool`  
+Выбрать опцию по тексту в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by text
 
-- `delete_all_messages(string $folder, int $timeout = 300): bool`  
+**select_option_value_by_number(int $num, string $innername): bool**
 
-- `move_message_by_id(string $from_folder, string $to_folder, string $id, int $timeout = 300): string`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by value
 
-- `save_message_attachments_by_id(string $folderPath, string $folder, string $id, int $timeout = 300): bool`  
+**select_option_value_by_name(string $name, string $innername): bool**
 
-- `set_message_readed_by_id(string $folder, string $id, bool $is_readed = true, int $timeout = 300): bool`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by value
 
-- `get_message_categories_by_id(string $folder, string $id, int $timeout = 300): ?array`  
+**get_cur_option_text_by_name(string $name): false|string**
 
-- `add_message_category_by_id(string $folder, string $id, string $category, int $timeout = 300): bool`  
+Получить текст выбранной опции в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and get selected option text
 
-- `remove_message_category_by_id(string $folder, string $id, string $category, int $timeout = 300): bool`  
+**get_cur_option_text_by_number(int $number): false|string**
 
-- `add_message_flag_by_id(string $folder, string $id, string $flag, int $timeout): bool`  
+Получить текст выбранной опции в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and get selected option text
 
----
+**select_value_within_iframe_by_name(string $name, string $value, string $frame): bool**
 
-### `XHEOnlineSimRu` — XHEOnlineSimRu - класс для работы с API сервиса onlinesim.ru
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by value
 
-**Методы**:
-- `__construct(): void`  
+**select_value_within_iframe_by_num(string $value, int $num, string $frame): bool**
 
-- `login(string $user, string $password, string $email): mixed`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by value
 
-- `getServiceList(): mixed`  
+**select_part_value_within_iframe_by_name(string $name, string $value, bool $exactly, string $frame): bool**
 
-- `getNum(string $service, string $form = '', string $forward_number = '', string $forward_minutes = '', string $clean_call = '', string $simoperator = '', string $extension = '', string $region = ''): mixed`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by value
 
-- `setForwardStatusEnable(string $tzid): mixed`  
+**select_num_value_within_iframe_by_name(string $name, int $num, string $frame): bool**
 
-- `getState(string $tzid, string $message_to_code = '', string $form = '', string $orderby = ''): mixed`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by index
 
-- `getOperations(): mixed`  
+**select_num_value_within_iframe_by_number(int $number, int $num, string $frame): bool**
 
-- `setOperationRevise(string $tzid): mixed`  
+Выбрать опцию по индексу в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by index
 
-- `setOperationOk(string $tzid): mixed`  
+**select_num_within_iframe_by_inner_name(int $num, string $innername, string $frame): bool**
 
-- `getBalance(): mixed`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по номеру | Find listbox by number and select option by value
 
-- `getService(): mixed`  
+**select_name_within_iframe_by_inner_name(string $name, string $innername, string $frame): bool**
 
-- `getServiceNumber(string $service): mixed`  
+Выбрать опцию по значению атрибута value в DOM элементе листбокс, который найти по значению атрибута name | Find listbox by name and select option by value
 
-- `getNumRepeat(string $service, string $number): mixed`  
+**multi_select_name_by_number(string $name, string $values): bool**
 
-- `forwardingList(string $id = '', string $page = '', string $sort = ''): mixed`  
+Выбрать опции по индексам в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and select options by indexes
 
-- `forwardingSave(string $id, string $minutes = '', string $auto = '', string $forward_number = '', string $max_minutes = ''): mixed`  
+**multi_select_name_by_num(string $name, string $values): bool**
 
-- `forwardingRemove(string $id): mixed`  
+Выбрать опции по индексам в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and select options by indexes
 
-- `getForwardPaymentsList(string $id): mixed`  
+**multi_select_name_by_text(string $name, string $values): bool**
 
----
+Выбрать опции по значениям текста в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and select options by texts
 
-### `XHEOutlook` — Для работы с электронной почтой E-mail с помощью приложения Outlook
+**multi_select_num_by_text(int $num, string $values): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Выбрать опции по значениям текста в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and select options by texts
 
-- `send_mail(string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', ?array $attachments = null, int $timeout = 300, string $replyTo = ''): bool`  
+**multi_select_name_by_inner_name(string $name, string $values): bool**
 
-- `send_image(string $from, string $to, string $subject, string $image_path, string $signature = '', string $cc = '', string $bcc = '', string $replyTo = '', int $timeout = 300): bool`  
+Выбрать опции по значениям атрибута value в DOM элементе листбокс, DOM элемент найти по значению атрибута name | Find listbox by name and select options by values
 
-- `open(bool $show = false): bool`  
+**multi_select_num_by_inner_name(int $num, string $values): bool**
 
-- `close(): bool`  
+Выбрать опции по значениям атрибута value в DOM элементе листбокс, DOM элемент найти по номеру | Find listbox by number and select options by values
 
-- `kill(): bool`  
+## Class: XHESpan
 
-- `update(bool $show = false): bool`  
+For handling span DOM elements in current loaded HTML page
 
-- `set_default_folder(string $folder = ''): bool`  
+### Methods
 
-- `get_folders(string $folder = ''): ?array`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_accounts(): ?array`  
+Конструктор
 
-- `logon(string $profile, string $password = ''): bool`  
+## Class: XHEStrong
 
-- `logoff(): bool`  
+For handling strong DOM elements in current loaded HTML page
 
-- `get_message_count(string $folder = '', int $timeout = 300, string $readed = 'all'): int`  
+### Methods
 
-- `get_message_count_by_from(string $folder, string $from, bool $exactly = false, int $timeout = 300, string $readed = 'all'): int`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_message_count_by_subject(string $folder, string $subject, bool $exactly = false, int $timeout = 300, string $readed = 'all'): int`  
+Конструктор
 
-- `get_message_count_by_text(string $folder, string $text, bool $exactly = false, int $timeout = 300, string $readed = 'all'): int`  
+## Class: XHEStyle
 
-- `get_message_by_number(string $folder, int $number, int $timeout = 300, string $readed = 'all'): XHEMailMessage`  
+For handling style DOM elements in current loaded HTML page
 
-- `get_message_by_subject(string $folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage`  
+### Methods
 
-- `get_message_by_from(string $folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_message_by_text(string $folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage`  
+Конструктор
 
-- `get_message_by_category(string $folder, string $category, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage`  
+## Class: XHETable
 
-- `get_message_by_attachment_name(string $folder, string $name, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage`  
+For handling table DOM elements in current loaded HTML page
 
-- `get_message_by_id(string $folder, string $id, int $timeout = 300): XHEMailMessage`  
+### Methods
 
-- `delete_message_by_number(string $folder, int $number, int $timeout = 300): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `delete_all_messages(string $folder, int $timeout = 300): bool`  
+Конструктор
 
-- `move_message_by_number(string $from_folder, string $to_folder, int $number, int $timeout = 300, string $readed = 'all'): bool`  
+**export_to_csv(string $file_path, int $number, string $rows = '', string $cols = '', bool $as_html = true, string $separator = ';', string $frame = '-1'): bool**
 
-- `move_message_by_subject(string $from_folder, string $to_folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+Экспорт DOM элемента таблица в текстовый файл в формате CSV, таблицу найти по номеру | Export table to CSV file
 
-- `move_message_by_from(string $from_folder, string $to_folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+**export_to_xml(string $file_path, int $number, string $rows = '', string $cols = '', bool $as_html = true, string $frame = '-1'): bool**
 
-- `move_message_by_text(string $from_folder, string $to_folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+Экспорт DOM элемента таблица в текстовый файл в формате XML, таблицу найти по номеру | Export table to XML file
 
-- `save_message_attachments_by_number(string $path, string $folder, int $number, int $timeout = 300, string $readed = 'all'): bool`  
+**get_cells_by_number(int $number, string $frame = '-1'): int**
 
-- `save_message_attachments_by_from(string $path, string $folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+Получить количество ячеек таблицы, таблицу найти по номеру | Find table by number and get the number of cells
 
-- `save_message_attachments_by_subject(string $path, string $folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+**get_rows_by_number(int $number, string $frame = '-1'): int**
 
-- `save_message_attachments_by_text(string $path, string $folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+Получить количество строк таблицы, таблицу найти по номеру | Find table by number and get the number of rows
 
-- `set_message_readed_by_number(string $folder, int $number, bool $is_readed = true, int $timeout = 300, string $readed = 'all'): bool`  
+**get_cols_by_number(int $number, string $frame = '-1', int $row = 0): int**
 
-- `set_message_readed_by_from(string $folder, string $from, bool $exactly = false, bool $is_readed = true, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+Получить количество столбцов таблицы, таблицу найти по номеру | Find table by number and get the number of columns
 
-- `set_message_readed_by_subject(string $folder, string $subject, bool $exactly = false, bool $is_readed = true, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+**get_cell_by_number(int $number, int $row, int $col, bool $as_html = false, string $frame = '-1'): string**
 
-- `set_message_readed_by_text(string $folder, string $text, bool $exactly = false, bool $is_readed = true, int $number = 0, int $timeout = 300, string $readed = 'all'): bool`  
+Получить текст ячейки в таблице, таблицу найти по номеру | Find table by number and get cell text
 
-- `get_message_categories_by_id(string $folder, string $id, int $timeout = 300): string`  
+**get_cell_by_pos_by_number(int $number, int $pos, bool $as_html = false, string $frame = '-1'): string**
 
-- `add_message_categories_by_id(string $folder, string $id, string $category, int $timeout = 300): bool`  
+Получить текст ячейки по позиции в таблице, таблицу найти по номеру | Find table by number and get cell by position
 
-- `remove_message_categories_by_id(string $folder, string $id, string $category, int $timeout = 300): bool`  
+**get_row_by_number(int $number, int $row, bool $as_html = false, string $frame = '-1'): string**
 
----
+Получить текст заданной строки в таблице, таблицу найти по номеру | Find table by number and get row
 
-### `XHEProxySwitcher` — Для организации хранения, обновления и получения значений из списка прокси
+**get_col_by_number(int $number, int $col, bool $as_html = false, string $frame = '-1'): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить текст заданной строки в таблице, таблицу найти по номеру | Find table by number and get column
 
-- `init(string $folder): bool`  
+**get_rows_cols_by_number(int $number, string $rows, string $cols, bool $as_html = false, string $separator = '<br>', string $frame = '-1'): string**
 
-- `clear(): bool`  
+Получить текст заданной части таблицы, таблицу найти по номеру
 
-- `add_proxies(string $proxies): bool`  
+**get_cell_x_by_number(int $number, int $row, int $col, string $frame = '-1'): int**
 
-- `add_proxies_from_file(string $path): bool`  
+Получить координату X ячейки по строке и столбцу у таблицы, таблицу найти по номеру | Find table by number and get cell X coordinate
 
-- `add_proxies_from_url(string $url): bool`  
+**get_cell_x_by_inner_text(string $inner_text, bool $exactly, int $row, int $col, string $frame = '-1'): int**
 
-- `set_random_rotate_mode(bool $mode): bool`  
+Получить координату X ячейки по строке и столбцу у таблицы, таблицу найти по внутренний тексту | Find table by inner text and get cell X coordinate
 
-- `update(): bool`  
+**get_cell_x_by_attribute(string $attr_name, string $attr_value, bool $exactly, int $row, int $col, string $frame = '-1'): int**
 
-- `set_update_path(string $path): bool`  
+Получить координату X ячейки по строке и столбцу у таблицы, таблицу найти по атрибуту | Find table by атрибуту and get cell X coordinate
 
-- `set_update_url(string $url): bool`  
+**get_cell_y_by_number(int $number, int $row, int $col, string $frame = '-1'): int**
 
-- `set_update_period(int $minutes): bool`  
+Получить координату Y ячейки по строке и столбцу у таблицы, таблицу найти по номеру | Find table by number and get cell Y coordinate
 
-- `set_update_proxy_count(int $count): bool`  
+**get_cell_y_by_inner_text(string $inner_text, bool $exactly, int $row, int $col, string $frame = '-1'): int**
 
-- `get_next_proxy(bool $delete = false): string`  
+Получить координату Y ячейки по строке и столбцу у таблицы, таблицу найти по внутренний тексту | Find table by inner text and get cell Y coordinate
 
-- `get_all_proxies(): string`  
+**get_cell_y_by_attribute(string $attr_name, string $attr_value, bool $exactly, int $row, int $col, string $frame = '-1'): int**
 
-- `get_proxy_count(): int`  
+Получить координату Y ячейки по строке и столбцу у таблицы, таблицу найти по атрибуту | Find table by атрибуту and get cell Y coordinate
 
----
+**get_count_within_iframe_by_number(string $number): int**
 
-### `XHEProxyCheker` — Для тестирования Proxy
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
-- `run(bool $is_wait = false): bool`  
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-- `stop(): bool`  
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-- `is_running(): bool`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `set_speed_testing(int $speed): bool`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `set_quality_testing(int $quality): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `add_proxy(string $str_proxy): bool`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `add_proxy_from_file(string $path): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `add_proxy_from_url(string $url): bool`  
+**get_inner_html(int $number, string $frame = '-1'): string**
 
-- `delete_proxy(string $param_proxy = 'all'): bool`  
+Получить внутренний HTML DOM элемента, который найти по номеру | Get inner HTML by number
 
-- `save_proxy(string $path, string $param_proxy = 'all'): bool`  
+**get_cell_count_by_number(int $number, string $frame = '-1'): int**
 
-- `dedupe_proxy(): bool`  
+Получить количество ячеек таблицы, таблицу найти по номеру | Find table by number and get the number of cells
 
-- `get_count_proxy(string $param_proxy = 'all'): int`  
+## Class: XHETD
 
-- `get_proxy(mixed $n, string $param_proxy = 'all'): mixed`  
+For handling td DOM elements in current loaded HTML page
 
-- `get_fastest_proxy(string $param_proxy = 'all'): string`  
+### Methods
 
----
+**__construct(string $server, string $password = ''): void**
 
-### `XHERaw` — Организация сбора в коллекции запросов HTTP, перенаправленных запросов HTTP и ответов на запросы и получения данных из этих коллекций
+Конструктор
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+## Class: XHETextArea
 
-- `enable_all_streams(bool $enable = true): bool`  
+For handling textarea DOM elements in current loaded HTML page
 
-- `enable_http_stream(bool $enable = true): bool`  
+### Methods
 
-- `enable_https_stream(bool $enable = true): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `save_server_log_to_window(): bool`  
+Конструктор
 
-- `save_browser_log_to_window(): bool`  
+**seek_to_end_by_number(int $number, string $frame = '-1'): bool**
 
-- `save_server_log_to_file(string $path): bool`  
+Переместить курсор в конец поля элемента DOM многострочного поля ввода, который найти по номеру | Find teaxtarea by number and set cursor to end of input field
 
-- `save_browser_log_to_file(string $path): bool`  
+**seek_to_end_by_name(string $name, string $frame = '-1'): bool**
 
-- `get_last_request_url(int $num = -1): bool|string`  
+Переместить курсор в конец поля элемента DOM многострочного поля ввода, который найти по значению атрибута name | Find teaxtarea by name and set cursor to end of input field
 
-- `get_last_request_frame_url(int $num = -1): bool|string`  
+**seek_to_end_by_attribute(string $attr_name, string $attr_value, bool $exactly = false, string $frame = '-1'): bool**
 
-- `get_last_request_header(int $num = -1): bool|string`  
+Переместить курсор в конец поля элемента DOM многострочного поля ввода, который найти по значению атрибута | Find teaxtarea by attribute and set cursor to end of input field
 
-- `get_last_request_post_datas(int $num = -1, bool $decode = true): false|string[]`  
+**seek_to_pos_by_number(int $number, int $pos, string $frame = '-1'): bool**
 
-- `get_last_response_url(int $num = -1): bool|string`  
+Переместить курсор в заданную позицию поля элемента DOM многострочного поля ввода, который найти по номеру | Find teaxtarea by number and set cursor to position of input field
 
-- `get_last_response_buffer(int $num = 1): bool|string`  
+**seek_to_pos_by_name(string $name, int $pos, string $frame = '-1'): bool**
 
-- `get_last_response_header(int $num = 1): bool|string`  
+Переместить курсор в заданную позицию поля элемента DOM многострочного поля ввода, который найти по значению атрибута name | Find teaxtarea by name and set cursor to position of input field
 
-- `get_last_redirect_url(int $num = -1): bool|string`  
+**seek_to_pos_by_attribute(string $attr_name, string $attr_value, bool $exactly, int $pos, string $frame = '-1'): bool**
 
-- `get_last_redirect_header(int $num = -1): bool|string`  
+Переместить курсор в заданную позицию поля элемента DOM многострочного поля ввода, который найти по значению атрибута | Find teaxtarea by attribute and set cursor to position of input field
 
-- `get_last_readed(int $num = -1): bool|string`  
+**set_readonly_by_number(int $number, bool $readonly, string $frame = '-1'): bool**
 
-- `set_arrays_count(int $num): bool`  
+Установить значение атрибута readOnly для элемента DOM многострочного поля ввода, который найти по номеру | Find teaxtarea by number and set readOnly
 
-- `clear_last_requests_array(): bool`  
+**set_readonly_by_name(string $name, bool $readonly, string $frame = '-1'): bool**
 
-- `clear_last_responses_array(): bool`  
+Установить значение атрибута readOnly для элемента DOM многострочного поля ввода, который найти по значению атрибута name | Find teaxtarea by name and set readOnly
 
-- `set_hook_on_begin_transaction(string $php_script_path): bool`  
+**get_readonly_by_number(int $number, string $frame = '-1'): bool**
 
-- `set_hook_on_response(string $php_script_path): bool`  
+Получить значение атрибута readOnly для элемента DOM многострочного поля ввода, который найти по номеру | Find teaxtarea by number and get readOnly
 
-- `set_hook_on_readed(string $php_script_path): bool`  
+**get_readonly_by_name(string $name, string $frame = '-1'): bool**
 
-- `add_disabled_request_url(string $url, bool $exactly = false): bool`  
+Получить значение атрибута readOnly для элемента DOM многострочного поля ввода, который найти по значению атрибута name | Find teaxtarea by name and get readOnly
 
-- `clear_disabled_request_urls_array(): bool`  
+**get_rows_by_number(int $number, string $frame = '-1'): int**
 
-- `add_disabled_response_url(string $url, bool $exactly = false): bool`  
+Получить количество строк для элемента DOM многострочного поля ввода, который найти по номеру | Find teaxtarea by number and get rows count
 
-- `clear_disabled_response_urls_array(): bool`  
+**get_rows_by_name(string $name, string $frame = '-1'): int**
 
-- `add_replace_rule(string $url, bool $exactly_url, string $find, string $replace): bool`  
+Получить количество строк для элемента DOM многострочного поля ввода, который найти значению атрибута name | Find teaxtarea by name and get rows count
 
-- `clear_replace_rules(string $url, bool $exactly_url = false): bool`  
+**get_cols_by_number(int $number, string $frame = '-1'): int**
 
-- `set_additional_request_header(string $header = ''): bool`  
+Получить количество столбцов для элемента DOM многострочного поля ввода, который найти по номеру | Find teaxtarea by number and get columns count
 
-- `set_next_url_for_open_in_new_tab(string $url = '', bool $exactly = false): bool`  
+**get_cols_by_name(string $name, string $frame = '-1'): int**
 
----
+Получить количество столбцов для элемента DOM многострочного поля ввода, который найти значению атрибута name | Find teaxtarea by name and get columns count
 
-### `XHERest` — Для работы с REST API
+**click_by_atribute(string $atr_name, string $atr_value, bool $exactly = true): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-- `request(string $method, string $url, string $resource, ?array $query_parameters = null, ?array $file_parameters = null): bool|string`  
+**send_event_by_atribute(string $atr_name, string $atr_value, bool $exactly, string $event): bool**
 
-- `set_authorization(string $login, string $password): bool`  
+Послать событие по элементу DOM левой клавишей мыши, который найти по значению атрибута | Send event to DOM element by attribute
 
-- `set_timeout(int $timeout): bool`  
+**get_atribute_by_name(string $name, string $name_attr): string**
 
----
+Получить значение атрибута DOM элемента по значению атрибута name | Get attribute by name
 
-### `XHERucapcha` — Для работы с API Rucaptcha
+**get_atribute_by_number(int $number, string $name_attr): string**
 
-**Методы**:
-- `__construct(string $server, bool $is_ssl = true): void`  
+Получить значение атрибута DOM элемента по номеру | Get attribute by number
 
-- `recognize_text(string $text): bool|string`  
+**get_atribute_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $name_attr): string**
 
-- `recognize_like_images(string $filename): bool|string`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `recognize_invoice(string $filename): bool|string`  
+**get_atribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `recognize_recaptcha_2_with_text(string $filename, string $textinstructions): bool|string`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `recognize_recaptcha_2_with_image(string $filename, string $imageinstructions): bool|string`  
+**get_count_within_iframe_by_number(string $number): int**
 
-- `recognize_click_captcha(string $filename, string $textinstructions = ''): bool|string`  
+Получить количество DOM элементов на странице | Get count of elements on page (no wait exist mode)
 
-- `recognize_rotate_captcha(string $filename, string $file_1, string $file_2 = '', string $file_3 = '', int $angle = 40): bool|string`  
+**is_exist_with_name(string $name, string $frame = '-1'): bool**
 
-- `recognize_recaptcha_v2(string $pageurl, string $googlekey, int $invisible = 0, string $proxy = '', string $proxytype = ''): bool|string`  
+Проверить существование DOM элемента, который найти по атрибуту name | Is exist by name (no wait exist mode)
 
-- `recognize_geetest(string $pageurl, string $gt, string $challenge, string $api_server = '', string $proxy = '', string $proxytype = ''): bool|string`  
+**click_within_iframe_by_attribute(string $attr_name, string $attr_value, bool $exactly, string $frame): bool**
 
----
+Эмулировать клик по элементу DOM левой клавишей мыши, который найти по значению атрибута | Click on DOM element by attribute
 
-### `XHES3` — Для работы с API S3
+**click_random_in_frame(string $frame): int**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Эмулировать клик по случайному элементу DOM | click on random element (no wait exist mode)
 
-- `connect(string $server, string $key = '', string $security_key = ''): bool`  
+**send_event_by_name_in_frame(string $name, string $event, string $frame): bool**
 
-- `disconnect(string $server): bool`  
+Послать событие элементу DOM, который найти по атрибуту name | Send event to DOM element by name
 
-- `disconnect_all(): bool`  
+**send_event_by_number_in_frame(int $number, string $event, string $frame): bool**
 
-- `list_files(string $server, string $bucket, string $folder = '', int $timeout = 3000): ?stdClass`  
+Послать событие элементу DOM, который найти по номеру | Send event to DOM element by number
 
-- `list_folders(string $server, string $bucket, string $folder = '', int $timeout = 3000): ?stdClass`  
+**send_event_by_inner_text_in_frame(string $text, bool $exactly, string $event, string $frame): bool**
 
-- `is_directory_exists(string $server, string $bucket, string $dir_name): bool`  
+Послать событие элементу DOM, который найти по внутреннему тексту| Send event to DOM element by inner text
 
-- `create_directory(string $server, string $bucket, string $dir_name): bool`  
+**set_focus_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_num): bool**
 
-- `remove_directory(string $server, string $bucket, string $dir_name, int $timeout = 3000): bool`  
+Установить фокус на DOM элемент, который найти по атрибуту | Set focus by attribute
 
-- `clear_directory(string $server, string $bucket, string $dir_name, int $timeout = 3000): bool`  
+**add_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $value_attr, string $frame_number): bool**
 
-- `is_file_exists(string $server, string $bucket, string $remote_file): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по атрибуту | Add/Set attribute by attribute
 
-- `get_file(string $server, string $bucket, string $remote_file, string $local_file, bool $flag_fail_exist = true, int $timeout = 3000): bool`  
+**set_value_within_iframe_by_name(string $name, string $value, string $frame): bool**
 
-- `get_size(string $server, string $bucket, string $remote_file): int`  
+Задать значение атрибуту value элементу DOM, который найти по атрибуту name | Set value by name
 
-- `get_meta(string $server, string $bucket, string $remote_file): ?array`  
+**set_value_within_iframe_by_number(int $number, string $value, string $frame): bool**
 
-- `put_file(string $server, string $bucket, string $local_file, string $remote_file, bool $flag_fail_exist = true, int $timeout = 3000): bool`  
+Задать значение атрибуту value элементу DOM, который найти по номеру | Set value by number
 
-- `get_folder(string $server, string $bucket, string $remote_folder, string $local_folder, int $timeout = 3000): bool`  
+**is_exist_with_attribute(string $attr_name, string $attr_value, bool $exactly): bool**
 
-- `put_folder(string $server, string $bucket, string $local_folder, string $remote_folder, int $timeout = 3000): bool`  
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-- `remove_file(string $server, string $bucket, string $file_name): bool`  
+**is_exist_with_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $frame_number): bool**
 
----
+Проверить существование DOM элемента, который найти по атрибуту | Is exist by attribute
 
-### `XHESelenium` — Для работы с ядром Selenium в режиме 'Selenium'
+**get_value_within_iframe_by_name(string $name, string $frame): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить значение атрибута value элемента DOM, который найти по атрибуту name | Get value by name
 
-- `foreground(): bool`  
+**get_value_within_iframe_by_number(int $number, string $frame): string**
 
-- `maximize(): bool`  
+Получить значение атрибута value элемента DOM, который найти по номеру | Get value by number
 
-- `minimize(): bool`  
+**get_attribute_by_attribute_in_frame_by_number(string $attr_name, string $attr_value, bool $exactly, string $name_attr, string $frame_number): string**
 
-- `fullscreen(): bool`  
+Получить значение атрибута DOM элемента, который найти по значению другого атрибута | Get the attribute value founded by attribute
 
-- `set_pos(int $x, int $y): bool`  
+**add_atribute_by_number(int $number, string $name_atr, mixed $value_atr): bool**
 
-- `set_size(int $width, int $height): bool`  
+Добавить/Установить атрибут DOM элемента, который найти по номеру | Add/Set attribute by number
 
-- `set_model_binary_path(string $model, string $path): bool`  
+**get_x_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `get_pages_count(): int`  
+Получить координату X DOM элемента, который найти по атрибуту | Get X of element by attribute
 
-- `get_active_page(): int`  
+**get_y_by_atribute(string $attr_name, string $attr_value, bool $exactly = true): int**
 
-- `set_active_page(int $page): bool`  
+Получить координату Y DOM элемента, который найти по атрибуту | Get Y of element by attribute
 
-- `close_page(int $page): bool`  
+## Class: XHETH
 
-- `close_all_pages(): bool`  
+For handling th DOM elements in current loaded HTML page
 
-- `add_page(string $url = 'about:blank', string $type = 'tab'): bool`  
+### Methods
 
-- `add_plugins(mixed $paths_to_plugins, bool $refresh = true): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_webdriver_session(): string`  
+Конструктор
 
----
+## Class: XHETR
 
-### `XHESEO` — Для SEO исследования страницы сайта
+For handling TR DOM elements in current loaded HTML page
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+### Methods
 
-- `get_alexa_rank(string $site): string`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_sitemap(string $site, string $file, int $timeout = 99999): string`  
+Конструктор
 
-- `get_all_sitemap_links(string $site, string $file, int $timeout = 99999, string $separator = '<br>'): string`  
+## Class: XHEU
 
-- `get_all_outside_links(string $site, string $file, int $timeout = 99999, string $separator = '<br>'): string`  
+For handling U DOM elements in current loaded HTML page
 
----
+### Methods
 
-### `XHESFTP` — Perform operations with server SFTP
+**__construct(string $server, string $password = ''): void**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Конструктор
 
-- `connect(string $server, string $user = '', string $password = '', int $iport = 22, int $timeout = -1): bool`  
+## Class: XHEUl
 
-- `disconnect(string $server): bool`  
+For handling UL DOM elements in current loaded HTML page
 
-- `disconnect_all(): bool`  
+### Methods
 
-- `create_directory(string $server, string $dir_name): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `remove_directory(string $server, string $dir_name): bool`  
+Конструктор
 
-- `get_file(string $server, string $remote_file, string $local_file, bool $flag_fail_exist = true): bool`  
+## Class: XHEVideo
 
-- `put_file(string $server, string $local_file, string $remote_file, bool $flag_fail_exist = true): bool`  
+For handling video DOM elements in current loaded HTML page
 
-- `remove_file(string $server, string $file_name): bool`  
+### Methods
 
----
+**__construct(string $server, string $password = ''): void**
 
-### `XHESmsActivate` — For API SMS Activate
+Конструктор
 
-**Методы**:
-- `__construct(string $api = '', string $servis = 'https://api.sms-activate.ae', string $ref = ''): void`  
+# Category `SYSTEM`
 
----
+## Class: EncodedVariable
 
-### `XHESoap` — Perform operations for SOAP v.11 or v.12
+Encoded Variable
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+### Methods
 
-- `set_version(int $version = 11): bool`  
+**__construct(string $unique_name): void**
 
-- `set_action(string $action = ''): bool`  
 
-- `set_headers(?array $headers): bool`  
 
-- `call_simple_method(string $url, string $namespace, string $method): string`  
+**__toString(): string**
 
-- `call_by_bodies(string $url, ?array $bodies): string`  
 
-- `call_from_xml(string $url, string $xml, string $action = ''): string`  
 
----
+## Class: EncodedString
 
-### `XHESubmitter` — Для генерации случайных данных для заполнения форм
+Encoded String
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+### Methods
 
-- `generate_random_name(string $lang = 'EN', string $sex_for_RU = 'man'): string`  
+**__construct(string $str, string $key): void**
 
-- `generate_random_second_name(string $lang = 'EN', string $sex_for_RU = 'man'): string`  
 
-- `generate_random_nick_name(int $len): string`  
 
-- `generate_random_street(string $lang): string`  
+**__toString(): string**
 
-- `generate_random_city(string $lang): string`  
 
-- `generate_random_region(string $lang): string`  
 
-- `generate_random_country(string $lang): string`  
+## Class: XHEExcelFileCompatible
 
-- `generate_random_number(int $min, int $max, bool $as_int = false): int|float`  
+Класс базовый для XHEExcelFile. Для устаревших функций
 
-- `generate_random_text(int $len, int $type): string`  
+### Methods
 
----
+**convert(string $inpath, string $outpath, int $timeout = 600): bool**
 
-### `XHETelegram` — Perform operations with Telegram API
+Конвертировать файл в другой формат (xlsx,xls,csv,txt,html,pdf,xps)
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**set_col_number_format(string $path, int $sheet, string $col, string $format, bool $is_predefined = true, bool $except_header = false): bool**
 
-- `connect(int $api_id, string $api_hash): bool`  
+Задать числовой формат столбца
 
-- `disconnect(): bool`  
+**set_cell_number_format(string $path, int $sheet, int $row, string $col, string $format, bool $is_predefined = true): bool**
 
-- `request_authorization(string $phone_number): string`  
+Задать формат ячейки с датой или числом
 
-- `authorization(string $phone_number, string $auth_hash, string $auth_code, string $auth_password = ''): string`  
+**set_range_number_format(string $path, int $sheet, string $range, string $format, bool $is_predefined = true): bool**
 
-- `get_chats(string $kind = 'all'): ?array`  
+Задать числовой формат диапазона
 
-- `get_dialogs(int $folder_id = -1): ?array`  
+**set_range_type(string $path, int $sheet, string $range, string $type_): bool**
 
-- `get_members(int $chat_id): ?array`  
+Задать тип диапазона
 
-- `get_chat_messages(int $chat_id, int $from_offset = 0, string $offset_date = ''): mixed|null`  
+**set_col_type(string $path, int $sheet, string $col, string $type_, bool $except_header = false): bool**
 
-- `get_last_messages(int $chat_id, int $count = 1): mixed|null`  
+Задать тип заданного столбца
 
-- `get_messages_count(int $chat_id): int`  
+**set_cell_type(string $path, int $sheet, int $row, string $col, string $type_): bool**
 
-- `find_chat_messages(int $chat_id, string $text, string $begin_date = '', string $end_date = '', int $offset_id = 0): mixed|null`  
+Задать тип заданной ячейки
 
-- `get_chat_id_by_name(string $name): int`  
+## Class: XHEFile_osCompatible
 
-- `join_chanel(int $chat_id): bool`  
 
-- `send_message_to_chat(int $chat_id, string $message, string $schedule_date = ''): bool`  
 
-- `send_media_to_chat(int $chat_id, string $message, string $path, string $schedule_date = ''): bool`  
+### Methods
 
-- `send_album_to_chat(int $chat_id, string $message, array $paths_and_urls, string $schedule_date = ''): bool`  
+**get_file_name(mixed $path): void**
 
-- `send_message_to_contact(string $phone_number, string $message, string $schedule_date = ''): bool`  
 
-- `repost_message(int $from_chat_id, int $message_id, int $to_chat_id, bool $is_forward = true): bool`  
 
----
+**get_file_title(mixed $path): void**
 
-### `XHEWebDav` — Perform operations with FTP server by WebDAV protocol
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
 
-- `connect(string $server, string $user = '', string $password = ''): bool`  
+**get_file_ext(mixed $path): void**
 
-- `disconnect(string $server): bool`  
 
-- `disconnect_all(): bool`  
 
-- `list_files(string $server, string $folder = ''): ?array`  
+**get_file_folder(mixed $path): void**
 
-- `list_folders(string $server, string $folder = '', int $timeout = 3000): ?array`  
 
-- `is_directory_exists(string $server, string $dir_name): bool`  
 
-- `create_directory(string $server, string $dir_name): bool`  
+**get_file_disk(mixed $path): void**
 
-- `remove_directory(string $server, string $dir_name, int $timeout = 3000): bool`  
 
-- `clear_directory(string $server, string $dir_name, int $timeout = 3000): bool`  
 
-- `get_folder(string $server, string $remote_folder, string $local_folder, int $timeout = 3000): bool`  
+## Class: XHEFolderCompatible
 
-- `put_folder(string $server, string $local_folder, string $remote_folder, int $timeout = 3000): bool`  
 
-- `is_file_exists(string $server, string $remote_file): bool`  
 
-- `get_file(string $server, string $remote_file, string $local_file, bool $flag_fail_exist = true, int $timeout = 3000): bool`  
+### Methods
 
-- `put_file(string $server, string $local_file, string $remote_file, bool $flag_fail_exist = true, int $timeout = 3000): bool`  
+**create_folder(mixed $path): void**
 
-- `remove_file(string $server, string $file_name): bool`  
 
-- `rename(string $server, string $exist_file_name, string $new_file_name): bool`  
 
----
+**get_folder_name(mixed $path): void**
 
-### `XHEWebPage` — To manage the current browser pages
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
 
-- `get_active_element(): XHEInterface`  
+**get_folder_disk(mixed $path): void**
 
-- `get_element_from_point(int $x, int $y): XHEInterface`  
 
-- `get_title(): string`  
 
-- `get_url(): string`  
+## Class: XHEWordCompatible
 
-- `get_encoding(): string`  
 
-- `set_encoding(string $encoding): bool`  
 
-- `get_source(): string`  
+### Methods
 
-- `get_source_length(): int`  
+**get_page_count(mixed $path): void**
 
-- `save_source_to_file(string $filepath): bool`  
 
-- `get_body(): string`  
 
-- `set_body(string $body): bool`  
+## Class: XHEWordFileCompatible
 
-- `get_document_body(bool $as_html): string`  
 
-- `get_body_before_prefix(string $prefix, bool $as_html = true): string`  
 
-- `get_body_after_prefix(string $prefix, bool $as_html = true): string`  
+### Methods
 
-- `get_body_inter_prefix(string $prefix1, string $prefix2, bool $as_html = true): string`  
+**convert(string $inpath, string $outpath, int $timeout = 600): void**
 
-- `get_body_inter_prefix_all(string $prefix1, string $prefix2, bool $as_html = true, int $shift1 = 0, int $shift2 = 0, string $separator = '<br>'): string`  
 
-- `print_screen(string $filepath, int $xl = -1, int $yt = -1, int $xr = -1, int $yb = -1, bool $as_gray = false): bool`  
 
-- `print_to_pdf(string $filepath): bool`  
+**get_page_count(string $path): void**
 
-- `print_body(string $filepath, int $xl = -1, int $yt = -1, int $xr = -1, int $yb = -1, bool $as_gray = false): bool`  
 
-- `get_x_in_webpage_picture(string $picture_filepath, float $similar_koeff = 0.95, int $similar_algoritm = 5): int`  
 
-- `get_y_in_webpage_picture(string $picture_filepath, float $similar_koeff = 0.95, int $similar_algoritm = 5): int`  
+**export_pages(string $inpath, string $outpath, int $from_page, int $count = 1): void**
 
-- `get_pos_in_webpage_picture(string $picture_filepath, float $similar_koeff = 0.95, int $similar_algoritm = 5): XHEPosition`  
 
-- `get_url_size(string $url): int`  
 
-- `load_web_page(string $url, int $size = 0, string $add_headers = ''): string`  
+**export_all_pages(string $inpath, string $to_folder, string $ext = 'pdf'): void**
 
-- `get_web_page_code(string $url): string`  
 
-- `html_to_text(string $html): string`  
 
-- `save_url_to_file(string $url, string $filepath, int $timeout = 9999): bool`  
+**read_table_by_number(string $path, int $number, bool $as_array = false): void**
 
-- `get_domain(string $url = '', int $level = -1, bool $exclude_www = false): string`  
 
-- `convert_to_idn(string $domain): false|string`  
 
-- `convert_from_idn(string $domain): false|string`  
+**compare(string $inpath1, string $inpath2): void**
 
-- `get_element_value_by_name(string $name): string`  
 
-- `get_element_innerHtml_by_name(string $name): string`  
 
-- `get_element_innerText_by_name(string $name): string`  
+## Class: XHEBd
 
-- `set_element_value_by_name(string $name, string $text): bool`  
+Perform operations with Data base. Supported Data bases: "mysql", "mssql", "postgresql", "oracle", "sqlite"
 
-- `click_on_element_by_name(string $name): bool`  
+### Methods
 
-- `click_on_element_by_number(int $number): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `click_on_element_by_inner_text(mixed $inner_text): bool`  
+Конструктор
 
-- `get_location_url(): string`  
+**connect(string $alias, string $connection_str, string $bd_type = 'mysql'): bool**
 
----
+Создать соединение с Базой данных | Connect to DB
 
-### `XHEApplicationCompatible` — XHEApplicationCompatible
+**disconnect(string $alias): bool**
 
-**Методы**:
-- `set_winodw_position(int $x_pos, int $y_pos, int $width, int $height): bool`  
+Закрыть соединение с Базой данных | Close connection to DB
 
----
+**query(string $alias, string $query, int $timeout = 60): string**
 
-### `XHEWindowCompatible` — XHEWindowCompatible
+Выполнить SQL запрос к Базе данных с ответом в JSON формате | Execute SQL query with JSON answer
 
-**Методы**:
-- `press_button_by_text_in_window_by_number(int $number, string $text, bool $exactly, true $visibled, true $mained): bool`  
+**query_arrays(string $alias, string $query, int $timeout = 60): ?array**
 
-- `set_window_text_by_child_number_in_window_by_number(int $number, int $child_number, string $text, bool $visibled, bool $mained): bool`  
+Выполнить SQL запрос к Базе данных с ответом в формате массива массивов | Execute SQL query with array answer
 
-- `send_message_by_number(int $number, string $message, string $wparam, string $lparam, bool $visibled, bool $mained): string`  
+**query_dicts(string $alias, string $query, int $timeout = 60): ?array**
 
----
+Выполнить SQL запрос к базе данных, для получения массива словарей | Execute SQL query with dictionary answer
 
-### `XHEWindowInterfacesCompatible` — XHEWindowInterfacesCompatible
+## Class: XHEClipboard
 
-**Методы**:
-- `press_key_by_code(string $code): bool`  
+Perform operations with operating system clipboard
 
----
+### Methods
 
-### `XHEApplication` — Класс для управления приложением
+**__construct(string $server, string $password = ''): void**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Конструктор
 
-- `dlg_question(string $message): string`  
+**get_text(): string**
 
-- `get_dlg_input_string(string $dlg_name, string $dlg_text, string $default_answer = ''): string`  
+Получить текущий текст из буфера обмена | Get text from clipboard
 
-- `get_dlg_select_file(string $path, string $action): string`  
+**clear(): bool**
 
-- `get_dlg_select_folder(string $path, string $caption, string $action): string`  
+Очистить буфер обмена | Clear clipboard
 
-- `dlg_select_image(string $folder, string $text, string $caption, bool $multi_select = false): string`  
+**put_text(string $text): bool**
 
-- `dlg_verify_ocr(string $image_path, string $text_for_verify, string $text, string $caption): string`  
+Отправить текст в буфер обмена | Set text to clipboard buffer
 
-- `show_free_dlg(string $xml, bool $is_ret_xml = true, string $separator = '
-'): string`  
+**put_html(string $html, string $url = ''): bool**
 
-- `dlg_captcha_from_image_number(int $number, string $frame = '-1'): string|bool`  
+Задать html в буфер обмена | Set html to clipboard buffer
 
-- `dlg_captcha_from_url(string $url): string|bool`  
+## Class: XHECryptography
 
-- `dlg_captcha_from_url_exactly(string $url, bool $exactly = true, string $frame = '-1'): string|bool`  
+Performs encryption and decryption operations
 
-- `set_window_position(int $x, int $y, int $width, int $height): bool`  
+### Methods
 
-- `set_title(string $title): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `set_blink(bool $blink): bool`  
+Конструктор
 
-- `show_left_pane(bool $show): bool`  
+**crypt_text(string $text, string $key): string**
 
-- `show_bottom_pane(bool $show): bool`  
+Выполнить симметричное шифрование строки | Encrypt text
 
-- `enable_full_screen(bool $enable): bool`  
+**uncrypt_text(string $text, string $key): string**
 
-- `minimize_to_tray(): bool`  
+Дешифровать текст | Decrypt text
 
-- `minimize_to_tray_by_start(bool $minimize = true): bool`  
+**hash_text(string $text): string**
 
-- `maximize(bool $hiding_mode = false): bool`  
+Получить хэш-код для текста (SHA256) | Get HASH for text
 
-- `show_from_tray(): bool`  
+**crypt_file(string $inpath, string $outpath, string $key): bool**
 
-- `show_tray_icon(bool $show): bool`  
+Зашифровать текст файла | Encrypt file text
 
-- `set_tray_icon(string $path): bool`  
+**uncrypt_file(string $inpath, string $outpath, string $key): bool**
 
-- `set_tray_tooltip(string $tooltip): bool`  
+Дешифровать текст файла | Decrypt file text
 
-- `set_foreground_window(): bool`  
+**hash_file(string $path, string $algoritm = 'sha256'): string**
 
-- `set_always_on_top(bool $ontop): bool`  
+Получить хэш-код файла | Get file hashcode
 
-- `get_cursor_type(int $x = -1, int $y = -1, bool $as_text = false): string`  
+**get_totp(string $key, int $step = 30, string $algoritm = 'sha1'): string**
 
-- `pause(int $timeout = 0): bool`  
+Сгенерировать код (пароль) TOTP | Get TOTP
 
-- `exitapp(): bool`  
+**get_hotp(string $key, int $counter, string $algoritm = 'sha1'): string**
 
-- `stop_script(): bool`  
+Сгенерировать код (пароль) HOTP | Get HOTP
 
-- `restart(string $scriptpath = '', string $params = '', string $port = '', string $cache_folder = '', string $cookies_folder = '', int $pause_before_start_s = 0): bool`  
+## Class: XHEExcel
 
-- `clear(): bool`  
+Perform operations with Excel files used Microsoft Excel application
 
-- `quit(string $message = ''): bool`  
+### Methods
 
-- `enable_quit(bool $enable_exit): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_port(): string`  
+Конструктор
 
-- `get_install_id(): string`  
+**create(string $path, string $sheet_name, mixed $header_datas = '', int $timeout = 6000): bool**
 
-- `get_version(bool $extended = false): string`  
+Создать и открыть файл Excel для работы | Create and open Excel file
 
-- `get_program_path(): string`  
+**open(string $path, bool $read_only = false, bool $visibled = false, int $timeout = 3000, string $password = ''): bool**
 
-- `get_program_folder(): string`  
+Открыть файл Excel для работы | Open Excel file
 
-- `get_plugin_status(string $name): string`  
+**connect_by_hwnd(string $hwnd, string $path_alias, int $timeout = 3000): bool**
 
-- `get_settings_folder(): string`  
+Подключится к уже открытому окну Excel, чтобы работать с его Листами (вместо $excel->open()) | Connect to Excel file
 
-- `get_file_from_disk(string $path): bool|string`  
+**save(string $path, int $timeout = 3000, string $password = ''): bool**
 
-- `set_params_object_search(bool $regsense = false): bool`  
+Сохранить Excel файл | Save Excel file
 
-- `set_params_outofmemory_action(int $restart_type = 0): bool`  
+**close(string $path): bool**
 
-- `set_dont_ask_me_again_mode(bool $mode = true): bool`  
+Закрыть Excel файл | Close Excel file
 
-- `set_script_as_unicode(bool $is_unicode = true): bool`  
+**open_app(string $path): bool**
 
-- `block_input(bool $is_block = true): bool`  
+Открыть в приложении Excel файл | Open Excel file in app
 
-- `start_rest_service(string $path, int $port, string $host = ''): bool`  
+**get_sheets_count(string $path): int**
 
-- `run_script(string $path, string $params = ''): string`  
+Получить количество листов в файле Excel | Get pages count
 
-- `run_as_bat(string $content, string $path, bool $show = false, int $timeout = 3000): bool`  
+**get_sheets_names(string $path): ?array**
 
-- `run_as_php(string $content, string $path, bool $show = false, string $params = '', int $timeout = 3000): string`  
+Получить имена всех Листов файла Excel | Get all sheet names
 
-- `run_as_python(string $content, string $path, bool $show = false, string $params = '', int $timeout = 3000): string`  
+**get_sheet_name(string $path, int $sheet): string**
 
-- `run_as_js(string $content, string $path, bool $show = false, string $params = '', int $timeout = 3000): string`  
+Получить имя листа | Get sheet name
 
-- `run_as_console(string $path, bool $show = false, string $params = '', string $encoding = '', int $timeout = 3000): string`  
+**set_sheet_name(string $path, int $sheet, string $name): bool**
 
-- `shell_execute(string $operat, string $file, string $param = '', string $dir = '', bool $show = true): bool|string`  
+Изменить название Листа файла Excel | Set sheet name
 
-- `run_powershell_script(string $path, array $script_params = null, int $timeout = 3000): bool|string`  
+**set_sheet_zoom(string $path, int $sheet, int $zoom): bool**
 
-- `kill_process(string $exe_name): bool`  
+Задать масштаб листа | Set sheet zoom
 
-- `is_process_exists_by_name(string $name, bool $exactly = false): bool`  
+**get_sheet(string $path, int $sheet, int $timeout = 3000, mixed $only_visible = false, bool $use_value2 = true): ?array**
 
-- `is_process_exists_by_path(string $path, bool $exactly = false): bool`  
+Получить содержимое заданного Листа Excel файла как двумерный массив | Get sheet as array
 
-- `show_progress_bar(bool $show): bool`  
+**set_sheet(string $path, int $sheet, array $sheet_array, int $timeout = 3000, int $row = 1, string $col = 'A'): bool**
 
-- `set_progress_range(int $min, int $max, int $step = 1): bool`  
+Задать содержимое листа Excel файла данными из двумерного массива | Set sheet
 
-- `set_progress_pos(int $pos): bool`  
+**add_sheet(string $path, string $name): bool**
 
-- `step_progress(): bool`  
+Добавить (создать) новый лист в файле Excel | Add sheet
 
-- `set_progress_text(string $text): bool`  
+**remove_sheet_by_number(string $path, int $number): bool**
 
-- `is_script_paused(): bool`  
+Удалить Лист по номеру | Remove sheet by number
 
-- `impersonate_user(string $user, string $password, string $domain = ''): bool`  
+**remove_sheet_by_name(string $path, string $name): bool**
 
-- `undo_impersonate_user(): bool`  
+Удалить Лист по имени | Remove sheet by name
 
-- `set_winodw_position(int $x_pos, int $y_pos, int $width, int $height): bool`  
+**get_sheet_number_by_name(string $path, string $name, bool $exactly = true): int**
 
----
+Получить номер Листа по его названию | Get sheet number by name
 
-### `XHEDebug` — Для управления панелью отладки приложения
+**sort_sheet(string $path, int $sheet, string $col, bool $is_ascending = true, bool $is_header_exists = false, int $timeout = 3000): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Сортировать Лист файла Excel по столбцу | Sort sheet by column
 
-- `open_tab(string $page): bool`  
+**dedupe_sheet(string $path, int $sheet, string $use_cols = '*', int $timeout = 3000): bool**
 
-- `set_tab_content(string $page, string $text, bool $is_add = false): bool`  
+Убрать дубликаты строк в листе по всем или нескольким столбцам | Remove duplicate rows
 
-- `save_tab_content_to_file(string $page, string $filepath, bool $is_add = false): bool`  
+**get_rows_count(string $path, int $sheet): int**
 
-- `get_tab_content(string $page): string`  
+Получить количество строк в Листе файла Excel | Get rows count
 
-- `clear_tab_content(string $page): bool`  
+**add_row(string $path, int $sheet, array $row_array): bool**
 
-- `close_tab(string $page): bool`  
+Добавить новую строку в Листе файла Excel из массива | Add row
 
-- `set_encoding(string $page, string $charset): bool`  
+**get_row(string $path, int $sheet, int $row, bool $use_value2 = true, bool $only_visible = false): ?array**
 
-- `view_tab_as_text(string $page, bool $as_text = true): bool`  
+Получить строку как массив | Get row
 
-- `close_tabs(): bool`  
+**set_row(string $path, int $sheet, int $row, array $row_array): bool**
 
-- `message_box(string $text): bool`  
+Заполнить строку в Листе файла Excel из массива | Set row
 
-- `notification_box(string $rtf_text, int $show_time = 9999): bool`  
+**add_rows(string $path, int $sheet, array $rows_array, int $timeout = 3000): bool**
 
-- `get_min_mem_size(): int`  
+Добавит несколько строк в Лист файла Excel из массива | Add rows
 
-- `get_max_mem_size(): int`  
+**remove_row(string $path, int $sheet, int $row): bool**
 
-- `get_cur_mem_size(): int`  
+Удалить строку в Лист в файле Excel | Remove row
 
-- `get_free_physical_mem_size(): int`  
+**remove_rows_by_number(string $path, int $sheet, int $row, int $count): bool**
 
-- `optimize_memory(bool $onlyGarbageCollector = false): bool`  
+Удалить строки по номеру в Лист в файле Excel | Remove row range by start index and count
 
-- `get_gui_resources(int $type): int`  
+**remove_rows_by_text(string $path, int $sheet, string $text, string $col = ''): bool**
 
-- `get_process_id(): int`  
+Удалить строки по тексту в Листе в файле Excel | Remove rows by keyword phrase
 
-- `get_cpu_usage(): int`  
+**remove_rows_by_ranges(string $path, int $sheet, string $ranges): bool**
 
-- `set_hook(string $action, string $php_script): bool`  
+Удалить строки по диапазонам в Листе в файле Excel | Remove row range
 
-- `show_extended_debug_pane(bool $is_show = true): bool`  
+**set_row_format(string $path, int $sheet, int $row, string $format): bool**
 
-- `set_extended_debug_pane_pos(int $x, int $y, int $width, int $height): bool`  
+Задать числовой формат ячеек строки | Set row format
 
-- `set_extended_debug_pane_opacity(float $opacity = 0.4): bool`  
+**autosize_row(string $path, int $sheet, int $row = -1, int $timeout = 3000): bool**
 
-- `set_extended_debug_pane_colors(string $backColor, string $foreColor): bool`  
+Задать авто-размеры для строки | Set cell sizes automatically for row
 
-- `get_editor_text(bool $is_only_selected = false): string`  
+**set_row_height(string $path, int $sheet, int $row, float $height, int $timeout = 3000): bool**
 
-- `get_cur_tab_path(): string`  
+Задать высоту для строки в Листе файла Excel | Set row height
 
-- `get_cur_script_path(): string`  
+**show_row(string $path, int $sheet, int $row, bool $show = true): bool**
 
-- `set_cur_script_path(string $path): bool`  
+Показать или спрятать строку | Show or hide row
 
-- `get_cur_script_folder(): string`  
+**is_row_hidden(string $path, int $sheet, int $row): bool**
 
-- `is_script_run(): bool`  
+Скрыта ли строка? | Does row is hide?
 
-- `run_current_script(string $params): bool`  
+**get_cols_count(string $path, int $sheet, int $row = -1): int**
 
----
+Получить количество столбцов в Листе файла Excel | Get columns count
 
-### `XHEScheduler` — Managing the script execution schedule in the application
+**set_col_format(string $path, int $sheet, string $col, string $format): bool**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Задать числовой формат ячеек столбца | Get column cells format
 
-- `add(string $path, int $type = 1, string $date = '', string $time = '', int $count = -1, bool $active = true, string $comments = '', string $add_params = ''): bool`  
+**autosize_col(string $path, int $sheet, string $col = '', int $timeout = 3000): bool**
 
-- `delete(int $num_task): bool`  
+Задать авто-размеры для столбца | Set cell sizes automatically for column
 
-- `edit(int $num_task, string $path, int $type = 1, string $date = '', string $time = '', int $count = -1, bool $active = true, string $comments = '', string $add_params = ''): bool`  
+**set_col_width(string $path, int $sheet, string $col, float $width, int $timeout = 3000): bool**
 
-- `activate(int $num_task, bool $activate = true): bool`  
+Задать ширину столбца | Set column width
 
-- `get(int $num_task, ?string $path_, ?string $type, ?string $date, ?string $time, ?string $count, ?string $active, ?string $comments, ?string $add_params): bool`  
+**get_cell(string $path, int $sheet, int $row, string $col, bool $use_value2 = true): string**
 
-- `get_count(): int`  
+Прочитать текст заданной ячейки | Get cell text
 
-- `delete_all(): bool`  
+**set_cell(string $path, int $sheet, int $row, string $col, string $text): bool**
 
-- `activate_all(bool $activate = true): bool`  
+Задать текст заданной ячейки | Set cell text
 
-- `kill_current_script(bool $kill = true): bool`  
+**clear_cell(string $path, int $sheet, int $row, string $col): bool**
 
----
+Очистить заданную ячейку | Clear cell
 
-### `XHEUI` — Для управления окнами с помощью библиотеки IUIAutomation4, только для OS Windows
+**set_cell_format(string $path, int $sheet, int $row, string $col, string $format): bool**
 
-**Методы**:
-- `__construct(int $inner_number, string $server, string $password = ''): void`  
+Задать формат ячейки с датой или числом | Set cell format
 
-- `__destruct(): void`  
+**merge_cells(string $path, int $sheet, string $begin_address, string $end_address, bool $across = false): bool**
 
-- `get_clone(): XHEUI`  
+Объединить ячейки | Unite cells
 
-- `is_equal(XHEUI $ui): bool`  
+**unmerge_cells(string $path, int $sheet, string $begin_address, string $end_address): bool**
 
-- `get_window_interface(bool $find_in_parents = false): XHEWindowInterface`  
+Разъединить ячейки | Separate (united) cells
 
-- `get_wi(bool $find_in_parents = false): XHEWindowInterface`  
+**get_cell_font(string $path, int $sheet, int $row, string $col): ?stdClass**
 
-- `screenshot(string $path, int $x = -1, int $y = -1, int $width = -1, int $heigth = -1, bool $as_gray = false): bool`  
+Получить шрифт заданной ячейки | Get cell font
 
-- `get_info(): ?object`  
+**set_cell_font(string $path, int $sheet, int $row, string $col, XHEFont $font): bool**
 
-- `get_clickable_point(): ?object`  
+Задать шрифт заданной ячейки XHE_Font | Set cell font
 
-- `get_supported_patterns(): ?array`  
+**set_cell_font_bold(string $path, int $sheet, int $row, string $col, bool $is_bold = true): bool**
 
-- `get_supported_properties(): ?array`  
+Задать Bold (жирный) шрифта заданной ячейки | Set cell font style as Bold
 
-- `get_property(string $property): string`  
+**set_cell_font_italic(string $path, int $sheet, int $row, string $col, bool $is_italic = true): bool**
 
-- `is_exist(): bool`  
+Задать Italic (курсив) шрифта заданной ячейки | Set cell font style as Italic
 
-- `get_rect(): ?object`  
+**set_cell_font_underline(string $path, int $sheet, int $row, string $col, bool $is_underline = true): bool**
 
-- `invoke(): bool`  
+Задать Underline (подчеркнутый) шрифта заданной ячейки | Set cell font style as Underline
 
-- `focus(): bool`  
+**set_cell_font_striketrough(string $path, int $sheet, int $row, string $col, bool $is_striketrough = true): bool**
 
-- `toggle(): bool`  
+Задать Strikethrough (зачеркнутый) шрифта заданной ячейки | Set cell font style as Strikethrough
 
-- `get_toggle_state(): int`  
+**set_cell_font_shadow(string $path, int $sheet, int $row, string $col, bool $is_shadow = true): bool**
 
-- `expand(bool $is_expanded = true): bool`  
+Задать Shadow (тень) шрифта заданной ячейки | Set cell font style as Shadow
 
-- `get_expanded_state(): int`  
+**set_cell_font_size(string $path, int $sheet, int $row, string $col, float $size): bool**
 
-- `select(bool $add_to_selected = false, bool $remove_from_selected = false): bool`  
+Задать размер шрифта заданной ячейки | Set cell font size
 
-- `is_selected(): bool`  
+**set_cell_font_name(string $path, int $sheet, int $row, string $col, string $name): bool**
 
-- `get_selection_container(): XHEUI`  
+Задать имя шрифта заданной ячейки | Set font name
 
-- `set_value(string $value): bool`  
+**kill(): bool**
 
-- `get_value(): string`  
+Закрыть все открытые экземпляры приложения Excel | Kill all Excel app process
 
-- `is_read_only(): bool`  
+**convert(string $inpath, string $outpath, int $timeout = 3000, string $delimeter = ''): bool**
 
-- `input(string $text, bool $with_clear = true): bool`  
+Конвертировать файл в другой формат. Формат конвертации определяется по расширению файлов. | Convert file
 
-- `get_text(): string`  
+**export_sheets(string $path, string $to_folder, int $timeout = 3000): bool**
 
-- `send_key_down(string $key, bool $is_key = false, bool $ctrl = false, bool $alt = false, bool $shift = false): bool`  
+Разбить и экспортировать Листы Книги как отдельные xlsx файлы | Save all pages as separate Excel files
 
-- `send_key_up(string $key, bool $is_key = false, bool $ctrl = false, bool $alt = false, bool $shift = false): bool`  
+**split_sheet_by_rows(string $path, string $to_folder, int $sheet_number, int $rows_per_file, int $timeout = 3000): bool**
 
-- `get_grid_rows(): int`  
+Разбить и экспортировать строки Листа Книги как отдельные xlsx файлы | Save all rows of sheet as separate Excel files
 
-- `get_grid_cols(): int`  
+**export_to_access(string $path, string $dbpath, string $sheet_name, string $table_name, int $timeout = 3000): bool**
 
-- `get_grid_item(int $row, int $col): XHEUI`  
+Экспортировать Лист в базу данных Access | Export sheet to Access DB
 
-- `get_grid_item_info(): ?object`  
+**run_macro_by_name(string $path, int $active_sheet, string $macro_name, string $file_name = '', array $macro_args = null): bool**
 
-- `get_grid(): XHEUI`  
+Выполнить макрос с заданным именем в файле | Run macros by name
 
-- `is_multiselected(): bool`  
+**add_macro(string $path, string $macro_name, string $macro_code): bool**
 
-- `get_selected(): XHEUIS`  
+Добавить макрос | Add macros
 
-- `scroll_vertical(float $scroll_percent): bool`  
+**add_macro_from_file(string $path, string $macro_name, string $macro_file): bool**
 
-- `scroll_horizontal(float $scroll_percent): bool`  
+Добавить макрос из файла | Add macros from file
 
-- `get_scroll_info(): ?object`  
+**add_link(string $path, int $sheet, int $row, string $col, string $text, string $address, string $tip = ''): bool**
 
-- `scroll_into_view(): bool`  
+Добавить ссылку в ячейку | Add link to cell
 
-- `dock(string $pos = 'left'): bool`  
+**follow_link_by_number(string $path, int $active_sheet, int $number, int $timeout = 3000): bool**
 
-- `get_dock_pos(): string`  
+Перейти по ссылке с заданным номером | Find by number and navigate link by number
 
-- `get_transform_info(): ?object`  
+**follow_link_by_text(string $path, int $active_sheet, string $text, bool $exactly = false, int $skip = 0, int $timeout = 3000): bool**
 
-- `move(int $x, int $y): bool`  
+Перейти по ссылке с заданным текстом | Find by text and navigate link by number
 
-- `resize(int $width, int $height): bool`  
+**get_pos_by_text(string $path, int $sheet, string $text, bool $exactly = true, bool $is_match_case = true, string $col = '', int $timeout = 3000): XHEPosition**
 
-- `rotate(float $degree): bool`  
+Получить позицию первой найденной по тексту ячейки с заданным текстом | Get cell position by text
 
-- `get_window_info(): ?object`  
+**get_all_pos_by_text(string $path, int $sheet, string $text, bool $exactly = true, bool $is_match_case = true, string $col = '', int $timeout = 3000): array**
 
-- `close(): bool`  
+Получить позицию всех ячеек с заданным текстом | Get all cll positions by text
 
-- `set_window_visual_state(string $state = 'normal'): bool`  
+**get_range(string $path, int $sheet, string $begin_cell, string $end_cell, int $timeout = 3000): ?array**
 
-- `wait_for_input_idle(int $milliseconds): bool`  
+Получить содержимое заданного диапазона Листа как массив строк | Get range
 
-- `get_interaction_state(): string`  
+**get_and_clear_range(string $path, int $sheet, string $begin_cell, string $end_cell, int $timeout = 3000): ?array**
 
-- `get_table_info(): ?object`  
+Получить значения заданного диапазона Листа как массив строк и очистить ячейки диапазона | Get and clear range
 
-- `get_column_headers(): XHEUIS`  
+**set_range_name(string $path, int $sheet, string $begin_cell, string $end_cell, string $name, int $timeout = 3000): bool**
 
-- `get_row_headers(): XHEUIS`  
+Задать имя диапазона | Set range name
 
-- `realize(): bool`  
+**copy_range_to_clipboard(string $path, int $sheet, string $begin_cell, string $end_cell, int $timeout = 3000): bool**
 
-- `get_view_name(int $view_id): bool`  
+Копировать ячейки диапазона в буфер обмена | Copy range values and set clipboard
 
-- `set_current_view(int $view_id): bool`  
+**cut_range_to_clipboard(string $path, int $sheet, string $begin_cell, string $end_cell, int $timeout = 3000): bool**
 
-- `get_current_view(): int`  
+Вырезать ячейки диапазона в буфер обмена | Cut range and set clipboard
 
-- `get_supported_views(): ?array`  
+**paste_range_from_clipboard(string $path, int $sheet, int $row, string $col, int $timeout = 3000): bool**
 
-- `get_from_point(int $x, int $y): ?XHEUI`  
+Вставить в ячейки диапазон из буфера обмена | Past range from clipboard
 
-- `get_by_property(string $property_name, mixed $property_value, string $tree_scope = 'subtree', bool $ignore_case = false, bool $exactly = true): XHEUI`  
+**dedupe_range(string $path, int $sheet, string $begin_cell, string $end_cell, string $use_cols = '*', int $timeout = 3000): bool**
 
-- `get_by_properties(array $properties, string $tree_scope = 'subtree', bool $ignore_case = false): XHEUI`  
+Убрать дубликаты строк в диапазоне по всем или нескольким столбцам | Remove row duplicates in range
 
-- `get_all_by_property(string $property_name, mixed $property_value, string $tree_scope = 'subtree', bool $ignore_case = false, bool $exactly = true): XHEUIS`  
+**cut_range_and_paste_to_range(string $path, int $src_sheet, int $target_sheet, string $src_begin_cell, string $src_end_cell, string $target_begin_cell, string $target_end_cell, int $timeout = 3000): bool**
 
-- `get_all_by_properties(array $properties, string $tree_scope = 'subtree', bool $ignore_case = false): XHEUIS`  
+Вырезать значения ячеек из диапазона и вставить значения в другой диапазон | Cut range and past to another one
 
-- `get_top_parent(): XHEUI`  
+**copy_range_and_paste_to_range(string $path, int $src_sheet, int $target_sheet, string $src_begin_cell, string $src_end_cell, string $target_begin_cell, string $target_end_cell, int $timeout = 3000): bool**
 
-- `get_parent(int $level = 0): XHEUI`  
+Копировать значения ячеек из диапазона и вставить значения в другой диапазон | Copy range and past to another one
 
-- `get_next(int $number = 0): XHEUI`  
+**add_autofilter(string $path, int $sheet, string $range, int $col, string $condition1 = '', string $operator1 = '', string $condition2 = '', int $timeout = 3000): bool**
 
-- `get_prev(int $number = 0): XHEUI`  
+Добавить автофильтр | Add auto filer
 
-- `get_child(int $level = 0): XHEUI`  
+**clear_autofilters(string $path, int $sheet, int $timeout = 3000): bool**
 
-- `get_all_parent(): XHEUIS`  
+Очистить автофильтры Листа | Clear all sheet auto filters
 
-- `get_all_child(): XHEUIS`  
+**set_connection_source_data_file_by_number(string $path, int $number, string $source_data_file_path): bool**
 
-- `get_all_next(): XHEUIS`  
+Задать новый файл исходных данных для соединения (OLEDBConnection) | Set OLEDBConnection file as external source
 
-- `get_all_prev(): XHEUIS`  
+**refresh_sheet(string $path, int $sheet): bool**
 
-- `mouse_move(int $dx = -1, int $dy = -1): bool`  
+Обновить таблицу из внешних источников | Refresh data from external sources
 
-- `mouse_click(int $dx = -1, int $dy = -1): bool`  
+## Class: XHEExcelDataReader
 
-- `mouse_double_click(int $dx = -1, int $dy = -1): bool`  
+Perform operations with Excel files used ExcelDataReader library
 
-- `mouse_left_down(int $dx = -1, int $dy = -1): bool`  
+### Methods
 
-- `mouse_left_up(int $dx = -1, int $dy = -1): bool`  
+**__construct(string $server, string $password = ''): void**
 
-- `mouse_right_click(int $dx = -1, int $dy = -1): bool`  
+server initialization
 
-- `mouse_right_down(int $dx = -1, int $dy = -1): bool`  
+**set_password(string $excelpassword): bool**
 
-- `mouse_right_up(int $dx = -1, int $dy = -1): bool`  
+Установить текущее значение пароля для чтения Excel файла, для доступа к документу Excel защищенным паролем | Set password
 
-- `send_mouse_move(int $dx = -1, int $dy = -1): bool`  
+**get_sheet_name(string $path, int $sheet): string**
 
-- `send_mouse_click(int $dx = -1, int $dy = -1): bool`  
+Получить имя листа | Get sheet name
 
-- `send_mouse_double_click(int $dx = -1, int $dy = -1): bool`  
+**get_sheets_count(string $path): int**
 
-- `send_mouse_left_down(int $dx = -1, int $dy = -1): bool`  
+Получить количество листов в файле Excel | Get sheets count
 
-- `send_mouse_left_up(int $dx = -1, int $dy = -1): bool`  
+**get_sheet(string $path, int $sheet, int $timeout = 3000): ?array**
 
-- `send_mouse_right_click(int $dx = -1, int $dy = -1): bool`  
+Получить содержимое заданного листа как массив | Get sheet
 
-- `send_mouse_right_down(int $dx = -1, int $dy = -1): bool`  
+**get_rows_count(string $path, int $sheet): int**
 
-- `send_mouse_right_up(int $dx = -1, int $dy = -1): bool`  
+Получить количество строк в Листе файла Excel | Get sheet rows count
 
-- `wait_for_ui_open_by_property(string $property_name, string $property_value, string $tree_scope = 'subtree', bool $ignore_case = false, int $wait_time_in_seconds = 120): bool`  
+**get_row(string $path, int $sheet, int $row): ?array**
 
-- `wait_for_ui_close_by_property(string $property_name, string $property_value, string $tree_scope = 'subtree', bool $ignore_case = false, int $wait_time_in_seconds = 120): bool`  
+Получить строку как массив | Get row
 
-- `wait_for_ui_open_by_properties(array $properties, string $tree_scope = 'subtree', bool $ignore_case = false, int $wait_time_in_seconds = 120): bool`  
+**get_cols_count(string $path, int $sheet): int**
 
-- `wait_for_ui_close_by_properties(array $properties, string $tree_scope = 'subtree', bool $ignore_case = false, int $wait_time_in_seconds = 120): bool`  
+Получить количество столбцов в Листе файла Excel | Get columns count
 
----
+**get_cell(string $path, int $sheet, int $row, int $col): string**
 
-### `XHEUIS` — Класс-коллекция для управления окнами с помощью библиотеки IUIAutomation4, только для OS Windows
+Прочитать текст заданной ячейки | Get cell
 
-**Методы**:
-- `__construct(string $inner_numbers, string $server, string $password = ''): void`  
+## Class: XHEExcelFile
 
----
+Perform operations with Excel files used library ClosedXML
 
-### `XHEWindow` — Managing application windows in the operating system
+### Methods
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+**__construct(string $server, string $password = ''): void**
 
-- `get_count(bool $visibled = true, bool $mained = true): int`  
+Конструктор
 
-- `get_all_texts(bool $visibled = true, bool $mained = true): string`  
+**create(string $path, string $sheet_name, mixed $header_datas = '', int $timeout = 6000): bool**
 
-- `get_text_by_number(int $number, bool $visibled = true, bool $mained = true): string`  
+Создать и открыть файл Excel для работы | Create and open file
 
-- `get_number_by_text(string $text, bool $exactly = false, bool $visibled = true, bool $mained = true): int`  
+**open(string $path, int $timeout = 3000, bool $is_wait_busy = false, int $wait_busy_seconds = 180): bool**
 
-- `get_child_count_by_number(int $number, bool $visibled = true, bool $mained = true): int`  
+Открыть файл Excel для работы | Open
 
-- `get_child_texts_by_number(int $number, bool $visibled = true, bool $mained = true): string`  
+**is_opened(string $path): bool**
 
-- `execute_open_file(string $text, string $path, string $btn_text, bool $exactly = true, bool $thread = false): bool`  
+Проверить на открытость Excel файл | Is file opened
 
-- `execute_download_file(string $path = ''): bool`  
+**save(string $path, int $timeout = 3000): bool**
 
-- `execute_prompt(string $caption, string $text = '', string $btn_text = 'OK', bool $exactly = true): bool`  
+Сохранить Excel файл | Save
 
-- `execute_authorization(string $login = '', string $password = '', string $caption = 'Безопасность Windows'): bool`  
+**close(string $path): bool**
 
-- `get_by_number(int $number, bool $mained = true, bool $visibled = true): XHEWindowInterface`  
+Закрыть Excel файл | Close
 
-- `get_by_text(string $text, bool $exactly = false, bool $mained = true, bool $visibled = true): XHEWindowInterface`  
+**extract_images(string $path, string $to_folder): bool**
 
-- `get_by_class(string $class_name, bool $exactly = false, bool $mained = true, bool $visibled = true): XHEWindowInterface`  
+Вытащить картинки из docx файла в папку | Extract and save all images from file
 
-- `get_by_point(int $x, int $y): XHEWindowInterface`  
+**get_sheets_count(string $path): int**
 
-- `get_by_hwnd(int $hwnd): XHEWindowInterface`  
+Получить количество листов в файле Excel | Get pages count
 
-- `get_foreground_window(): XHEWindowInterface`  
+**set_sheet_zoom(string $path, int $sheet, int $zoom): bool**
 
-- `get_focused_window(): XHEWindowInterface`  
+Задать масштаб указанного Листа в файле Excel | Set zoom for sheet
 
-- `get_all(bool $mained = true, bool $visibled = true): XHEWindowInterfaces`  
+**get_sheets_names(string $path): ?array**
 
-- `get_all_by_number(string $numbers, bool $mained = true, bool $visibled = true): XHEWindowInterfaces`  
+Получить имена всех Листов файла Excel | Get all page names
 
-- `get_all_by_text(string $text, bool $exactly = false, bool $mained = true, bool $visibled = true): XHEWindowInterfaces`  
+**get_name_for_new_sheet(string $path, string $name): string**
 
-- `get_all_by_class(string $class_name, bool $exactly = false, bool $mained = true, bool $visibled = true): XHEWindowInterfaces`  
+Получить название для нового листа. Подбирается уникальное имя с учетом существующих названий Листов. | Get lass added sheet name
 
-- `get_all_by_point(int $x, int $y, bool $mained = true, bool $visibled = true): XHEWindowInterfaces`  
+**add_sheet(string $path, string $name): bool**
 
-- `get_all_by_thread_id(int $thread_id, bool $mained = true, bool $visibled = true): XHEWindowInterfaces`  
+Добавить (создать) новый лист в файле Excel | Add sheet
 
-- `get_all_by_process_id(int $process_id, bool $mained = true, bool $visibled = true): XHEWindowInterfaces`  
+**remove_sheet_by_number(string $path, int $number): bool**
 
-- `wait_for_window_open_by_text(string $text, bool $exactly = true, bool $main = false, bool $visibled = false, int $wait_count = 300, int $wait_step = 1, bool $is_verbose = true): bool`  
+Удалить Лист по номеру в файле Excel | Remove sheet by number
 
-- `wait_for_window_open_by_class(string $class_name, bool $exactly = true, bool $main = false, bool $visibled = false, int $wait_count = 300, int $wait_step = 1, bool $is_verbose = true): bool`  
+**remove_sheet_by_name(string $path, string $name): bool**
 
-- `wait_for_window_close_by_text(string $text, bool $exactly = true, bool $main = false, bool $visibled = false, int $wait_count = 300, int $wait_step = 1, bool $is_verbose = true): bool`  
+Удалить Лист по названию | Remove sheet by name
 
-- `wait_for_window_close_by_class(string $class_name, bool $exactly = true, bool $main = false, bool $visibled = false, int $wait_count = 300, int $wait_step = 1, bool $is_verbose = true): bool`  
+**remove_sheets_by_name(string $path, array $names): bool**
 
-- `press_button_by_text_in_window_by_number(int $number, string $text, bool $exactly, true $visibled, true $mained): bool`  
+Удалить Листы по названию | Remove sheets by number
 
-- `set_window_text_by_child_number_in_window_by_number(int $number, int $child_number, string $text, bool $visibled, bool $mained): bool`  
+**get_sheet_number_by_name(string $path, string $name, bool $exactly = true): int**
 
-- `send_message_by_number(int $number, string $message, string $wparam, string $lparam, bool $visibled, bool $mained): string`  
+Получить номер Листа по его названию | Get sheet number by name
 
----
+**get_active_sheet_number(string $path): int**
 
-### `XHEWindowInterface` — Интерфейс для управление с окнами приложений | Interface for manage with application windows
+Получить номер активного Листа в Excel файле | Get active sheet number
 
-**Методы**:
-- `__construct(int $inner_number, string $server, string $password = ''): void`  
+**set_active_sheet_by_number(string $path, int $sheet): bool**
 
-- `__destruct(): void`  
+Задать активный Лист в Excel файле | Set active sheet by number
 
-- `get_clone(): XHEWindowInterface`  
+**read_sheet(string $path, int $sheet, int $timeout = 3000): string**
 
-- `get_ui_element(): XHEUI`  
+Получить содержимое заданного Листа Excel файла как строку | Get sheet as JSON
 
-- `get_ui(): XHEUI`  
+**get_sheet(string $path, int $sheet, int $timeout = 3000): ?array**
 
-- `set_text(string $text): bool`  
+Получить содержимое заданного Листа Excel файла как двумерный массив | Get sheet as array
 
-- `show(bool $on = true): bool`  
+**get_sheet_by_page(string $path, int $sheet, int $skip = 0, int $limit = 10, int $timeout = 3000): ?array**
 
-- `enable(bool $on): bool`  
+Получить содержимое заданного Листа Excel файла как двумерный массив постранично | Get sheet as arrays (pagination)
 
-- `focus(): bool`  
+**set_sheet(string $path, int $sheet, array $sheet_array, int $timeout = 3000, int $row = 1, string $col = 'A'): bool**
 
-- `foreground(): bool`  
+Задать содержимое листа Excel файла данными из двумерного массива | Set sheet
 
-- `minimize(): bool`  
+**get_sheet_name(string $path, int $sheet): string**
 
-- `maximize(): bool`  
+Получить имя листа | Get sheet name
 
-- `restore(): bool`  
+**set_sheet_name(string $path, int $sheet, string $name): bool**
 
-- `close(): bool`  
+Изменить название Листа файла Excel | Set sheet name by number
 
-- `move(int $x = -1, int $y = -1): bool`  
+**clear_sheet(string $path, int $sheet): bool**
 
-- `resize(int $width = -1, int $height = -1): bool`  
+Очистить все ячейки на заданном Листе файла Excel | Clear sheet
 
-- `message(int $type, int $wparam, int $lparam): int`  
+**copy_sheet(string $path, int $sheet_number, string $newSheetName = ''): bool**
 
-- `cut(): bool`  
+Копировать содержимое Листа и создать новый Лист с этим содержимым | Copy the sheet content and create the one as a new sheet
 
-- `copy(): bool`  
+**set_sheet_color(string $path, int $sheet, string $color): bool**
 
-- `paste(string $text = ''): bool`  
+Задать цвет ячеек Листа к файлу Excel | Set sheet all cells color
 
-- `clear(): bool`  
+**sort_sheet(string $path, int $sheet, string $cols, bool $is_ascending = true, bool $is_header_exists = false, int $timeout = 3000): bool**
 
-- `undo(): bool`  
+Сортировать Лист файла Excl по одному или нескольким столбцам | Sort sheet
 
-- `screenshot(string $filepath, int $x = -1, int $y = -1, int $width = -1, int $heigth = -1, bool $as_gray = false, bool $with_non_client = false): bool`  
+**dedupe_sheet(string $path, int $sheet, string $use_cols = '*', bool $is_header_exists = false, int $timeout = 3000, int $header_length = 1): bool**
 
-- `click_menu_item(string $path): bool`  
+Убрать строки-дубликаты для Листа файла Excel | Remove duplicate rows
 
-- `get_child_count(bool $include_subchildren = false): int`  
+**split_sheet_by_rows(string $path, string $to_folder, int $sheet_number, int $rows_per_file, int $timeout = 3000): bool**
 
-- `get_child_by_number(int $number, bool $include_subchildren = false): XHEWindowInterface`  
+Разбить Лист файла Excel по строкам и сохранить в новые файлы Excel | Save all rows of sheet as separate Excel files
 
-- `get_child_by_text(string $text, bool $exactly = false, bool $include_subchildren = false): XHEWindowInterface`  
+**get_rows_count(string $path, int $sheet, bool $only_used = false): int**
 
-- `get_child_by_class(string $class_name, bool $exactly = false, bool $include_subchildren = false): XHEWindowInterface`  
+Получить количество строк в Листе файла Excel | Get rows count
 
-- `get_all_child_by_text(string $text, bool $exactly = false, bool $include_subchildren = false): XHEWindowInterfaces`  
+**get_row(string $path, int $sheet, int $row): ?array**
 
-- `get_all_child_by_class(string $class_name, bool $exactly = false, bool $include_subchildren = false): XHEWindowInterfaces`  
+Получить строку в Листе файла Excel как массив | Get row
 
-- `get_next(int $number = 0): XHEWindowInterface`  
+**set_row(string $path, int $sheet, int $row, array $row_array): bool**
 
-- `get_prev(int $number = 0): XHEWindowInterface`  
+Заполнить строку в Листе файла Excel из массива | Set row
 
-- `get_parent(int $level = 0): XHEWindowInterface`  
+**add_row(string $path, int $sheet, array $row_array): bool**
 
-- `get_owner(int $level = 0): XHEWindowInterface`  
+Добавить новую строку в Листе файла Excel из массива | Add row
 
-- `get_all_child(bool $include_subchildren = false): XHEWindowInterfaces`  
+**insert_row(string $path, int $sheet, int $row, int $count = 1): bool**
 
-- `get_all_next(): XHEWindowInterfaces`  
+Вставить строку в Лист файла Excel | Insert row
 
-- `get_all_prev(): XHEWindowInterfaces`  
+**remove_row(string $path, int $sheet, int $row): bool**
 
-- `get_all_parent(): XHEWindowInterfaces`  
+Удалить строку в Лист в файле Excel | Remove row
 
-- `get_top_parent(): XHEWindowInterface`  
+**add_rows(string $path, int $sheet, array $rows_array, int $timeout = 3000): bool**
 
-- `get_top_owner(): XHEWindowInterface`  
+Добавить несколько строк в Лист файле Excel | Add rows
 
-- `wait_for_input_idle(int $wait_time_in_seconds = 120): bool`  
+**remove_rows_by_number(string $path, int $sheet, int $row, int $count): bool**
 
-- `wait_for_open_child_by_number(int $number, bool $include_subchildren = false, int $wait_time_in_seconds = 120): bool`  
+Удалить строки по номеру в Лист в файле Excel | Remove rows
 
-- `wait_for_open_child_by_text(string $text, bool $exactly = false, bool $include_subchildren = false, int $wait_time_in_seconds = 120): bool`  
+**remove_rows_by_text(string $path, int $sheet, string $text, mixed $col = ''): bool**
 
-- `wait_for_open_child_by_class(string $class_name, bool $exactly = false, bool $include_subchildren = false, int $wait_time_in_seconds = 120): bool`  
+Удалить строки по тексту в Листе в файле Excel | Remove rows by keyword phrase
 
-- `get_text(): string`  
+**remove_rows_by_ranges(string $path, int $sheet, string $ranges): bool**
 
-- `get_number(bool $visibled = true, bool $mained = true): int`  
+Удалить строки по диапазонам в Листе в файле Excel | Remove row range
 
-- `get_style(bool $extended = false): string`  
+**clear_row(string $path, int $sheet, int $row): bool**
 
-- `get_class_name(): string`  
+Очистить строку от значений в Листе в файле Excel | Clear row
 
-- `get_hwnd(): string`  
+**copy_row(string $in_path, string $in_sheet, string $in_row, string $out_path, string $out_sheet, string $out_row): bool**
 
-- `get_process_id(): string`  
+Копировать строку из одного файла Excel в другой | Copy row from current file to another
 
-- `get_thread_id(): string`  
+**get_col(string $path, int $sheet, string $col): ?array**
 
-- `get_x(bool $client = false): int`  
+Получить столбец Листа файла Excel как массив | Get column
 
-- `get_y(bool $client = false): int`  
+**set_col(string $path, int $sheet, string $col, array $col_array): bool**
 
-- `get_width(bool $client = false): int`  
+Заполнить столбец Листа файла Excel из массива | Set column
 
-- `get_height(bool $client = false): int`  
+**add_col(string $path, int $sheet, array $col_array): bool**
 
-- `is_exist(): bool`  
+Добавить столбец в Лист файла Excel | Add column
 
-- `is_visible(): bool`  
+**insert_col(string $path, int $sheet, string $col, int $count = 1): bool**
 
-- `is_enable(): bool`  
+Вставить столбец в Лист файла Excel | Insert column
 
-- `is_focus(): bool`  
+**remove_col(string $path, int $sheet, string $col, bool $shift_to_left = true): bool**
 
-- `is_foreground(): bool`  
+Убрать столбец в Листе файла Excel | Remove column
 
-- `is_child(): bool`  
+**clear_col(string $path, int $sheet, string $col): bool**
 
-- `is_minimize(): bool`  
+Очистить столбец от значений в Листе файла Excel | clear column
 
-- `is_maximize(): bool`  
+**set_row_color(string $path, int $sheet, int $row, string $color): bool**
 
-- `send_mouse_move(int $dx = -1, int $dy = -1): bool`  
+Задать цвет заданной ячейки в Листе файла Excel для (всей) строки | Set row foreground color
 
-- `send_mouse_click(int $dx = -1, int $dy = -1): bool`  
+**set_row_background_color(string $path, int $sheet, int $row, string $color): bool**
 
-- `send_mouse_double_click(int $dx = -1, int $dy = -1): bool`  
+Задать цвет фона ячейкам для в Листе файла Excel (всей) строки | Set row background color
 
-- `send_mouse_left_down(int $dx = -1, int $dy = -1): bool`  
+**set_row_border(string $path, int $sheet, int $row, string $color, int $border_type = 13, string $aligment = 'all'): bool**
 
-- `send_mouse_left_up(int $dx = -1, int $dy = -1): bool`  
+Задать тип и цвет границы заданной ячейки для всей строки в Листе файла Excel | Set row border
 
-- `send_mouse_right_click(int $dx = -1, int $dy = -1): bool`  
+**autosize_row(string $path, int $sheet, int $row = -1, int $timeout = 3000): bool**
 
-- `send_mouse_right_down(int $dx = -1, int $dy = -1): bool`  
+Установить автоматически (подогнать) размеры для строки в Листе файла Excel | Set cell sizes automatically for row
 
-- `send_mouse_right_up(int $dx = -1, int $dy = -1): bool`  
+**set_row_height(string $path, int $sheet, int $row, float $height, int $timeout = 3000): bool**
 
-- `mouse_move(int $dx = -1, int $dy = -1): bool`  
+Задать высоту для строки в Листе файла Excel | Set row height
 
-- `mouse_click(int $dx = -1, int $dy = -1): bool`  
+**get_cols_count(string $path, int $sheet, int $row = -1, bool $only_used = false): int**
 
-- `mouse_double_click(int $dx = -1, int $dy = -1): bool`  
+Получить количество столбцов в Листе файла Excel | Get columns count
 
-- `mouse_left_down(int $dx = -1, int $dy = -1): bool`  
+**autosize_col(string $path, int $sheet, string $col = '', int $timeout = 3000): bool**
 
-- `mouse_left_up(int $dx = -1, int $dy = -1): bool`  
+Задать автоматически размеры (подогнать) для столбца в Листе файла Excel | Set cell sizes automatically for column
 
-- `mouse_right_click(int $dx = -1, int $dy = -1): bool`  
+**set_col_width(string $path, int $sheet, string $col, float $width, int $timeout = 3000): bool**
 
-- `mouse_right_down(int $dx = -1, int $dy = -1): bool`  
+Задать ширину столбца в Листе файла Excel | Set column width
 
-- `mouse_right_up(int $dx = -1, int $dy = -1): bool`  
+**set_col_color(string $path, int $sheet, string $col, string $color): bool**
 
-- `send_key_down(string $key, bool $is_key = false, bool $ctrl = false, bool $alt = false, bool $shift = false): bool`  
+Задать цвет ячеек для всего столбца в Листе файла Excel | Set column cells foreground
 
-- `send_key_up(string $key, bool $is_key = false, bool $ctrl = false, bool $alt = false, bool $shift = false): bool`  
+**set_col_background_color(string $path, int $sheet, string $col, string $color): bool**
 
-- `input(string $string, string $timeout = '0:2'): bool`  
+Задать цвет фона ячеек для всего столбца в Листе файла Excel | Set column cells background
 
-- `key(string $code, bool $is_key = false, bool $ctrl = false, bool $alt = false, bool $shift = false): bool`  
+**set_col_border(string $path, int $sheet, string $col, string $color, int $border_type = 13, string $aligment = 'all'): bool**
 
-- `key_down(string $key): bool`  
+Задать тип и цвет границы заданной ячейки для всего столбца в Листе файла Excel | Set column cells border
 
-- `key_up(string $key): bool`  
+**set_col_format(string $path, int $sheet, string $col, string $format, bool $is_predefined = false, bool $except_header = false): bool**
 
-- `set_current_language(string $language): bool`  
+Задать формат столбца (устаревшая ф-ия исп. set_col_number_format()) | Set column cells format
 
-- `press_key_by_code(string $code): bool`  
+**add_cell(string $path, int $sheet, int $row, string $text): bool**
 
----
+Добавить ячейку к строке или таблице | Add cell
 
-### `XHEWindowInterfaces` — Класс-коллекция для управления окнами приложений
+**get_cell(string $path, int $sheet, int $row, string $col): string**
 
-**Методы**:
-- `__construct(string $inner_numbers, string $server, string $password = ''): void`  
+Прочитать текст заданной ячейки | Get cell
 
-- `get_by_text(string $text, bool $exactly = false): \XHEWindowInterface|false`  
+**set_cell(string $path, int $sheet, int $row, string $col, string $text, string $type = ''): bool**
 
-- `get_by_class_name(string $class_name, bool $exactly = false): \XHEWindowInterface|false`  
+Задать текст заданной ячейки | Set cell
 
-- `get_by_point(int $x, int $y): \XHEWindowInterface|false`  
+**clear_cell(string $path, int $sheet, int $row, mixed $col): bool**
 
----
+Очистить заданную ячейку | Clear cell
 
-### `XHEWindowsShell` — Для получения информации и управления OS Windows
+**get_cell_type(string $path, int $sheet, int $row, string $col): string**
 
-**Методы**:
-- `__construct(string $server, string $password = ''): void`  
+Получить тип заданной ячейки | Get cell type
 
-- `shutdown(): bool`  
+**set_cell_format(string $path, int $sheet, int $row, string $col, string $format, bool $is_predefined = true): bool**
 
-- `restart(): bool`  
+Задать формат ячейки | Set cell format
 
-- `logoff(): bool`  
+**set_cell_color(string $path, int $sheet, int $row, string $col, string $color): bool**
 
-- `keep_alive(): bool`  
+Задать цвет текста заданной ячейки | Set cell foreground color
 
-- `get_screen_width(int $monitor_number = -1, bool $with_scale = true): int`  
+**set_cell_background_color(string $path, int $sheet, int $row, string $col, string $color): bool**
 
-- `get_screen_height(int $monitor_number = -1, bool $with_scale = true): int`  
+Задать цвет фона заданной ячейки | Set cell background color
 
-- `get_screen_zoom(int $monitor_number = -1): int`  
+**set_cell_border(string $path, int $sheet, int $row, string $col, string $color, int $border_type = 13, string $aligment = 'all'): bool**
 
-- `set_screen_resolution(int $width, int $height): bool`  
+Задать тип и цвет границы заданной ячейки | Set cell border
 
-- `screenshot(string $path, int $x = -1, int $y = -1, int $width = -1, int $height = -1, bool $as_gray = false, int $screen = 0): bool`  
+**get_cell_color(string $path, int $sheet, int $row, string $col): string**
 
-- `get_windows_title(): string`  
+Получить цвет текста заданной ячейки | Get cell foreground
 
-- `get_windows_version(): string`  
+**get_cell_background_color(string $path, int $sheet, int $row, string $col): string**
 
-- `get_windows_build(): string`  
+Получить цвет фона заданной ячейки | Get cell background
 
-- `get_windows_platform_id(): string`  
+**get_cell_font(string $path, int $sheet, int $row, string $col): ?stdClass**
 
-- `get_windows_sp_info(): string`  
+Получить шрифт заданной ячейки | Get cell font
 
-- `get_computer_name(): string`  
+**set_cell_font(string $path, int $sheet, int $row, string $col, XHEFont $font): bool**
 
-- `get_user_name(): string`  
+Задать шрифт заданной ячейки | Set cell font
 
-- `get_cpu_name(): string`  
+**get_merged_cell_range(string $path, int $sheet, int $row, string $col): false|\XHERange**
 
-- `get_system_date(): string`  
+Получить диапазон объединенной ячейки | Get merged cell range
 
-- `set_system_date(int $year, int $month, int $day): bool`  
+**get_pos_by_text(string $path, int $sheet, string $text, bool $exactly = true, string $col = '', int $timeout = 3000): XHEPosition**
 
-- `get_system_time(): string`  
+Получить позицию первой ячейки с заданным текстом | Find cell by text and get it position
 
-- `set_system_time(int $hour, int $minute, int $second): bool`  
+**get_all_pos_by_text(string $path, int $sheet, string $text, bool $exactly = true, string $col = '', int $timeout = 3000): array**
 
-- `set_system_time_synchro_period(int $seconds): bool`  
+Получить позицию всех ячеек с заданным текстом | | Find all cells by text and get positions
 
-- `get_time_zone(string $type = 'utc_seconds_offset'): string`  
+**add_link(string $path, int $sheet, int $row, string $col, string $text, string $address, string $tip = ''): bool**
 
-- `get_disk_free_space(string $disk): int`  
+Добавить ссылку в ячейку | Add link to cell
 
-- `get_special_folder(string $folder): string`  
+**set_range_name(string $path, int $sheet, string $range, string $name): bool**
 
-- `start_video_record(string $path, int $fps = 10, int $quality = 70, int $x = -1, int $y = -1, int $width = -1, int $height = -1, bool $as_gray = false, float $zoom = 0.3): bool`  
+Задать имя диапазона | Set range name
 
-- `stop_video_record(): bool`  
+**clear_range(string $path, int $sheet, string $range, string $options = 'All'): bool**
 
----
+Очистить ячейки диапазона | Clear range
 
-### `XHEMailMessage` — Для представления объекта-сообщения E-mail
+**copy_range(string $path, int $sheet, string $range, int $to_sheet, int $row, string $col): bool**
 
-**Методы**:
-- `__construct(string $content): void`  
+Копировать ячейки диапазона | Copy range
 
----
+**move_range(string $path, int $sheet, string $range, int $to_sheet, int $row, string $col): bool**
 
-### `XHEMsExchangeMailMessage` — Объект для представления письма с письмами полученными от ФО MsExchange
+Переместить ячейки диапазона | Move range
 
-**Методы**:
-- `__construct(string $content): void`  
+**set_range_format(string $path, int $sheet, string $range, string $format, bool $is_predefined = true): bool**
 
----
+Задать формат диапазона | Set range format
 
+**set_range_border(string $path, int $sheet, string $range, string $color, int $border_type = 13, string $aligment = 'all'): bool**
+
+Задать тип и цвет границы ячеек указанного диапазона | Set range border
+
+**dedupe_range(string $path, int $sheet, string $range, string $use_cols = '*', int $timeout = 3000): bool**
+
+Убрать дубликаты в диапазоне по всем или нескольким столбцам | Remove row duplicates in range
+
+**add_autofilter(string $path, int $sheet, string $range, int $col, string $condition1 = '', string $value1 = '', string $operator1 = '', string $condition2 = '', string $value2 = '', int $timeout = 3000): bool**
+
+Добавить автофильтр | Add auto filer
+
+**clear_autofilters(string $path, int $sheet, int $timeout = 3000): bool**
+
+Очистить автофильтры | Clear all sheet auto filters
+
+**get_range(string $path, int $sheet, string $range, int $timeout = 3000): ?array**
+
+Получить содержимое заданного диапазона Листа как массив строк | Get range
+
+**get_and_clear_range(string $path, int $sheet, string $range, int $timeout = 3000): ?array**
+
+Получить значения заданного диапазона Листа как массив строк и очистить ячейки диапазона | Get and clear range
+
+**convert(string $inpath, string $outpath, int $timeout = 600): bool**
+
+Конвертировать файл в другой формат (xlsx,xls,csv,txt,html,pdf,xps)
+
+**set_col_number_format(string $path, int $sheet, string $col, string $format, bool $is_predefined = true, bool $except_header = false): bool**
+
+Задать числовой формат столбца
+
+**set_cell_number_format(string $path, int $sheet, int $row, string $col, string $format, bool $is_predefined = true): bool**
+
+Задать формат ячейки с датой или числом
+
+**set_range_number_format(string $path, int $sheet, string $range, string $format, bool $is_predefined = true): bool**
+
+Задать числовой формат диапазона
+
+**set_range_type(string $path, int $sheet, string $range, string $type_): bool**
+
+Задать тип диапазона
+
+**set_col_type(string $path, int $sheet, string $col, string $type_, bool $except_header = false): bool**
+
+Задать тип заданного столбца
+
+**set_cell_type(string $path, int $sheet, int $row, string $col, string $type_): bool**
+
+Задать тип заданной ячейки
+
+## Class: XHEFile_os
+
+Perform operations with files
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**copy(string $path, string $new_path, bool $fail_if_exist = false): bool**
+
+Копировать файл | Copy file
+
+**move(string $path, string $new_path, bool $fail_if_exist = false): bool**
+
+Переместить файл | Move file
+
+**rename(string $path, string $new_path): bool**
+
+Переименовать файл | Rename file
+
+**delete(string $path): bool**
+
+Удалить файл | Delete file
+
+**wait_copy(string $path, int $wait_count = 2000, int $wait_step = 5, bool $is_verbose = true): bool**
+
+Ожидать завершения операции копирования/перемещения файла | Wait copy file
+
+**unzip(string $path, string $to_folder, string $encoding = 'cp866'): bool**
+
+Распаковать файл-архив с помощью библиотеки ZIP | Unpack ZIP file
+
+**un7z(string $path, string $to_folder, string $path_to_7z = 'C:\\Program Files\\7-Zip'): bool**
+
+Распаковать файл-архив с помощью приложения 7-Zip | Unpack file by 7-Zip
+
+**wait_for_exist(string $path, int $wait_count = 60, int $wait_step = 1, bool $is_verbose = true): bool**
+
+Ожидать появления файла | Wait fail for exist
+
+**is_exist(string $path): bool**
+
+Проверка существования файла | Is file exist?
+
+**get_name(string $path): string**
+
+Получить имя файла (с расширением) | Get full file name
+
+**get_title(string $path): string**
+
+Получить имя файла (без расширения) | Get file name
+
+**get_ext(string $path): string**
+
+Получить расширение файла | Get file extension
+
+**get_folder(string $path, int $level = 0): string**
+
+Получить папку файла | Get file folder
+
+**get_disk(string $path): string|false**
+
+Получить метку логического диска, на котором находится файл | Get file logical disk label
+
+**get_size(string $path): int**
+
+Получить размер файла в байтах | Get file size
+
+**get_random_file_content(string $folder, string $ext, bool $include_subfolders, int $timeout = -1): string|false**
+
+Получить содержимое случайного файла в заданной папке | Get random file content
+
+**get_creation_date(string $path, bool $time = false): string|false**
+
+Получить дату создания файла | Get file creation date
+
+**get_modification_date(string $path, bool $time = false): string|false**
+
+Получить дату последнего изменения файла | Get file modification date
+
+**get_lastacess_date(string $path, bool $time = false): string|false**
+
+Получить дату последнего доступа к файлу | Get file last access date
+
+**is_normal(string $path): bool**
+
+Проверить что файл нормальный (атрибут NORMAL) | Get attribute NORMAL value
+
+**is_readonly(string $path): bool**
+
+Проверить что файл только для чтения (атрибут READONLY) | Get attribute NORMAL value
+
+**is_hidden(string $path): bool**
+
+Проверить что файл скрыт (атрибут HIDDEN) | Get attribute HIDDEN value
+
+**is_system(string $path): bool**
+
+Проверить что файл системный (атрибут SYSTEM) | Get attribute SYSTEM value
+
+**is_archive(string $path): bool**
+
+Проверить что файл архивный (атрибут ARCHIVE) | Get attribute ARCHIVE value
+
+**set_normal(string $path, bool $on = true): bool**
+
+Установить у файла значение атрибута NORMAL | Set attribute NORMAL value
+
+**set_readonly(string $path, bool $on = true): bool**
+
+Установить у файла значение атрибута READONLY | Set attribute READONLY value
+
+**set_hidden(string $path, bool $on = true): bool**
+
+Установить у файла значение атрибута HIDDEN | Set attribute HIDDEN value
+
+**set_system(string $path, bool $on = true): bool**
+
+Установить у файла значение атрибута SYSTEM | Set attribute SYSTEM value
+
+**set_archive(string $path, bool $on = true): bool**
+
+Установить у файла значение атрибута ARCHIVE | Set attribute ARCHIVE value
+
+**get_file_name(string $path): string**
+
+Get file name
+
+**get_file_title(string $path): string**
+
+Get file title (without extension)
+
+**get_file_ext(string $path): string**
+
+Get file extension
+
+**get_file_folder(string $path): string**
+
+Get file folder
+
+**get_file_disk(string $path): string|bool**
+
+Get file disk
+
+## Class: XHEFolder
+
+Perform operations with folders
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**create(string $path): bool**
+
+Создать папку | Create folder
+
+**copy(string $path, string $new_folder_place, bool $flag_fail_exist = true, int $timeout = 3000): bool**
+
+Копировать папку | Copy folder
+
+**move(string $path, string $new_folder_place, int $timeout = 3000): bool**
+
+Перенос папки | Move folder
+
+**rename(string $path, string $new_folder_name, int $timeout = 3000): bool**
+
+Переименовать папку | Rename folder
+
+**delete(string $path): bool**
+
+Удалить папку | Delete folder
+
+**clear(string $path, int $timeout = 3000): bool**
+
+Очистить содержимое папки | Clear folder
+
+**rar(string $path, string $path_to_rar = '', string $options = 'u -m5 -mdE -s -r -ed -ep1', int $timeout = 3000): bool**
+
+Выполнить упаковку папки с помощью приложения RAR | Compress folder by RAR
+
+**zip(string $path, string $to_file, int $timeout = 3000): bool**
+
+Выполнить упаковку папки с помощью библиотеки ZIP | Compress folder by ZIP
+
+**is_exist(string $path): bool**
+
+Проверить существование папки | Check folder is exists
+
+**get_name(string $path): string**
+
+Получить имя папки | Get folder name
+
+**get_disk(string $path): string|false**
+
+Получить метку логического диска, на котором находится папка | Get folder logical disk label
+
+**get_size(string $path): int**
+
+Получить размер папки в байтах | Gey folder size
+
+**get_items_count(string $path, bool $include_subfolders = false, bool $only_folders = false, int $timeout = 3000): int**
+
+Получить количество элементов в папке | Get folder items count
+
+**get_all_items(string $path, bool $include_subfolders = false, bool $only_folders = false, int $timeout = 3000): string|false**
+
+Получить все элементы из папки | Get all items in folder
+
+**get_all_files(string $path, bool $include_subfolders = false, string $mask = '*.*', int $timeout = 3000): ?array**
+
+Получить все файлы из папки | Get all files in folder
+
+**get_all_folders(string $path, bool $include_subfolders = false, string $mask = '*.*', int $timeout = 3000): ?string**
+
+Получить все папки из папки | Grt all folder path from the folder
+
+**get_random_file(string $path, string $extension = 'txt', bool $include_subfolders = false, int $timeout = 3000): bool|string**
+
+Получить случайный путь к файлу в папке | Get random file path from th folder
+
+**get_creation_date(string $path, bool $time = false): string|false**
+
+Получить дату создания папки | Get folder creation date
+
+**get_modification_date(string $path, bool $time = false): string|false**
+
+Получить дату последнего изменения папки | Get folder changed date
+
+**get_lastacess_date(string $path, bool $time = false): string|false**
+
+Получить дату последнего доступа к папке | Get folder last access date
+
+**is_normal(string $path): bool**
+
+Проверить что папка нормальная (атрибут NORMAL) | Get folder attribute NORMAL
+
+**is_readonly(string $path): bool**
+
+Проверить что папка только для чтения (атрибут READONLY) | Get folder attribute READONLY
+
+**is_hidden(string $path): bool**
+
+Проверить что папка скрыт (атрибут HIDDEN) | Get folder attribute HIDDEN
+
+**is_system(string $path): bool**
+
+Проверить что папка системный (атрибут SYSTEM) | Get folder attribute SYSTEM
+
+**is_archive(string $path): bool**
+
+Проверить что папка архивный (атрибут ARCHIVE) | Get folder attribute ARCHIVE
+
+**set_normal(string $path, bool $on = true): bool**
+
+Установить у папки значение атрибута NORMAL | Set folder attribute NORMAL
+
+**set_readonly(string $path, bool $on = true): bool**
+
+Установить у папки значение атрибута READONLY | Set folder attribute READONLY
+
+**set_hidden(string $path, bool $on = true): bool**
+
+Установить у папки значение атрибута HIDDEN | Set folder attribute HIDDEN
+
+**set_system(string $path, bool $on = true): bool**
+
+Установить у папки значение атрибута SYSTEM | Set folder attribute SYSTEM
+
+**set_archive(string $path, bool $on = true): bool**
+
+Установить у папки значение атрибута ARCHIVE | Set folder attribute ARCHIVE
+
+**create_folder(string $path): bool**
+
+
+
+**get_folder_name(string $path): string**
+
+
+
+**get_folder_disk(string $path): string|false**
+
+
+
+## Class: XHEKeyboard
+
+Performs text input operations from the keyboard
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**input(string $string, string $timeout = '20:40', bool $inFlash = false, bool $auto_change = true): bool**
+
+Ввода символов строки. Полная эмуляция | Full emulation of line input characters
+
+**key(string $code, bool $is_key = true, bool $ctrl = false, bool $alt = false, bool $shift = false): bool**
+
+Ввода одного символа с клавиатуры, для ввода символа в DOM элемент браузера по Alt-коду. Полная эмуляция | Press key by code
+
+**key_down(string $key, bool $is_key = true): bool**
+
+Нажатие down клавиши с клавиатуры, для ввода одного символа. Полная эмуляция | Press key down
+
+**key_up(string $key, bool $is_key = true): bool**
+
+Отжатие клавиши up с клавиатуры, для ввода одного символа. Полная эмуляция | Press key up
+
+**press_key_by_code(string $code, bool $ctrl = false, bool $alt = false, bool $shift = false): bool**
+
+Нажатие клавиши по коду (альтернативный вариант для Citrix). Полная эмуляция |  Press key by code alternative by Citrix
+
+**send_input(string $string, string $timeout = '0:2', bool $inFlash = false, bool $auto_change = true): bool**
+
+Ввод строки в DOM элемент браузера с помощью событий JS, даже если DOM элемент скрыт | Send input JS
+
+**send_key(string $key, bool $is_key = false, mixed $ctrl = false, mixed $alt = false, mixed $shift = false): bool**
+
+Ввод символа с клавиши клавиатуры, для ввода одного символа в DOM элемент браузера с помощью событий JS, даже если DOM элемент скрыт | Send key JS
+
+**send_key_down(string $key, bool $is_key = false): bool**
+
+Нажатие клавиши down с клавиатуры, для ввода одного символа в DOM элемент браузера с помощью событий JS, даже если DOM элемент скрыт | Send key down JS
+
+**send_key_up(string $key, bool $is_key = false): bool**
+
+Нажатие клавиши up отжатия клавиши с клавиатуры, для ввода одного символа в DOM элемент браузера с помощью событий JS, даже если DOM элемент скрыт | Send key up JS
+
+**set_ctrl_prefix(bool $on): bool**
+
+Держать нажатой или отжатой кнопку CTRL. Полная эмуляция | Press key CTRL
+
+**set_alt_prefix(bool $on): bool**
+
+Держать нажатой или отжатой кнопку ALT. Полная эмуляция | Press key ALT
+
+**set_shift_prefix(bool $on): bool**
+
+Держать нажатой или отжатой кнопку SHIFT. Полная эмуляция | Press key SHIFT
+
+**press_caps_lock(): bool**
+
+Нажать кнопку 'CAPS LOCK'. Полная эмуляция | Press key 'CAPS LOCK'
+
+**press_num_lock(): bool**
+
+string $path 'NUM LOCK'. Полная эмуляция | Press key 'NUM LOCK'
+
+**press_scroll_lock(): bool**
+
+string $path 'SCROLL LOCK'. Полная эмуляция | Press key 'SCROLL LOCK'
+
+**is_caps_lock_pressed(): bool**
+
+Проверяет нажатие кнопки 'CAPS LOCK' | Is key 'CAPS LOCK' pressed?
+
+**is_num_lock_pressed(): bool**
+
+Проверяет нажатие кнопки 'NUM LOCK' | Is key 'NUM LOCK' pressed?
+
+**is_scroll_lock_pressed(): bool**
+
+Проверяет нажатие кнопки 'SCROLL LOCK' | Is key 'SCROLL LOCK' pressed?
+
+**get_current_language(): string**
+
+Получить текущий язык ввода ОС | Get current keyboard language
+
+**set_current_language(string $language): bool**
+
+Задать текущий язык ввода ОС | Set current keyboard language
+
+## Class: XHELibreOffice
+
+Perform operations with Excel files used library ClosedXML LibreOffice application
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**set_install_folder(string $folder): bool**
+
+Задать путь к папке куда установлено приложение LibreOffice. По умолчанию это "C:\Program Files\LibreOffice\program\"
+
+**convert(string $inpath, string $outpath, string $infilter = '', int $timeout = 3000): bool**
+
+Конвертировать файл в другой формат с помощью исполняемого файла swriter.exe от LibreOffice
+
+## Class: XHELibreOfficeCalc
+
+Для работы с файлами OpenDocumentFormat на базе библиотеки
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**get_sheet_name(string $path, int $sheet): string**
+
+Получить название Листа по индексу | Get sheet name by number
+
+**get_sheets_count(string $path): int**
+
+Получить число Листов | Get sheets count
+
+**get_sheets_names(string $path): ?array**
+
+Получить имена Листов | Get sheet names
+
+**get_sheet(string $path, int $sheet, int $timeout = 3000): ?array**
+
+Получить содержимое заданного листа как массив | Get sheet
+
+**get_sheet_number_by_name(string $path, string $table_name, bool $exactly = true): int**
+
+Получить номер Листа по имени | Get sheet number by name
+
+**get_cell(string $path, int $sheet, int $row, int $col): string**
+
+Прочитать текст заданной ячейки | Get cell
+
+**get_cell_by_position(string $path, int $sheet, string $cell_position): string**
+
+Получить значение ячейки по позиции ячейки | Get cell by position
+
+**set_cell_color(string $path, int $sheet, int $row, int $col, string $foreground_color, string $background_color): bool**
+
+Задать цвет шрифта и фона ячейки в таблице | Set cell foreground and background
+
+**set_cell_color_by_position(string $path, int $sheet, string $cell_position, string $foreground_color, string $background_color): bool**
+
+Задать цвет шрифта/фона ячейки по позиции | Set cell foreground and background by position
+
+**set_cell(string $path, int $sheet, int $row, int $col, string $cell_content): bool**
+
+Изменить значение ячейки | Set cell
+
+**set_cell_by_position(string $path, int $sheet, string $cell_position, string $cell_content): bool**
+
+Изменить значение ячейки по позиции | Set cell by position
+
+**cell_add_annotation(string $path, int $sheet, int $row, int $col, string $annotation_author, string $annotation_comment, string $json_annotation_settings = ''): bool**
+
+Добавить комментарий к ячейке по позиции | Add comment to cell
+
+**cell_add_annotation_by_position(string $path, int $sheet, string $cell_position, string $annotation_author, string $annotation_comment, string $json_annotation_settings = ''): bool**
+
+Добавить комментарий к ячейке по позиции | Add comment to cell by position
+
+**add_define_range_name(string $path, string $range_name, string $range): bool**
+
+Добавить диапазон | Add range
+
+**add_row(string $path, int $sheet, array $row_array): bool**
+
+Добавить строку | Add row
+
+**get_row(string $path, int $sheet, int $row): ?array**
+
+Получить строку как массив | Get row
+
+**get_rows_count(string $path, int $sheet): int**
+
+Получить число строк в листе | Get rows count
+
+**set_row_height(string $path, int $sheet, int $row, string $height, int $timeout = 3000): bool**
+
+Изменить высоту строки | Set row height
+
+**get_cols_count(string $path, int $sheet): int**
+
+Получить число столбцов в файле | Get columns count
+
+**set_col_width(string $path, int $sheet, int $col, string $width, int $timeout = 3000): bool**
+
+Изменить ширину столбца | Set column width
+
+## Class: XHEMouse
+
+Perform operations with Computer mouse
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**click(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Щелчок левой кнопки мыши в заданной точке браузера. Полная эмуляция | Click
+
+**click_to_screen(int $x = -1, int $y = -1): bool**
+
+Щелчок левой кнопки мыши в заданной точке экрана рабочего стола ОС. Полная эмуляция | Click on screen
+
+**double_click(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Двойной щелчок левой кнопки мыши в заданной точке браузера. Полная эмуляция | Double click full emulation
+
+**left_button_down(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Нажать down левую кнопку мыши в заданной точке браузера. Полная эмуляция | Left button down full emulation
+
+**left_button_up(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Отпустить up левую кнопку мыши в заданной точке браузера. Полная эмуляция | Left button uo full emulation
+
+**right_button_click(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Щелчок правой кнопкой мыши в заданной точке браузера. Полная эмуляция | Right button click full emulation
+
+**right_button_click_to_screen(int $x = -1, int $y = -1): bool**
+
+Щелчок правой кнопки мыши в заданной точке экрана рабочего стола ОС. Полная эмуляция | Right button click on screen full emulation
+
+**right_button_down(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Нажать down правую кнопку мыши в заданной точке браузера. Полная эмуляция | Right button down full emulation
+
+**right_button_up(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Отпустить up правую кнопку мыши в заданной точке браузера. Полная эмуляция | Right button up full emulation
+
+**move(int $x, int $y, bool $scroll = true, int $time = 0, int $tremble = 2, string $buttons = ''): bool**
+
+Передвинуть мышь в заданные координаты браузера. Полная эмуляция | Move full emulation
+
+**move_on_screen(int $x, int $y, int $time = 0, int $tremble = 2, string $buttons = ''): bool**
+
+Передвинуть мышь в заданные координаты рабочего стола ОС. Полная эмуляция | Move on screen full emulation
+
+**wheel(int $time, int $x = -1, int $y = -1): bool**
+
+Управление колесиком мыши. Полная эмуляция | Wheel full emulation
+
+**move_to(int $x, int $y, string $type_, int $time_): bool**
+
+Передвинуть мышь в заданные координаты браузера по заданной траектории. Полная эмуляция | Move to full emulation
+
+**send_click(int $x = -1, int $y = -1, bool $scroll = true, bool $addCtrl = false): bool**
+
+Щелчок левой кнопки мыши в заданной точке с помощью событий JS | CLick JS
+
+**send_double_click(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Двойной щелчок левой клавишей мыши по элементу с помощью событий JS | Double click JS
+
+**send_left_button_down(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Отправить нажатие down левой клавишей мыши по элементу с помощью событий JS | Left button down JS
+
+**send_left_button_up(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Отправить отжатие up левой клавишей мыши по элементу с помощью событий JS | Left button up JS
+
+**send_right_button_click(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Щелчок правой клавишей мыши по элементу с помощью событий JS | Right button click JS
+
+**send_right_button_down(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Отправить нажатие down правой клавишей мыши по элементу с помощью событий JS | Right button down JS
+
+**send_right_button_up(int $x = -1, int $y = -1, bool $scroll = true): bool**
+
+Отправить отжатие up правой клавишей мыши по элементу с помощью событий JS | Right button up JS
+
+**send_move(int $x = -1, int $y = -1, bool $scroll = true, int $time = 0, int $tremble = 5, string $buttons = ''): bool**
+
+Передвинуть мышь к элементу со смещением с помощью событий JS | Move JS
+
+**send_wheel(int $n, int $x = 1200, int $y = 600, int $key = 0): bool**
+
+Отправить прокрутку колеса мыши с помощью событий JS | Wheel JS
+
+**send_move_to(int $x, int $y, string $type_, int $time_): bool**
+
+Полная эмуляция перемещения мыши к элементу по заданной траектории | Move to JS
+
+**send_touch(int $id, int $touch_type, int $x = -1, int $y = -1, int $radiusX = 0, int $radiusY = 0, float $rotationAngle = 0, float $pressure = 0, int $modiefiers = 0, int $pointerType = 0): bool**
+
+Нажать пальцами по элементу | Touch JS
+
+**send_touch_to(int $x0, int $y0, int $x, int $y, string $type_, int $time_): bool**
+
+Переместить палец в заданную точку браузера по заранее указанной траектории использую отправку событий | Touch to JS
+
+**get_position(bool $in_browser = false, bool $virtual = false): string**
+
+Получить координаты Х и Y текущего положения курсора мыши относительно левого верхнего угла | Get cursor position
+
+**get_x(bool $in_browser = false, bool $virtual = false): int**
+
+Получить координату Х текущего положения курсора мыши относительно левого верхнего угла | Get cursor position X
+
+**get_y(bool $in_browser = false, bool $virtual = false): int**
+
+Получить координату Y текущего положения курсора мыши относительно левого верхнего угла | Get cursor position Y
+
+**send_click_to_flash_player(int $x, int $y, int $flash_num, bool $bUseFlashXY = false, bool $scroll = true): bool**
+
+Отправить событие клика левой кнопки мыши во flash проигрыватель | Click left to Flash JS
+
+**send_right_click_to_flash_player(int $x, int $y, int $flash_num, bool $bUseFlashXY = false, bool $scroll = true): bool**
+
+Отправить событие клика правой кнопки мыши во flash проигрыватель | Click right to Flash JS
+
+**send_mouse_move_to_flash_player(int $x, int $y, int $flash_num, bool $bUseFlashXY = false, bool $scroll = true): bool**
+
+Отправить событие движения курсора мыши во flash проигрыватель | Move to Flash JS
+
+**get_mouse_pos_to_flash_player(int $flash_num, string $x = '', string $y = ''): string**
+
+Получить Х и Y координаты во flash проигрывателе по координатам в браузере или по текущему положению курсора в браузере | Get cursor position to Flash
+
+## Class: XHEMsgFile
+
+Perform operations with a file containing a letter in Outlook format (.msg)
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**read(string $path): ?XHEMailMessage**
+
+Прочитать содержимое файла-письмо. Файл формата приложения Outlook (.msg) | Read message file
+
+**save_attachments(string $path, string $to_folder): bool**
+
+Сохранить файлы-вложения из файла-письма. Файл формата приложения Outlook (.msg) | Read message file and save attachments
+
+## Class: XHEPdfFile
+
+Perform operations with PDF files
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**is_pdf_file(string $path): bool**
+
+Проверить что это pdf файл (по заголовку) | This file is format PDF?
+
+**get_info(string $path, string $name): string**
+
+Получить значение свойства документа PDF по имени | Get PDF document property by name
+
+**get_page_count(string $path, int $timeout = 6000): int**
+
+Получить число страниц в документе PDF | Get pages count in PDF document
+
+**get_images_count(string $path): int**
+
+Получить количество картинок в документе PDF | Get images count in PDF document
+
+**get_links_count(string $path): int**
+
+Получить количество ссылок в документе PDF | Get links count in PDF document
+
+**get_link_by_number(string $path, int $number): string**
+
+Получить ссылку с заданным номером в PDF документе | Get link by number in PDF document
+
+**get_all_links(string $path): ?array**
+
+Получить все ссылки в документе PDF
+
+**read(string $path, string $method = ''): string**
+
+Получить содержимое PDF документа как текст | Get PDF document as text
+
+**read_page(string $path, int $page, string $method = ''): string**
+
+Получить содержимое страницы по номеру PDF документа как текст | Get PDF document page by number as text
+
+**get_page_number_by_text(string $path, string $text, int $exactly = 1, int $skip = 0, string $method = ''): string**
+
+Получить номер страницы по тексту PDF документа | Get PDF document page number by text
+
+**write(string $path, string $content): bool**
+
+Записать текст в PDF документ | Write content to PDF document
+
+**combine(string $outpath, array $inpaths, bool $is_compressed = false, int $timeout = 6000, string $method = ''): bool**
+
+Комбинировать несколько PDF документов в один файл | Combine PDF files in one
+
+**extract_images(string $path, string $to_folder, int $timeout = 6000): bool**
+
+Сохранить все картинки из PDF документа в отдельные файлы | Save all images from PDF file
+
+**compress_images(string $inpath, string $outpath, int $quality = 20, int $timeout = 6000): bool**
+
+Сохранить и сжать все картинки из PDF документа в отдельные файлы картинки | Save and compress all images from PDF file
+
+**print_pages(string $path, string $to_folder, float $scale = 1, int $timeout = 6000): bool**
+
+Сохранить все страницы PDF документа как отдельные файлы-картинки | Save all pages as images
+
+**split(string $path, mixed $to_folder, int $pages_per_file = 1, int $timeout = 6000): bool**
+
+Сохранить все страницы PDF документа ак отдельные файлы PDF | Save all pages as separate PDF file
+
+**insert_image(string $path, int $page, string $image_path, int $x, int $y, int $timeout = 6000): bool**
+
+Вставить картинку в PDF документ | Insert image to PDF file
+
+## Class: XHESound
+
+For converting and playing audio files
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**beep(): bool**
+
+Подать звуковой сигнал | Play beep
+
+**play_sound(string $path): bool**
+
+Проиграть звуковой файл | Play audio file
+
+**convert_file(string $src_path, string $new_path, string $Hz = '', int $timeout = 60): bool**
+
+Конвертировать файл в другой звуковой формат с помощью консольного приложения ffmpeg.exe | Convert audio file
+
+**recognize_file_with_digits(string $path, int $timeout = 60): string|bool**
+
+Распознать звуковой файл, состоящих из звуков английских цифр (0-9) с помощью консольного приложения pocketsphinx_continuous.exe | Recognize word digits in audio file
+
+**recognize_file(string $path, string $dict, string $jsgf, string $hmm, string $add_params = '', int $timeout = 60): string|bool**
+
+Распознать аудио файл как слова речи, с помощью консольного приложения pocketsphinx_continuous.exe | Recognize words in audio file
+
+## Class: XHETextFile
+
+Perform operations with text files
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**get_file_folder(string $path, int $timeout = -1): string**
+
+Получить абсолютный путь папки указанного файла | Get file directory path
+
+**get_lines_count(string $path, int $timeout = -1): int**
+
+Получить число строк в файле | Get lines count
+
+**get_encoding(string $path): string**
+
+Получить имя кодировки файла | Get encoding name
+
+**create_folder(string $path, int $timeout = -1): bool**
+
+Создать папку | Create folder
+
+**generate_folders_by_strings_file(string $file, string $folder, int $timeout = -1): bool**
+
+Создать папки с именами из строк файла | Crete folders with name from file lines
+
+**get_all_files_in_folder(string $path, string $masks = '', bool $include_subfolders = false, mixed $only_folders = false, int $timeout = -1): string|false**
+
+Получить все имена файлов или папок в указанной папке | Get file or folder names in the folder
+
+**collect_from_folders_to_file(string $infolderpath, string $outfilepath, int $timeout = -1, string $extension = 'txt'): bool**
+
+Соединить тексты всех файлов из указанной папки в один файл | Unite content some files in folder to one file
+
+**split_to_part(string $infilepath, string $outfilepath, int $numparts, int $timeout = -1): bool**
+
+Разделить содержимое файла на отдельные файлы | Split file content to several files
+
+**collect_from_folders_to_folder(string $infolderpath, string $outfolderpath, int $timeout = -1): bool**
+
+Найти файлы из под-папок указанной папки и перенести в одну папку | Find all files in sub folders and replace to one folder
+
+**sort(string $infilepath, string $outfilepath, int $timeout = 1000, string $encoding = 'utf-8'): bool**
+
+Отсортировать файл построчно | Sort file lines
+
+**dedupe(string $infilepath, string $outfilepath, int $timeout = -1, string $encoding = ''): bool**
+
+Удалить дубликаты строк находящихся на соседних позициях из файла | Remove duplicate lines located at adjacent positions from the file
+
+**randomize_to(string $infilepath, string $outfilepath, int $timeout = -1): bool**
+
+Изменить порядок строк в файле случайным образом | Change the order of lines in a file randomly
+
+**revert_strings_file(string $infile, string $outfile, int $timeout = -1): bool**
+
+Изменить порядок строк на обратный в текстовом файле | Reverse the order of lines in a text file
+
+**replace_string(string $infile, string $outfile, string $old_str, string $new_str, int $timeout = -1): bool**
+
+Заменить строку другой строкой в текстовом файле | Replace a line text with another text in a text file
+
+**exclude_strings_file_from_file(string $infile, string $excluding_file, string $outfile, int $timeout = -1): bool**
+
+Убрать строки по списку строк из текстового файла | Remove lines by list of lines from text file
+
+**file_links(string $infilepath, string $outfilepath, int $num_lines, string $type_make = 'L', int $timeout = -1): bool**
+
+Форматировать случайные строки в текстовом файле
+
+**write_file(string $file, string $content, int $timeout = -1, bool $create_folders = false, string $encoding = ''): bool**
+
+Записать/перезаписать его содержимое | Set/Rewrite file content
+
+**add_string_to_file(string $file, string $str, int $timeout = -1, string $encoding = ''): bool**
+
+Добавить в файл строку | Add string to file
+
+**set_string_to_file(string $file, string $str, int $line, bool $add = true, int $timeout = -1): bool**
+
+Заменить/вставить строку в файле по индексу | Set/Rewrite line in file
+
+**read_file(string $file, int $timeout = -1, string $encoding = 'windows-1251'): bool|string**
+
+Прочитать файл | Read the file
+
+**get_line_from_file(string $file, bool $rand, int $line, int $timeout = -1): bool|string**
+
+Получить строку из файла | Get line from file
+
+**delete_line_from_file(string $file, int $line, int $timeout = -1): bool**
+
+Удалить строку из файла | Delete line in file
+
+**get_lines_from_file(string $file, int $beg_line, int $lines_count, int $timeout = -1): bool|string**
+
+Получить диапазон строк из файла | Get lines from file
+
+## Class: XHEWord
+
+Perform operations with folders used Microsoft Word application
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**create(string $path, string $text = ''): bool**
+
+Создать документ WORD | Create WORD document
+
+**open(string $path, bool $read_only = true, int $timeout = 3000): bool**
+
+Открыть документ WORD | Open WORD document
+
+**connect_by_hwnd(string $hwnd, string $path_alias, int $timeout = 3000): bool**
+
+Подключится к уже открытому документу в приложении WORD по HWND | Connect to some WORD document (opened in app)
+
+**save(string $path, int $timeout = 3000): bool**
+
+Сохранить открытый документ WORD (ранее открытый) | Save opened WORD document
+
+**close(string $path): bool**
+
+Закрыть документ WORD (ранее открытый) | Close opened WORD document
+
+**kill(): bool**
+
+Закрыть все процессы приложения WORD | Kill all WORD app tasks
+
+**remove_info(string $inpath, string $outpath, string $info = 'PersonalInformation', int $timeout = 3000): bool**
+
+Удалить значение свойства документа из WORD файла и записать обновленный файл по указанному пути | Remove property value for WORD document and save the one to new location
+
+**convert(string $inpath, string $outpath, int $timeout = 3000): bool**
+
+Конвертировать в другой формат | Convert WORD document to another file format
+
+**compare(string $inpath1, string $inpath2, int $timeout = 3000): bool**
+
+Сравнить 2 WORD документа | Compare two WORD documents
+
+**get_pages_count(string $path): int**
+
+Получить число страниц в WORD документе | Get pages count in WORD document
+
+**export_pages(string $inpath, string $outpath, int $from_page = 1, int $count = 1, int $timeout = 3000): bool**
+
+Экспортировать диапазон страниц WORD документа в файл в формате PDF или XPS | Export WORD document page range to PDF or XPS file
+
+**export_all_pages(string $inpath, string $to_folder, string $ext = 'pdf', string $filters = '', bool $is_match_all = false, int $timeout = 3000): bool**
+
+Экспортировать каждую страницу WORD документа в отдельный файл в формате PDF или XPS | Export WORD document pages to separate PDF or XPS files
+
+**read_page(string $path, int $page, int $timeout = 3000): string**
+
+Получить текст страницы по ее номеру | Get page content by number
+
+**add_text(string $path, string $text, bool $to_new_paragraph = false): bool**
+
+Добавим текст в WORD документ | Add text to WORD document
+
+**add_page_break(string $path): bool**
+
+Добавим разрыв страницы в WORD документ | Add page break to WORD document
+
+**get_text(string $path): string**
+
+Получить текст всего WORD документа | Get text of WORD document
+
+**replace_text(string $path, string $text, string $new_text): bool**
+
+Заменить текст в WORD документе | Replace text in WORD document
+
+**get_paragraphs_count(string $path): int**
+
+Получить количество параграфов WORD документа | Get paragraphs count in WORD document
+
+**get_paragraph_text_by_number(string $path, string $number): string**
+
+Получить текст параграфа по номеру в WORD документе | Get paragraph text by number in WORD document
+
+**set_paragraph_text_by_number(string $path, string $number, string $text): bool**
+
+Задать текст параграфа по номеру в WORD документе | Set paragraph text by number in WORD document
+
+**get_paragraph_number_by_text(string $path, string $text, bool $exactly = false, int $skip = 0): int**
+
+Получить номер параграфа по тексту в WORD документе | Get paragraph text by phrase in WORD document
+
+**delete_paragraph_by_number(string $path, string $number): bool**
+
+Удалить параграф по номеру в WORD документе | Remove paragraph by number in WORD document
+
+**delete_paragraph_by_text(string $path, string $text, bool $exactly = false, int $skip = 0): bool**
+
+Удалить параграф по тексту в WORD документе | Remove paragraph by phrase in WORD document
+
+**get_tables_count(string $path): int**
+
+Получить количество таблиц в WORD документе | Get tables count in WORD document
+
+**add_table(string $path, array $table): bool**
+
+Добавим таблицу в WORD документ | Add table to WORD document
+
+**add_image(string $path, string $image_path): bool**
+
+Добавим картинку в WORD документ | Add image to WORD document
+
+**get_shapes_count(string $path): int**
+
+Получить количество фигур в WORD документе | Get shapes count in WORD document
+
+**get_page_count(string $path): int**
+
+Получить число страниц в файле
+
+## Class: XHEWordFile
+
+Perform operations with Excel files used ClosedXML.Excel library
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**create(string $path, string $text = ''): bool**
+
+Создать документ WORD (docx)| Create WORD document
+
+**open(string $path, bool $is_read_only = true): bool**
+
+Открыть документ WORD | Open WORD document
+
+**save(string $path): bool**
+
+Сохранить открытый документ WORD (ранее открытый) | Save opened WORD document
+
+**close(string $path): bool**
+
+Закрыть документ WORD (ранее открытый) | Close opened WORD document
+
+**get_page_count(string $path): int**
+
+Получить число страниц в WORD документе | Get pages count in WORD document
+
+**get_table_count(string $path): int**
+
+Получить количество таблиц в WORD документе | Get tables count in WORD document
+
+**read(string $path, int $timeout = 3000): string**
+
+Получить текст всего WORD документа | Get text of WORD document
+
+**get_table_by_number(string $path, int $number, bool $as_array = false): string|array|null**
+
+Прочитать таблицу по номеру из Word документа (только для docx)
+
+**extract_images(string $path, string $to_folder): bool**
+
+Сохранить все картинки из Word документа в папку | Save all images to folder
+
+**get_shapes_count(string $path): int**
+
+Получить количество фигур в WORD документе | Get shapes count in WORD document
+
+**get_shape_properties(string $path, int $number): string**
+
+Получить свойства фигуры по номеру в формате XML | Find shape and get all properties as XML
+
+**convert(string $inpath, string $outpath, int $timeout = 600): bool**
+
+Конвертировать файл в другой формат xlsx,xls,csv,txt,html,pdf,xps (требует чтобы был установлен Excel не ниже 15 версии на компьютере)
+
+**export_pages(string $inpath, string $outpath, int $from_page, int $count = 1): bool**
+
+Экспортировать страницы
+
+**export_all_pages(string $inpath, string $to_folder, string $ext = 'pdf'): bool**
+
+Экспортировать все страницы
+
+**read_table_by_number(string $path, int $number, bool $as_array = false): array|string|null**
+
+
+
+**compare(string $inpath1, string $inpath2): bool**
+
+Сравнить 2 документа
+
+# Category `VISION`
+
+## Class: XHEFineReaderOCR
+
+To control the FineReader application for recognize image
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**set_language(string $language = 'Russian English'): bool**
+
+Задать язык для распознания текста | Set language for text recognition
+
+**set_program_folder(string $path): bool**
+
+Задать путь к папке, где находится исполняемый файл FineCmd.exe
+
+**recognize(string $path): string**
+
+Распознать изображение как текст | Recognize text
+
+**convert(string $inpath, string $outpath, int $timeout = 3000): bool**
+
+Конвертировать файл | Convert a file
+
+## Class: XHETesseractOCR
+
+To control the Tesseract OCR application
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**recognize(string $path, string $language = 'rus+eng', int $tesseract_version = 5, int $timeout = 600): string**
+
+Распознать текст в изображении или PDF файле | Recognize text from image or PDF file
+
+**get_segmented_regions(string $path, string $language = 'rus+eng', int $pageLevel = 3): ?array**
+
+Распознать и получить регионы | Recognize and get regions
+
+**get_region_by_text(string $path, string $text, string $language = 'rus+eng'): ?array**
+
+Распознать и получить регионы до фразы | Recognize and get regions before phrase
+
+**set_allowed_chars(string $allowed_chars = ''): bool**
+
+Задать разрешенные символы | Set char whitelist
+
+**set_denieded_chars(string $denieded_chars = ''): bool**
+
+Задать запрещенные символы | Set char blacklist
+
+**set_params(string $params_str = ''): bool**
+
+Задать параметры | Set params
+
+**get_params(int $version = 5): string**
+
+Получить текущие параметры | Get params
+
+## Class: XHEYandexVision
+
+To control the Yandex Vision
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**set_language(string $language = 'ru+en'): bool**
+
+Задать язык для распознания текста | Set language for text recognition
+
+**set_folder_id(string $folder_id): bool**
+
+Задать значение поля folderID | Set folderID
+
+**set_auth_token(string $token): bool**
+
+Задать token | Set token
+
+**set_api_key(string $api_key): bool**
+
+Задать apikey | Set apikey
+
+**recognize(string $path, string $type_image = 'image'): string**
+
+Распознать текст в изображении | Recognize text from image
+
+**get_segmented_regions(string $path): ?string**
+
+Распознать и получить регионы | Recognize and get regions
+
+**get_region_by_text(string $path, string $text): ?string**
+
+Распознать и получить регионы до фразы | Recognize and get regions before phrase
+
+# Category `WEB`
+
+## Class: XHEFTPCompatible
+
+
+
+### Methods
+
+**create_directoy(string $server, string $dir_name): bool**
+
+Создать папку на FTP сервере | Create a folder on the FTP server
+
+**disconect(string $server): bool**
+
+Отсоединится от FTP сервера | Disconnect from FTP server
+
+**disconect_all(): bool**
+
+Отсоединится от всех подключенных FTP серверов | Disconnect from all FTP servers
+
+## Class: MSExchangeMailHelper
+
+Helper class for working with email using the MS Exchange API
+
+## Class: Anticaptcha
+
+Class для работы с API anti-captcha.com.
+
+### Methods
+
+**setHost(string $host): void**
+
+Задать Доменное имя API без протокола
+
+**setScheme(string $scheme): void**
+
+Установить схему HTTP протокола (запись в URL)
+
+**setKey(string $key): void**
+
+Установить Ключ API | Set client access key, must be 32 bytes long
+
+**getVerboseMode(): bool**
+
+Получить показывать ли процесс распознания в консоли(лог)
+
+**setVerboseMode(bool $mode): void**
+
+Установить показ процесс распознания в консоли (лог)
+
+**getTaskInfo(): bool|mixed**
+
+Получить результат запроса на распознавание
+
+**getTaskResult(): string**
+
+Функция реализована в наследниках
+
+**getTaskId(): string**
+
+Получить ID текущей капчи | Get last captcha ID капчи
+
+**setTaskId(string $taskId): void**
+
+Задать ID текущей капчи | Set last captcha ID капчи
+
+**setErrorMessage(string $message): void**
+
+Задать сообщения об ошибке
+
+**getErrorMessage(): string**
+
+Получить последнее сообщение об ошибке
+
+**get_last_capcha_id(): string**
+
+ID текущей капчи | Get last captcha ID капчи
+
+**get_last_capcha_filename(): string**
+
+Получить последний путь к файлу капчи | Get last captcha file
+
+**get_last_capcha_result(): string**
+
+Получить последний результат распознания капчи | Get last captcha result
+
+**report_bug_capcha(string $id): false|string**
+
+Послать отчет об ошибке при распознавании | Send report about bug captcha
+
+**createTask(): bool**
+
+Создать новую задачу на и получить ID задачи | Submit new task and receive tracking ID
+
+**waitForResult(int $maxSeconds = 60, int $currentSecond = 0): bool**
+
+Выполнить POST запрос к API рекурсивно | Execute POST request recursive
+
+**getBalance(): string|bool**
+
+Получить баланс средств аккаунта API | Get balance value
+
+**get_balance(): string|bool**
+
+Получить баланс средств аккаунта API | Get balance value
+
+**reportIncorrectImageCaptcha(string $id): false|string**
+
+Послать отчет об ошибке при распознавании | Send report about bug captcha
+
+**jsonPostRequest(string $methodName, array $postData): false|mixed**
+
+Выполнить POST запрос к API | Execute POST request
+
+**debout(string $message, string $color = 'white'): void**
+
+Вывод сообщений в консоль
+
+## Class: ImageToText
+
+
+
+### Methods
+
+**setPhraseFlag(bool $value): void**
+
+Установить значение капча это фраза?
+
+**setCaseFlag(bool $value): void**
+
+Установить значение для поля 'Регистр букв имеет значение для капчи'
+
+**setNumericFlag(int $value): void**
+
+Установить значение для поля 'Из каких символов капча значение для капчи'
+
+**setMathFlag(bool $value): void**
+
+Установить значение для поля 'На капче математическое действие'
+
+**setMinLengthFlag(int $value): void**
+
+Установить значение для поля 'Минимальное количество знаков в ответе'
+
+**setMaxLengthFlag(int $value): void**
+
+Установить значение для поля 'Максимальное количество знаков в ответе'
+
+**getPostData(): array**
+
+Сформировать тело для POST запроса | Make POST body
+
+**setTaskInfo(mixed $taskInfo): void**
+
+Задать значение объект с результатами запроса на распознавание
+
+**getTaskSolution(): string**
+
+Получить результат решения Капчи
+
+**setFile(string $fileName): bool**
+
+Установить значение body из содержимого файла | Set body variable from file content
+
+**set_default_params(): bool**
+
+Задать параметры распознания по умолчанию (сбросить значения для полей) | Reset params to default
+
+**recognize_image(string $path): false|string**
+
+Распознать картинку | Recognize image
+
+## Class: NoCaptcha
+
+
+
+### Methods
+
+**setWebsiteURL(string $value): void**
+
+Установить адрес целевой страницы
+
+**setWebsiteKey(string $value): void**
+
+Установить Ключ Recaptcha
+
+**setWebsiteSToken(string $value): void**
+
+Установить токен сайта
+
+**setProxyType(string $value): void**
+
+Установить схема протокола прокси (запись в URL)
+
+**setProxyAddress(string $value): void**
+
+Установить адрес для сервиса Прокси
+
+**setProxyPort(int $value): void**
+
+Установить порт для сервиса Прокси
+
+**setProxyLogin(string $value): void**
+
+Установить имя Пользователя для сервиса Прокси
+
+**setProxyPassword(string $value): void**
+
+Установить пароль Пользователя для сервиса Прокси
+
+**setUserAgent(string $value): void**
+
+Установить строку User-Agent
+
+**setCookies(mixed $value): void**
+
+Установить строку куки
+
+**getPostData(): array**
+
+Сформировать тело для POST запроса | Make POST body
+
+**setTaskInfo(mixed $taskInfo): void**
+
+Задать значение объект с результатами запроса на распознавание
+
+**getTaskSolution(): string**
+
+Получить результат решения Капчи
+
+## Class: NoCaptchaProxyless
+
+
+
+### Methods
+
+**setWebsiteURL(string $value): void**
+
+Установить адрес целевой страницы
+
+**setWebsiteKey(string $value): void**
+
+Установить ключ сайта
+
+**setWebsiteSToken(string $value): void**
+
+Установить токен сайта
+
+**getPostData(): array**
+
+Сформировать тело для POST запроса | Make POST body
+
+**setTaskInfo(mixed $taskInfo): void**
+
+Задать значение объект с результатами запроса на распознавание
+
+**getTaskSolution(): string**
+
+Получить результат решения Капчи
+
+## Class: XHE2capcha
+
+
+
+### Methods
+
+**__construct(string $server, bool $is_ssl = true): void**
+
+Constructor
+
+**recognize_text(string $text): bool|string**
+
+Распознать капчу из текста
+
+**recognize_like_images(string $filename): bool|string**
+
+Распознать картинки похожее на заданные
+
+**recognize_invoice(string $filename): bool|string**
+
+Распознать кассовый чек
+
+**recognize_recaptcha_2_with_text(string $filename, string $textinstructions): bool|string**
+
+Распознать ReCaptcha v2 (ASIRA) c текстовыми инструкциями
+
+**recognize_recaptcha_2_with_image(string $filename, string $imageinstructions): bool|string**
+
+Распознать ReCaptcha v2 (ASIRA)
+
+**recognize_click_captcha(string $filename, string $textinstructions = ''): bool|string**
+
+Распознать ClickCaptcha (в том числе ReCaptcha v2)
+
+**recognize_rotate_captcha(string $filename, string $file_1, string $file_2 = '', string $file_3 = '', int $angle = 40): bool|string**
+
+Распознать RotateCaptcha (в том числе FunCaptcha)
+
+**recognize_recaptcha_v2(string $pageurl, string $googlekey, int $invisible = 0, string $proxy = '', string $proxytype = ''): bool|string**
+
+Распознать капчу Recaptcha v2
+
+**recognize_geetest(string $pageurl, string $gt, string $challenge, string $api_server = '', string $proxy = '', string $proxytype = ''): bool|string**
+
+Распознать GeeTest капчу
+
+## Class: XHE5Simnet
+
+
+
+### Methods
+
+**__construct(string $api = '', string $servis = 'http://sms-activate.api.5sim.net', string $ref = ''): void**
+
+Constructor
+
+## Class: XHEAnticapcha
+
+
+
+### Methods
+
+**__construct(string $server, bool $is_ssl = true): void**
+
+Constructor
+
+## Class: XHEAnticaptcha2
+
+
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+
+
+**get_balance(): float**
+
+Получить баланс
+
+**set_api_key(string $key): bool**
+
+Задать ключ API к сервису по распознаванию
+
+**set_verbose(bool $is_verbose = true): bool**
+
+Задать Показывать ли процесс распознания в консоли(лог)
+
+**image_to_text(string $path, int $timeout = 3000): string**
+
+Получить текст из картинки
+
+**get_recaptchaV2(string $site_url, string $site_key): string**
+
+Распознать Recaptcha 2
+
+**get_recaptchaV3(string $site_url, string $site_key): string**
+
+Распознать Recaptcha 3
+
+**get_hcaptcha(string $site_url, string $site_key, string $user_agent): string**
+
+Распознать hСaptcha
+
+## Class: XHEBrowser
+
+To manage the current browser instance
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**set_count(int $count): bool**
+
+Задать количество закладок | Set tabs count
+
+**get_count(): int**
+
+Получить количество закладок | Get tabs count
+
+**set_active_browser(int $num, bool $activate = true): bool**
+
+Задать активную закладку | Set active tab
+
+**get_active_browser(): int**
+
+Получить индекс активной закладки | Set the active tab index
+
+**add_tab(): bool**
+
+Добавить новую закладку | Add tab
+
+**close(): bool**
+
+Закрыть текущую закладку | Close current tab
+
+**close_all_tabs(string $close_type = ''): bool**
+
+Закрыть все закладки | Close all tabs
+
+**set_active_page(int $page): bool**
+
+Задать активную страницу (только для Selenium модели Браузера) | Set active page (Selenium only)
+
+**navigate(string $url, bool $use_cache = true, bool $use_wait = true): bool**
+
+Выполнить переход (навигацию) на заданный адрес URL ресурса | Navigate URL
+
+**get_last_navigation_error(): string**
+
+Получить текст ошибки возникшей при выполнении последнего (навигации) перехода на заданный адрес URL ресурса | Get last navigation error text
+
+**refresh(bool $ignore_cache = true): bool**
+
+Обновить текущую страницу открытую в Браузере (активная вкладка) | Refresh current page
+
+**stop(): bool**
+
+Остановить текущую операцию переход (навигацию) на заданный адрес URL ресурса | Stop navigate
+
+**go_back(): bool**
+
+Вернуться на предыдущую страницу (по истории навигации) | Go back page
+
+**go_forward(): bool**
+
+Перейти на следующую страницу (по истории навигации) | Go forward page
+
+**set_home_page(string $url): bool**
+
+Задать адрес URL ресурса в качестве "Домашней" страницы | Set home page
+
+**navigate_to_home_page(): bool**
+
+Выполнить переход (навигацию) на "Домашнюю страницу" | Navigate to home page
+
+**wait_for(int $Try_Navigate_Second = 15, int $Try_Navigate_Count = 1): bool**
+
+Ожидание загрузки страницы в Браузере (серия попыток) | Wait for page loading (with try counter)
+
+**wait_js(int $Try_Second = 30): bool**
+
+Ожидание выполнения скриптов JS в Браузере | Wait JS
+
+**wait(int $num = -1): bool**
+
+Ожидание загрузки страницы в Браузере | Wait page loading
+
+**is_busy(int $num = -1): bool**
+
+Проверить занятость Браузера | Check Browser is busy
+
+**get_ready_state(): string**
+
+Получить статус Браузера | Get Browser status
+
+**set_wait_params(int $Try_Navigate_Second = -1, int $Try_Navigate_Count = -1): bool**
+
+Задать параметры ожидания загрузки страницы в Браузере (без параметров - сброс по умолчанию на 30,1) | Set default Browser wait params
+
+**enable_images(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить отрисовку картинок в Браузере. Настройки Браузера | Enable show images
+
+**enable_java_script(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить JS скрипты в Браузере. Настройки Браузера | Enable JS
+
+**enable_sounds(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить воспроизведение аудио в Браузере. Настройки Браузера | Enable sounds
+
+**enable_video(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить видео в Браузере. Настройки Браузера | Enable video
+
+**enable_activex(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить ActiveX в Браузере. Настройки Браузера | Enable ActiveX
+
+**enable_java(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить Java в Браузере. Настройки Браузера | Enable Java
+
+**enable_frames(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить фрэймы в Браузере. Настройки Браузера | Enable frames
+
+**enable_fonts(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить системные шрифты в Браузере. Настройки Браузера | Enable system fonts
+
+**enable_remote_fonts(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить удаленные шрифты в Браузере. Настройки Браузера | Enable remote fonts
+
+**enable_popup(bool $enable = true, bool $refresh = true): bool**
+
+Разрешить/Запретить всплывающие окна (Pop-up) в Браузере. Настройки Браузера | Enable Pop-up's
+
+**disable_script_error(bool $enable = true, bool $refresh = true): bool**
+
+Разрешить/Запретить сообщения об ошибках JS в Браузере. Настройки Браузера | Enable JS errors
+
+**disable_security_problem_dialogs(bool $disable = true): bool**
+
+Разрешить/Запретить диалоги-сообщения о проблемах безопасности в Браузере. Настройки Браузера | Disable security problem dialogs
+
+**enable_quiet_regime(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить "тихий режим" (без интерактивности с пользователем) в Браузере. Настройки Браузера | Enable quiet mode
+
+**enable_cache(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить Веб-кэш (WEB cache) в Браузере. Настройки Браузера | Enable WEB cache
+
+**enable_dom_storage(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить Local DOM Storage в Браузере. Настройки Браузера | Enable Local DOM Storage
+
+**enable_callback(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить callback в Браузере. Настройки Браузера | Enable callback
+
+**enable_view_json(bool $enable = true, bool $refresh = true): bool**
+
+Разрешить/Запретить просмотр JSON в Браузере. Настройки Браузера | Enable view JSON
+
+**enable_web_rtc(bool $enable = true, bool $refresh = true): bool**
+
+Разрешить/Запретить WebRTC в Браузере. Настройки Браузера | Enable WebRTC
+
+**enable_web_socket(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить Web Socket в Браузере. Настройки Браузера | Enable Web Socket
+
+**enable_common_cache_and_cookies(bool $enable = true, bool $refresh = true): bool**
+
+Включить/Отключить режим общего Веб-кэш (WEB cache) и куки (cookie) для всех копий Браузера. Настройки Браузера | Enable common WEB cache
+
+**enable_directx(bool $enable = true): bool**
+
+Разрешить/Запретить отрисовка картинок DirectX в Браузере. Настройки Браузера | Enable DirectX image rendering
+
+**enable_gpu_rendering(bool $enable = true): bool**
+
+Включить/Отключить WebGL(отрисовка GPU) в Браузере. Настройки Браузера | Enable WebGL image rendering
+
+**enable_browser_notification(bool $enable = true, bool $show = false, bool $refresh = true): bool**
+
+Включить/Отключить уведомления от Браузера в Браузере. Настройки Браузера | Enable show browser notification
+
+**is_enable_images(): bool**
+
+Проверить включена отрисовка картинок в Браузере. Настройки Браузера | Is enable show images
+
+**is_enable_java_script(): bool**
+
+Проверить включены JS скрипты в Браузере. Настройки Браузера | Is enable JS
+
+**is_enable_sounds(): bool**
+
+Проверить включено воспроизведение аудио в Браузере. Настройки Браузера | Is enable sounds
+
+**is_enable_video(): bool**
+
+Проверить включено видео в Браузере. Настройки Браузера | Is enable video
+
+**is_enable_activex(): bool**
+
+Проверить включен ActiveX в Браузере. Настройки Браузера | Is enable ActiveX
+
+**is_enable_java(): bool**
+
+Проверить включен Java в Браузере. Настройки Браузера | Is enable JAVA
+
+**is_enable_popup(): bool**
+
+Проверить включена всплывающие окна (Pop-up) в Браузере. Настройки Браузера | Is enable Pop-up's
+
+**is_enable_frames(): bool**
+
+Проверить включена фрэймы в Браузере. Настройки Браузера | Is enable frames
+
+**is_disable_script_error(): bool**
+
+Проверить отключены сообщения об ошибках JS в Браузере. Настройки Браузера | Is disable script error
+
+**is_enable_quiet_regime(): bool**
+
+Проверить включен "тихий режим" (без интерактивности с пользователем) в Браузере. Настройки Браузера | Is enable quiet regime
+
+**is_enable_cache(): bool**
+
+Проверить Включен Веб-кэш (WEB cache) в Браузере. Настройки Браузера | Is enable cache
+
+**is_enable_dom_storage(): bool**
+
+Проверить включен Local DOM Storage в Браузере. Настройки Браузера | Is enable DOM storage
+
+**is_enable_callback(): bool**
+
+Проверить включен callback в Браузере. Настройки Браузера | Is enable callback
+
+**is_enable_view_json(): bool**
+
+Проверить включен просмотр JSON в Браузере. Настройки Браузера | Is enable view JSON
+
+**is_enable_web_rtc(): bool**
+
+Проверить включена WebRTC в Браузере. Настройки Браузера | Is enable WebRTC
+
+**is_enable_web_socket(): bool**
+
+Проверить включена WEB Socket в Браузере. Настройки Браузера | | Is enable WEB Socket
+
+**is_enable_common_cache_and_cookies(): bool**
+
+Проверить включен режим общего Веб-кэш (WEB cache) и куки (cookie) для всех копий Браузера. Настройки Браузера | Is enable WEB cache and cookie
+
+**set_popup_type(int $popup_type): bool**
+
+Задать как открывать всплывающие окно Pop-up в Браузере. Настройки Браузера | Set how view Pop-up
+
+**set_google_api_key(string $api_key): bool**
+
+Задать ключ для Google API. Настройки Браузера | Set Google default API key
+
+**set_google_default_client_id(string $client_id): bool**
+
+Задать ключ для Google API client ID. Настройки Браузера | Set Google API default client ID
+
+**set_google_default_client_secret(string $client_secret): bool**
+
+Задать ключ для Google API client secret. Настройки Браузера | Set Google API default client secret
+
+**enable_isolate_tabs(bool $enable = true): bool**
+
+Включить/Отключить режим "Изолированные Браузеры в закладках". Настройки Браузера | Enable Isolate tabs
+
+**set_do_not_track(bool $doNotTrack = true): bool**
+
+Включить/Отключить опцию запрет сайтам на отслеживание действий Пользователя Do Not Track | Set Do Not Track
+
+**set_blocked_chipers(string $blocked_chipers, bool $refresh = false): bool**
+
+Задать блокируемые шифры | Set blocked ciphers
+
+**call_java_script(string $func, string $parametrs): bool**
+
+Выполнить функцию JS, которая уже существует на странице | Call existed JS function
+
+**run_java_script(string $script_text, string $add_file = '', int $timeout = 60): string**
+
+Выполнить произвольный сценарий JS | Add custom JS code and run
+
+**set_init_java_script(string $script_text, string $add_file = ''): void**
+
+Добавить произвольный сценарий JS и выполнить при инициализации JS на странице | Set custom JS code and then executed after init JS
+
+**set_document_complete_java_script(string $script_text, string $add_file = ''): void**
+
+Добавить произвольный JS и выполнить после полной загрузки страницы (Document.readyState == 'complete') | Add custom JS and then executed after page is fully loaded
+
+**run_jquery(string $script_text, string $ver = '3'): string**
+
+Выполнить произвольный скрипт JQuery | Add custom JQuery code and run
+
+**run_dojo(string $script_text): string**
+
+Выполнить произвольный скрипт Dojo | Add custom Dojo code and run
+
+**enable_proxy(string $connection, string $proxy, bool $recreate = true): bool**
+
+Установить прокси | Set Proxy
+
+**disable_proxy(string $connection = '', bool $recreate = true): bool**
+
+Отключить прокси | Disable Proxy
+
+**get_current_proxy(string $connection = '', bool $with_auth = false): string**
+
+Получить текущий прокси | Get current Proxy
+
+**get_version(bool $numerica = true): string**
+
+Получить версию текущего Браузера | Get Browser version
+
+**get_user_agent(): string**
+
+Получить User agent | Get Browser User agent
+
+**get_cookies_folder(): string**
+
+Получить папку, где находятся файлы-куки Браузера | Get cookie folder path
+
+**get_cache_folder(): string**
+
+Получить папку, где находится Веб-кэш (WEB cache) Браузера | Get WEB cache folder path
+
+**set_cookies_folder(string $folder, bool $refresh = true): bool**
+
+Задать папку, где находятся файлы-куки Браузера | Set cookie folder path
+
+**set_cache_folder(string $folder, bool $refresh = true): bool**
+
+Задать папку, где находятся Веб-кэш (WEB cache) Браузера | Set WEB cache folder path
+
+**flash_cookies_save(string $folder, string $site = ''): bool**
+
+Сохранить флэш куки | Export Flash cache to file
+
+**flash_cookies_restore(string $folder, string $site = ''): bool**
+
+Восстановить сохраненные флэш куки | Import Flash cache from file
+
+**flash_cookies_delete(string $site = ''): bool**
+
+Удалить флэш куки | Delete Flash cookie
+
+**set_user_agent(string $agent_string, bool $refresh = true): bool**
+
+Задать строку User agent для Браузера | Set Browser User agent
+
+**set_model(string $model): bool**
+
+Задать модель Браузера | Set Browser Model
+
+**get_model(): string**
+
+Получить модель Браузера | Get Browser Model
+
+**get_page_width(): int**
+
+Получить ширину текущей страницы Браузера | Get Browser page width
+
+**get_page_height(): int**
+
+Получить высоту текущей страницы Браузера | Get Browser page height
+
+**set_width(int $width): bool**
+
+Задать ширину текущей страницы Браузера | Set Browser page width
+
+**get_window_width(): int**
+
+Получить ширину окна Браузера | Get Browser window width
+
+**set_height(int $height): bool**
+
+Задать высоту текущей страницы Браузера | Set Browser window width
+
+**get_window_height(): int**
+
+Получить высоту окна Браузера | Get Browser window height
+
+**get_selected_text(bool $as_html): string**
+
+Получить выделенный фрагмент в окне Браузера | Get selected text in Browser window
+
+**set_vertical_scroll_pos(int $y): bool**
+
+Задать позицию вертикального полосы прокрутки Y текущей страницы Браузера | Set vertical scroll position Y
+
+**get_vertical_scroll_pos(): int**
+
+Получить позицию вертикального полосы прокрутки текущей страницы Браузера | Get vertical scroll position Y
+
+**set_horizontal_scroll_pos(int $x): bool**
+
+Задать позицию горизонтального полосы прокрутки текущей страницы Браузера | Set horizontal scroll position X
+
+**get_horizontal_scroll_pos(): int**
+
+Получить позицию горизонтального полосы прокрутки текущей страницы Браузера | Get horizontal scroll position X
+
+**clear_cookies(string $match_name, bool $clear_session = false, bool $clear_flash = true): bool**
+
+Очистить хранилище куков (cookies) | Clear cookies
+
+**clear_local_storage(): bool**
+
+Очистить Local Storage | Clear Local Storage
+
+**clear_indexed_db(): bool**
+
+Очистить Indexed DB | Clear Indexed DB
+
+**set_cookie(string $cookie): bool**
+
+Установить куки для текущей страницы (простая форма) | Set cookie for current tab page (simple)
+
+**set_cookie_for_url(string $url, string $name, string $cookie, string $expires = '', string $domain = '', string $path = '', bool $httpOnly = false, bool $secure = false, bool $session = false, string $sameSite = '', string $priority = ''): bool**
+
+Установить куки | Set cookie for url
+
+**get_cookie(bool $as_json = false): string**
+
+Получить куки для текущей страницы | Get cookie for current tab page
+
+**get_cookie_for_url(string $url, string $name, bool $as_json = false): string**
+
+Получить куки для заданного URL адрес | Get cookie for url
+
+**import_cookies(string $url, string $cookies): bool**
+
+Импорт куков из формата JSON | Import cookie from JSON
+
+**get_popup_source(string $url, bool $exactly): string**
+
+Получить источник всплывающего окна Pop-up | Get Pop-up source
+
+**close_popup(string $url, bool $exactly): bool**
+
+Закрыть всплывающие окно (Pop-up) с заданным URL | Close Pop-up by source
+
+**enable_browser_message_boxes(bool $enable = true, string $default_answer = 'Ok'): bool**
+
+Запретить диалоги-сообщения браузера и задать автоответ на них. Настройки Браузера | Disable any message box with default answer
+
+**get_last_messagebox_caption(): string**
+
+Получить заголовок последнего диалога (сообщения) Браузера | Get last message box header
+
+**get_last_messagebox_text(): string**
+
+Получить текст последнего диалогового диалога (сообщения) Браузера | Get last message box text
+
+**get_last_messagebox_type(): string**
+
+Получить тип последнего диалогового сообщения браузера | Get last message box type
+
+**clear_last_messagebox_info(): bool**
+
+Очистить данные о последнем диалоговом сообщении браузера | Clear last message box info
+
+**set_default_authorization(string $login, string $password): bool**
+
+Установить настройки HTTP авторизации по умолчанию | Set default HTTP authorization settings
+
+**reset_default_authorization(): bool**
+
+Сбросить настройки HTTP авторизацию по умолчанию | Reset default HTTP authorization settings
+
+**set_default_certificate(string $text): bool**
+
+Установить имя сертификата умолчанию | Set default sertificate name
+
+**enable_download_file_dialog(bool $enable): bool**
+
+Разрешить/Запретить показ диалогового окна выбора пути для скачивания файлов | Enable show the dialog box for choosing the path for downloading files
+
+**is_enable_download_file_dialog(): bool**
+
+Проверить разрешен или запрещен показ диалога выбора пути для скачивания файлов | Is enable show the dialog box for choosing the path for downloading files
+
+**set_default_download(string $folder): bool**
+
+Задать путь к папке по умолчанию, куда будут скачиваться файлы, если запрещен показ диалога выбора пути для скачивания файлов | Set default folder path where files will be downloaded if the dialog is disabled
+
+**reset_default_download(): bool**
+
+Сбросить путь к папке по умолчанию, куда будут скачиваться файлы и разрешить показ диалога выбора пути для скачивания файлов | Reset default folder path where files will be downloaded if the dialog is disabled
+
+**get_last_download_id(): int**
+
+Получить идентификатор последней загрузки файла | Get the last file download ID
+
+**is_download_complete(int $id): bool|int**
+
+Проверить завершена ли загрузка файла | Check if the file download is complete
+
+**get_download_info(int $id, string $infoPart = 'all'): string**
+
+Получить информацию о загрузке по идентификатору | Get download file information by ID
+
+**cancel_download(int $id): bool**
+
+Отменить операцию загрузки файла по идентификатору | Cancel file download operation by ID
+
+**wait_download_and_get_file_path(int $wait_time_in_seconds = 3000): string**
+
+Ожидать завершения текущей загрузки и получить путь к скаченному файлу | Wait for the current download to complete and get the path to the downloaded file
+
+**set_accept(string $accept_string): bool**
+
+Задать HTTP заголовок запроса Accept для Браузера | Set HTTP Accept request header for Browser
+
+**set_accept_language(string $accept_string): bool**
+
+Задать HTTP заголовок запроса Accept-Language для Браузера. Настройки Браузера | Set HTTP Request Header Accept-Language for Browser. Browser Settings
+
+**set_language(string $language = ''): bool**
+
+Задать настройки культуры текущего Пользователя в Браузере. Настройки Браузера | Set the current User's culture settings in the Browser. Browser Settings
+
+**set_accept_encoding(string $accept_string): bool**
+
+Задать HTTP заголовок запроса Accept-Encoding для Браузера. Настройки Браузера | Set HTTP Request Header Accept-Encoding for Browser. Browser Settings
+
+**set_referer(string $referer = ''): bool**
+
+Задать HTTP заголовок запроса Referer для Браузера. Настройки Браузера | Set HTTP Referer request header for Browser. Browser Settings
+
+**get_referer(): string**
+
+Получить HTTP заголовок запроса Referer для Браузера | Get HTTP Referer request header for Browser. Browser Settings
+
+**set_platform(string $platform = '', string $cpuClass = ''): bool**
+
+Задать Platform и CPUClass для Браузера | Set Platform and CPUClass for Browser
+
+**get_cpu_class(): string**
+
+Получить класс процессора CPUClass | Get processor CPUClass
+
+**set_geo(string $latitude = '', string $longitude = '', string $accuracy = '', string $altitude = '', string $altitudeAccuracy = '', string $heading = '', string $speed = ''): bool**
+
+Задать гео-данные Geolocation API | Set Geolocation API geo-data for Browser
+
+**set_permissions(string $state = ''): bool**
+
+Задать разрешение для navigator.permissions (в том числе для работы JS с данными геолокации) | Set permission for navigator.permissions for Browser
+
+**set_hardware_info(int $hardwareConcurrency = -1, int $deviceMemory = -1, int $devicePixelRatio = -1): bool**
+
+Задать информацию об оборудовании | Set equipment information for Browser
+
+**set_screen_resolution(int $width = -1, int $height = -1, int $pixelDepth = -1): bool**
+
+Задать данные о разрешении экрана в JS | Set screen resolution data in JS for Browser
+
+**set_app_info(string $appName = '', string $appCodeName = '', string $appMinorVersion = '', string $product = '', string $productSub = '', string $vendor = '', string $vendorSub = ''): bool**
+
+Задать информацию о приложении в JS | Set app info in JS for Browser
+
+**set_plugins_info(string $plugins_info = '', string $mime_types = ''): bool**
+
+Задать информацию о плагинах в JS. Задает navigator.plugins | Set plugin information in JS for Browser
+
+**set_time_zone(int $time_zone = -100): bool**
+
+Задать часовой пояс GMT | Set time zone GMT for Browser
+
+**set_internationalization(string $locale = '', string $timeZone = '', string $calendar = '', string $numberingSystem = '', string $year = '', string $month = '', string $day = ''): bool**
+
+Задать Internationalization API для Браузера | Set Internationalization API for Browser
+
+**set_touch_info(string $max_points = '', string $ontouchevent = ''): bool**
+
+Задать данные о сенсорном экране | Set touch screen data for Browser
+
+**set_canvas_toDataURL(string $toDataURL = '', string $jsChangeNoise = ''): bool**
+
+Задать данные для canvas (для смены finger print) | Set data for canvas (finger print) for Browser
+
+**set_random_webgl_fingerprint(bool $enable = true, string $noiseImage = '', string $noiseParams = '', string $unmaskedVendor = '', string $unmaskedRenderer = '', string $glVersion = '', string $shadingLanguageVersion = '', string $vendor = '', string $renderer = ''): bool**
+
+Задать случайный WebGL fingerprint | Set random WebGL fingerprint for Browser
+
+**set_webgl_params(XHEWebGLParams $webgl_params): bool**
+
+Задать параметры WebGL fingerprint | Set WebGL parameters for Browser
+
+**set_random_audio_fingerprint(string $noiseAudio = '', string $noiseFrequence = ''): bool**
+
+Задать случайный Audio fingerprint | Set random Audio fingerprint for Browser
+
+**set_random_bounds_fingerprint(int $noise = -1): bool**
+
+Задать случайный Bounds fingerprint | Set random Bounds fingerprint for Browser
+
+**set_battery_api(string $level = '', bool $charging = true, string $charging_time = '', string $discharging_time = '', bool $refresh = false): bool**
+
+Задать параметры BatteryManager API для Браузера | Set BatteryManager API parameters for Browser
+
+**paste(string $text = ''): bool**
+
+Выполнить вставку текста в текущей закладке Браузера с использованием буфера обмена | Paste text into the current Browser tab using the clipboard
+
+**save_page_as(string $file): bool**
+
+Сохранить текущую страницу в текущей закладке Браузера в файл | Save the current page in the current Browser tab to a file
+
+**get_zoom(): string**
+
+Получить масштаб отображения в текущей закладки Браузера | Get the display scale of the current Browser tab
+
+**set_zoom(int $zoom): bool**
+
+Задать масштаб отображения в текущей закладки Браузера | Set the display scale in the current Browser tab
+
+**run_command(string $command): bool**
+
+Выполнить команду браузера (ex: IDM_PASTE, IDM_COPY, IDM_PRINT etc.) | Execute browser command
+
+**send_get_query(string $url, string $data = '', bool $use_current_proxy = true): string|bool**
+
+Послать HTTP/HTTPS GET запрос на заданный URL адрес | Send HTTP/HTTPS GET request to the given URL
+
+**send_post_query(string $url, string $data = '', string $type = 'application/x-www-form-urlencoded', bool $set_as_page = false, string $add_header = '', bool $use_current_proxy = true): string|bool**
+
+Послать HTTP/HTTPS POST запрос на заданный URL адрес | Send HTTP/HTTPS POST request to the given URL
+
+**check_internet_connection(): bool**
+
+Проверить соединение с Интернетом | Check your internet connection
+
+**check_connection(string $url, int $timeout, bool $use_cache = false, int $num = -1): bool**
+
+Проверить соединение с заданным сетевым ресурсом. Загрузка страницы в Браузере и проверка на текст типовых ошибок | Check the connection to the specified network resource. Load the page in the Browser and check the text for typical errors.
+
+**clear_cache(): bool**
+
+Очистить кэш Браузера | Clear Browser Cache
+
+**clear_history(): bool**
+
+Очистить историю Браузера | Clear Browser History
+
+**clear_address_bar_history(): bool**
+
+Очистить историю списка адресов Браузера | Clear Browser Address List History
+
+**set_redraw(bool $enable): bool**
+
+Запретить/Разрешить перерисовку текущего Браузера (экономить ресурсы) | Disable/Allow redrawing of the current Browser
+
+**set_fps(int $fps): bool**
+
+Задать лимит FPS (экономить ресурсы) | Set FPS limit
+
+**recreate(): bool**
+
+Пересоздать Браузер для текущей закладки | Recreate Browser for current bookmark
+
+**save_profile(string $path, string $name = '', string $description = ''): bool**
+
+Сохранить все настройки текущего профиля Браузера в отдельный файл | Export current Browser profile settings into a file
+
+**load_profile(string $path): bool**
+
+Загрузить все настройки текущего профиля Браузера в отдельный файл | Import current Browser profile settings into a file
+
+**set_default_profile_path(string $path): bool**
+
+Задать путь к профилю Браузера по умолчанию | Set path to default browser profile
+
+**get_cli(): string**
+
+Получить параметры командной строки CLI Браузера | Get CLI Browser command line parameters
+
+**set_cli(string $cli): bool**
+
+Задать параметры командной строки CLI Браузера | Set CLI Browser command line parameters
+
+**start_video_record(string $path, int $fps = 10, int $quality = 70, int $x = -1, int $y = -1, int $width = -1, int $height = -1, bool $as_gray = false, float $zoom = 0.3): bool**
+
+Начать запись видео | Start video recording
+
+**stop_video_record(): bool**
+
+Остановить запись видео | Stop video recording
+
+**clear_cash(): bool**
+
+Очистить кэш Браузера
+
+**disable_download_file_dialog(bool $enable): bool**
+
+Разрешить/Запретить показ диалогового окна выбора пути для скачивания файлов
+
+**is_disable_download_file_dialog(): bool**
+
+Проверить разрешен или запрещен показ диалога выбора пути для скачивания файлов
+
+**change_cookies_folder(string $folder): bool**
+
+Задать папку, где находятся файлы-куки Браузера
+
+**change_cache_folder(string $folder): bool**
+
+Задать папку, где находятся Веб-кэш (WEB cache) Браузера
+
+**set_accept_charset(string $accept_string): bool**
+
+Задать HTTP заголовок Accept-Charset
+
+**set_internazionalization(string $locale = '', string $timeZone = '', string $calendar = '', string $numberingSystem = '', string $year = '', string $month = '', string $day = ''): bool**
+
+Задать Internationalization API для Браузера
+
+**add_plugins(array $paths_to_plugins, bool $refresh = true): bool**
+
+Добавить плагины для Selenium моделей (.crx файлы)
+
+**get_webdriver_session(): string**
+
+Получить WebDriver Selenium SessionID
+
+## Class: XHEBypasscaptcha
+
+
+
+### Methods
+
+**set_system_key(mixed $key): void**
+
+
+
+**get_last_capcha_filename(): string**
+
+Get last captcha file
+
+**get_last_capcha_result(): mixed**
+
+Последний результат распознания капчи | get last captcha result
+
+**__construct(): void**
+
+
+
+**recognize(string $file): mixed|null**
+
+Распознать заданную капчу
+
+**report(int $result): void**
+
+Отправить отчет о результате распознавания последнего задания
+
+**get_last_capcha_id(): mixed**
+
+Получить идентификатор последнего задания (капчи)
+
+**get_balance(): mixed**
+
+Получить баланс
+
+## Class: XHECheapsms
+
+
+
+### Methods
+
+**__construct(string $api = '', string $servis = 'https://cheapsms.pro', string $ref = ''): void**
+
+Constructor
+
+## Class: XHEConnection
+
+For connect to: RAS, VPN, PROXY
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**dial_ras(string $name, string $login, string $password): bool**
+
+Соединится с RAS подключением | Connect RAS
+
+**hang_up_ras(): bool**
+
+Разорвать RAS соединение | Disconnect RAS
+
+**create_vpn(string $name, string $server, string $user, string $password, string $psk, int $type): bool**
+
+Создать VPN соединение | Create VPN
+
+**get_name_by_number_ras(int $number): string**
+
+Получить имя RAS соединения по номеру | Get RAS connection name by number
+
+**get_all_connection_ras(): string**
+
+Получить имена всех RAS соединений (разделитель - "<br>") | Get names for all RAS connections
+
+**restart_lan_by_name(string $name): bool**
+
+Перезапустить LAN соединение по имени | Restart LAN connection by name
+
+**restart_lan_by_number(int $number): bool**
+
+Перезапустить LAN соединение по номеру | Restart LAN connection by number
+
+**set_local_ip(int $number, string $ip, string $subnetMask = '', string $gateway = '', string $defaultDNS = '', string $subDNS = ''): bool**
+
+Установить текущий локальный IP адрес | Set local IP for adapter by number
+
+**get_local_ip(): string**
+
+Получить текущий локальный IP адрес | Get current local IP address
+
+**get_real_ip(): string**
+
+Получить текущий внешний IP адрес | Get current real IP address
+
+**get_mac_address_by_number(int $number): string**
+
+Получить MAC-адрес (физический адрес) по номеру | Get MAC address by number
+
+**set_mac_address_by_number(int $number, string $mac): bool**
+
+Задать MAC-адрес адрес | Set MAC address by number
+
+**check_ping_site(string $site): bool**
+
+Проверить доступность ресурса. Послать ICMP запрос на URL адрес и получить ответ (Пинговать) | Ping resource. Send ICMP request and get response
+
+**is_connect_to_internet(): bool**
+
+Проверка соединения с Интернетом | Checking your internet connection
+
+**get_connection_parameters(): string**
+
+Получить подключенное состояние операционной системы с Интернетом | Get operation system connected state with the Internet
+
+**enable_proxy(string $connection, string $proxy): bool**
+
+Задать прокси для сетевого соединения операционной системы по имени | Set proxy for connection by name for operation system
+
+**disable_proxy(string $connection): bool**
+
+Отключить прокси для сетевого соединения по имени | Unset proxy for connection by name for operation system
+
+**get_current_proxy(string $connection): string**
+
+Получить текущий прокси для сетевого соединения по имени | Get proxy for connection by name for operation system
+
+## Class: XHEFTP
+
+Perform operations with the FTP server
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**connect(string $server, string $user = '', string $password = '', string $iport = '', bool $flag_passive = true, int $timeout = -1, string $encoding = ''): bool**
+
+Соединится с FTP сервером | Connect to FTP server
+
+**disconnect(string $server): bool**
+
+Отсоединится от FTP сервера | Disconnect from FTP server
+
+**disconnect_all(): bool**
+
+Отсоединится от всех подключенных FTP серверов | Disconnect from all FTP servers
+
+**list_files(string $server, string $folder = ''): ?array**
+
+Получить список файлов в папке на FTP сервере | Get a files list in folder on FTP server
+
+**list_folders(string $server, string $folder = ''): ?array**
+
+Получить список папок в папке на FTP сервере | Get a folders list in a folder on FTP server
+
+**is_directory_exists(string $server, string $dir_name): bool**
+
+Проверить существование папки на FTP сервере | Check is exists a folder on FTP server
+
+**create_directory(string $server, string $dir_name): bool**
+
+Создать папку на FTP сервере | Create a folder on the FTP server
+
+**remove_directory(string $server, string $dir_name): bool**
+
+Удалить папку с FTP сервера | Delete folder from FTP server
+
+**clear_directory(string $server, string $dir_name): bool**
+
+Очистить папку на FTP сервере | Clear folder on FTP server
+
+**get_directory(string $server, string $remote_folder, string $local_folder, bool $flag_file_exist = true): bool**
+
+Скачать папку с FTP сервера | Download folder from FTP server
+
+**put_directory(string $server, string $local_folder, string $remote_folder): bool**
+
+Закачать папку на FTP сервер | Upload a folder to FTP server
+
+**is_file_exists(string $server, string $remote_file): bool**
+
+Проверить существование файла на FTP сервере | Check is exists a file on FTP server
+
+**get_file(string $server, string $remote_file, string $local_file, bool $flag_file_exist = true): bool**
+
+Получить файл с FTP сервера | Get a file from FTP server
+
+**put_file(string $server, string $local_file, string $remote_file, bool $flag_file_exist = true): bool**
+
+Закачать файл на FTP сервер | Upload a dile to FTP server
+
+**remove_file(string $server, string $file_name): bool**
+
+Удалить файл с FTP сервера | Remove a file from FTP server
+
+**rename(string $server, string $exist_file_name, string $new_file_name): bool**
+
+Переименовать файл/папку на FTP сервере | Rename file/folder on FTP server
+
+**command(string $server, string $command, string $working_folder): mixed**
+
+Послать команду на FTP сервер | Send command to FTP server
+
+**command_texts(string $server, string $command, string $working_folder): ?array**
+
+Послать команду на FTP сервер. Ответ многострочный | Send command to FTP server. Multiline response
+
+**create_directoy(string $server, string $dir_name): bool**
+
+Создать папку на FTP сервере | Create a folder on the FTP server
+
+**disconect(string $server): bool**
+
+Отсоединится от FTP сервера | Disconnect from FTP server
+
+**disconect_all(): bool**
+
+Отсоединится от всех подключенных FTP серверов | Disconnect from all FTP servers
+
+## Class: XHEHarvestor
+
+Для сбора страниц сайтов
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**init(string $in_file, string $proxy_file = '', bool $proceed_js = true): bool**
+
+Инициализировать сборщик | Initialize
+
+**make_screenshots(bool $enable = true): bool**
+
+Задать настройку "Создавать файлы скриншотов" | Set preference "Make screenshots"
+
+**set_browser_size(int $width, int $height): bool**
+
+Задать настройку "Размеры Браузера" | Set preference "Browser size"
+
+**start(bool $is_wait = true): bool**
+
+Запустить сбор | Start
+
+**stop(): bool**
+
+Остановить сбор | Stop
+
+**is_finished(): bool**
+
+Проверить, завершен ли сбор всех позиций | Check is all position completed?
+
+**get_html(int $position): string**
+
+Получить HTML-контент по позиции | Get HTML content
+
+**get_screenshot_path(int $position): string**
+
+Получить путь к скриншоту по позиции | Get screenshot file_path
+
+**get_completed_count(): int**
+
+Получить количество завершённых позиций | Get the number of completed positions
+
+## Class: XHEMail
+
+To send and receive emails using SMTP, IMAP, POP3 protocols
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**set_proxy(string $proxy): bool**
+
+Задать прокси для почтовых операций | Set proxy
+
+**send_mail_via_outlook(string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', ?array $attachments = null, int $timeout = 300, string $replyTo = ''): bool**
+
+Отправить сообщение через Outlook | Set message via Outlook
+
+**smtp_connect(string $server, int $port, string $login, string $password, int $ssl_option = 1, string $cert_type = 's, c, h, e', int $timeout = 3000, string $log_path = ''): bool**
+
+Соединиться с SMTP сервером | SMTP connect
+
+**smtp_disconnect(): bool**
+
+Отсоединиться от SMTP сервера | SMTP disconnect
+
+**check_smtp_auth(): bool**
+
+Проверить авторизацию SMTP | Check SMTP connection is authorized
+
+**send_mail_via_smtp(string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', ?array $attachments = null, int $timeout = 300, string $replyTo = ''): bool**
+
+Отправить сообщение SMTP | Send message via SMTP
+
+**pop3_connect(string $server, int $port, string $login, string $password, int $ssl_option = 1, string $cert_type = 's, c, h, e', int $timeout = 3000, string $log_path = ''): bool**
+
+Соединиться с POP3 сервером | POP3 connect
+
+**pop3_disconnect(): bool**
+
+Отсоединиться от POP3 сервера | POP3 disconnect
+
+**get_message_count_via_pop3(int $timeout = 300): int**
+
+Получить количество писем в ящике POP3 | Get the number of letters in the POP3 mailbox
+
+**get_message_by_number_via_pop3(int $number, int $timeout = 300): XHEMailMessage**
+
+Получить письмо по номеру POP3 | Get message by number POP3
+
+**get_message_by_id_via_pop3(string $id, int $timeout = 300): XHEMailMessage**
+
+Получить письмо по ID POP3 | Get message by ID POP3
+
+**get_message_by_subject_via_pop3(string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage**
+
+Получить письмо с заданной темой POP3 | Get message by subject POP3
+
+**get_message_by_from_via_pop3(string $from, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage**
+
+Получить письмо от заданного отправителя POP3 | Get message by from POP3
+
+**get_message_by_attachment_name_via_pop3(string $name, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage**
+
+Получить письмо с заданным именем приложенного файла POP3 | Get message by attachment file name POP3
+
+**get_message_by_text_via_pop3(string $text, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage**
+
+Получить письмо с заданным текстом POP3 | Get message by number POP3
+
+**delete_message_by_number_via_pop3(int $number, int $timeout = 300): bool**
+
+Удалить письмо по номеру POP3 | Remove message by number POP3
+
+**delete_message_by_from_via_pop3(string $from, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Удалить письмо с заданным адресом Отправителя POP3 | Remove message by from POP3
+
+**delete_message_by_subject_via_pop3(string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Удалить письмо по subject POP3 | Remove message by subject POP3
+
+**delete_message_by_text_via_pop3(string $text, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Удалить письмо с заданным текстом POP3 | Remove message by text POP3
+
+**delete_all_messages_via_pop3(int $timeout = 300): bool**
+
+Удалить все письма POP3 | Remove all messages POP3s
+
+**imap_connect(string $server, int $port, string $login, string $password, int $ssl_option = 1, string $cert_type = 's, c, h, e', int $timeout = 3000, string $log_path = ''): bool**
+
+Соединиться с IMAP сервером | IMAP connect
+
+**imap_disconnect(): bool**
+
+Отсоединиться от IMAP сервера | IMAP disconnect
+
+**get_message_count_via_imap(string $folder = '', int $timeout = 300): int**
+
+Получить количество писем в папке IMAP | Get the number of letters in a folder IMAP
+
+**get_message_by_number_via_imap(string $folder, int $number, int $timeout = 300): XHEMailMessage**
+
+Получить письмо по номеру IMAP | Get message by number IMAP
+
+**get_message_by_id_via_imap(string $folder, string $id, int $timeout = 300): XHEMailMessage**
+
+Получить письмо по ID IMAP | Get message by ID IMAP
+
+**get_message_by_subject_via_imap(string $folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage**
+
+Получить письмо по теме письма IMAP | Get message by subject IMAP
+
+**get_message_by_from_via_imap(string $folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage**
+
+Получить письмо по адресу Отправителя IMAP | Get message by from IMAP
+
+**get_message_by_text_via_imap(string $folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage**
+
+Получить письмо с заданным текстом IMAP | Get message by text IMAP
+
+**get_message_by_attachment_name_via_imap(string $folder, string $name, bool $exactly = false, int $number = 0, int $timeout = 300): XHEMailMessage**
+
+Получить письмо по имени вложенного файла IMAP | Get message by attachment file name IMAP
+
+**delete_message_by_number_via_imap(string $folder, int $number, int $timeout = 300): bool**
+
+Удалить письмо по номеру IMAP | Remove message by number IMAP
+
+**delete_message_by_id_via_imap(string $folder, string $id, int $timeout = 300): bool**
+
+Удалить письмо по ID IMAP | Remove message by ID IMAP
+
+**delete_all_messages_via_imap(string $folder, int $timeout = 300): bool**
+
+Удалить все письма из папки IMAP | Remove all messages from folder IMAP
+
+**move_message_by_number_via_imap(string $from_folder, string $to_folder, int $number, int $timeout = 300): bool**
+
+Переместить письмо с заданным номером IMAP в другую папку | Move message by number IMAP
+
+**move_message_by_id_via_imap(string $from_folder, string $to_folder, string $id, int $timeout = 300): bool**
+
+Переместить письмо с заданным ID в другую папку IMAP | Move message by ID IMAP
+
+**move_message_by_subject_via_imap(string $from_folder, string $to_folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Переместить письмо с заданной темой в другую папку IMAP | Move message by Subject IMAP
+
+**move_message_by_from_via_imap(string $from_folder, string $to_folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Переместить письмо от заданного отправителя в другую папку IMAP | Move message by from IMAP
+
+**move_message_by_text_via_imap(string $from_folder, string $to_folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Переместить письмо с заданным текстом в другую папку IMAP | Move message by text IMAP
+
+**save_message_attachments_by_number_via_imap(string $path, string $folder, int $number, int $timeout = 300): bool**
+
+Сохранить вложения письма с заданным номером IMAP | Save attachments of a message find the one by number IMAP
+
+**save_message_attachments_by_id_via_imap(string $path, string $folder, string $id, int $timeout = 300): bool**
+
+Сохранить вложения письма с заданным ID IMAP | Save attachments of a message find the one by ID IMAP
+
+**save_message_attachments_by_from_via_imap(string $path, string $folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Сохранить вложения письма с заданным адресом отправителя IMAP | Save attachments of a message find the one by from IMAP
+
+**save_message_attachments_by_subject_via_imap(string $path, string $folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Сохранить вложения письма с заданной темой IMAP | Save attachments of a message find the one by subject IMAP
+
+**save_message_attachments_by_text_via_imap(string $path, string $folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300): bool**
+
+Сохранить вложения письма с заданным текстом IMAP | Save attachments of a message find the one by text IMAP
+
+**set_message_readed_by_id_via_imap(string $folder, string $id, bool $is_readed = true, int $timeout = 300): bool**
+
+Задать для сообщения статус прочитано по ID IMAP | Set status is read for message find the one by ID IMAP
+
+**add_message_flag_by_id_via_imap(string $folder, string $id, string $flag, int $timeout = 300): bool**
+
+Задать для сообщения категорию по ID IMAP | Set category for message find the one by ID IMAP
+
+**add_message_via_imap(string $folder, string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', ?array $attachments = null, int $timeout = 300, string $replyTo = ''): mixed**
+
+Добавить сообщение в папку IMAP | Add message in a folder IMAP
+
+## Class: XHEMsExchange
+
+To work with email using the MS Exchange API
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+
+
+**connect(string $url, string $email = '', string $password = ''): bool**
+
+Соединится | Connect
+
+**disconnect(): bool**
+
+Отсоединится | Disconnect
+
+**send_mail(string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', string $replyTo = '', array $attachments = null, int $timeout = 300): bool**
+
+Отправить E-mail сообщение | Send an email message
+
+**forward(string $folder, string $id, string $to, int $timeout = 300): bool**
+
+Переслать E-mail сообщение | Forward an email message
+
+**reply(string $folder, string $id, string $subject, string $message, int $type, string $cc = '', string $bcc = '', array $attachments = null, bool $replyAll = false, int $timeout = 300): bool**
+
+Ответить отправителю E-mail сообщения | Reply sender an email message
+
+**get_folder_id_by_name(string $folder = '', int $timeout = 300): string**
+
+Получить ID папки по имени | Get folder ID by name
+
+**get_folders(string $folder = '', bool $firstLevelOnly = true, int $timeout = 300): ?array**
+
+Получить под-папки | Get sub folders
+
+**get_message_count(string $folder = '', bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): int**
+
+Получить количество писем в папке | Get the number of letters in a folder
+
+**get_message_by_number(string $folder, int $number, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо по номеру | Receive a letter by number
+
+**get_message_by_number_as_xhe_obj(string $folder, int $number, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо по номеру | Receive a letter by number
+
+**get_message_by_subject(string $folder, string $subject, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо по теме | Receive a letter on the topic
+
+**get_message_by_subject_as_xhe_obj(string $folder, string $subject, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо по теме | Receive a letter on the topic
+
+**get_message_by_from(string $folder, string $from, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо от заданного отправителя | Receive a letter from a specified sender
+
+**get_message_by_from_as_xhe_obj(string $folder, string $from, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо от заданного отправителя | Receive a letter from a specified sender
+
+**get_message_by_text(string $folder, string $text, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо с заданным текстом | Receive a letter with the specified text
+
+**get_message_by_category(string $folder, string $category, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо с заданной категорией | Receive a letter with the specified category
+
+**get_message_by_attachment_name(string $folder, string $name, bool $exactly = false, int $number = 0, bool $isUnRead = false, string $startDate = '', string $endDate = '', int $pageSize = 100, int $timeout = 300): ?object**
+
+Получить письмо с заданным именем вложения | Receive a letter with the specified attachment name
+
+**get_message_by_id(string $folder, string $id, int $timeout = 300): ?object**
+
+Получить письмо с заданным ID | Receive a letter with the specified ID
+
+**delete_message_by_id(string $folder, string $id, int $timeout = 300): bool**
+
+Удалить письмо с заданным ID | Delete a letter with a given ID
+
+**delete_all_messages(string $folder, int $timeout = 300): bool**
+
+Удалить все письма из заданной папки | Delete all emails from a specified folder
+
+**move_message_by_id(string $from_folder, string $to_folder, string $id, int $timeout = 300): string**
+
+Переместить письмо с заданным ID в другую папку | Move a letter with a given ID to another folder
+
+**save_message_attachments_by_id(string $folderPath, string $folder, string $id, int $timeout = 300): bool**
+
+Сохранить вложения письма с заданным ID | Save attachments of a letter with a given ID
+
+**set_message_readed_by_id(string $folder, string $id, bool $is_readed = true, int $timeout = 300): bool**
+
+Задать статус сообщение как прочитанное по ID | Set message status as read by ID
+
+**get_message_categories_by_id(string $folder, string $id, int $timeout = 300): ?array**
+
+Получить категории сообщения по ID | Get message categories by ID
+
+**add_message_category_by_id(string $folder, string $id, string $category, int $timeout = 300): bool**
+
+Добавить категорию к сообщению по ID | Add message category by ID
+
+**remove_message_category_by_id(string $folder, string $id, string $category, int $timeout = 300): bool**
+
+Удалить категорию у сообщения по ID | Remove message category by ID
+
+**add_message_flag_by_id(string $folder, string $id, string $flag, int $timeout): bool**
+
+Добавить флаг к сообщению по ID | Add message flag by ID
+
+## Class: XHEOnlineSimRu
+
+XHEOnlineSimRu - класс для работы с API сервиса onlinesim.ru
+
+### Methods
+
+**__construct(): void**
+
+constructor
+
+**login(string $user, string $password, string $email): mixed**
+
+Авторизация (получение ключа разработчика)
+
+**getServiceList(): mixed**
+
+Получение списка доступных сервисов | Get service list
+
+**getNum(string $service, string $form = '', string $forward_number = '', string $forward_minutes = '', string $clean_call = '', string $simoperator = '', string $extension = '', string $region = ''): mixed**
+
+Запрос виртуального номера, создает операцию | Get virtual number
+
+**setForwardStatusEnable(string $tzid): mixed**
+
+Подтверждает переадресацию | Forward status enable
+
+**getState(string $tzid, string $message_to_code = '', string $form = '', string $orderby = ''): mixed**
+
+Получить состояние выбранной операции | Get state
+
+**getOperations(): mixed**
+
+Получить список и состояние всех операции | Get all operations
+
+**setOperationRevise(string $tzid): mixed**
+
+Создать запрос на уточнение ответа по операции | Set operation revise
+
+**setOperationOk(string $tzid): mixed**
+
+Отправить уведомление об успешном получении кода и завершает операцию | Set operation is OK
+
+**getBalance(): mixed**
+
+Получить информацию о состоянии баланса | Get account Balance
+
+**getService(): mixed**
+
+Получение списка сервисов для повторного заказа SMS | Get Services list
+
+**getServiceNumber(string $service): mixed**
+
+Получить список номеров для указанного сервиса | GEt all service numbers
+
+**getNumRepeat(string $service, string $number): mixed**
+
+Создать запрос на повторное использование виртуального номера | Get number for repeat
+
+**forwardingList(string $id = '', string $page = '', string $sort = ''): mixed**
+
+Получить список всех переадресаций | Get all forwarding list
+
+**forwardingSave(string $id, string $minutes = '', string $auto = '', string $forward_number = '', string $max_minutes = ''): mixed**
+
+Изменить параметры переадресации | Forwarding Save
+
+**forwardingRemove(string $id): mixed**
+
+Удалить (выключить) переадресацию | Forwarding remove
+
+**getForwardPaymentsList(string $id): mixed**
+
+Получить список всех автоматических платежей | Get forward payments list
+
+## Class: XHEOutlook
+
+Для работы с электронной почтой E-mail с помощью приложения Outlook
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**send_mail(string $from, string $to, string $subject, string $message, int $type, string $cc = '', string $bcc = '', ?array $attachments = null, int $timeout = 300, string $replyTo = ''): bool**
+
+Отправить E-mail сообщение | Send an email message
+
+**send_image(string $from, string $to, string $subject, string $image_path, string $signature = '', string $cc = '', string $bcc = '', string $replyTo = '', int $timeout = 300): bool**
+
+Отправить E-mail сообщение с картинкой | Send an email message with a picture
+
+**open(bool $show = false): bool**
+
+Открыть приложение Outlook | Open Outlook
+
+**close(): bool**
+
+Закрыть приложение Outlook | Close Outlook
+
+**kill(): bool**
+
+Завершить исполнение процесса приложения Outlook | Kill Outlook process
+
+**update(bool $show = false): bool**
+
+Выполнить получение и отправку писем | Run receiving and sending of letters
+
+**set_default_folder(string $folder = ''): bool**
+
+Задать папку по умолчанию | Set default folder
+
+**get_folders(string $folder = ''): ?array**
+
+Получить под-папки | Get sub folders
+
+**get_accounts(): ?array**
+
+Получить аккаунты | Get accounts
+
+**logon(string $profile, string $password = ''): bool**
+
+Выполнить вход | Log in
+
+**logoff(): bool**
+
+Выполнить выход | Logoff
+
+**get_message_count(string $folder = '', int $timeout = 300, string $readed = 'all'): int**
+
+Получить количество писем в папке | Get the number of letters in a folder
+
+**get_message_count_by_from(string $folder, string $from, bool $exactly = false, int $timeout = 300, string $readed = 'all'): int**
+
+Получить количество писем с заданным отправителем в папке | Get the number of messages with a given sender in a folder
+
+**get_message_count_by_subject(string $folder, string $subject, bool $exactly = false, int $timeout = 300, string $readed = 'all'): int**
+
+Получить количество писем с заданной темой в папке | Get the number of emails with a given subject in a folder
+
+**get_message_count_by_text(string $folder, string $text, bool $exactly = false, int $timeout = 300, string $readed = 'all'): int**
+
+Получить количество писем с заданным текстом в папке | Get the number of letters with the given text in the folder
+
+**get_message_by_number(string $folder, int $number, int $timeout = 300, string $readed = 'all'): XHEMailMessage**
+
+Получить письмо по номеру | Receive a letter by number
+
+**get_message_by_subject(string $folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage**
+
+Получить письмо по теме | Receive a letter on the topic
+
+**get_message_by_from(string $folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage**
+
+Получить письмо от заданного отправителя | Receive a letter from a specified sender
+
+**get_message_by_text(string $folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage**
+
+Получить письмо с заданным текстом | Receive a letter with the specified text
+
+**get_message_by_category(string $folder, string $category, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage**
+
+Получить письмо с заданной категорией | Receive a letter with the specified category
+
+**get_message_by_attachment_name(string $folder, string $name, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): XHEMailMessage**
+
+Получить письмо с заданным именем вложения | Receive a letter with the specified attachment name
+
+**get_message_by_id(string $folder, string $id, int $timeout = 300): XHEMailMessage**
+
+Получить письмо с заданным ID | Receive a letter with the specified ID
+
+**delete_message_by_number(string $folder, int $number, int $timeout = 300): bool**
+
+Удалить письмо с заданным номером | Delete a letter with a given number
+
+**delete_all_messages(string $folder, int $timeout = 300): bool**
+
+Удалить все письма из заданной папки | Delete all emails from a specified folder
+
+**move_message_by_number(string $from_folder, string $to_folder, int $number, int $timeout = 300, string $readed = 'all'): bool**
+
+Переместить письмо с заданным номером в другую папку | Move a letter with a given number to another folder
+
+**move_message_by_subject(string $from_folder, string $to_folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Переместить письмо с заданной темой в другую папку | Move a message with a given subject to another folder
+
+**move_message_by_from(string $from_folder, string $to_folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Переместить письмо от заданного отправителя в другую папку | Move a message from a specified sender to another folder
+
+**move_message_by_text(string $from_folder, string $to_folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Переместить письмо с заданным текстом в другую папку | Move a letter with the specified text to another folder
+
+**save_message_attachments_by_number(string $path, string $folder, int $number, int $timeout = 300, string $readed = 'all'): bool**
+
+Сохранить вложения письма с заданным номером | Save attachments of a letter with a given number
+
+**save_message_attachments_by_from(string $path, string $folder, string $from, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Сохранить вложения письма с заданным отправителем | Save attachments of a message with a specified sender
+
+**save_message_attachments_by_subject(string $path, string $folder, string $subject, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Сохранить вложения письма с заданной темой | Save attachments of a message with a given subject
+
+**save_message_attachments_by_text(string $path, string $folder, string $text, bool $exactly = false, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Сохранить вложения письма с заданным текстом | Save email attachments with specified text
+
+**set_message_readed_by_number(string $folder, int $number, bool $is_readed = true, int $timeout = 300, string $readed = 'all'): bool**
+
+Задать статус сообщение как прочитанное по номеру | Set message status as read by number
+
+**set_message_readed_by_from(string $folder, string $from, bool $exactly = false, bool $is_readed = true, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Задать статус сообщение как прочитанное по адресу отравителя | Set the message status as read by the sender's address
+
+**set_message_readed_by_subject(string $folder, string $subject, bool $exactly = false, bool $is_readed = true, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Задать статус сообщение как прочитанное по теме | Set the message status as read on the topic
+
+**set_message_readed_by_text(string $folder, string $text, bool $exactly = false, bool $is_readed = true, int $number = 0, int $timeout = 300, string $readed = 'all'): bool**
+
+Задать статус сообщение как прочитанное с заданным текстом | Set message status as read with given text
+
+**get_message_categories_by_id(string $folder, string $id, int $timeout = 300): string**
+
+Получить категории сообщения по id | Get message categories by ID
+
+**add_message_categories_by_id(string $folder, string $id, string $category, int $timeout = 300): bool**
+
+Добавить категорию к сообщению по id | Add message category by ID
+
+**remove_message_categories_by_id(string $folder, string $id, string $category, int $timeout = 300): bool**
+
+Удалить категорию у сообщения по id | Remove message category by ID
+
+## Class: XHEProxySwitcher
+
+Для организации хранения, обновления и получения значений из списка прокси
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**init(string $folder): bool**
+
+Инициализировать | Initialize
+
+**clear(): bool**
+
+Очистить список прокси | Clear proxy list
+
+**add_proxies(string $proxies): bool**
+
+Добавить прокси в список | Add proxy to list
+
+**add_proxies_from_file(string $path): bool**
+
+Добавить прокси в список из файла | Add proxy to list from file
+
+**add_proxies_from_url(string $url): bool**
+
+Добавить прокси в список из страницы сайта | Add proxy to list from site page
+
+**set_random_rotate_mode(bool $mode): bool**
+
+Включить режим случайной ротации прокси | Enable random proxy rotation mode
+
+**update(): bool**
+
+Обновить список прокси из источников | Update proxy list from sources
+
+**set_update_path(string $path): bool**
+
+Задать путь к файлу, как источник обновления | Set file path as update source
+
+**set_update_url(string $url): bool**
+
+Задать адрес URL страницы сайта, как источник обновления | Set the URL of the site page as the update source
+
+**set_update_period(int $minutes): bool**
+
+Задать максимальный интервал обновления списка прокси | Set the maximum interval for updating the proxy list
+
+**set_update_proxy_count(int $count): bool**
+
+Задать лимит количества прокси, как критерий обновления | Set proxy limit as update criterion
+
+**get_next_proxy(bool $delete = false): string**
+
+Получить следующий прокси | Get next proxy
+
+**get_all_proxies(): string**
+
+Получить все прокси из списка | Get all proxies from the list
+
+**get_proxy_count(): int**
+
+Получить количество прокси в списке | Get the number of proxies in the list
+
+## Class: XHEProxyCheker
+
+Для тестирования Proxy
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**run(bool $is_wait = false): bool**
+
+Запустить тестирование списка прокси | Run proxy list test
+
+**stop(): bool**
+
+Остановить тестирование списка прокси | Stop proxy list test
+
+**is_running(): bool**
+
+Проверить тестирование списка прокси продолжает работу? | Check proxy list testing running?
+
+**set_speed_testing(int $speed): bool**
+
+Задать скорость тестирования | Set testing speed
+
+**set_quality_testing(int $quality): bool**
+
+Задать качество тестирования | Set the quality of testing
+
+**add_proxy(string $str_proxy): bool**
+
+Добавить прокси в список | Add proxy to list
+
+**add_proxy_from_file(string $path): bool**
+
+Добавить прокси в список из файла
+
+**add_proxy_from_url(string $url): bool**
+
+Добавить прокси из урла в список
+
+**delete_proxy(string $param_proxy = 'all'): bool**
+
+Удалить прокси заданного типа из списка
+
+**save_proxy(string $path, string $param_proxy = 'all'): bool**
+
+Сохранить прокси заданного типа из списка в файл
+
+**dedupe_proxy(): bool**
+
+Убрать дубликаты из списка прокси
+
+**get_count_proxy(string $param_proxy = 'all'): int**
+
+Получить количество прокси заданного типа
+
+**get_proxy(mixed $n, string $param_proxy = 'all'): mixed**
+
+Получить прокси заданного типа
+
+**get_fastest_proxy(string $param_proxy = 'all'): string**
+
+Получить самый быстрый прокси заданного типа по итогам тестирования
+
+## Class: XHERaw
+
+Организация сбора в коллекции запросов HTTP, перенаправленных запросов HTTP и ответов на запросы и получения данных из этих коллекций
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**enable_all_streams(bool $enable = true): bool**
+
+Включить сбор данных для запросов HTTP и HTTPS | Enable data collection for HTTP and HTTPS requests
+
+**enable_http_stream(bool $enable = true): bool**
+
+Включить сбор данных для запросов HTTP | Enable data collection for HTTP requests
+
+**enable_https_stream(bool $enable = true): bool**
+
+Включить сбор данных для запросов HTTPS | Enable data collection for HTTPS requests
+
+**save_server_log_to_window(): bool**
+
+Выводить информацию приходящую с сервера в "Панель отладки/RAW лог" | Display information coming from the server in the "Debug Panel/RAW Log"
+
+**save_browser_log_to_window(): bool**
+
+Выводить информацию отправляемую Браузером в "Панель отладки/RAW лог" | Display information from the Browser in the "Debug Panel/RAW Log"
+
+**save_server_log_to_file(string $path): bool**
+
+Сохранять информацию приходящую с сервера в заданный файл
+
+**save_browser_log_to_file(string $path): bool**
+
+Сохранять информацию, отдаваемую Браузером в заданный файл
+
+**get_last_request_url(int $num = -1): bool|string**
+
+Получить адрес URL из коллекции запросов по номеру | Get URL from request collection by number
+
+**get_last_request_frame_url(int $num = -1): bool|string**
+
+Получить адрес фрэйма URL из коллекции запросов по номеру | Get frame URL from request collection by number
+
+**get_last_request_header(int $num = -1): bool|string**
+
+Получить запрошенный заголовок из коллекции запросов по номеру | Get header from request collection by number
+
+**get_last_request_post_datas(int $num = -1, bool $decode = true): false|string[]**
+
+Получить тело запроса типа POST из коллекции запросов по номеру | Get body from POST request collection by number
+
+**get_last_response_url(int $num = -1): bool|string**
+
+Получить адрес URL ответа на запрос из коллекции ответов по номеру | Get the response URL to a request from the response collection by number
+
+**get_last_response_buffer(int $num = 1): bool|string**
+
+Получить тело ответа на запрос из коллекции ответов по номеру | Get the response body to a request from the response collection by number
+
+**get_last_response_header(int $num = 1): bool|string**
+
+Получить заголовок ответа на запрос из коллекции ответов по номеру | Get the response header to a request from the response collection by number
+
+**get_last_redirect_url(int $num = -1): bool|string**
+
+Получить адрес URL перенаправления ответа на запрос из коллекции ответов по номеру | Get the redirect URL to a request from the response collection by number
+
+**get_last_redirect_header(int $num = -1): bool|string**
+
+Получить заголовок перенаправления ответа на запрос из коллекции ответов по номеру | Get the redirect header to a request from the response collection by number
+
+**get_last_readed(int $num = -1): bool|string**
+
+Получить тело ответа на запрос из коллекции ответов по номеру | Get the response body to a request from the response collection by number
+
+**set_arrays_count(int $num): bool**
+
+Задать размер коллекций запросов, перенаправленных запросов и ответов | Set the size of the request, forwarded request, and response collections
+
+**clear_last_requests_array(): bool**
+
+Очистить коллекцию последних запросов | Clear Recent Requests Collection
+
+**clear_last_responses_array(): bool**
+
+Очистить коллекцию последних ответов | Clear collection of recent answers
+
+**set_hook_on_begin_transaction(string $php_script_path): bool**
+
+Задать хук (php скрипт) на момент начала запроса информации браузером у сервера | Set a hook (php script) at the moment the browser starts requesting information from the server
+
+**set_hook_on_response(string $php_script_path): bool**
+
+Задать хук (php скрипт) на начало приема информации браузером от сервера | Set a hook (php script) to start receiving information from the server by the browser
+
+**set_hook_on_readed(string $php_script_path): bool**
+
+Задать хук (php скрипт) на загрузку контента в Браузер | Set a hook (php script) to load content into the Browser
+
+**add_disabled_request_url(string $url, bool $exactly = false): bool**
+
+Добавить адрес URL в коллекцию адресов по которым запрещено запрашивать информацию | Add URL to collection of URLs that are not allowed to request information
+
+**clear_disabled_request_urls_array(): bool**
+
+Очистить коллекцию адресов URL по которым запрещено запрашивать информацию | Clear the collection of URLs that are prohibited from request information
+
+**add_disabled_response_url(string $url, bool $exactly = false): bool**
+
+Добавить адрес URL в коллекцию адресов по которым запрещено получать информацию | Add URL to the collection of URLs that are prohibited from receiving information
+
+**clear_disabled_response_urls_array(): bool**
+
+Очистить коллекцию адресов URL по которым запрещено получать информацию | Clear the collection of URLs that are prohibited from receiving information
+
+**add_replace_rule(string $url, bool $exactly_url, string $find, string $replace): bool**
+
+Добавить правило в коллекцию правил, для замены строк в теле ответа для определенных адресов | Add a rule to the rules collection to replace strings in the response body for target addresses
+
+**clear_replace_rules(string $url, bool $exactly_url = false): bool**
+
+Удалить правило в коллекцию правил, для замены строк в теле ответа для определенных адресов | Remove a rule to a rules collection to replace strings in the response body for specific addresses
+
+**set_additional_request_header(string $header = ''): bool**
+
+Задать дополнительный заголовок, который будет отправляться браузером при запросах
+
+**set_next_url_for_open_in_new_tab(string $url = '', bool $exactly = false): bool**
+
+Задать адрес URL запроса, вызов которого будет отслежен и открыт в новой закладке Браузера | Set the request URL, to call the one will be tracked and opened in a new Browser tab
+
+## Class: XHERest
+
+Для работы с REST API
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**request(string $method, string $url, string $resource, ?array $query_parameters = null, ?array $file_parameters = null): bool|string**
+
+Отправить запрос | Send request
+
+**set_authorization(string $login, string $password): bool**
+
+Задать параметры авторизации Http Basic Authenticator | Set Http Basic Authenticator params
+
+**set_timeout(int $timeout): bool**
+
+Задать таймаут для запроса | Set wait execution interval
+
+## Class: XHERucapcha
+
+Для работы с API Rucaptcha
+
+### Methods
+
+**__construct(string $server, bool $is_ssl = true): void**
+
+Constructor
+
+**recognize_text(string $text): bool|string**
+
+Распознать капчу из текста
+
+**recognize_like_images(string $filename): bool|string**
+
+Распознать картинки похожее на заданные
+
+**recognize_invoice(string $filename): bool|string**
+
+Распознать кассовый чек
+
+**recognize_recaptcha_2_with_text(string $filename, string $textinstructions): bool|string**
+
+Распознать ReCaptcha v2 (ASIRA) c текстовыми инструкциями
+
+**recognize_recaptcha_2_with_image(string $filename, string $imageinstructions): bool|string**
+
+Распознать ReCaptcha v2 (ASIRA)
+
+**recognize_click_captcha(string $filename, string $textinstructions = ''): bool|string**
+
+Распознать ClickCaptcha (в том числе ReCaptcha v2)
+
+**recognize_rotate_captcha(string $filename, string $file_1, string $file_2 = '', string $file_3 = '', int $angle = 40): bool|string**
+
+Распознать RotateCaptcha (в том числе FunCaptcha)
+
+**recognize_recaptcha_v2(string $pageurl, string $googlekey, int $invisible = 0, string $proxy = '', string $proxytype = ''): bool|string**
+
+Распознать капчу Recaptcha v2
+
+**recognize_geetest(string $pageurl, string $gt, string $challenge, string $api_server = '', string $proxy = '', string $proxytype = ''): bool|string**
+
+Распознать GeeTest капчу
+
+## Class: XHES3
+
+Для работы с API S3
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**connect(string $server, string $key = '', string $security_key = ''): bool**
+
+Соединится с сервером | Connect
+
+**disconnect(string $server): bool**
+
+Отсоединится от сервера | Disconnect
+
+**disconnect_all(): bool**
+
+Отсоединится от всех подключенных серверов | Disconnect all
+
+**list_files(string $server, string $bucket, string $folder = '', int $timeout = 3000): ?stdClass**
+
+Получить список файлов в текущей папке | Get list files
+
+**list_folders(string $server, string $bucket, string $folder = '', int $timeout = 3000): ?stdClass**
+
+Получить список папок в текущей папке | Get list folders
+
+**is_directory_exists(string $server, string $bucket, string $dir_name): bool**
+
+Проверить существование папки | Check is folder exists
+
+**create_directory(string $server, string $bucket, string $dir_name): bool**
+
+Создать папку на сервере | Create folder
+
+**remove_directory(string $server, string $bucket, string $dir_name, int $timeout = 3000): bool**
+
+Удалить папку с сервера | Remove a folder
+
+**clear_directory(string $server, string $bucket, string $dir_name, int $timeout = 3000): bool**
+
+Очистить папку на сервере | Clear a folder
+
+**is_file_exists(string $server, string $bucket, string $remote_file): bool**
+
+Проверить существование файла | Check file exists
+
+**get_file(string $server, string $bucket, string $remote_file, string $local_file, bool $flag_fail_exist = true, int $timeout = 3000): bool**
+
+Получить файл с сервера | Get file
+
+**get_size(string $server, string $bucket, string $remote_file): int**
+
+Получить размер файла | Get file size
+
+**get_meta(string $server, string $bucket, string $remote_file): ?array**
+
+Получить мета информацию файла | Get meta
+
+**put_file(string $server, string $bucket, string $local_file, string $remote_file, bool $flag_fail_exist = true, int $timeout = 3000): bool**
+
+Загрузить файл на сервер | Upload file
+
+**get_folder(string $server, string $bucket, string $remote_folder, string $local_folder, int $timeout = 3000): bool**
+
+Скачать папку с сервера | Download folder
+
+**put_folder(string $server, string $bucket, string $local_folder, string $remote_folder, int $timeout = 3000): bool**
+
+Залить папку на сервер | Upload folder
+
+**remove_file(string $server, string $bucket, string $file_name): bool**
+
+Удалить файл с сервера | Remove file
+
+## Class: XHESelenium
+
+Для работы с ядром Selenium в режиме 'Selenium'
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**foreground(): bool**
+
+Вынести на передний план окно Браузера | Bring the Browser window foreground
+
+**maximize(): bool**
+
+Максимизировать окно Браузера | Maximize the Browser window
+
+**minimize(): bool**
+
+Минимизировать окно Браузера | Minimize the Browser window
+
+**fullscreen(): bool**
+
+Полный экран для окна Браузера | Set fullscreen for the Browser window
+
+**set_pos(int $x, int $y): bool**
+
+Задать позицию, в которой откроется окно браузера | Set the position where the browser window will open
+
+**set_size(int $width, int $height): bool**
+
+Задать размеры окна браузера | Set browser window dimensions
+
+**set_model_binary_path(string $model, string $path): bool**
+
+Указать путь к бинарному файлу для Selenium модели Браузера | Specify the path to the binary file for Selenium Browser model
+
+**get_pages_count(): int**
+
+Получить количество открытых страниц в текущем драйвере | Get the number of open pages in the current driver
+
+**get_active_page(): int**
+
+Получить номер активной страницы из открытых страниц | Get the active page number from open pages
+
+**set_active_page(int $page): bool**
+
+Задать номер активной страницы в открытых страницах | Set the active page number in open pages
+
+**close_page(int $page): bool**
+
+Закрыть страницу по номеру | Close page by number
+
+**close_all_pages(): bool**
+
+Закрыть все страницы | Close all pages
+
+**add_page(string $url = 'about:blank', string $type = 'tab'): bool**
+
+Добавить страницу |
+
+**add_plugins(mixed $paths_to_plugins, bool $refresh = true): bool**
+
+Добавить плагины для Selenium моделей (через .crx файлы)
+
+**get_webdriver_session(): string**
+
+Получить WebDriver Selenium SessionID
+
+## Class: XHESEO
+
+Для SEO исследования страницы сайта
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**get_alexa_rank(string $site): string**
+
+Получить ранг сайта по alexa.com | Get site rank bu Alexa
+
+**get_sitemap(string $site, string $file, int $timeout = 99999): string**
+
+Сохранить карту заданного сайта в формат XML | Save
+
+**get_all_sitemap_links(string $site, string $file, int $timeout = 99999, string $separator = '<br>'): string**
+
+Сохранить все внутренние ссылки страницы сайта в файл | Save all site page internal links to a file
+
+**get_all_outside_links(string $site, string $file, int $timeout = 99999, string $separator = '<br>'): string**
+
+Сохранить все внешние ссылки заданного сайта в файл | Save all site page external links to a file
+
+## Class: XHESFTP
+
+Perform operations with server SFTP
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**connect(string $server, string $user = '', string $password = '', int $iport = 22, int $timeout = -1): bool**
+
+Соединится с SFTP сервером | Connect to SFTP server
+
+**disconnect(string $server): bool**
+
+Отсоединится от SFTP сервера | Disconnect from SFTP server
+
+**disconnect_all(): bool**
+
+Отсоединится от всех подключенных SFTP серверов | Disconnect from all SFTP servers
+
+**create_directory(string $server, string $dir_name): bool**
+
+Создать папку на SFTP сервере | Create a folder on the SFTP server
+
+**remove_directory(string $server, string $dir_name): bool**
+
+Удалить папку с SFTP сервера | Delete folder from SFTP server
+
+**get_file(string $server, string $remote_file, string $local_file, bool $flag_fail_exist = true): bool**
+
+Получить файл с SFTP сервера | Get a file from SFTP server
+
+**put_file(string $server, string $local_file, string $remote_file, bool $flag_fail_exist = true): bool**
+
+Закачать файл на SFTP сервер | Upload a dile to SFTP server
+
+**remove_file(string $server, string $file_name): bool**
+
+Удалить файл с SFTP сервера | Remove a file from SFTP server
+
+## Class: XHESmsActivate
+
+For API SMS Activate
+
+### Methods
+
+**__construct(string $api = '', string $servis = 'https://api.sms-activate.ae', string $ref = ''): void**
+
+Constructor
+
+## Class: XHESoap
+
+Perform operations for SOAP v.11 or v.12
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**set_version(int $version = 11): bool**
+
+Задать версию протокола SOAP
+
+**set_action(string $action = ''): bool**
+
+Задать значение метода заголовка SOAPAction по умолчанию для запросов SOAP
+
+**set_headers(?array $headers): bool**
+
+Задать названия заголовков для запроса SOAP
+
+**call_simple_method(string $url, string $namespace, string $method): string**
+
+Выполнить HTTP POST запрос SOAP
+
+**call_by_bodies(string $url, ?array $bodies): string**
+
+Выполнить HTTP POST запрос SOAP с использованием body
+
+**call_from_xml(string $url, string $xml, string $action = ''): string**
+
+Выполнить HTTP POST запрос SOAP
+
+## Class: XHESubmitter
+
+Для генерации случайных данных для заполнения форм
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**generate_random_name(string $lang = 'EN', string $sex_for_RU = 'man'): string**
+
+Получить случайное имя
+
+**generate_random_second_name(string $lang = 'EN', string $sex_for_RU = 'man'): string**
+
+Получить случайное фамилию
+
+**generate_random_nick_name(int $len): string**
+
+Получить случайный прозвище (ник)
+
+**generate_random_street(string $lang): string**
+
+Получить случайное название улицы
+
+**generate_random_city(string $lang): string**
+
+Получить случайное название города
+
+**generate_random_region(string $lang): string**
+
+Получить случайное название региона
+
+**generate_random_country(string $lang): string**
+
+Получить случайное название страны
+
+**generate_random_number(int $min, int $max, bool $as_int = false): int|float**
+
+Получить случайное число
+
+**generate_random_text(int $len, int $type): string**
+
+Получить случайный текст
+
+## Class: XHETelegram
+
+Perform operations with Telegram API
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**connect(int $api_id, string $api_hash): bool**
+
+Соединится с сервером Telegram | Connect to Telegram server
+
+**disconnect(): bool**
+
+Отсоединится от сервера Telegram | Disconnect from Telegram server
+
+**request_authorization(string $phone_number): string**
+
+Создать или возобновить сессию для данного устройства как Пользователь. Первичный запрос | Create or resume a session for this device as User. Initial request
+
+**authorization(string $phone_number, string $auth_hash, string $auth_code, string $auth_password = ''): string**
+
+Авторизация | Authorization
+
+**get_chats(string $kind = 'all'): ?array**
+
+Получить список групп/каналов | Get groups/Channel
+
+**get_dialogs(int $folder_id = -1): ?array**
+
+Получить диалоги разных типов | Get dialogs of different types (chats/groups/channels/user chat)
+
+**get_members(int $chat_id): ?array**
+
+Получить список пользователей чата | Get a list of chat users (chats/groups/channels/users chat)
+
+**get_chat_messages(int $chat_id, int $from_offset = 0, string $offset_date = ''): mixed|null**
+
+Получить список сообщений чата | Get list of chat messages (chats/groups/channels/users chat)
+
+**get_last_messages(int $chat_id, int $count = 1): mixed|null**
+
+Получить последние сообщения чата | Get latest chat messages (chats/groups/channels/users chat)
+
+**get_messages_count(int $chat_id): int**
+
+Получить количество сообщений чата | Get the chat messages count (chats/groups/channels/users chat)
+
+**find_chat_messages(int $chat_id, string $text, string $begin_date = '', string $end_date = '', int $offset_id = 0): mixed|null**
+
+Получить сообщения из чата по фильтру | Get messages from chat by filter (chats/groups/channels/users chat)
+
+**get_chat_id_by_name(string $name): int**
+
+Получить ID чата по его имени | Get chat ID by name (chats/groups/channels/users chat)
+
+**join_chanel(int $chat_id): bool**
+
+Присоединится к каналу по ID | Join the channel by ID
+
+**send_message_to_chat(int $chat_id, string $message, string $schedule_date = ''): bool**
+
+Отправить сообщение в чат | Send message to the chat by ID
+
+**send_media_to_chat(int $chat_id, string $message, string $path, string $schedule_date = ''): bool**
+
+Отправить сообщение с медиа файлом в чат | Send a message with a media file to the chat
+
+**send_album_to_chat(int $chat_id, string $message, array $paths_and_urls, string $schedule_date = ''): bool**
+
+Отправить сообщение с несколькими медиа файлами в чат | Send message with multiple media files to chat
+
+**send_message_to_contact(string $phone_number, string $message, string $schedule_date = ''): bool**
+
+Отправить сообщение контакту по номеру телефона | Send a message to a contact by phone number
+
+**repost_message(int $from_chat_id, int $message_id, int $to_chat_id, bool $is_forward = true): bool**
+
+Выполнить пересылку сообщения из одного чата в другой | Forward the message
+
+## Class: XHEWebDav
+
+Perform operations with FTP server by WebDAV protocol
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**connect(string $server, string $user = '', string $password = ''): bool**
+
+Соединится с FTP сервером | Connect to FTP server
+
+**disconnect(string $server): bool**
+
+Отсоединится от FTP сервера
+
+**disconnect_all(): bool**
+
+Отсоединится от всех подключенных FTP серверов | Disconnect from all FTP servers
+
+**list_files(string $server, string $folder = ''): ?array**
+
+Получить список файлов в папке на FTP сервере | Get a files list in folder on FTP server
+
+**list_folders(string $server, string $folder = '', int $timeout = 3000): ?array**
+
+Получить список папок в папке на FTP сервере | Get a folders list in a folder on FTP server
+
+**is_directory_exists(string $server, string $dir_name): bool**
+
+Проверить существование папки на FTP сервере | Check is exists a folder on FTP server
+
+**create_directory(string $server, string $dir_name): bool**
+
+Создать папку на FTP сервере | Create a folder on the FTP server
+
+**remove_directory(string $server, string $dir_name, int $timeout = 3000): bool**
+
+Удалить папку с FTP сервера | Delete folder from FTP server
+
+**clear_directory(string $server, string $dir_name, int $timeout = 3000): bool**
+
+Очистить папку на FTP сервере | Clear folder on FTP server
+
+**get_folder(string $server, string $remote_folder, string $local_folder, int $timeout = 3000): bool**
+
+Скачать папку с FTP сервера | Download folder from FTP server
+
+**put_folder(string $server, string $local_folder, string $remote_folder, int $timeout = 3000): bool**
+
+Закачать папку на FTP сервер | Upload a folder to FTP server
+
+**is_file_exists(string $server, string $remote_file): bool**
+
+Проверить существование файла на FTP сервере | Check is exists a file on FTP server
+
+**get_file(string $server, string $remote_file, string $local_file, bool $flag_fail_exist = true, int $timeout = 3000): bool**
+
+Получить файл с FTP сервера | Get a file from FTP server
+
+**put_file(string $server, string $local_file, string $remote_file, bool $flag_fail_exist = true, int $timeout = 3000): bool**
+
+Закачать файл на FTP сервер | Upload a dile to FTP server
+
+**remove_file(string $server, string $file_name): bool**
+
+Удалить файл с FTP сервера | Remove a file from FTP server
+
+**rename(string $server, string $exist_file_name, string $new_file_name): bool**
+
+Переименовать файл/папку на FTP сервере | Rename file/folder on FTP server
+
+## Class: XHEWebPage
+
+To manage the current browser pages
+
+### Methods
+
+**__construct(string $server, string $password = ''): void**
+
+Конструктор
+
+**get_active_element(): XHEInterface**
+
+Получить интерфейс активного элемента на текущей странице Браузера | Get the active element interface on the current Browser page
+
+**get_element_from_point(int $x, int $y): XHEInterface**
+
+Получить интерфейс элемента по координатам на текущей странице Браузера | Get the element interface by coordinates on the current Browser page
+
+**get_title(): string**
+
+Получить заголовок страницы (текст из тэга title) | Get a page header
+
+**get_url(): string**
+
+Получить адрес URL текущей странице Браузера | Get a page URL address
+
+**get_encoding(): string**
+
+Получить кодировку текущей страницы Браузера | Get the encoding of the current Browser page
+
+**set_encoding(string $encoding): bool**
+
+Задать кодировку текущей странице Браузера | Set the encoding of the current Browser page
+
+**get_source(): string**
+
+Получить исходный код текущей страницы в Браузере | Get the current Browser page source code
+
+**get_source_length(): int**
+
+Получить длину исходный код текущей страницы в Браузере | Get the Browser page length of the source code
+
+**save_source_to_file(string $filepath): bool**
+
+Сохранить исходный код текущей страницы в Браузере в файл | Save the source code of the current page to a file
+
+**get_body(): string**
+
+Получить HTML код тэга body текущей страницы в Браузере | Get HTML code of body tag of current page in Browser
+
+**set_body(string $body): bool**
+
+Задать HTML код тэга body текущей страницы в Браузере | Set HTML code of body tag of current page in Browser
+
+**get_document_body(bool $as_html): string**
+
+Получить код тэга body документа текущей страницы Браузера, как текст или HTML код | Get the body of the current Browser page as text or HTML code
+
+**get_body_before_prefix(string $prefix, bool $as_html = true): string**
+
+Получить код тэга body документа текущей страницы Браузера, как текст или HTML код и вычленить блок текста до ключевой фразы | Get the body of the current Browser page as text or HTML code and extract the text block before the key phrase
+
+**get_body_after_prefix(string $prefix, bool $as_html = true): string**
+
+Получить код тэга body документа текущей страницы Браузера, как текст или HTML код и вычленить блок текста после ключевой фразы | Get the body of the current Browser page as text or HTML code and extract the text block after the key phrase
+
+**get_body_inter_prefix(string $prefix1, string $prefix2, bool $as_html = true): string**
+
+Получить код тэга body документа текущей страницы Браузера, как текст или HTML код и вычленить блок текста между двух ключевых фразы | Get the body of the current Browser page as text or HTML code and extract the text block between two key phrases
+
+**get_body_inter_prefix_all(string $prefix1, string $prefix2, bool $as_html = true, int $shift1 = 0, int $shift2 = 0, string $separator = '<br>'): string**
+
+Получить код тэга body документа текущей страницы Браузера, как текст или HTML код и разбить на блоки текста между двух ключевых фраз | Get the body of the current Browser page as text or HTML code and extract the text block between two key phrases and shift text
+
+**print_screen(string $filepath, int $xl = -1, int $yt = -1, int $xr = -1, int $yb = -1, bool $as_gray = false): bool**
+
+Сохранить скриншот заданной видимой части текущей страницы Браузера в файл | Save a screenshot of the specified visible part of the current Browser page to a file
+
+**print_to_pdf(string $filepath): bool**
+
+Сохранить скриншот всей текущей страницы Браузера в файл в формате PDF | Save a screenshot of the entire current Browser page to a PDF file
+
+**print_body(string $filepath, int $xl = -1, int $yt = -1, int $xr = -1, int $yb = -1, bool $as_gray = false): bool**
+
+Сохранить скриншот заданной части текущей страницы Браузера в файл-картинку | Save a screenshot of a specified part of the current Browser page to an image file
+
+**get_x_in_webpage_picture(string $picture_filepath, float $similar_koeff = 0.95, int $similar_algoritm = 5): int**
+
+Найти картинку на странице сопоставив с картинкой-образцом из файла и получить X - координату этой картинке | Find a picture on the page by matching it with a sample picture from a file and get the X coordinate of this picture
+
+**get_y_in_webpage_picture(string $picture_filepath, float $similar_koeff = 0.95, int $similar_algoritm = 5): int**
+
+Найти картинку на странице сопоставив с картинкой-образцом из файла и получить Y - координату этой картинке | Find a picture on the page by matching it with a sample picture from the file and get the Y coordinate of this picture
+
+**get_pos_in_webpage_picture(string $picture_filepath, float $similar_koeff = 0.95, int $similar_algoritm = 5): XHEPosition**
+
+Найти картинку на странице сопоставив с картинкой-образцом из файла и получить Y - координату этой картинке | Find a picture on the page by matching it with a sample picture from the file and get the Y coordinate of this picture
+
+**get_url_size(string $url): int**
+
+Получить размер содержимого произвольного урла (по HTTP заголовку 'Content-Length' ответа) | Get the content size of an arbitrary URL (using the HTTP 'Content-Length' response header)
+
+**load_web_page(string $url, int $size = 0, string $add_headers = ''): string**
+
+Получить WEB страницу по адресу URL с помощью HTTP запроса | Get WEB page by URL using HTTP request
+
+**get_web_page_code(string $url): string**
+
+Получить HTTP StatusCode ответа для адреса URL полученный с помощью HTTP запроса | Get the HTTP StatusCode of the response for a URL received via an HTTP request
+
+**html_to_text(string $html): string**
+
+Получить текст из HTML кода | Get text from HTML code
+
+**save_url_to_file(string $url, string $filepath, int $timeout = 9999): bool**
+
+Получить WEB страницу по адресу URL с помощью HTTP запроса и сохранить в файл | Get WEB page by URL using HTTP request and save to file
+
+**get_domain(string $url = '', int $level = -1, bool $exclude_www = false): string**
+
+Получить домен адреса URL | Get the domain of the URL
+
+**convert_to_idn(string $domain): false|string**
+
+Преобразовать домен адрес из ASCII в IDN формат (например "xn--d1acufc.xn--p1ai" -> "домен.рф") | Convert domain address from ASCII to IDN format
+
+**convert_from_idn(string $domain): false|string**
+
+Преобразовать домен адрес из формата IDN в ASCII формат (например "домен.рф" -> "xn--d1acufc.xn--p1ai") | Convert domain address from IDN to ASCII format
+
+**get_element_value_by_name(string $name): string**
+
+Get value of element by name
+
+**get_element_innerHtml_by_name(string $name): string**
+
+Get inner html of element by mane
+
+**get_element_innerText_by_name(string $name): string**
+
+Get element inner text by mane
+
+**set_element_value_by_name(string $name, string $text): bool**
+
+Set element value by name
+
+**click_on_element_by_name(string $name): bool**
+
+Click on element by name
+
+**click_on_element_by_number(int $number): bool**
+
+Click on element by number
+
+**click_on_element_by_inner_text(mixed $inner_text): bool**
+
+Click on element by inner text
+
+**get_location_url(): string**
+
+Получить адрес URL текущей странице Браузера | Get a page URL address
+
+# Category `OTHER`
+
+## Class: XHEMailMessage
+
+Для представления объекта-сообщения E-mail
+
+### Methods
+
+**__construct(string $content): void**
+
+Constructor
+
+## Class: XHEMsExchangeMailMessage
+
+Объект для представления письма с письмами полученными от ФО MsExchange
+
+### Methods
+
+**__construct(string $content): void**
+
+Constructor
+
+## Class: DOM
+
+For static call of all DOM objects Example: DOM::$input->set_value_by_name("name",11);
+
+### Methods
+
+**init(): void**
+
+Initialize static DOM objects from globals (acts as a static constructor)
+
+## Class: SYSTEM
+
+Аor static call of all SYSTEM objects. Example: SYSTEM::$mouse->move(100,100,false,2);
+
+### Methods
+
+**init(): void**
+
+Initialize static SYSTEM objects from globals (acts as a static constructor)
+
+## Class: VISION
+
+For static call of all WEB objects. Example: WEB::$browser->get_count();
+
+### Methods
+
+**init(): void**
+
+Initialize static VISION objects from globals (acts as a static constructor)
+
+## Class: WEB
+
+For static call of all WEB objects. example: WEB::$browser->get_count();
+
+### Methods
+
+**init(): void**
+
+Initialize static WEB objects from globals (acts as a static constructor)
+
+## Class: WINDOW
+
+for static call of all WINDOW objects. Example: WINDOW::$app->set_title("title");
+
+### Methods
+
+**init(): void**
+
+Initialize static WINDOW objects from globals (acts as a static constructor)

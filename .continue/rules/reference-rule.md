@@ -2,4 +2,4 @@
 description: reference.md
 ---
 
-Прочитай справочник доступных классов в файле проекта reference.md и найди там там классы для работы с DOM элементами на странице
+Read available classes in the project workspace in mcp server `php-xhe-docs-mcp` and use it is for working with DOM elements on the page.

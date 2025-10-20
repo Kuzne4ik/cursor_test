@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Templates"
+		}
+	],
+	"settings": {
+		"php.version": "8.2"
+	}
+}
