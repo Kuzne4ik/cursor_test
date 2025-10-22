@@ -16,7 +16,7 @@ docs/examples/
 │   │   ├── export_to_xml.php     # Экспорт таблиц в XML
 │   │   ├── get_cells_by_number.php
 │   │   ├── get_cell_by_number.php
-│   │   ├── get_cell_pos_by_number.php
+│   │   ├── get_cell_by_pos_by_number.php
 │   │   ├── get_cell_x_by_attribute.php
 │   │   ├── get_cell_x_by_inner_text.php
 │   │   ├── get_cell_x_by_number.php
@@ -140,15 +140,26 @@ docs/examples/
 │   │   ├── set_inner_html.php
 │   │   ├── set_inner_text.php
 │   │   └── set_value.php
-│   ├── XHEAnchor/                # Якоря
+│   ├── XHEAnchor/                # Якоря / Anchors
 │   │   ├── README.md             # Документация по XHEAnchor
 │   │   ├── get_all_hrefs_by_attribute.php
 │   │   ├── get_all_hrefs_by_inner_text.php
 │   │   ├── get_by_attribute.php
 │   │   ├── get_by_name.php
 │   │   └── get_by_number.php
-├── Tools/                        # Инструменты / Tools
-│   └── (будет добавлено содержимое)
+│   ├── XHEForm/                  # Формы / Forms
+│   │   ├── README.md             # Документация по XHEForm
+│   │   ├── get_action_by_id.php
+│   │   ├── get_action_by_name.php
+│   │   ├── get_action_by_number.php
+│   │   ├── reset_by_name.php
+│   │   ├── reset_by_number.php
+│   │   ├── submit_by_action.php
+│   │   ├── submit_by_attribute.php
+│   │   ├── submit_by_id.php
+│   │   ├── submit_by_name.php
+│   │   └── submit_by_number.php
+├── Tools/                        # Инструменты / Tools (будет добавлено содержимое)
 └── README.md                     # Этот файл / This file
 ```
 
@@ -158,8 +169,8 @@ docs/examples/
   - [XHETable Examples](DOM/XHETable/) - Примеры работы с таблицами
   - [XHEInterface Examples](DOM/XHEInterface/) - Примеры работы с DOM интерфейсом
   - [XHEAnchor Examples](DOM/XHEAnchor/) - Примеры работы с якорями
-  - [XHEInterface_AI Examples](DOM/XHEInterface_AI/) - Примеры работы с AI интерфейсом
-- [Tools](Tools/) - Инструменты и утилиты
+  - [XHEForm Examples](DOM/XHEForm/) - Примеры работы с формами
+- [Tools](Tools/) - Инструменты и утилиты (будет добавлено содержимое)
 
 ## Как использовать примеры / How to Use Examples
 
@@ -210,7 +221,7 @@ docs/examples/
 - Комментарии в коде примеров
 - Структуру папок для понимания расположения файлов
 
----
+--- 
 
 *Этот README.md автоматически сгенерирован для документации примеров использования классов XHE.*
 
