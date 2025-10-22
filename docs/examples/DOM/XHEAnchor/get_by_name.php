@@ -25,7 +25,7 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 $targetAnchorInterface = DOM::$anchor->get_by_name("list");
 
 // Проверить, что элемент DOM получен
-if ($targetAnchor->inner_number != -1)
+if ($targetAnchorInterface->inner_number != -1)
 {
     // Объект anchor получен
 }
