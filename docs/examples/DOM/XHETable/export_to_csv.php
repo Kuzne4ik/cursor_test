@@ -1,10 +1,7 @@
 <?php
 
 /**
- * Пример использования функции export_to_csv класса XHETable
  * Example of using export_to_csv function of XHETable class
- * 
- * Экспорт DOM элемента таблица в текстовый файл в формате CSV, таблицу найти по номеру
  * Export table to CSV file
  */
 
@@ -23,13 +20,9 @@ if (!isset($path))
 // Перейти на страницу полигона, если ранее страница не была загружена
 WEB::$browser->navigate(TEST_POLYGON_URL . "table.html");
 
-
-echo "=== Пример использования export_to_csv ===\n";
 echo "=== Example of using export_to_csv ===\n\n";
 
-// Пример 1: Экспорт всей таблицы в CSV файл
 // Example 1: Export entire table to CSV file
-echo "Пример 1: Экспорт всей таблицы в CSV файл\n";
 echo "Example 1: Export entire table to CSV file\n\n";
 
 $csv_result = DOM::$table->export_to_csv(
@@ -41,13 +34,9 @@ $csv_result = DOM::$table->export_to_csv(
     ';'                     // Разделитель / Separator
 );
 
-echo "Результат экспорта: " . ($csv_result ? 'Успешно' : 'Ошибка') . "\n";
 echo "Export result: " . ($csv_result ? 'Success' : 'Error') . "\n\n";
 
-
-// Пример 2: Экспорт определенных строк и столбцов
 // Example 2: Export specific rows and columns
-echo "Пример 2: Экспорт определенных строк и столбцов\n";
 echo "Example 2: Export specific rows and columns\n\n";
 
 $csv_result = DOM::$table->export_to_csv(
@@ -59,13 +48,9 @@ $csv_result = DOM::$table->export_to_csv(
     ','                             // Разделитель / Separator
 );
 
-echo "Результат экспорта: " . ($csv_result ? 'Успешно' : 'Ошибка') . "\n";
 echo "Export result: " . ($csv_result ? 'Success' : 'Error') . "\n\n";
 
-
-// Пример 3: Экспорт как HTML
 // Example 3: Export as HTML
-echo "Пример 3: Экспорт как HTML\n";
 echo "Example 3: Export as HTML\n\n";
 
 $csv_result = DOM::$table->export_to_csv(
@@ -77,13 +62,9 @@ $csv_result = DOM::$table->export_to_csv(
     '|'                           // Разделитель / Separator
 );
 
-echo "Результат экспорта: " . ($csv_result ? 'Успешно' : 'Ошибка') . "\n";
 echo "Export result: " . ($csv_result ? 'Success' : 'Error') . "\n\n";
 
-
-// Пример 4: Экспорт с указанием фрейма
 // Example 4: Export with frame specification
-echo "Пример 4: Экспорт с указанием фрейма\n";
 echo "Example 4: Export with frame specification\n\n";
 
 $csv_result = DOM::$table->export_to_csv(
@@ -96,11 +77,8 @@ $csv_result = DOM::$table->export_to_csv(
     '0'                            // Фрейм 0 / Frame 0
 );
 
-echo "Результат экспорта: " . ($csv_result ? 'Успешно' : 'Ошибка') . "\n";
 echo "Export result: " . ($csv_result ? 'Success' : 'Error') . "\n\n";
 
-
-echo "Все примеры export_to_csv завершены!\n";
 echo "All export_to_csv examples completed!\n";
 
 // Остановить работу
