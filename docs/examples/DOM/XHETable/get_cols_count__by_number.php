@@ -6,7 +6,7 @@
  * Find table by number and get the number of columns
  */
 
-$xhe_host = "127.0.0.1:7013";
+$xhe_host = "127.0.0.1:7010";
 
 // Path to init.php file
 if (!isset($path))
