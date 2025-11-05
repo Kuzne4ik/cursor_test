@@ -19,7 +19,7 @@ if ($result) {
     echo "Failed to set document complete JavaScript";
 }
 
-// Navigate to a website first
+// Navigate to a website
 $url = "https://www.google.com";
 WEB::$browser->navigate($url);
 WEB::$browser->wait_js(3);
