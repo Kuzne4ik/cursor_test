@@ -6,8 +6,8 @@ $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// Пример использования функции get_all_inner_texts_by_href
-// Получить все внутренние тексты у DOM элементов anchor по значению атрибута href
+// Example of using the get_all_inner_texts_by_href function
+// Get all inner texts from DOM elements anchor by href attribute value
 
 // Navigate to a webpage with anchor elements
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
