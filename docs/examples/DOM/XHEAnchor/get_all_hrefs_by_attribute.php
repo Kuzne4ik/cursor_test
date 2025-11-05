@@ -1,41 +1,47 @@
 <?php
-
-// Сценарий: Для текущей страницы Браузера найти все ссылки по атрибуту href
-// Описание: Получить значения атрибута href для DOM элементов с тэг <a>, которые в значении атрибута href содержат строку "news"
-// Используемые классы: XHEAnchor, XHEBrowser, XHEApplication
-
-// Строка подключения к API XHE
+// XHE host
 $xhe_host = "127.0.0.1:7010";
+// Path to the init.php file for connecting to the XHE API
+$path = "../../../../../../Templates/init.php";
+// Including init.php grants access to all classes and functionality for working with the XHE API
+require($path);
 
-// Путь к файлу init.php
-if (!isset($path))
-{
-    // Путь к файлу init.php для подключения к API XHE
-    $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
-    require($path);
-}
+// Пример использования функции get_all_hrefs_by_attribute
+// Получить все href с определенным значением атрибута
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to a webpage with anchor elements
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
+WEB::$browser->wait_js(1);
 
-// Пример 1: Получить все ссылки строкой с разделителем, которые в значении атрибута href содержат строку "news", значение атрибута должно быть не точным, для результирующей строки использовать разделитель "\n", для всех фрэймов
-$hrefString = DOM::$anchor->get_all_hrefs_by_attribute("href", "news", false, "\n", "-1");
-// Разделить строку на массив
-$hrefs = explode("\n", $hrefString);
+// Example 1: Get all href attributes from anchor elements with a specific class attribute
+$attr_name = "href";
+$attr_value = "http://ya.ru";
+$hrefString = DOM::$anchor->get_all_hrefs_by_attribute($attr_name, $attr_value, true, ";");
+
+// Display the result
+echo("\n\nAll hrefs on page fin by attribute one per line: ");
+       
+// Split string to array
+$hrefs = explode(";", $hrefString);
 // Вывести все ссылки в консоль по одной
 foreach($hrefs as $href)
 	echo($href . "\n");
 
 
-// Пример 2: Получить все ссылки строкой с разделителем, которые в значении атрибута href содержат строку "news", значение атрибута должно быть точным, для результирующей строки использовать разделитель "\n", только для первого фрэйма
-$hrefString = DOM::$anchor->get_all_hrefs_by_attribute("href", "news", true, "\n", 1);
-// Разделить строку на массив
-$hrefs = explode("\n", $hrefString);
+// Example 2: Get all href attributes from anchor elements with partial attribute value match
+$attr_name = "href";
+$attr_value = "example.com";
+$hrefString = DOM::$anchor->get_all_hrefs_by_attribute($attr_name, $attr_value, false, ";");
+
+// Display the result
+echo("\n\nAll hrefs on page fin by attribute one per line: ");
+
+// Split string to array
+$hrefs = explode(";", $hrefString);
 // Вывести все ссылки в консоль по одной
 foreach($hrefs as $href)
 	echo($href . "\n");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

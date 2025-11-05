@@ -1,39 +1,41 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент anchor <a> по номеру
-// Описание: Для текущей страницы найти DOM элемент <a> по номеру как XHEInterface
-// Используемые классы: DOM, XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page find DOM element anchor <a> by number
+// Description: For the current page find DOM element <a> by number as XHEInterface
+// Classes used: DOM, XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to the init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to the init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Пример 1: Получить DOM элемент anchor по порядковому номеру 1 среди input этого типа и выполнить click.
+// Example 1: Get DOM element anchor by serial number 1 among input of this type and perform click.
 
-// Получить объект anchor по порядковому номеру 1 среди DOM элеметнов этого типа input и получить его как XHEInterface
+// Get anchor object by serial number 1 among DOM elements of this input type and get it as XHEInterface
 $targetAnchor = DOM::$anchor->get_by_number(1);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetAnchor->inner_number != -1)
 {
-    // Объект anchor получен
+    // Anchor object received as XHEInterface
+     echo("\nThe anchor found!");
 }
 else
 {
-    // Объект anchor не найден на странице
+    // Anchor object not found on the page
+     echo("\nThe anchor not found!");
 }
 
-// Остановить работу
+// Stop work
 WINDOW::$app->quit();
 ?>

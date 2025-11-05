@@ -1,39 +1,41 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент anchor <a> 
-// Описание: Для текущей страницы найти DOM элемент <a> по значению атрибута как XHEInterface
-// Используемые классы: DOM, XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page find DOM element anchor <a>
+// Description: For the current page find DOM element <a> by attribute value as XHEInterface
+// Classes used: DOM, XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to the init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to the init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Пример 1: Для текущей страницы получить DOM элемент <a> по атрибуту 'href', как объекта XHEInterface, и сделать копию объекта
+// Example 1: For the current page get DOM element <a> by 'href' attribute, as XHEInterface object, and make a copy of the object
 
-// Для текущей страницы получить DOM элемент как объекта XHEInterface <a> по значению атрибуту 'href', значение атрибута не точное соответствие
+// For the current page get DOM element as XHEInterface object <a> by 'href' attribute value, attribute value is not exact match
 $targetAnchor = DOM::$anchor->get_by_attribute("href",'site.com',false);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetAnchor->inner_number != -1)
 {
-    // Объект anchor получен
+    // Anchor object received as XHEInterface
+    echo("\nThe anchor found!");
 }
 else
 {
-    // Объект anchor не найден на странице
+    // Anchor object not found on the page
+    echo("\nThe anchor not found!");
 }
 
-// Остановить работу
+// Stop work
 WINDOW::$app->quit();
 ?>
