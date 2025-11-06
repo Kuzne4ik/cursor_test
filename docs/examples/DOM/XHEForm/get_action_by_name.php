@@ -8,7 +8,7 @@ require($path);
 // Russian: Пример использования функции get_action_by_name для получения атрибута action формы по значению атрибута name
 
 // Load a page with forms
-WEB::$browser->navigate("https://example.com/login");
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
 // Get the action attribute of the by name attribute
 $formAction = DOM::$form->get_action_by_name("loginForm");

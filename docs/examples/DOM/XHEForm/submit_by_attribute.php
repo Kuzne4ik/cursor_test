@@ -8,7 +8,7 @@ require($path);
 // Russian: Пример использования функции submit_by_attribute для отправки формы по пользовательскому атрибуту
 
 // Load a page with forms
-WEB::$browser->navigate("https://example.com/login");
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
 // Submit the form by custom attribute (e.g., data-form-type)
 $formSubmitted = DOM::$form->submit_by_attribute("data-form-type", "login", true);

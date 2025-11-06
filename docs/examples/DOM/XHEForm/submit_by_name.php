@@ -8,7 +8,7 @@ require($path);
 // Russian: Пример использования функции submit_by_name для отправки формы по значению атрибута name
 
 // Load a page with forms
-WEB::$browser->navigate("https://example.com/login");
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
 // Submit the form by name attribute
 $formSubmitted = DOM::$form->submit_by_name("loginForm");

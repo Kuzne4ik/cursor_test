@@ -8,7 +8,7 @@ require($path);
 // Russian: Пример использования функции submit_by_action для отправки формы по значению атрибута action
 
 // Load a page with forms
-WEB::$browser->navigate("https://example.com/login");
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
 // Submit the form by action attribute (exact match)
 $formSubmitted = DOM::$form->submit_by_action("/submit/login", true);

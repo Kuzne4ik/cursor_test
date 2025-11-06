@@ -79,6 +79,107 @@ if ($formAction !== "") {
 }
 ```
 
+### Getting Form Content
+
+#### get_content_by_id($id, $as_html)
+Gets the inner text or HTML content of a form by its id attribute.
+
+**Parameters:**
+- `$id` (string) - The id attribute value of the form
+- `$as_html` (bool) - True to get as HTML, false to get as inner text
+
+**Returns:**
+- (string) - The form content or empty string if not found
+
+**Example:**
+```php
+// Get the inner text of the form by id (as_html = false)
+$formInnerText = DOM::$form->get_content_by_id("loginFormId", false);
+
+// Display the form inner text
+if ($formInnerText !== "") {
+    echo "Form inner text by id: " . $formInnerText . "<br>";
+} else {
+    echo "Failed to get form inner text by id.<br>";
+}
+
+// Get the inner HTML of the form by id (as_html = true)
+$formInnerHTML = DOM::$form->get_content_by_id("loginFormId", true);
+
+// Display the form inner HTML
+if ($formInnerHTML !== "") {
+    echo "Form inner HTML by id: " . $formInnerHTML . "<br>";
+} else {
+    echo "Failed to get form inner HTML by id.<br>";
+}
+```
+
+#### get_content_by_name($name, $as_html)
+Gets the inner text or HTML content of a form by its name attribute.
+
+**Parameters:**
+- `$name` (string) - The name attribute value of the form
+- `$as_html` (bool) - True to get as HTML, false to get as inner text
+
+**Returns:**
+- (string) - The form content or empty string if not found
+
+**Example:**
+```php
+// Get the inner text of the form by name (as_html = false)
+$formInnerText = DOM::$form->get_content_by_name("loginForm", false);
+
+// Display the form inner text
+if ($formInnerText !== "") {
+    echo "Form inner text by name: " . $formInnerText . "<br>";
+} else {
+    echo "Failed to get form inner text by name.<br>";
+}
+
+// Get the inner HTML of the form by name (as_html = true)
+$formInnerHTML = DOM::$form->get_content_by_name("loginForm", true);
+
+// Display the form inner HTML
+if ($formInnerHTML !== "") {
+    echo "Form inner HTML by name: " . $formInnerHTML . "<br>";
+} else {
+    echo "Failed to get form inner HTML by name.<br>";
+}
+```
+
+#### get_content_by_number($number, $as_html)
+Gets the inner text or HTML content of a form by its number on the page.
+
+**Parameters:**
+- `$number` (int) - The form number (1-based index)
+- `$as_html` (bool) - True to get as HTML, false to get as inner text
+
+**Returns:**
+- (string) - The form content or empty string if not found
+
+**Example:**
+```php
+// Get the inner text of the form by number (as_html = false)
+$formInnerText = DOM::$form->get_content_by_number(1, false);
+
+// Display the form inner text
+if ($formInnerText !== "") {
+    echo "Form inner text by number: " . $formInnerText . "<br>";
+} else {
+    echo "Failed to get form inner text by number.<br>";
+}
+
+// Get the inner HTML of the form by number (as_html = true)
+$formInnerHTML = DOM::$form->get_content_by_number(1, true);
+
+// Display the form inner HTML
+if ($formInnerHTML !== "") {
+    echo "Form inner HTML by number: " . $formInnerHTML . "<br>";
+} else {
+    echo "Failed to get form inner HTML by number.<br>";
+}
+```
+
 ### Resetting Forms
 
 #### reset_by_name($name)

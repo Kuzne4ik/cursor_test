@@ -8,7 +8,7 @@ require($path);
 // Russian: Пример использования функции reset_by_name для сброса формы по значению атрибута name
 
 // Load a page with forms
-WEB::$browser->navigate("https://example.com/login");
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
 // Fill some form fields (optional)
 DOM::$input->set_value_by_name("username", "testuser");

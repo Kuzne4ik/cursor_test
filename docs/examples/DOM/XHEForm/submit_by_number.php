@@ -8,7 +8,7 @@ require($path);
 // Russian: Пример использования функции submit_by_number для отправки формы по её номеру
 
 // Load a page with forms
-WEB::$browser->navigate("https://example.com/login");
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
 // Submit the form by number (e.g., the first form on the page)
 $formSubmitted = DOM::$form->submit_by_number(1);

@@ -8,7 +8,7 @@ require($path);
 // Russian: Пример использования функции get_action_by_number для получения атрибута action формы по её номеру
 
 // Load a page with forms
-WEB::$browser->navigate("https://example.com/login");
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
 // Get the action attribute of the form by number (e.g., the first form on the page)
 $formAction = DOM::$form->get_action_by_number(1);
