@@ -1,33 +1,50 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Get X coordinate of a DOM element
+// Description: For current page, find a DOM element and get its X coordinate relative to the page
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to the polygon page if the page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Example 1: Get X coordinate of link by full inner text
 
-// 2
-echo "2. Get x coordinate of link by full inner text: ";
-echo $anchor->get_by_inner_text("список всех",false)->get_x()."<br>";
+// Get DOM element <a> by inner text
+$targetAnchor = DOM::$anchor->get_by_inner_text("list of all", false);
 
-// 3
-echo "3. Navigate to polygon: ";
-echo $browser->navigate(TEST_SITE_URL)."<br>";
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Get X coordinate of the found element
+    echo($targetAnchor->get_x());
+}
 
-// 4
-echo "4. Get x coordinate (in visible part of page) of link: ";
-$anchor->get_by_number(110)->focus();
-echo $anchor->get_by_number(110)->get_x(true)."<br>";
+echo("\n\n");
 
-// end
-echo "<hr><br>";
+// Example 2: Get X coordinate (in visible part of page) of link
 
-// Quit
-$app->quit();
+// Get DOM element <a> by number 110
+$targetAnchor = DOM::$anchor->get_by_number(110);
+
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Set focus to the element
+    $targetAnchor->focus();
+    // Get X coordinate of the element relative to the visible part of the page
+    echo($targetAnchor->get_x(true));
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

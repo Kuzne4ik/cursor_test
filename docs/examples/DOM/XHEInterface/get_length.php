@@ -1,7 +1,7 @@
 <?php
 
-// Scenario: For</arg_value> current page, get a DOM element <select> and get the number of options for selection
-// Description: For</arg_value> current page, get a DOM element <select> by 'id' and get the number of options for selection
+// Scenario: For the current page, get a DOM element <select> and get the number of options for selection
+// Description: For the current page, get a DOM element <select> by 'id' and get the number of options for selection
 // Classes used: XHESelectElement, XHEInterface, XHEBrowser, XHEApplication
 
 // Connection string to XHE API

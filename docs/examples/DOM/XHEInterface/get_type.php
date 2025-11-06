@@ -1,29 +1,48 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: For current page, find an input element and get its type
+// Description: For current page, find an input element and get its type
+// Classes used: XHEInput, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to polygon page if page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "input.html");
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "input.html")."<br>";
+// Example 1: Get type of input by its name
 
-// 2
-echo "2. Get type of input by its name: ";
-echo $input->get_by_name("Name")->get_type()."<br>";
+// Get input element by name
+$targetInput = DOM::$input->get_by_name("Name");
 
-// 3
-echo "3. Get type of input in frame 0 and its dimensions by its name: ";
-$obj=$input->get_by_name("Name",0);
-echo $obj->get_type()." ".$obj->get_width()." ".$obj->get_height()."<br>";
+// Check that DOM element was found
+if ($targetInput->inner_number != -1)
+{
+    // Get type of input
+    echo($targetInput->get_type() . "\n");
+}
 
-// end
-echo "<hr><br>";
+// Example 2: Get type of input in frame 0 and its dimensions by its name
 
-// Quit
-$app->quit();
+// Get input element by name in frame 0
+$targetInput = DOM::$input->get_by_name("Name", 0);
+
+// Check that DOM element was found
+if ($targetInput->inner_number != -1)
+{
+    // Get type and dimensions of input
+    echo($targetInput->get_type() . " " . $targetInput->get_width() . " " . $targetInput->get_height() . "\n");
+}
+
+// Stop application
+WINDOW::$app->quit();
 ?>

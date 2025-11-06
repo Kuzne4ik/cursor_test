@@ -1,28 +1,37 @@
-<?php $xhe_host = "127.0.0.1:3035";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: For current page, find a DOM element and get the count of its parent elements
+// Description: For the current page, find a DOM element and get the count of its parent elements in the DOM tree
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to the polygon page if the page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// for speed
-$browser->set_wait_params(5,1);
+// Example 1: Get the count of parent elements
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Get the anchor object by 'name' attribute, as XHEInterface
+$targetAnchor = DOM::$anchor->get_by_name("seonote");
 
-// 2
-echo "2. Get the count of parent elements: ";
-$obj_a=$anchor->get_by_name("seonote");
-echo $obj_a->get_parents_count();
+// Check that the DOM element is received
+if ($targetAnchor->inner_number != -1)
+{
+    // Get the count of parent elements
+    $parentsCount = $targetAnchor->get_parents_count();
+    echo($parentsCount . "\n");
+}
 
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

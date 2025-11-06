@@ -1,35 +1,61 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: For current page, find a DOM element and get its parent element by attribute
+// Description: For current page, find a DOM element and get its parent element by attribute
+// Classes used: XHEButton, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to the polygon page if page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "btn.html");
 
-// for speed
-$browser->set_wait_params(5,1);
+// Example 1: Get tags of parent element with specified attribute value
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate("ya.ru")."<br>";
+// Get button element by number 0
+$targetButton = DOM::$btn->get_by_number(0);
 
-// 2
-echo "2. Get tags of parent element with specified attribute value: ";
-$obj_a=$btn->get_by_number(0);
-$obj_p=$obj_a->get_parent_by_attribute("class","suggest",false);
-echo $obj_p->get_tag()."\n";
+// Check that the DOM element was found
+if ($targetButton->inner_number != -1)
+{
+    // Get parent element by attribute
+    $parentElement = $targetButton->get_parent_by_attribute("class", "suggest", false);
+    
+    // Check that the parent element was found
+    if ($parentElement->inner_number != -1)
+    {
+        // Get tag of parent element
+        echo($parentElement->get_tag() . "\n");
+    }
+}
 
-// 3
-echo "3. Get non-existent parent element with specified attribute value: ";
-$obj_p=$obj_a->get_parent_by_attribute("class","suыыыыggest",false);
-if ($obj_p->get_tag()=="")
-	echo "No such element";
+// Example 2: Get non-existent parent element with specified attribute value
 
-// end
-echo "<hr><br>";
+// Get button element by number 0
+$targetButton = DOM::$btn->get_by_number(0);
 
-// Quit
-$app->quit();
+// Check that the DOM element was found
+if ($targetButton->inner_number != -1)
+{
+    // Get non-existent parent element by attribute
+    $parentElement = $targetButton->get_parent_by_attribute("class", "nonexistent", false);
+    
+    // Check that the parent element was not found
+    if ($parentElement->inner_number == -1)
+    {
+        echo("No such element\n");
+    }
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

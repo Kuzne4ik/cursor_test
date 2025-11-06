@@ -1,24 +1,36 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: For current page, find a DOM element and get its outer text
+// Description: For current page, find a DOM element and get its outer text
+// Classes used: XHEDiv, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to the polygon page if page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Example 1: Get outer text of div with number 2
 
-// 2
-echo "2. Get outer text of div with number 2: ";
-echo $div->get_by_number(2)->get_outer_text()."<br>";
+// Get div element by number 2
+$targetDiv = DOM::$div->get_by_number(2);
 
-// end
-echo "<hr><br>";
+// Check that the DOM element was found
+if ($targetDiv->inner_number != -1)
+{
+    // Get outer text of the element
+    echo($targetDiv->get_outer_text() . "\n");
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

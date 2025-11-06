@@ -1,29 +1,48 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: For current page, find a DOM element and get its tag
+// Description: For current page, find a DOM element and get its tag
+// Classes used: XHEImage, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to polygon page if page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "image.html")."<br>";
+// Example 1: Get tag of image by its name
 
-// 2
-echo "2. Get tag of image by its name: ";
-echo $image->get_by_name("screen1")->get_tag()."<br>";
+// Get image element by name
+$targetImage = DOM::$image->get_by_name("screen1");
 
-// 3
-echo "3. Get tag of image and its dimensions by its name: ";
-$obj=$image->get_by_name("screen1");
-echo $obj->get_tag()." ".$obj->get_width()." ".$obj->get_height()."<br>";
+// Check that DOM element was found
+if ($targetImage->inner_number != -1)
+{
+    // Get tag of image
+    echo($targetImage->get_tag() . "\n");
+}
 
-// end
-echo "<hr><br>";
+// Example 2: Get tag of image and its dimensions by its name
 
-// Quit
-$app->quit();
+// Get image element by name
+$targetImage = DOM::$image->get_by_name("screen1");
+
+// Check that DOM element was found
+if ($targetImage->inner_number != -1)
+{
+    // Get tag and dimensions of image
+    echo($targetImage->get_tag() . " " . $targetImage->get_width() . " " . $targetImage->get_height() . "\n");
+}
+
+// Stop application
+WINDOW::$app->quit();
 ?>

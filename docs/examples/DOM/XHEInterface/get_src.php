@@ -1,22 +1,36 @@
-<?php 
+<?php
+
+// Scenario: For current page, find an image element and get its src attribute
+// Description: For current page, find an image element and get its src attribute
+// Classes used: XHEImage, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// connect functional objects, if not already connected
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to the polygon page if the page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
 
-// 1
-echo "\n1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "image.html");
+// Example 1: Get src of image by its name
 
-// 2
-echo "\n2. Get src of image by its name: ";
-echo $image->get_by_name("screen1")->get_src();
+// Get image element by name
+$targetImage = DOM::$image->get_by_name("screen1");
 
-// Quit
-$app->quit();
+// Check that the DOM element was found
+if ($targetImage->inner_number != -1)
+{
+    // Get src of image
+    echo($targetImage->get_src() . "\n");
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

@@ -1,7 +1,7 @@
 <?php
 
-// Scenario: For the current page, find a DOM element and perform focus on it
-// Description: For the current Browser page, find a DOM element <a> and get it as XHEInterface and perform focus on it
+// Scenario: Set focus to a DOM element
+// Description: For current page, find a DOM element and set focus to it
 // Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
 
 // Connection string to XHE API
@@ -12,14 +12,14 @@ if (!isset($path))
 {
     // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Navigate to the polygon page if the page was not loaded earlier
+// Navigate to the polygon page if page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Example 1: Get the anchor object by 'src' attribute and perform focus on it
+// Example 1: Get anchor object by 'src' attribute and perform focus on it
 
 // Get the anchor object as XHEInterface by 'src' attribute, not strict match of attribute value
 $targetAnchorInterface = DOM::$anchor->get_by_src("list_id", false);

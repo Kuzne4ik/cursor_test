@@ -1,7 +1,7 @@
 <?php
 
-// Scenario: For the current page, find a DOM element and get the value of its 'name' attribute
-// Description: For the current page, find 0 DOM element <input> and get the value of its 'name' attribute
+// Scenario: For current page, find a DOM element and get the value of its 'name' attribute
+// Description: For current page, find 0 DOM element <input> and get the value of its 'name' attribute
 // Classes used: XHEInput, XHEInterface, XHEBrowser, XHEApplication
 
 // Connection string to XHE API
@@ -12,26 +12,26 @@ if (!isset($path))
 {
     // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Navigate to the polygon page if the page was not loaded earlier
+// Navigate to the polygon page if page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// Пример 1: Для текущей страницы найти и получить 0 DOM элемент <input> и получить его значение атрибута 'name'
+// Example 1: For the current page, find and get 0 DOM element <input> and get its 'name' attribute value
 
-// Получить DOM элемент <input> по номеру 0
+// Get DOM element <input> by number 0
 $targetForm = DOM::$input->get_by_number(0);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element was found
 if ($targetForm->inner_number != -1) {
-    // Для найденного объекта <input> получить значение атрибута 'name'
+    // For the found <input> object, get the value of the 'name' attribute
     echo($targetForm->get_name());
 }
 
 
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

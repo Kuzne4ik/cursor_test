@@ -1,24 +1,37 @@
-<?php $xhe_host = "127.0.0.1:5005";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Set value attribute of a DOM element
+// Description: For current page, find a DOM element and set its value attribute
+// Classes used: XHEInput, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to the test site
+WEB::$browser->navigate(TEST_POLYGON_URL . "input.html");
 
-// 1
-echo "1. Navigate to the test site: ";
-echo $browser->navigate(TEST_POLYGON_URL . "input.html")."<br>";
+// Example 1: Set value for element with name equal to txt1
 
-// 2
-echo "2. Set value for the element with name equal to txt1: ";
-echo $input->get_by_number(3)->set_value("NEW VALUE")."<br>";
+// Get DOM element <input> by number 3
+$targetInput = DOM::$input->get_by_number(3);
 
-// end
-echo "<hr><br>";
+// Check that DOM element was found
+if ($targetInput->inner_number != -1) {
+    // Set value for the found element
+    echo($targetInput->set_value("NEW VALUE"));
+}
 
-// Quit
-$app->quit();
+
+
+// Остановить работу
+WINDOW::$app->quit();
 ?>

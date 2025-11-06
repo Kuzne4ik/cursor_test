@@ -1,24 +1,36 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: For current page, find a DOM element and get its value
+// Description: For current page, find a DOM element and get its value
+// Classes used: XHEElement, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to polygon page if page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "button.html");
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "button.html")."<br>";
+// Example 1: Get value of element with name equal to btn1
 
-// 2
-echo "2. Get value of element with name equal to btn1: ";
-echo $element->get_by_name("btn1")->get_value()."<br>";
+// Get element by name
+$targetElement = DOM::$element->get_by_name("btn1");
 
-// end
-echo "<hr><br>";
+// Check that DOM element was found
+if ($targetElement->inner_number != -1)
+{
+    // Get value of element
+    echo($targetElement->get_value() . "\n");
+}
 
-// Quit
-$app->quit();
+// Stop application
+WINDOW::$app->quit();
 ?>

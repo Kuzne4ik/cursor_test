@@ -1,39 +1,74 @@
 <?php
-$xhe_host = "127.0.0.1:7094";
 
-// connect functional objects, if not already connected
+// Scenario: For the current page, find a DOM element and get the next element in the DOM tree
+// Description: For the current page, find a DOM element and get the next element in the DOM tree
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Navigate to the polygon page if the page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// to make it faster
-$browser->set_wait_params(5,1);
+// Example 1: For the current page, get a DOM element and get the next element in the DOM tree
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html") . "\n";
+// Get the anchor object by 'name' attribute, as XHEInterface
+$targetAnchor = DOM::$anchor->get_by_name("carnote");
 
-// 2
-echo "2. Get tag and number of next: ";
-$obj_a = $anchor->get_by_name("carnote");
-$obj_p = $obj_a->get_next();
-echo $obj_p->get_tag()." ".$obj_p->get_number("element") . "\n";
+// Check that the DOM element is received
+if ($targetAnchor->inner_number != -1)
+{
+    // Get the next element in the DOM tree
+    $obj_p = $targetAnchor->get_next();
+    
+    // Check that the next element is received
+    if ($obj_p->inner_number != -1)
+    {
+        // Get tag and number of next element
+        echo($obj_p->get_tag()." ".$obj_p->get_number("element") . "\n");
+    }
+}
 
-// 3
-echo "3. Get tag and number of previous: ";
-$obj_p = $obj_a->get_prev();
-echo $obj_p->get_tag() . " " . $obj_p->get_number("element") . "\n";
+// Example 2: For the current page, get a DOM element and get the previous element in the DOM tree
 
-// 4
-echo "4. Get tag and number of current: ";
-echo $obj_a->get_tag() . " " . $obj_a->get_number("element") . "\n";
+// Get the anchor object by 'name' attribute, as XHEInterface
+$targetAnchor = DOM::$anchor->get_by_name("carnote");
 
-// end
-echo "<hr><br>";
+// Check that the DOM element is received
+if ($targetAnchor->inner_number != -1)
+{
+    // Get the previous element in the DOM tree
+    $obj_p = $targetAnchor->get_prev();
+    
+    // Check that the previous element is received
+    if ($obj_p->inner_number != -1)
+    {
+        // Get tag and number of previous element
+        echo($obj_p->get_tag() . " " . $obj_p->get_number("element") . "\n");
+    }
+}
 
-// Quit
-$app->quit();
+// Example 3: For the current page, get a DOM element and get its tag and number
+
+// Get the anchor object by 'name' attribute, as XHEInterface
+$targetAnchor = DOM::$anchor->get_by_name("carnote");
+
+// Check that the DOM element is received
+if ($targetAnchor->inner_number != -1)
+{
+    // Get tag and number of current element
+    echo($targetAnchor->get_tag() . " " . $targetAnchor->get_number("element") . "\n");
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

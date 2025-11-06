@@ -151,6 +151,46 @@ if ($element->inner_number != -1) {
 }
 ```
 
+### Computed Style
+
+#### get_computed_style($style_name = "", $pseudo = "")
+Gets the computed style of the element.
+
+**Parameters:**
+- `$style_name` (string) - The name of the style property to retrieve (default: "" for all styles)
+- `$pseudo` (string) - The pseudo-element to get styles for (default: "")
+
+**Returns:**
+- (string) - The computed style value(s)
+
+**Example:**
+```php
+// Get all computed styles of an element
+$element = DOM::$input->get_by_number(0);
+if ($element->inner_number != -1) {
+    $styles = $element->get_computed_style();
+    echo "Computed styles: " . $styles . "<br>";
+}
+```
+
+### String Conversion
+
+#### __toString()
+Converts the element to a string representation.
+
+**Returns:**
+- (string) - The string representation of the element (inner text in curly braces)
+
+**Example:**
+```php
+// Convert an element to string
+$element = DOM::$input->get_by_number(0);
+if ($element->inner_number != -1) {
+    // The __toString method is called automatically when the object is used in a string context
+    echo "Element content: " . $element . "<br>";
+}
+```
+
 ### Content Manipulation
 
 #### get_inner_html()
