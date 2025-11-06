@@ -1,28 +1,39 @@
-<?php $xhe_host = "127.0.0.1:5005";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Send touch event to a DOM element
+// Description: For current page, find an anchor element and send touch events to it
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Send touch event to an anchor element
 
-// 1
-echo "1. Navigate to Google: ";
-echo $browser->navigate("http://www.google.ru")."<br>";
+// Navigate to Google
+echo WEB::$browser->navigate("http://www.google.ru") . "\n";
 
-// 2
-echo "2. Move the mouse to 'About': ";
-$obj = $anchor->get_by_inner_text("About");
-echo $obj->mouse_move(10,10)." ";
-sleep(4);
-echo $obj->send_touch(0,1,10,10)." ";
-echo $obj->send_touch(0,0,10,10)."<br>";
+// Get DOM element <a> by inner text "About"
+$targetAnchor = DOM::$anchor->get_by_inner_text("About");
 
-// end
-echo "<hr><br>";
+// Check that DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Move mouse to 'About'
+    echo "2. Move mouse to 'About': ";
+    echo $targetAnchor->mouse_move(10, 10);
+    echo("\n");
+    sleep(1);
+    echo $targetAnchor->send_touch(0, 0, 10, 10);
+}
 
-// Quit
-$app->quit();
+// Stop application
+WINDOW::$app->quit();
 ?>

@@ -1,33 +1,40 @@
-<?php $xhe_host = "127.0.0.1:5005";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Send key event to a DOM element
+// Description: For current page, find an input element and send a key event to it
+// Classes used: XHEInput, XHEInterface, XHEBrowser, XHEKeyboard, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>keyboard->".basename (__FILE__)."</font><hr>";
+// Example 1: Send key event to an input element
 
-// 1
-echo "1. Navigate to Yandex: ";
-echo $browser->navigate("http://ya.ru")."<br>";
+// Navigate to Yandex
+echo WEB::$browser->navigate("http://ya.ru") . "\n";
 
-// 2
-echo "2. Get the zero input: ";
-$obj=$input->get_by_number(0);
-echo $obj->inner_number."<br>";
+// Get DOM element <input> by number 0
+$obj = DOM::$input->get_by_number(0);
+echo $obj->inner_number . "\n";
 
-// 3
-echo "3. Make search sr: ";
-$keyboard->set_current_language("en");
-echo $obj->send_key("s",true)." ";
-echo $obj->send_key(114,false)." ";
-sleep(1);
-echo $obj->send_key(13,false);
+// Check that DOM element was found
+if ($obj->inner_number != -1) {
+    // Make search "sr"
+    SYSTEM::$keyboard->set_current_language("en");
+    echo $obj->send_key("s", true) . " ";
+    echo $obj->send_key(114, false) . " ";
+    sleep(1);
+    echo $obj->send_key(13, false);
+}
 
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

@@ -1,40 +1,33 @@
-<?php $xhe_host = "127.0.0.1:3031";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Send mouse move event to a DOM element
+// Description: For current page, find DOM elements and send mouse move events to them
+// Classes used: XHEButton, XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Send mouse move event to DOM elements
 
-// 1
-echo "1. Navigate to Google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to Google
+echo WEB::$browser->navigate("http://google.ru") . "\n";
 
-// 2
-echo "2. Move the mouse to the 'I'm Feeling Lucky' button: ";
-echo $button->get_by_number(3)->send_mouse_move(5,5)." ";
-sleep(3);
-echo $button->get_by_number(3)->send_mouse_move(5,5)."<br>";
+// Move mouse to 'I'm Feeling Lucky' button
+$button = DOM::$button->get_by_number(3);
+if ($button->inner_number != -1) {
+    echo "2. Move mouse to 'I'm Feeling Lucky' button: ";
+    echo $button->send_mouse_move(5, 5) . " ";
+}
 
-sleep(3);
-
-// 3
-echo "1. Navigate to "  .TEST_SITE_URL . ": ";
-echo $browser->navigate(TEST_SITE_URL)."<br>";
-
-// 4
-echo "4. Move the mouse to links: ";
-echo $anchor->get_by_number(110)->send_mouse_move(1,1,true,4)." ";
-sleep(1);
-echo $anchor->get_by_number(100)->send_mouse_move(1,1,true,4)." ";
-sleep(1);
-echo $anchor->get_by_number(10)->send_mouse_move(1,1,true,4)." ";
-
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop application
+WINDOW::$app->quit();
 ?>

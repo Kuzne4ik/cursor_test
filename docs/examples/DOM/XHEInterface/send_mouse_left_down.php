@@ -1,26 +1,38 @@
-<?php $xhe_host = "127.0.0.1:3031";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Send mouse left down event to a DOM element
+// Description: For current page, find a button element and send a mouse left down event to it
+// Classes used: XHEButton, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Send mouse left down event to a button element
 
-// 1
-echo "1. Navigate to Google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to Google
+echo WEB::$browser->navigate("http://google.ru") . "\n";
 
-// 2
-echo "2. Press the mouse with a pause before releasing on the 'I'm Feeling Lucky' button: ";
-echo $button->get_by_number(3)->send_mouse_left_down(5,5)." ";
-sleep(3);
-echo $button->get_by_number(3)->send_mouse_left_up(5,5)."<br>";
+// Get DOM element <button> by number 3
+$targetButton = DOM::$button->get_by_number(3);
 
-// end
-echo "<hr><br>";
+// Check that DOM element was found
+if ($targetButton->inner_number != -1) {
+    // Press mouse with a pause before releasing on 'I'm Feeling Lucky' button
+    echo "2. Press mouse with a pause before releasing on 'I'm Feeling Lucky' button: ";
+    echo $targetButton->send_mouse_left_down(5, 5) . " ";
+    usleep(100000);
+    echo $targetButton->send_mouse_left_up(5, 5) . "\n";
+}
 
-// Quit
-$app->quit();
+// Stop application
+WINDOW::$app->quit();
 ?>

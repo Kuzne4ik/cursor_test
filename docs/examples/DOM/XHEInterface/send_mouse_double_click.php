@@ -1,25 +1,36 @@
-<?php $xhe_host = "127.0.0.1:3031";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Send mouse double click event to a DOM element
+// Description: For current page, find an image element and send a mouse double click event to it
+// Classes used: XHEImage, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Send mouse double click event to an image element
 
-// 1
-echo "1. Navigate to Google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to Google
+echo WEB::$browser->navigate("http://google.ru") . "\n";
 
-// 2
-echo "2. Double click on the element with text 'Google': ";
-$img=$image->get_by_number(0);
-echo $img->send_mouse_double_click($img->get_width()/2,-10);
+// Get DOM element <img> by number 0
+$targetImage = DOM::$image->get_by_number(0);
 
-// end
-echo "<hr><br>";
+// Check that DOM element was found
+if ($targetImage->inner_number != -1) {
+    // Double click on the element with text 'Google'
+    echo "2. Double click on the element with text 'Google': ";
+    echo $targetImage->send_mouse_double_click($targetImage->get_width()/2, -10);
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

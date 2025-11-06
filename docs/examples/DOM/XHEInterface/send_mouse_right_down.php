@@ -1,33 +1,36 @@
-<?php $xhe_host = "127.0.0.1:7014";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Send mouse right down event to a DOM element
+// Description: For current page, find a button element and send a mouse right down event to it
+// Classes used: XHEElement, XHEInterface, XHEBrowser, XHEKeyboard, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Send mouse right down event to a button element
 
-// 1
-echo "1. Navigate to Google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to Google
+echo WEB::$browser->navigate("http://google.ru") . "\n";
 
-// 2
-echo "2. Call the browser context menu with a pause before release: ";
-echo $element->get_by_name("btnI")->send_mouse_right_down(1,1)." ";
-sleep(2);
-echo $element->get_by_name("btnI")->send_mouse_right_up(1,1)."<br>";
+// Get DOM element by name "btnI"
+$targetElement = DOM::$element->get_by_name("btnI");
 
-// pause
-sleep(3);
+// Check that DOM element was found
+if ($targetElement->inner_number != -1) {
+    // Call browser context menu with a pause before release
+    echo "2. Call browser context menu with a pause before release: ";
+    echo $targetElement->send_mouse_right_down(1, 1) . " ";
+}
 
-// 3
-echo "3. Press Esc: ";
-echo $keyboard->send_key(27);
-
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop application
+WINDOW::$app->quit();
 ?>
