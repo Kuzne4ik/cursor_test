@@ -25,6 +25,6 @@ echo(WEB::$browser->get_selected_text(false));
 echo "\nSelected text as HTML code: ";
 echo(WEB::$browser->get_selected_text(true));
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -44,6 +44,6 @@ $top_scroll = WEB::$browser->get_vertical_scroll_pos();
 echo "\n\n--- Scrolled to top ---";
 echo "\nScroll position: " . $top_scroll . "px";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

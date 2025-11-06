@@ -21,6 +21,6 @@ echo "\nFrames enabled after disabling: " . ($frames_enabled2 ? "Yes" : "No") . 
 $frames_enabled3 = WEB::$browser->is_enable_frames();
 echo "\nFrames enabled after enabling: " . ($frames_enabled3 ? "Yes" : "No") . "\n";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

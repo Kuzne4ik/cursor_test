@@ -26,6 +26,6 @@ $result2 = WEB::$browser->set_platform($platform2, $cpuClass2);
 
 echo "\n\nSet platform to Win64: " . ($result2 ? "Success" : "Failed");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

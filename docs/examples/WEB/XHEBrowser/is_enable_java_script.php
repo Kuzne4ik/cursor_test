@@ -17,6 +17,6 @@ WEB::$browser->enable_java_script(false);
 $js_enabled2 = WEB::$browser->is_enable_java_script();
 echo "\nJavaScript enabled after disabling: " . ($js_enabled2 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

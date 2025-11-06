@@ -44,6 +44,6 @@ if ($result2) {
 $webrtc_enabled3 = WEB::$browser->is_enable_web_rtc();
 echo "\nWebRTC enabled after enabling: " . ($webrtc_enabled3 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -17,6 +17,6 @@ WEB::$browser->enable_activex(false);
 $activex_enabled2 = WEB::$browser->is_enable_activex();
 echo "\nActiveX enabled after disabling: " . ($activex_enabled2 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -17,6 +17,6 @@ WEB::$browser->enable_cache(false);
 $cache_enabled2 = WEB::$browser->is_enable_cache();
 echo "\nCache enabled after disabling: " . ($cache_enabled2 ? "Yes" : "No") . "\n";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

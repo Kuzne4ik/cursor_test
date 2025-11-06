@@ -17,6 +17,6 @@ WEB::$browser->enable_web_rtc(false);
 $webrtc_enabled2 = WEB::$browser->is_enable_web_rtc();
 echo "\nWebRTC enabled after disabling: " . ($webrtc_enabled2 ? "Yes" : "No") . "\n";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

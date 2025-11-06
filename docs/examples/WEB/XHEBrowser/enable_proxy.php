@@ -38,6 +38,6 @@ if ($result) {
 // Check current IP
 $result = WEB::$connection->get_real_ip() . "\n";
 echo "\n Current IP: " . $result;
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -18,6 +18,6 @@ $zero_id = 0;
 $is_complete_zero = WEB::$browser->is_download_complete($zero_id);
 echo "\nDownload complete for ID " . $zero_id . ": " . ($is_complete_zero ? "Yes" : "No") . "\n";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

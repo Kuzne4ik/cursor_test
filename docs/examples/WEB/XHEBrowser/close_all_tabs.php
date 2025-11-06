@@ -58,6 +58,6 @@ if ($tabsCount == 1) {
     echo "\nFailed to close all tabs";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

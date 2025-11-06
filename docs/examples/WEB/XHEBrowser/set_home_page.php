@@ -27,6 +27,6 @@ echo "\n\nNavigated to home page";
 $current_url = WEB::$webpage->get_url();
 echo "\n\nCurrent URL: " . $current_url;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -12,6 +12,6 @@ $result2 = WEB::$browser->set_random_bounds_fingerprint($noise);
 
 echo "\n\nSet random bounds fingerprint with noise " . $noise . ": " . ($result2 ? "Success" : "Failed");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

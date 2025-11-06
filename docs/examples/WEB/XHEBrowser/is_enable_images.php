@@ -17,6 +17,6 @@ WEB::$browser->enable_images(false);
 $images_enabled2 = WEB::$browser->is_enable_images();
 echo "\nImages enabled after disabling: " . ($images_enabled2 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

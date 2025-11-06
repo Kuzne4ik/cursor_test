@@ -24,6 +24,6 @@ WEB::$browser->wait_js(2);
 $ready_state2 = WEB::$browser->get_ready_state();
 echo "\nPage ready state after waiting: " . $ready_state2;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

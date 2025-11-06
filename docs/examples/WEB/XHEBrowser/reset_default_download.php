@@ -41,6 +41,6 @@ if ($result2) {
 $url = TEST_POLYGON_URL . "clear_history.cs.7z";
 WEB::$browser->navigate($url);
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

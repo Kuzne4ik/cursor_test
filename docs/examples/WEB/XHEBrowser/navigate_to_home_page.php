@@ -18,6 +18,6 @@ if ($result) {
     echo "\n\nFailed to navigate to home page";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

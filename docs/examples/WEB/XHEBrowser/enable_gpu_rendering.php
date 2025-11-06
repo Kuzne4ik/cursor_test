@@ -33,6 +33,6 @@ $result2 = WEB::$browser->enable_gpu_rendering(true);
 
 echo "\n\nGPU rendering set enabled: " . ($result2 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

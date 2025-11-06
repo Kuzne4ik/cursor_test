@@ -35,6 +35,6 @@ echo "\n\nChanged page background color";
 echo "\nResult: " . ($result3 ? "Success" : "Failed");
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -38,6 +38,6 @@ echo "\nRandom WebGL fingerprint should be applied";
 // Set random WebGL fingerprint (disabled)
 $result2 = WEB::$browser->set_random_webgl_fingerprint(false);
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

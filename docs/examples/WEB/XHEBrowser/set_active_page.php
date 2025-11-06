@@ -41,6 +41,6 @@ if ($result) {
     echo "\nFailed to set active page";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

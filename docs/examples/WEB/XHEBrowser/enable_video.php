@@ -44,6 +44,6 @@ if ($result2) {
 $video_enabled3 = WEB::$browser->is_enable_video();
 echo "\nVideo enabled after enabling: " . ($video_enabled3 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

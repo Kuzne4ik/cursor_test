@@ -10,6 +10,6 @@ require($path);
 $window_height = WEB::$browser->get_window_height();
 echo "\nCurrent window height: " . $window_height . "px";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

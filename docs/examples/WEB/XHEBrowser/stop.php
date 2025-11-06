@@ -25,6 +25,6 @@ if ($result) {
 
 echo "\n\nCurrent page should now be stopped";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

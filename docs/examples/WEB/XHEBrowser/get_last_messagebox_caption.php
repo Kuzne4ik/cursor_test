@@ -10,6 +10,6 @@ require($path);
 $caption = WEB::$browser->get_last_messagebox_caption();
 echo "\n\nLast message box caption: '" . $caption . "'";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

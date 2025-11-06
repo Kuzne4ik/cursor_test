@@ -40,6 +40,6 @@ if ($result2) {
 // Navigate to a website to download file again
 $url = TEST_POLYGON_URL . "clear_history.cs.7z";
 WEB::$browser->navigate($url);
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

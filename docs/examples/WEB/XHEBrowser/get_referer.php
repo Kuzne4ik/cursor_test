@@ -21,6 +21,6 @@ WEB::$browser->wait_js(3);
 $referer = WEB::$browser->get_referer();
 echo "\n\nCurrent referer: " . $referer;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

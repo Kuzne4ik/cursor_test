@@ -15,6 +15,6 @@ if (!isset($path))
 
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

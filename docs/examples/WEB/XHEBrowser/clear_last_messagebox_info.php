@@ -53,6 +53,6 @@ echo "\nCaption: '" . $caption_after . "'";
 echo "\nText: '" . $text_after . "'";
 echo "\nType: '" . $type_after . "'";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

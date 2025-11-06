@@ -25,6 +25,6 @@ if ($result2) {
     echo "\n\nFailed to disable browser message boxes";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

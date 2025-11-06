@@ -34,6 +34,6 @@ $download_dialog_enabled3 = WEB::$browser->is_enable_download_file_dialog();
 echo "\nDownload file dialog enabled after disabling: " . ($download_dialog_enabled3 ? "Yes" : "No");
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

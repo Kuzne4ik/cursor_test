@@ -17,6 +17,6 @@ WEB::$browser->enable_popup(false);
 $popup_enabled2 = WEB::$browser->is_enable_popup();
 echo "\nPopups enabled after disabling: " . ($popup_enabled2 ? "Yes" : "No") . "\n";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -44,6 +44,6 @@ if ($result2) {
 $images_enabled3 = WEB::$browser->is_enable_images();
 echo "\nImages enabled after enabling: " . ($images_enabled3 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

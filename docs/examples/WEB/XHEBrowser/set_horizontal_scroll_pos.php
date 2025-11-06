@@ -17,6 +17,6 @@ echo "Navigated to: " . $url;
 $current_scroll = WEB::$browser->get_horizontal_scroll_pos();
 echo "\n\nCurrent horizontal scroll position: " . $current_scroll;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

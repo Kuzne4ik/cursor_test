@@ -45,6 +45,6 @@ WEB::$browser->wait(3);
 echo "\n\nNavigated again to: " . $url;
 echo "\nAll Flash cookies should be deleted";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

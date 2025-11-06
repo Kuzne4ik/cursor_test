@@ -42,6 +42,6 @@ echo "\nNo authorization should be applied";
 $result2 = WEB::$browser->reset_default_authorization();
 echo "\n\nReset authorization again: " . ($result2 ? "Success" : "Failed");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

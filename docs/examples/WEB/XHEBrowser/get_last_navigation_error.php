@@ -35,6 +35,6 @@ $error2 = WEB::$browser->get_last_navigation_error();
 
 echo "\nLast navigation error after valid URL: " . $error2;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

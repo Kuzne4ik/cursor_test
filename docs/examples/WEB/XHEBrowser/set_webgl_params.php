@@ -93,6 +93,6 @@ WEB::$browser->wait_js(3);
 echo "\n\nNavigated to: " . $url2;
 echo "\nWebGL parameters reset to default";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

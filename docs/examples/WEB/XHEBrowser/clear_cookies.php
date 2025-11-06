@@ -38,6 +38,6 @@ echo "\n\nCookies after clearing for " . $match_name . ":";
 echo "\n" . $cookies_after;
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

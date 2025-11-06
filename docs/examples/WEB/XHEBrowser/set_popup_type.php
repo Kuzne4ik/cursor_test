@@ -16,6 +16,6 @@ if ($result) {
     echo "Failed to set popup type";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

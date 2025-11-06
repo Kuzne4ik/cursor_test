@@ -18,6 +18,6 @@ if ($result) {
     echo "\n\nFailed to set Accept header" . "\n";;
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

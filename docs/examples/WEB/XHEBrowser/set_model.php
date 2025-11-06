@@ -26,6 +26,6 @@ $updated_model = WEB::$browser->get_model();
 echo "\nUpdated model: " . $updated_model;
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

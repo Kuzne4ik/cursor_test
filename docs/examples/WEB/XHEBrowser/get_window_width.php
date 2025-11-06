@@ -10,6 +10,6 @@ require($path);
 $window_width = WEB::$browser->get_window_width();
 echo "\nCurrent window width: " . $window_width . "px";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

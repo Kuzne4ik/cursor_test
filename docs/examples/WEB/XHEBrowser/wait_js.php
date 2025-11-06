@@ -23,6 +23,6 @@ if ($result) {
     echo "\n\nFailed to wait for JavaScript execution";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

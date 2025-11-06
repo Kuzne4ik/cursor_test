@@ -29,6 +29,6 @@ $result3 = WEB::$browser->set_permissions($permissions3);
 
 echo "\nSet permissions to prompt: " . ($result3 ? "Success" : "Failed");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -10,6 +10,6 @@ require($path);
 $model = WEB::$browser->get_model();
 echo "Current Browser model: " . $model;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -22,6 +22,6 @@ if ($result) {
 $current_referer = WEB::$browser->get_referer();
 echo "\nCurrent referer: " . $current_referer;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

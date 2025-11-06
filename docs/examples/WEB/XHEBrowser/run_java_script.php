@@ -20,6 +20,6 @@ $result = WEB::$browser->run_java_script($script_text);
 
 echo "\n\nPage title: " . $result . "\n";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

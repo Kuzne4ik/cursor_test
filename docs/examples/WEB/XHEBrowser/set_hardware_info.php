@@ -36,6 +36,6 @@ echo "window.devicePixelRatio: " . $browser->run_java_script("window.devicePixel
 echo "navigator.hardwareConcurrency: " . $browser->run_java_script("navigator.hardwareConcurrency") . "\n";
 echo "navigator.deviceMemory: " . $browser->run_java_script("navigator.deviceMemory") . "\n";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

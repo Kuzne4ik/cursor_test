@@ -10,6 +10,6 @@ require($path);
 $cpu_class = WEB::$browser->get_cpu_class();
 echo "\n\nCurrent CPU class: " . $cpu_class;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

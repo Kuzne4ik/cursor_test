@@ -44,6 +44,6 @@ if ($result2) {
 $script_error_disabled3 = WEB::$browser->is_disable_script_error();
 echo "\nShow script errors currently disabled: " . ($script_error_disabled3 ? "Yes" : "No"). "\n";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -44,6 +44,6 @@ if ($result2) {
 $activex_enabled3 = WEB::$browser->is_enable_activex();
 echo "\nActiveX enabled after enabling: " . ($activex_enabled3 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -10,6 +10,6 @@ require($path);
 $cookies_folder = WEB::$browser->get_cookies_folder();
 echo "Current cookies folder: " . $cookies_folder;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

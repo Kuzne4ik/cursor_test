@@ -23,6 +23,6 @@ $file_path = WEB::$browser->wait_download_and_get_file_path(100);
 echo "\n\nWaited for download";
 echo "\nFile path: '" . $file_path . "'";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

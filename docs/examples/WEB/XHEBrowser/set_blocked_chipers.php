@@ -22,6 +22,6 @@ if ($result) {
 // Note: The cipher names should match the browser's supported cipher suites
 // This is an example - actual cipher names may vary depending on the browser
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

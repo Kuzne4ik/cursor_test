@@ -30,6 +30,6 @@ if ($result) {
     echo "\n\nFailed to set app info" . "\n";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -53,6 +53,6 @@ $result5 = WEB::$browser->set_internationalization();
 echo "\nSet internationalization for German: " . ($result5 ? "Success" : "Failed");
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

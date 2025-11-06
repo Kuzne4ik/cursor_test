@@ -18,6 +18,6 @@ $java_enabled2 = WEB::$browser->is_enable_java();
 echo "\nJava enabled after disabling: " . ($java_enabled2 ? "Yes" : "No") . "\n";
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

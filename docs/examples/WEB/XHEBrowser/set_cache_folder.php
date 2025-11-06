@@ -25,6 +25,6 @@ if ($result) {
 $updated_folder = WEB::$browser->get_cache_folder();
 echo "\nUpdated cache folder: " . $updated_folder;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

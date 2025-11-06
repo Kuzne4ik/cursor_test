@@ -34,6 +34,6 @@ $result2 = WEB::$browser->flash_cookies_save($folder2, "");
 echo "\n\nSaved Flash cookies for all sites to: " . $folder2;
 echo "\nResult: " . ($result2 ? "Success" : "Failed");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

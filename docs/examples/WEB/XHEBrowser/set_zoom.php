@@ -29,6 +29,6 @@ $result3 = WEB::$browser->set_zoom($zoom3);
 
 echo "\nSet page zoom to 50%: " . ($result3 ? "Success" : "Failed");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

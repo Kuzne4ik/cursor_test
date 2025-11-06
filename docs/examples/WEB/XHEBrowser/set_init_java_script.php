@@ -25,6 +25,6 @@ $url = "https://www.google.com";
 WEB::$browser->navigate($url);
 WEB::$browser->wait_js(3);
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

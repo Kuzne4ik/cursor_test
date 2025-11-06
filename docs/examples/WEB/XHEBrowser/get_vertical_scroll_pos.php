@@ -11,6 +11,6 @@ $current_scroll = WEB::$browser->get_vertical_scroll_pos();
 echo "\n\nCurrent vertical scroll position: " . $current_scroll . "px";
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

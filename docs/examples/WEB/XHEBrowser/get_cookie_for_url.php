@@ -29,6 +29,6 @@ $specific_cookie = WEB::$browser->get_cookie_for_url($url, $cookie_name);
 echo "\n\nSpecific cookie '" . $cookie_name . "':";
 echo "\n" . $specific_cookie;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

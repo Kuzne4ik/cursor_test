@@ -26,6 +26,6 @@ if ($result) {
     echo "\n\nFailed to save page as: " . $html_file . "\n";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

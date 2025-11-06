@@ -44,6 +44,6 @@ if ($result2) {
 $java_enabled3 = WEB::$browser->is_enable_java();
 echo "\nJava enabled after enabling: " . ($java_enabled3 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

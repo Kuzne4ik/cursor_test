@@ -20,6 +20,6 @@ if ($result) {
     echo "Failed to navigate to: " . $url;
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

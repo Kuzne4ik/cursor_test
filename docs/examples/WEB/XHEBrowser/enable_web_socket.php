@@ -44,6 +44,6 @@ if ($result2) {
 $websocket_enabled3 = WEB::$browser->is_enable_web_socket();
 echo "\nWebSocket enabled after enabling: " . ($websocket_enabled3 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

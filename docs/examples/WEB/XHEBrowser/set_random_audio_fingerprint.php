@@ -21,6 +21,6 @@ $noise_functions = [
     "Date.now() % 1000"
 ];
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

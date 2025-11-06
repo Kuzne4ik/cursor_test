@@ -20,6 +20,6 @@ if ($result) {
 // Note: Replace "your_google_api_key_here" with your actual Google API key
 // This is typically used for Google Maps, Google Translate, and other Google services
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

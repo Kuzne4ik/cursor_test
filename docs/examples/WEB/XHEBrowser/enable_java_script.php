@@ -44,6 +44,6 @@ if ($result2) {
 $js_enabled3 = WEB::$browser->is_enable_java_script();
 echo "\nJavaScript enabled after enabling: " . ($js_enabled3 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

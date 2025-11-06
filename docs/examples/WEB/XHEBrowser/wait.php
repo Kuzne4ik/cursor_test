@@ -17,6 +17,6 @@ echo "\n\nWaiting for 5 seconds...";
 WEB::$browser->wait(5);
 echo "\n5 seconds have passed";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

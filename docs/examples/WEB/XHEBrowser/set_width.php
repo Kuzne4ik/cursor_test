@@ -25,6 +25,6 @@ if ($result) {
 $updated_width = WEB::$browser->get_page_width();
 echo "\nUpdated page width: " . $updated_width . "px";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

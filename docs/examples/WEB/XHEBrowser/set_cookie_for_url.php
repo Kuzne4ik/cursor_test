@@ -54,6 +54,6 @@ echo "\n\nCookies for " . $target_url . ":";
 echo "\n" . $cookies_for_url;
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

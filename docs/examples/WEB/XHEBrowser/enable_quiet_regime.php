@@ -36,6 +36,6 @@ $result2 = WEB::$browser->enable_quiet_regime(false);
 
 echo "\n\nQuiet regime disabled: " . ($result2 ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

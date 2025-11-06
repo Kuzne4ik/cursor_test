@@ -26,6 +26,6 @@ WEB::$browser->wait_js(2);
 $busy = WEB::$browser->is_busy();
 echo "\n\nIs browser busy? " . ($busy ? "Yes" : "No");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

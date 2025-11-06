@@ -14,6 +14,6 @@ echo "\nBrowser version (numeric): " . $version_numeric;
 $version_string = WEB::$browser->get_version(false);
 echo "\nBrowser version (string): " . $version_string;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

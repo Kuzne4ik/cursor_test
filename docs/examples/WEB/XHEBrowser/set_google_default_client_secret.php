@@ -20,6 +20,6 @@ if ($result) {
 // Note: Replace "your_google_client_secret_here" with your actual Google client secret
 // This is typically used for Google OAuth authentication
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

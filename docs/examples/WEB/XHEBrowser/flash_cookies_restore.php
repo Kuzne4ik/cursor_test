@@ -43,6 +43,6 @@ WEB::$browser->wait(3);
 echo "\n\nNavigated again to: " . $url;
 echo "\nFlash cookies should be restored";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

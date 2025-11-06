@@ -44,6 +44,6 @@ WEB::$browser->set_cache_folder("");
 $default_folder = WEB::$browser->get_cache_folder();
 echo "\n\nReset to default cache folder: " . $default_folder;
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

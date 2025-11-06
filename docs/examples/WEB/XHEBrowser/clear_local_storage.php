@@ -33,6 +33,6 @@ if ($result) {
 } else {
     echo "\n\nFailed to clear local storage\n";
 }
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

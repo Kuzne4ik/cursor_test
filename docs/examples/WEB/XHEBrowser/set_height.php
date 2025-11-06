@@ -26,6 +26,6 @@ $updated_height = WEB::$browser->get_page_height();
 echo "\nUpdated page height: " . $updated_height . "px";
 
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

@@ -10,6 +10,6 @@ require($path);
 $text = WEB::$browser->get_last_messagebox_text();
 echo "\n\nLast message box text: '" . $text . "'";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

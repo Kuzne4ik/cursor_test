@@ -23,6 +23,6 @@ $result2 = WEB::$browser->enable_isolate_tabs(false);
 
 echo "\n\nTab isolation set disabled: " . ($result2 ? "Successfully" : "Failed");
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

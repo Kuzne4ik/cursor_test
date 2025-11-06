@@ -28,6 +28,6 @@ if ($result) {
     echo "\n\nFailed to set plugins info";
 }
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>

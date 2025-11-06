@@ -10,6 +10,6 @@ require($path);
 $page_height = WEB::$browser->get_page_height();
 echo "Current page height: " . $page_height . "px";
 
-// Остановить работу
+// Quit the application
 WINDOW::$app->quit();
 ?>
