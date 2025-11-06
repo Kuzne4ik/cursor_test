@@ -9,6 +9,7 @@ This folder contains examples of using various XHE DOM classes.
 - [XHETable Examples](XHETable/) - Примеры работы с таблицами
 - [XHEInterface Examples](XHEInterface/) - Примеры работы с DOM интерфейсом
 - [XHEAnchor Examples](XHEAnchor/) - Примеры работы с якорями
+- [XHEElement Examples](XHEElement/) - Примеры работы с DOM элементами
 
 ## XHETable Examples
 
@@ -189,6 +190,29 @@ This folder contains examples of using various XHE DOM classes.
 
 ### Методы работы с сенсорными событиями / Touch Event Methods
 - `send_touch.php` - Отправка сенсорного события
+
+## XHEElement Examples
+
+Папка `XHEElement/` содержит примеры использования всех функций класса XHEElement:
+
+### Методы получения элементов / Element Retrieval Methods
+- `get_tag_by_number.php` - Получение тега элемента по номеру
+- `get_x_by_tag_by_number.php` - Получение X координаты элемента по тегу и номеру
+- `get_y_by_tag_by_number.php` - Получение Y координаты элемента по тегу и номеру
+- `get_all_by_tag.php` - Получение всех элементов по тегу
+- `convert_number.php` - Преобразование номера элемента в номер другого объекта
+- `get_by_query_selector.php` - Получение элемента с помощью CSS селектора
+- `get_all_by_query_selector.php` - Получение всех элементов с помощью CSS селектора
+- `get_by_js.php` - Получение элемента с помощью JavaScript
+- `get_all_by_js.php` - Получение всех элементов с помощью JavaScript
+
+### Особенности использования / Usage Features
+
+- Поддержка работы с элементами через JavaScript
+- Возможность получения элементов по CSS селекторам
+- Получение координат элементов
+- Преобразование между различными типами объектов
+- Комплексные примеры использования
 
 ## XHEAnchor Examples
 
