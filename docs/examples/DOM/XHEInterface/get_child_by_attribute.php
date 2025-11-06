@@ -1,47 +1,47 @@
 <?php 
 
-// Сценарий: Для текущей страницы найти DOM элемент и получить дочерний DOM элемент по значению атрибута
-// Описание: Для текущей страницы найти 0 DOM элемент <form> и получить дочерний DOM элемент по значению атрибута
-// Используемые классы: XHEForm, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element and get a child DOM element by attribute value
+// Description: For the current page, find 0 DOM element <form> and get a child DOM element by attribute value
+// Classes used: XHEForm, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// Пример 1: Для текущей страницы получить 0 DOM элемент <form> и получить первый дочерний DOM элемент по значению атрибута id, поиск на первом уровне дерева
+// Example 1: For the current page, get 0 DOM element <form> and get the first child DOM element by id attribute value, search at the first level of the tree
 
-// Получить DOM элемент <form> по номеру 0
+// Get DOM element <form> by number 0
 $targetForm = DOM::$form->get_by_number(0);
 
-// Получить первый найденный дочерний DOM элемент по значению атрибута 'id' как XHEInterface, точное соответствие значения атрибута, поиск потомка на первом уровне дерева
+// Get the first found child DOM element by 'id' attribute value as XHEInterface, exact match of attribute value, search for descendant at the first level of the tree
 $targetFormChild = $targetForm->get_child_by_attribute("id","inputs", true, false);
 
-// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+// Call the get_tag() method for the element to get its tag name.
 $targetFormChild->get_tag();
 
 
-// Пример 2: Для текущей страницы получить 0 DOM элемент <form> и получить первый дочерний DOM элемент по значению атрибута id, поиск потомка на любом уровне дерева
+// Example 2: For the current page, get 0 DOM element <form> and get the first child DOM element by id attribute value, search for descendant at any level of the tree
 
-// Получить DOM элемент <form> по номеру 0
+// Get DOM element <form> by number 0
 $targetForm = DOM::$form->get_by_number(0);
 
-// Получить первый найденный дочерний DOM элемент по значению атрибута 'id' как XHEInterface, точное соответствие значения атрибута, поиск на первом уровне дерева
+// Get the first found child DOM element by 'id' attribute value as XHEInterface, exact match of attribute value, search at the first level of the tree
 $targetFormChild = $targetForm->get_child_by_attribute("id","inputs", true, true);
 
-// Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+// Call the get_tag() method for the element to get its tag name.
 $targetFormChild->get_tag();
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

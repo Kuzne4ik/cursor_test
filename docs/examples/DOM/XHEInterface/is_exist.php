@@ -1,27 +1,27 @@
 <?php $xhe_host = "127.0.0.1:7024";
 
-// подключим функциональные объекты, если еще не подключен
+// connect functional objects, if not already connected
 if (!isset($path))
   $path="../../../Templates/init.php";
 require($path);
 
-// начало
+// beginning
 echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
 
-// 1 
-echo "1. Перейдем на полигон: ";
+// 1
+echo "1. Navigate to polygon: ";
 echo $browser->navigate("http://wordstat.yandex.ru")."<br>";
 
-// 2 
-echo "2. Существует ли кнопка с нулевым номером : ";
+// 2
+echo "2. Does button with number 0 exist: ";
 echo $button->get_by_number(0)->is_exist()."<br>";
 
-// 3 
-echo "3. Существует ли test-region : ";
+// 3
+echo "3. Does test-region exist: ";
 if (!$div->get_by_name("test-region")->is_exist())
-	echo "не существует<br>";
+	echo "does not exist<br>";
 
-// конец
+// end
 echo "<hr><br>";
 
 // Quit

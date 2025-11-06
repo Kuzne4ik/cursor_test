@@ -1,33 +1,33 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент как объект и копировать этот объект
-// Описание: Для текущей страницы найти DOM элемент <a> как объект и копировать этот объект
-// Используемые классы: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element as an object and clone this object
+// Description: For the current page, find a DOM element <a> as an object and clone this object
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Пример 1: Для текущей страницы получить DOM элемент <a> по атрибуту 'href', как объекта XHEInterface, и сделать копию объекта
+// Example 1: For the current page, get DOM element <a> by 'href' attribute, as XHEInterface object, and make a clone of the object
 
-// Для текущей страницы получить DOM элемент как объекта XHEInterface <a> по атрибуту 'href', значение атрибута не точное соответствие
+// For the current page, get DOM element as XHEInterface object <a> by 'href' attribute, attribute value is not an exact match
 $targetAnchor = DOM::$anchor->get_by_attribute("href",'site.com',false);
 
-// Сделать копию объекта XHEInterface в переменную
+// Make a clone of the XHEInterface object into a variable
 $cloneAnchorObject = $targetAnchor->get_clone();
 
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

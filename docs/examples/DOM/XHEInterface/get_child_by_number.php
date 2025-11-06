@@ -1,41 +1,41 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент и получить дочерний DOM элемент по номеру
-// Описание: Для текущей страницы найти 0 DOM элемент <form> и получить его дочерний DOM элемент по номеру
-// Используемые классы: XHEForm, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element and get a child DOM element by number
+// Description: For the current page, find 0 DOM element <form> and get its child DOM element by number
+// Classes used: XHEForm, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// Пример 1: Для текущей страницы получить 0 DOM элемент <form> и получить его первый дочерний DOM элемент по номеру, поиск на первом уровне дерева
+// Example 1: For the current page, get 0 DOM element <form> and get its first child DOM element by number, search at the first level of the tree
 
-// Получить DOM элемент <form> по номеру 0
+// Get DOM element <form> by number 0
 $targetForm = DOM::$form->get_by_number(0);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetForm->inner_number != -1) {
-    // Получить первый найденный дочерний DOM элемент по номеру как XHEInterface, точное соответствие значения, поиск потомка на первом уровне дерева
+    // Get the first found child DOM element by number as XHEInterface, exact match of value, search for descendant at the first level of the tree
     $targetFormChild = $targetForm->get_child_by_number("0");
 
-    // Проверить, что элемент DOM получен
+    // Check that the DOM element is received
     if ($targetFormChild->inner_number != -1) {
-        // Вызвать для элемента метод get_tag() для получения названия его тэг (tag).
+        // Call the get_tag() method for the element to get its tag name.
         $targetFormChild->get_tag();
     }
 }
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

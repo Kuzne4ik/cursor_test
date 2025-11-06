@@ -1,47 +1,47 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент и получить количество его дочерних DOM элементов
-// Описание: Для текущей страницы найти 0 DOM элемент <form> и получить количество его дочерних DOM элементов
-// Используемые классы: XHEForm, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element and get the count of its child DOM elements
+// Description: For the current page, find 0 DOM element <form> and get the count of its child DOM elements
+// Classes used: XHEForm, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// Пример 1: Для текущей страницы найти и получить 0 DOM элемент <form> и получить количество его дочерних DOM элементов, поиск всех дочерних элементов на первом уровне дерева
+// Example 1: For the current page, find and get 0 DOM element <form> and get the count of its child DOM elements, search for all child elements at the first level of the tree
 
-// Получить DOM элемент <form> по номеру 0
+// Get DOM element <form> by number 0
 $targetForm = DOM::$form->get_by_number(0);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetForm->inner_number != -1) {
-    // Получить и вывести количество дочерних элементов первого уровня
+    // Get and output the count of first level child elements
     echo($targetForm->get_child_count(false));
 }
 
 
-// Пример 2: Для текущей страницы найти и получить 0 DOM элемент <form>, и получить количество его дочерних DOM элементов, поиск всех дочерних элементов на любом уровне дерева
+// Example 2: For the current page, find and get 0 DOM element <form>, and get the count of its child DOM elements, search for all child elements at any level of the tree
 
-// Получить DOM элемент <form> по номеру 0
+// Get DOM element <form> by number 0
 $targetForm = DOM::$form->get_by_number(0);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetForm->inner_number != -1) {
-    // Получить и вывести количество дочерних элементов на любом уровне дерева
+    // Get and output the count of child elements at any level of the tree
     echo($targetForm->get_child_count(true));
 }
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

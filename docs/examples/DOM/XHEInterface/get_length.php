@@ -1,35 +1,35 @@
 <?php
 
-// Сценарий: Для текущей страницы получить DOM элемент <select> и получить количество опций для выбора
-// Описание: Для текущей страницы получить DOM элемент <select> по 'id' и получить количество опций для выбора
-// Используемые классы: XHESelectElement, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For</arg_value> current page, get a DOM element <select> and get the number of options for selection
+// Description: For</arg_value> current page, get a DOM element <select> by 'id' and get the number of options for selection
+// Classes used: XHESelectElement, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to polygon page if page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// Пример 1: Для текущей страницы получить DOM элемент <select> по 'id' и получить количество опций для выбора
+// Example 1: For</arg_value> current page, get a DOM element <select> by 'id' and get the number of options for selection
 
-// Для текущей страницы получить DOM элемент <select> по 'id', не точное соответствие значения атрибута
+// For</arg_value> current page, get a DOM element <select> by 'id', not an exact match of attribute value
 $targetListbox = DOM::$listbox->get_by_attribute('id', 'id1', false);
 
-// Проверить, что элемент DOM получен
+// Check that DOM element is received
 if ($targetListbox->inner_number == -1) {
-    // Для DOM элемента получить его высоту
+    // For DOM element, get its height
     $targetListbox->get_length();
 }
 
-// Остановить работу
+// Stop application
 WINDOW::$app->quit();
 ?>

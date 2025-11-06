@@ -1,22 +1,22 @@
 <?php $xhe_host = "127.0.0.1:7025";
 
-// подключим функциональные объекты, если еще не подключен
+// connect functional objects, if not already connected
 if (!isset($path))
   $path="../../../Templates/init.php";
 require($path);
 
-// начало
+// beginning
 echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
 
-// 1 
-echo "1. Перейдем на полигон: ";
+// 1
+echo "1. Navigate to polygon: ";
 echo $browser->navigate(TEST_POLYGON_URL . "listbox.html")."<br>";
 
-// 2 
-echo "2. Выберем индекс : ";
+// 2
+echo "2. Select index: ";
 echo $listbox->get_by_number(1)->multi_select_texts("Германия,США")."<br>";
 
-// конец
+// end
 echo "<hr><br>";
 
 // Quit

@@ -1,37 +1,37 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент и добавить к нему дочерний DOM элемент как код HTML
-// Описание: Для текущей страницы Браузера найти DOM элемент <body> и добавить к нему дочерний DOM элемент anchor как код HTML
-// Используемые классы: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element and add a child DOM element to it as HTML code
+// Description: For the current Browser page, find a DOM element <body> and add a child DOM element anchor to it as HTML code
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 
-// Пример 1: Получить объект body и добавить к нему дочерний DOM элемент anchor, как код HTML.
-// Получить объект body по номеру 0 как XHEInterface
+// Example 1: Get the body object and add a child DOM element anchor to it as HTML code.
+// Get the body object by number 0 as XHEInterface
 $targetBody = DOM::$body->get_by_number(0);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetBody->inner_number != -1)
 {
-    // Добавить дочерний DOM элемент anchor, как код HTML
+    // Add child DOM element anchor as HTML code
     $targetBody->add_child("a", "<a href=\"http://ya.ru\">yandex.ru</a>");
 }
 
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

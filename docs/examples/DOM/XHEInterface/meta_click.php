@@ -1,27 +1,27 @@
 <?php $xhe_host = "127.0.0.1:7010";
 
-// подключим функциональные объекты, если еще не подключен
+// connect functional objects, if not already connected
 if (!isset($path))
   $path="../../../Templates/init.php";
 require($path);
 
-// начало
+// beginning
 echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
 
-// чтобы быстрее
+// for speed
 $browser->set_wait_params(5,1);
 
-// 1 
-echo "1. Перейдем на полигон: ";
+// 1
+echo "1. Navigate to polygon: ";
 echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
 
-// 2 
+// 2
 
 echo $anchor->get_by_name("onclick", 0)->meta_click(false)."<br>";
 
 
 
-// конец
+// end
 echo "<hr><br>";
 
 // Quit

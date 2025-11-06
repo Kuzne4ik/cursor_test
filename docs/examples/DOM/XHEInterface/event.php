@@ -1,36 +1,36 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент и послать для него JS событие
-// Описание: Для текущей страницы Браузера найти DOM элемент <a> и получить его как XHEInterface, и послать для него JS событие
-// Используемые классы: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element and send a JS event to it
+// Description: For the current Browser page, find a DOM element <a> and get it as XHEInterface, and send a JS event to it
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Пример 1: Получить объект anchor и послать для него JS событие "onclick"
+// Example 1: Get the anchor object and send a JS event "onclick" to it
 
-// Получить объект anchor по атрибуту 'name', как XHEInterface
+// Get the anchor object by 'name' attribute, as XHEInterface
 $targetAnchorInterface = DOM::$anchor->get_by_name("list");
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetAnchorInterface->inner_number != -1)
 {
-    // Для найденного объекта anchor послать JS событие "onclick"
+    // For the found anchor object, send a JS event "onclick"
     $targetAnchorInterface->event("onclick");
 }
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

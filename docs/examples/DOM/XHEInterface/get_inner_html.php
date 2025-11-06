@@ -1,37 +1,37 @@
 <?php
 
-// Сценарий: Для текущей страницы получить DOM элемент и получить его внутренний HTML
-// Описание: Для текущей страницы получить DOM элемент <div> по 'id' и получить его внутренний HTML
-// Используемые классы: XHEDiv, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, get a DOM element and get its inner HTML
+// Description: For the current page, get a DOM element <div> by 'id' and get its inner HTML
+// Classes used: XHEDiv, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// Пример 1: Для текущей страницы получить DOM элемент <div> по 'id' и получить значение его внутреннего HTML
+// Example 1: For the current page, get DOM element <div> by 'id' and get the value of its inner HTML
 
-// Для текущей страницы получить DOM элемент <div> по 'id', не точное соответствие значения атрибута
+// For the current page, get DOM element <div> by 'id', not an exact match of attribute value
 $targetAnchor = DOM::$anchor->get_by_attribute("id",'id1', false);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetAnchor->inner_number != -1)
 {
-    // Для DOM элемента получить значение внутреннего HTML
+    // For the DOM element, get the value of inner HTML
     $targetAnchor->get_inner_html();
 }
 
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

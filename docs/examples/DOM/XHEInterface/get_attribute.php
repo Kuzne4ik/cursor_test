@@ -1,35 +1,35 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент и получить значение его атрибута
-// Описание: Для текущей страницы найти DOM элемент <a> и получить значение его атрибута
-// Используемые классы: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element and get the value of its attribute
+// Description: For the current page, find a DOM element <a> and get the value of its attribute
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Пример 1: Получить DOM элемент anchor по id с текстом 'onclick' и получить значения его атрибута id
+// Example 1: Get the DOM element anchor by id with text 'onclick' and get the values of its id attribute
 
-// Получить объект anchor по id с текстом 'onclick', значение атрибута не точное соответствие и получить объект anchor как XHEInterface
+// Get the anchor object by id with text 'onclick', attribute value is not an exact match and get the anchor object as XHEInterface
 $targetAnchor = DOM::$anchor->get_by_attribute('id', 'onclick', false);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetAnchor->inner_number != -1) {
-    // Для найденного объекта image получить значение его атрибута 'id', как переменную
+    // For the found image object, get the value of its 'id' attribute, as a variable
     $targetImageInterfaceAlt = $targetAnchor->get_attribute('id');
 }
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

@@ -1,26 +1,26 @@
 <?php $xhe_host = "127.0.0.1:7094";
 
-// подключим функциональные объекты, если еще не подключен
+// connect functional objects, if not already connected
 if (!isset($path))
   $path="../../../Templates/init.php";
 require($path);
 
-// начало
+// beginning
 echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
 
-// 1 
-echo "1. Перейдем на полигон: ";
+// 1
+echo "1. Navigate to polygon: ";
 echo $browser->navigate(TEST_POLYGON_URL . "image.html") . "\n";
 
-// 2 
-echo "2. Получить номер элемента по его src: ";
+// 2
+echo "2. Get element number by its src: ";
 echo $image->get_by_attribute("src", TEST_SCREENSHOTS_URL . "01.jpg",true)->get_number() . "\n";
 
-// 3 
-echo "3. Получить номер картинки по его src: ";
+// 3
+echo "3. Get image number by its src: ";
 echo $image->get_by_attribute("src","02.jpg",false)->get_number("image") . "\n";
 
-// конец
+// end
 echo "<hr><br>";
 
 // Quit

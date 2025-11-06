@@ -1,28 +1,28 @@
 <?php $xhe_host = "127.0.0.1:7014";
 
-// подключим функциональные объекты, если еще не подключен
+// connect functional objects, if not already connected
 if (!isset($path))
   $path="../../../Templates/init.php";
 require($path);
 
-// начало
+// beginning
 echo "<hr><font color=blue>keyboard->".basename (__FILE__)."</font><hr>";
 
-// 1 
-echo "1. Перейдем на яндекс : ";
+// 1
+echo "1. Navigate to yandex: ";
 echo $browser->navigate("http://ya.ru")."<br>";
 
-// 2 
-echo "2. Получим строку поиска : ";
+// 2
+echo "2. Get search string: ";
 $obj=$input->get_by_number(0);
 echo $obj->inner_number."<br>";
 
-// 3 
-echo "3. Нажмем a : ";
+// 3
+echo "3. Press a key: ";
 echo $obj->key_down("a")."  +  ";
 echo $obj->key_up("a");
 
-// конец
+// end
 echo "<hr><br>";
 
 // Quit

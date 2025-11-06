@@ -1,39 +1,39 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент и получить названия тэг (tag) всех его родителей в DOM дереве
-// Описание: Для текущей страницы найти DOM элемент как XHEInterface и получить названия тэг (tag) цепочки всех его родителей в DOM дереве
-// Используемые классы: XHEAnchor, XHEBrowser, XHEApplication, XHEInterface, XHEInterfaces
+// Scenario: For the current page, find a DOM element and get the tag names of all its parents in the DOM tree
+// Description: For the current page, find a DOM element as XHEInterface and get the tag names of the chain of all its parents in the DOM tree
+// Classes used: XHEAnchor, XHEBrowser, XHEApplication, XHEInterface, XHEInterfaces
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Пример 1: Получить DOM элемент anchor по id с текстом 'onclick' и получить названия тэг (tag) всех его родителей в DOM дереве
+// Example 1: Get the DOM element anchor by id with text 'onclick' and get the tag names of all its parents in the DOM tree
 
-// Получить объект anchor по id с текстом 'onclick', значение атрибута не точное соответствие и получить его как XHEInterface
+// Get the anchor object by id with text 'onclick', attribute value is not an exact match and get it as XHEInterface
 $targetAnchor = DOM::$anchor->get_by_attribute('id', 'onclick', false);
 
-// Получить все родительские элементы для текущего элемента DOM anchor, как объект-коллекцию типа XHEInterfaces
+// Get all parent elements for the current anchor DOM element, as a collection object of type XHEInterfaces
 $divParents = $targetAnchor->get_all_parents();
 
-// Вызвать для объект-коллекции типа XHEInterfaces на каждом элементе коллекции метод get_tag() для получения названия его тэг (tag).
-// В результате выполнения будет возвращен массив строк тэг (tag) для родительских элементов текущего элемента DOM.
+// For the collection object of type XHEInterfaces, call the get_tag() method on each element of the collection to get its tag name.
+// As a result of execution, an array of tag name strings for parent elements of the current DOM element will be returned.
 $targetDivParentTags = $divParents->get_tag();
-// Вывести все тэг (tag) в консоль по одному
+// Output all tags to the console one by one
 foreach ($targetDivParentTags as $parentTag)
     echo($parentTag . "\n");
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

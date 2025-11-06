@@ -1,15 +1,15 @@
 <?php $xhe_host = "127.0.0.1:7094";
 
-// подключим функциональные объекты, если еще не подключен
+// connect functional objects, if not already connected
 if (!isset($path))
   $path="../../../Templates/init.php";
 require($path);
 
-// начало
+// beginning
 echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
 
-// 1 
-echo "1. Перейдем на полигон: ";
+// 1
+echo "1. Navigate to polygon: ";
 echo $browser->navigate(TEST_POLYGON_URL . "canvas.html")."<br>";
 
 // JS
@@ -17,7 +17,7 @@ $js =@"
 var context = element.getContext('2d');
       var centerX = element.width / 2;
       var centerY = element.height / 2;
-      var radius = element.height / 2-10;      
+      var radius = element.height / 2-10;
 
 	  var i;
 	  for (i=0;i<5;i++)
@@ -34,15 +34,15 @@ var context = element.getContext('2d');
 		context.lineWidth = 1;
 		context.strokeStyle = '#003300';
 		context.stroke();
-	  }      
+	  }
 	  i
 ";
 
-// 2 
-echo "2. Отрисуем картинку на элменте по номеру (нарисуем на холсте) : ";
+// 2
+echo "2. Draw image on element by number (draw on canvas): ";
 echo $canvas->get_by_number(0)->run_js($js)."\n";
 
-// конец
+// end
 echo "<hr><br>";
 
 // Quit

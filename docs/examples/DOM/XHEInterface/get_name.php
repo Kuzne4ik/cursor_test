@@ -1,22 +1,22 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент и получить его значение атрибута 'name'
-// Описание: Для текущей страницы найти 0 DOM элемент <input> и получить его значение атрибута 'name'
-// Используемые классы: XHEInput, XHEInterface, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element and get the value of its 'name' attribute
+// Description: For the current page, find 0 DOM element <input> and get the value of its 'name' attribute
+// Classes used: XHEInput, XHEInterface, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
 // Пример 1: Для текущей страницы найти и получить 0 DOM элемент <input> и получить его значение атрибута 'name'

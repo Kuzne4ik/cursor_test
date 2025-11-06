@@ -1,35 +1,35 @@
 <?php
 
-// Сценарий: Для текущей страницы найти DOM элемент image и получить значение его атрибута 'alt'.
-// Описание: Для текущей страницы Браузера найти DOM элемент <image>, и получить его как XHEInterface и получить значение его атрибута 'alt'
-// Используемые классы: XHEImage, XHEBrowser, XHEApplication
+// Scenario: For the current page, find a DOM element image and get the value of its 'alt' attribute.
+// Description: For the current Browser page, find a DOM element <image>, and get it as XHEInterface and get the value of its 'alt' attribute
+// Classes used: XHEImage, XHEBrowser, XHEApplication
 
-// Строка подключения к API XHE
+// Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
 
-// Путь к файлу init.php
+// Path to init.php file
 if (!isset($path))
 {
-    // Путь к файлу init.php для подключения к API XHE
+    // Path to init.php file for connecting to XHE API
     $path = "../../../../../../Templates/init.php";
-    // При подключении файла init.php, будет доступен весь функционал классов для работы с API XHE
+    // When connecting the init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Перейти на страницу полигона, если ранее страница не была загружена
+// Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
 
-// Пример 1: Получить объект image по атрибуту 'src' и получить значение его атрибута 'alt'.
+// Example 1: Get the image object by 'src' attribute and get the value of its 'alt' attribute.
 
-// Получить объект image как XHEInterface по атрибуту 'name', не строгое соответствие значения атрибута
+// Get the image object as XHEInterface by 'name' attribute, not strict match of attribute value
 $targetImageInterface = DOM::$image->get_by_attribute("name", "screen1", false);
 
-// Проверить, что элемент DOM получен
+// Check that the DOM element is received
 if ($targetImageInterface->inner_number != -1) {
-    // Для найденного объекта <image> получить значение его атрибута 'alt', как переменную
+    // For the found <image> object, get the value of its 'alt' attribute, as a variable
     $targetImageInterfaceAlt = $targetImageInterface->get_alt();
 }
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>
