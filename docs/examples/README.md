@@ -1,228 +1,218 @@
-# XHE Examples
+# Структура папки `docs/examples/`
 
-Эта папка содержит примеры использования различных классов XHE.
+Эта папка содержит примеры использования XHE API framework для работы с DOM, браузером и другими инструментами.
 
-This folder contains examples of using various XHE classes.
-
-## Структура папки / Folder Structure
+## Общая структура
 
 ```
 docs/examples/
-├── DOM/                          # DOM классы / DOM classes
-│   ├── README.md                 # Документация по DOM / DOM documentation
-│   ├── XHETable/                 # Примеры работы с таблицами
-│   │   ├── README.md             # Документация по XHETable
-│   │   ├── export_to_csv.php     # Экспорт таблиц в CSV
-│   │   ├── export_to_xml.php     # Экспорт таблиц в XML
-│   │   ├── get_cells_by_number.php
-│   │   ├── get_cell_by_number.php
-│   │   ├── get_cell_by_pos_by_number.php
-│   │   ├── get_cell_x_by_attribute.php
-│   │   ├── get_cell_x_by_inner_text.php
-│   │   ├── get_cell_x_by_number.php
-│   │   ├── get_cell_y_by_attribute.php
-│   │   ├── get_cell_y_by_inner_text.php
-│   │   ├── get_cell_y_by_number.php
-│   │   ├── get_cols_by_number.php
-│   │   ├── get_col_by_number.php
-│   │   ├── get_rows_by_number.php
-│   │   ├── get_row_by_number.php
-│   │   └── output/               # Папка для экспорта
-│   ├── XHEInterface/             # Интерфейсные методы
-│   │   ├── README.md             # Документация по XHEInterface
-│   │   ├── add_attribute.php
-│   │   ├── add_child.php
-│   │   ├── check.php
-│   │   ├── click.php
-│   │   ├── ensure_visible.php
-│   │   ├── event.php
-│   │   ├── focus.php
-│   │   ├── get_all_attributes.php
-│   │   ├── get_all_attributes_values.php
-│   │   ├── get_all_child_by_attribute.php
-│   │   ├── get_all_child_by_inner_html.php
-│   │   ├── get_all_child_by_inner_text.php
-│   │   ├── get_all_child_by_xpath.php
-│   │   ├── get_all_events.php
-│   │   ├── get_all_parents.php
-│   │   ├── get_alt.php
-│   │   ├── get_attribute.php
-│   │   ├── get_child_by_attribute.php
-│   │   ├── get_child_by_inner_html.php
-│   │   ├── get_child_by_inner_text.php
-│   │   ├── get_child_by_number.php
-│   │   ├── get_child_by_outer_html.php
-│   │   ├── get_child_by_outer_text.php
-│   │   ├── get_child_by_xpath.php
-│   │   ├── get_child_count.php
-│   │   ├── get_clone.php
-│   │   ├── get_form_number.php
-│   │   ├── get_frame_number.php
-│   │   ├── get_height.php
-│   │   ├── get_href.php
-│   │   ├── get_id.php
-│   │   ├── get_inner_html.php
-│   │   ├── get_inner_text.php
-│   │   ├── get_length.php
-│   │   ├── get_name.php
-│   │   ├── get_next.php
-│   │   ├── get_number.php
-│   │   ├── get_numbers_child.php
-│   │   ├── get_outer_html.php
-│   │   ├── get_outer_text.php
-│   │   ├── get_parent.php
-│   │   ├── get_parents_count.php
-│   │   ├── get_parent_by_attribute.php
-│   │   ├── get_prev.php
-│   │   ├── get_selected_index.php
-│   │   ├── get_selected_text.php
-│   │   ├── get_shadow_root.php
-│   │   ├── get_src.php
-│   │   ├── get_tag.php
-│   │   ├── get_type.php
-│   │   ├── get_value.php
-│   │   ├── get_width.php
-│   │   ├── get_x.php
-│   │   ├── get_xpath.php
-│   │   ├── get_y.php
-│   │   ├── input.php
-│   │   ├── insert_before.php
-│   │   ├── is_checked.php
-│   │   ├── is_disabled.php
-│   │   ├── is_exist.php
-│   │   ├── is_view_now.php
-│   │   ├── is_visibled.php
-│   │   ├── key.php
-│   │   ├── key_down.php
-│   │   ├── key_up.php
-│   │   ├── meta_click.php
-│   │   ├── mouse_click.php
-│   │   ├── mouse_double_click.php
-│   │   ├── mouse_left_down.php
-│   │   ├── mouse_left_up.php
-│   │   ├── mouse_move.php
-│   │   ├── mouse_move_to.php
-│   │   ├── mouse_right_click.php
-│   │   ├── mouse_right_down.php
-│   │   ├── mouse_right_up.php
-│   │   ├── multi_select_indexes.php
-│   │   ├── multi_select_texts.php
-│   │   ├── multi_select_values.php
-│   │   ├── remove.php
-│   │   ├── remove_attribute.php
-│   │   ├── run_js.php
-│   │   ├── run_selected.php
-│   │   ├── save.php
-│   │   ├── screenshot.php
-│   │   ├── scroll.php
-│   │   ├── scroll_to_view.php
-│   │   ├── seek_to_end.php
-│   │   ├── seek_to_pos.php
-│   │   ├── select_index.php
-│   │   ├── select_random.php
-│   │   ├── select_text.php
-│   │   ├── select_value.php
-│   │   ├── send_input.php
-│   │   ├── send_key.php
-│   │   ├── send_key_down.php
-│   │   ├── send_key_up.php
-│   │   ├── send_mouse_click.php
-│   │   ├── send_mouse_double_click.php
-│   │   ├── send_mouse_left_down.php
-│   │   ├── send_mouse_left_up.php
-│   │   ├── send_mouse_move.php
-│   │   ├── send_mouse_move_to.php
-│   │   ├── send_mouse_right_click.php
-│   │   ├── send_mouse_right_down.php
-│   │   ├── send_mouse_right_up.php
-│   │   ├── send_touch.php
-│   │   ├── set_attribute.php
-│   │   ├── set_inner_html.php
-│   │   ├── set_inner_text.php
-│   │   └── set_value.php
-│   ├── XHEAnchor/                # Якоря / Anchors
-│   │   ├── README.md             # Документация по XHEAnchor
-│   │   ├── get_all_hrefs_by_attribute.php
-│   │   ├── get_all_hrefs_by_inner_text.php
-│   │   ├── get_by_attribute.php
-│   │   ├── get_by_name.php
-│   │   └── get_by_number.php
-│   ├── XHEForm/                  # Формы / Forms
-│   │   ├── README.md             # Документация по XHEForm
-│   │   ├── get_action_by_id.php
-│   │   ├── get_action_by_name.php
-│   │   ├── get_action_by_number.php
-│   │   ├── reset_by_name.php
-│   │   ├── reset_by_number.php
-│   │   ├── submit_by_action.php
-│   │   ├── submit_by_attribute.php
-│   │   ├── submit_by_id.php
-│   │   ├── submit_by_name.php
-│   │   └── submit_by_number.php
-├── Tools/                        # Инструменты / Tools (будет добавлено содержимое)
-└── README.md                     # Этот файл / This file
+├── DOM/                    # Примеры работы с DOM элементами
+│   ├── README.md          # Документация по DOM примерам
+│   ├── XHEAnchor/         # Примеры работы с якорями
+│   ├── XHEForm/           # Примеры работы с формами
+│   ├── XHEInterface/      # Интерфейсные примеры
+│   ├── XHETable/          # Примеры работы с таблицами
+│   └── XHETextArea/       # Примеры работы с текстовыми областями
+│
+├── Tools/                 # Инструменты и утилиты
+│
+└── WEB/                   # Примеры работы с браузером и веб-функциями
+    ├── README.md          # Документация по WEB примерам
+    └── XHEBrowser/        # Примеры работы с браузером
+        ├── add_tab.php
+        ├── call_java_script.php
+        ├── cancel_download.php
+        ├── clear_cookies.php
+        ├── clear_indexed_db.php
+        ├── clear_last_messagebox_info.php
+        ├── clear_local_storage.php
+        ├── close.php
+        ├── close_all_tabs.php
+        ├── close_popup.php
+        ├── disable_proxy.php
+        ├── disable_script_error.php
+        ├── disable_security_problem_dialogs.php
+        ├── enable_activex.php
+        ├── enable_browser_message_boxes.php
+        ├── enable_browser_notification.php
+        ├── enable_cache.php
+        ├── enable_callback.php
+        ├── enable_common_cache_and_cookies.php
+        ├── enable_directx.php
+        ├── enable_dom_storage.php
+        ├── enable_download_file_dialog.php
+        ├── enable_fonts.php
+        ├── enable_frames.php
+        ├── enable_gpu_rendering.php
+        ├── enable_images.php
+        ├── enable_isolate_tabs.php
+        ├── enable_java.php
+        ├── enable_java_script.php
+        ├── enable_popup.php
+        ├── enable_proxy.php
+        ├── enable_quiet_regime.php
+        ├── enable_remote_fonts.php
+        ├── enable_sounds.php
+        ├── enable_video.php
+        ├── enable_view_json.php
+        ├── enable_web_rtc.php
+        ├── enable_web_socket.php
+        ├── flash_cookies_delete.php
+        ├── flash_cookies_restore.php
+        ├── flash_cookies_save.php
+        ├── get_active_browser.php
+        ├── get_cache_folder.php
+        ├── get_cookie.php
+        ├── get_cookies_folder.php
+        ├── get_cookie_for_url.php
+        ├── get_count.php
+        ├── get_cpu_class.php
+        ├── get_current_proxy.php
+        ├── get_download_info.php
+        ├── ├── get_horizontal_scroll_pos.php
+        ├── get_last_download_id.php
+        ├── get_last_messagebox_caption.php
+        ├── get_last_messagebox_text.php
+        ├── get_last_messagebox_type.php
+        ├── get_last_navigation_error.php
+        ├── get_model.php
+        ├── get_page_height.php
+        ├── get_page_width.php
+        ├── get_page_zoom.php
+        ├── get_popup_source.php
+        ├── get_ready_state.php
+        ├── get_referer.php
+        ├── get_selected_text.php
+        ├── get_user_agent.php
+        ├── get_version.php
+        ├── get_vertical_scroll_pos.php
+        ├── get_window_height.php
+        ├── get_window_width.php
+        ├── go_back.php
+        ├── go_forward.php
+        ├── import_cookies.php
+        ├── is_busy.php
+        ├── is_disable_script_error.php
+        ├── is_download_complete.php
+        ├── is_enable_activex.php
+        ├── is_enable_cache.php
+        ├── is_enable_callback.php
+        ├── is_enable_common_cache_and_cookies.php
+        ├── is_enable_dom_storage.php
+        ├── is_enable_download_file_dialog.php
+        ├── is_enable_frames.php
+        ├── is_enable_images.php
+        ├── is_enable_java.php
+        ├── is_enable_java_script.php
+        ├── is_enable_popup.php
+        ├── is_enable_quiet_regime.php
+        ├── is_enable_sounds.php
+        ├── is_enable_video.php
+        ├── is_enable_view_json.php
+        ├── is_enable_web_rtc.php
+        ├── is_enable_web_socket.php
+        ├── navigate.php
+        ├── navigate_to_home_page.php
+        ├── paste.php
+        ├── print_page.php
+        ├── refresh.php
+        ├── reset_default_authorization.php
+        ├── reset_default_download.php
+        ├── run_dojo.php
+        ├── run_java_script.php
+        ├── run_jquery.php
+        ├── save_page_as.php
+        ├── set_accept.php
+        ├── set_accept_encoding.php
+        ├── set_accept_language.php
+        ├── set_active_browser.php
+        ├── set_active_page.php
+        ├── set_app_info.php
+        ├── set_battery_api.php
+        ├── set_blocked_chipers.php
+        ├── set_cache_folder.php
+        ├── set_canvas_toDataURL.php
+        ├── set_cookie.php
+        ├── set_cookies_folder.php
+        ├── set_cookie_for_url.php
+        ├── set_count.php
+        ├── set_default_authorization.php
+        ├── set_default_certificate.php
+        ├── set_default_download.php
+        ├── set_document_complete_java_script.php
+        ├── set_do_not_track.php
+        ├── set_geo.php
+        ├── set_google_api_key.php
+        ├── set_google_default_client_id.php
+        ├── set_google_default_client_secret.php
+        ├── set_hardware_info.php
+        ├── set_height.php
+        ├── set_home_page.php
+        ├── set_horizontal_scroll_pos.php
+        ├── set_init_java_script.php
+        ├── set_internationalization.php
+        ├── set_javascript_profile.php
+        ├── set_language.php
+        ├── set_model.php
+        ├── set_page_zoom.php
+        ├── set_permissions.php
+        ├── set_platform.php
+        ├── set_plugins_info.php
+        ├── set_popup_type.php
+        ├── set_random_audio_fingerprint.php
+        ├── set_random_bounds_fingerprint.php
+        ├── set_random_webgl_fingerprint.php
+        ├── set_referer.php
+        ├── set_screen_resolution.php
+        ├── set_text_encoding.php
+        ├── set_time_zone.php
+        ├── set_touch_info.php
+        ├── set_user_agent.php
+        ├── set_vertical_scroll_pos.php
+        ├── set_wait_params.php
+        ├── set_webgl_alpha_buffer.php
+        ├── set_webgl_antialiasing.php
+        ├── set_webgl_depth_buffer.php
+        ├── set_webgl_fail_if_major_performance_caveat.php
+        ├── set_webgl_params.php
+        ├── set_webgl_premultiplied_alpha.php
+        ├── set_webgl_preserve_drawing_buffer.php
+        ├── set_webgl_stencil_buffer.php
+        ├── set_width.php
+        ├── stop.php
+        ├── wait.php
+        ├── wait_download_and_get_file_path.php
+        ├── wait_for.php
+        └── wait_js.php
 ```
 
-## Содержание / Contents
+## Описание разделов
 
-- [DOM Classes](DOM/) - Примеры работы с DOM элементами
-  - [XHETable Examples](DOM/XHETable/) - Примеры работы с таблицами
-  - [XHEInterface Examples](DOM/XHEInterface/) - Примеры работы с DOM интерфейсом
-  - [XHEAnchor Examples](DOM/XHEAnchor/) - Примеры работы с якорями
-  - [XHEForm Examples](DOM/XHEForm/) - Примеры работы с формами
-- [Tools](Tools/) - Инструменты и утилиты (будет добавлено содержимое)
+### DOM/
+Содержит примеры работы с различными DOM элементами:
+- **XHEAnchor** - работа с якорями (ссылками)
+- **XHEForm** - работа с HTML формами
+- **XHEInterface** - базовые интерфейсные операции
+- **XHETable** - работа с таблицами, включая экспорт данных
+- **XHETextArea** - работа с текстовыми областями (textarea)
 
-## Как использовать примеры / How to Use Examples
+### Tools/
+Содержит дополнительные инструменты и утилиты для работы с XHE API.
 
-1. **Подключение классов** / **Class Connection**:
-   ```php
-   require_once 'src/Templates/Objects/DOM/xhe_table.php';
-   ```
+### WEB/
+Содержит примеры работы с браузером и веб-функциями:
+- **XHEBrowser** - управление браузером, навигация, настройка параметров, работа с cookies, local storage, управление вкладками и многое другое
 
-2. **Использование статических свойств** / **Using Static Properties**:
-   ```php
-   // Правильно:
-   $result = DOM::$table->get_cell_by_number(0, 1, 2);
-   
-   // Неправильно (не создавать объекты):
-   // $table = new XHETable();
-   ```
+## Использование примеров
 
-3. **Проверка существования элементов** / **Checking Element Existence**:
-   ```php
-   // Проверка через метод is_exist()
-   $element = DOM::$table->get_by_number(0);
-   if ($element->is_exist()) {
-       // Работа с элементом
-   }
-   
-   // Альтернативная проверка через inner_number
-   if ($element->inner_number > -1) {
-       // Элемент существует на странице
-   }
-   ```
+Каждый пример представляет собой PHP скрипт, который демонстрирует использование конкретного метода XHE API. Для запуска примеров необходимо:
 
-## Общие принципы / General Principles
+1. Убедиться, что XHE API framework установлен и доступен
+2. Настроить путь к `init.php` в начале каждого скрипта
+3. Выполнить скрипт через сервер XHE
 
-- Все классы XHE используются как статические свойства
-- Не создавайте объекты классов XHE вручную
-- Всегда проверяйте существование элементов перед работой с ними
-- Используйте правильные индексы (начинаются с 0)
-- Учитывайте работу с фреймами при необходимости
-- Для получения объекта используйте методы с префиксом `get_by_`
-- Для получения коллекций используйте методы с префиксом `get_all_by_`
+## Дополнительная информация
 
-## Поддержка / Support
-
-Если у вас возникли вопросы по использованию примеров, проверьте:
-
-- Документацию по каждому классу в соответствующих README.md файлах
-- Примеры в соответствующих папках
-- Комментарии в коде примеров
-- Структуру папок для понимания расположения файлов
-
---- 
-
-*Этот README.md автоматически сгенерирован для документации примеров использования классов XHE.*
-
-*This README.md was automatically generated for documentation of XHE class usage examples.*
+- Все примеры включают обязательные блоки инициализации и завершения работы
+- Используется статический доступ к классам XHE без создания объектов
+- Для проверки существования элементов используются методы `is_exist()` или проверка свойства `inner_number`

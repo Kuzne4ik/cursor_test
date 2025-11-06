@@ -101,6 +101,57 @@ $internal_links = DOM::$anchor->get_all_internal_inner_texts_and_hrefs("https://
 // $navigate_result = DOM::$anchor->get_all_internal_inner_texts_and_hrefs("https://example.com/about", true, ";");
 ```
 
+### get_by_attribute
+Получить DOM элемент anchor по значению атрибута.
+
+**Файл примера:** [`get_by_attribute.php`](get_by_attribute.php)
+
+```php
+// Получить элемент anchor по атрибуту href с частичным совпадением
+$targetAnchor = DOM::$anchor->get_by_attribute("href", 'site.com', false);
+
+// Проверить, что элемент найден
+if ($targetAnchor->inner_number != -1) {
+    echo("\nThe anchor found!");
+} else {
+    echo("\nThe anchor not found!");
+}
+```
+
+### get_by_name
+Получить DOM элемент anchor по значению атрибута name.
+
+**Файл примера:** [`get_by_name.php`](get_by_name.php)
+
+```php
+// Получить элемент anchor по атрибуту name со значением "list"
+$targetAnchorInterface = DOM::$anchor->get_by_name("list");
+
+// Проверить, что элемент найден
+if ($targetAnchorInterface->inner_number != -1) {
+    echo("\nThe anchor found!");
+} else {
+    echo("\nThe anchor not found!");
+}
+```
+
+### get_by_number
+Получить DOM элемент anchor по порядковому номеру.
+
+**Файл примера:** [`get_by_number.php`](get_by_number.php)
+
+```php
+// Получить элемент anchor по порядковому номеру 1
+$targetAnchor = DOM::$anchor->get_by_number(1);
+
+// Проверить, что элемент найден
+if ($targetAnchor->inner_number != -1) {
+    echo("\nThe anchor found!");
+} else {
+    echo("\nThe anchor not found!");
+}
+```
+
 ## Общие параметры
 
 Большинство функций поддерживают следующие параметры:
