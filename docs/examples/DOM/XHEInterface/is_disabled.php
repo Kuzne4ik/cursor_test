@@ -1,24 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Check if a DOM element is disabled
+// Description: For current page, find a button element and check if it is disabled
+// Classes used: XHEButton, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Check if a button is disabled
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "btn.html")."<br>";
+// Navigate to the polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "btn.html");
 
-// 2
-echo "2. Is button with this name disabled: ";
-echo $btn->get_by_name("add_comment_button")->is_disabled()."<br>";
+// Get DOM element <button> by name
+$targetButton = DOM::$btn->get_by_name("add_comment_button");
 
-// end
-echo "<hr><br>";
+// Check that the DOM element was found
+if ($targetButton->inner_number != -1) {
+    // Check if the button is disabled
+    echo $targetButton->is_disabled();
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

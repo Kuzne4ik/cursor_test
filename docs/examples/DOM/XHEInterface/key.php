@@ -1,31 +1,43 @@
-<?php $xhe_host = "127.0.0.1:7010";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Simulate key press on a DOM element
+// Description: For current page, find an input element and simulate a key press
+// Classes used: XHEInput, XHEInterface, XHEBrowser, XHEApplication, XHEKeyboard
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>keyboard->".basename (__FILE__)."</font><hr>";
+// Example 1: Simulate key press on an input element
 
-// 1
-echo "1. Navigate to yandex: ";
-echo $browser->navigate("http://ya.ru")."<br>";
+// Navigate to yandex
+echo WEB::$browser->navigate("http://ya.ru");
 
-// 2
-echo "2. Get search string as element: ";
-$obj=$input->get_by_number(0);
-echo $obj->inner_number."<br>";
+// Get DOM element <input> by number 0
+$targetInput = DOM::$input->get_by_number(0);
 
-// 3
-echo "3. Press key s (code 83): ";
-$keyboard->set_current_language("en");
-$app->set_foreground_window();
-echo $obj->focus()." ".$obj->key(83);
+// Check that the DOM element was found
+if ($targetInput->inner_number != -1) {
+    echo $targetInput->inner_number;
+    
+    // Set keyboard language to English
+    SYSTEM::$keyboard->set_current_language("en");
+    
+    // Set the application window to foreground
+    WINDOW::$app->set_foreground_window();
+    
+    // Set focus to the input element and press key 's' (code 83)
+    echo $targetInput->focus() . " " . $targetInput->key(83);
+}
 
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

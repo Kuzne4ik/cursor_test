@@ -1,24 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Move cursor to a specific position in a textarea element
+// Description: For current page, find a textarea element and move cursor to a specific position
+// Classes used: XHETextArea, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Move cursor to position 10 in a textarea element
 
-// 1
-echo "1. Navigate to the test site: ";
-echo $browser->navigate(TEST_POLYGON_URL . "textarea.html")."<br>";
+// Navigate to test site
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "textarea.html");
 
-// 2
-echo "2. Move to position 10: ";
-echo $textarea->get_by_number(0)->seek_to_pos(10)."<br>";
+// Get DOM element <textarea> by number 0
+$targetTextarea = DOM::$textarea->get_by_number(0);
 
-// end
-echo "<hr><br>";
+// Check that DOM element was found
+if ($targetTextarea->inner_number != -1) {
+    // Move cursor to position 10
+    echo $targetTextarea->seek_to_pos(10);
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

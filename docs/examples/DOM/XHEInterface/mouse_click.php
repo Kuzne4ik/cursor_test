@@ -1,35 +1,55 @@
-<?php $xhe_host = "127.0.0.1:7026";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Perform mouse click on a DOM element
+// Description: For current page, find a DOM element and perform a mouse click on it
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Perform mouse click on an anchor element
 
-// 1
-echo "1. Navigate to google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to google
+echo WEB::$browser->navigate("http://google.ru");
 
-// 2
-echo "2. Click on 6th link: ";
-echo $anchor->get_by_number(6)->mouse_click(1,1)."\n";
+// Get DOM element <a> by number 6
+$targetAnchor = DOM::$anchor->get_by_number(6);
 
-$browser->wait_for();
-sleep(3);
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Perform mouse click on the element with offset (1,1)
+    echo $targetAnchor->mouse_click(1,1);
+    
+    // Wait for page to load
+    WEB::$browser->wait_for();
+    sleep(3);
+}
 
-// 3
-echo "3. Navigate to "  .TEST_SITE_URL . ": ";
-echo $browser->navigate(TEST_SITE_URL)."<br>";
+echo("\n\n");
 
-// 4
-echo "5. Click on link: ";
-echo $anchor->get_by_number(110)->mouse_click(2,12)." ";
+// Example 2: Perform mouse click on another anchor element
 
-// end
-echo "<hr><br>";
+// Navigate to test site
+echo WEB::$browser->navigate(TEST_SITE_URL);
 
-// Quit
-$app->quit();
+// Get DOM element <a> by number 110
+$targetAnchor = DOM::$anchor->get_by_number(110);
+
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Perform mouse click on the element with offset (2,12)
+    echo $targetAnchor->mouse_click(2,12);
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

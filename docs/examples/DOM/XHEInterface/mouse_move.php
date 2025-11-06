@@ -1,41 +1,79 @@
-<?php $xhe_host = "127.0.0.1:7011";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Move mouse relative to a DOM element
+// Description: For current page, find a DOM element and move mouse relative to it
+// Classes used: XHEButton, XHEAnchor, XHEInterface, XHEBrowser, XHEApplication, XHEMouse
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Move mouse relative to a button element
 
-// 1
-echo "1. Navigate to google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to google
+echo WEB::$browser->navigate("http://google.ru");
 
-// 2
-echo "2. Move mouse to 'I'm Feeling Lucky' button: ";
-echo $button->get_by_name("btnI")->mouse_move(1,1)."<br>";
+// Get DOM element <button> by name
+$targetButton = DOM::$button->get_by_name("btnI");
 
-// 3
-echo "3. Click at current point: ";
-echo $mouse->click()."\n";
-$browser->wait_for();
+// Check that the DOM element was found
+if ($targetButton->inner_number != -1) {
+    // Move mouse relative to the element with offset (1,1)
+    echo $targetButton->mouse_move(1,1);
+    
+    // Click at current mouse position
+    echo SYSTEM::$mouse->click();
+    
+    // Wait for page to load
+    WEB::$browser->wait_for();
+}
 
-// 4
-echo "4. Navigate to "  .TEST_SITE_URL . ": ";
-echo $browser->navigate(TEST_SITE_URL)."<br>";
+echo("\n\n");
 
-// 5
-echo "5. Move mouse to 2 links: ";
-echo $anchor->get_by_number(110)->mouse_move(1,1)." ";
-sleep(1);
-echo $anchor->get_by_number(100)->mouse_move(1,1);
-sleep(1);
-echo $anchor->get_by_number(10)->mouse_move(1,1,1);
+// Example 2: Move mouse relative to multiple anchor elements
 
-// end
-echo "<hr><br>";
+// Navigate to test site
+echo WEB::$browser->navigate(TEST_SITE_URL);
 
-// Quit
-$app->quit();
+// Get DOM element <a> by number 110
+$targetAnchor1 = DOM::$anchor->get_by_number(110);
+
+// Check that the DOM element was found
+if ($targetAnchor1->inner_number != -1) {
+    // Move mouse relative to the element with offset (1,1)
+    echo $targetAnchor1->mouse_move(1,1);
+    
+    sleep(1);
+    
+    // Get DOM element <a> by number 100
+    $targetAnchor2 = DOM::$anchor->get_by_number(100);
+    
+    // Check that the DOM element was found
+    if ($targetAnchor2->inner_number != -1) {
+        // Move mouse relative to the element with offset (1,1)
+        echo $targetAnchor2->mouse_move(1,1);
+        
+        sleep(1);
+        
+        // Get DOM element <a> by number 10
+        $targetAnchor3 = DOM::$anchor->get_by_number(10);
+        
+        // Check that the DOM element was found
+        if ($targetAnchor3->inner_number != -1) {
+            // Move mouse relative to the element with offset (1,1) and speed 1
+            echo $targetAnchor3->mouse_move(1,1,1);
+        }
+    }
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

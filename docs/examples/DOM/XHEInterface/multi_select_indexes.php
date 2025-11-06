@@ -1,24 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Multiple select options in a listbox by indexes
+// Description: For current page, find a listbox element and select multiple options by indexes
+// Classes used: XHEListbox, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Multiple select options in a listbox by indexes
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "listbox.html")."<br>";
+// Navigate to the polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
-// 2
-echo "2. Select indexes: ";
-echo $listbox->get_by_number(1)->multi_select_indexes("3,0")."<br>";
+// Get DOM element <select> by number 1
+$targetListbox = DOM::$listbox->get_by_number(1);
 
-// end
-echo "<hr><br>";
+// Check that the DOM element was found
+if ($targetListbox->inner_number != -1) {
+    // Select multiple options by indexes (3,0)
+    echo $targetListbox->multi_select_indexes("3,0");
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

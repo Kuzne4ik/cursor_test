@@ -1,37 +1,56 @@
-<?php $xhe_host = "127.0.0.1:7014";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Check if a DOM element is currently visible in the viewport
+// Description: For current page, find a DOM element and check if it is currently visible in the viewport
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Check if an element is visible in the viewport
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_SITE_URL)."<br>";
+// Navigate to the test site
+echo WEB::$browser->navigate(TEST_SITE_URL);
 
-// 2
-echo "2. Is element with number 0 visible: ";
-echo $anchor->get_by_number(0)->is_view_now()."<br>";
+// Get DOM element <a> by number 0
+$targetAnchor = DOM::$anchor->get_by_number(0);
 
-// 3
-echo "3. Is anchor 100 visible: ";
-if (!$anchor->get_by_number(100)->is_view_now())
-	echo "not visible<br>";
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Check if the element is visible in the viewport
+    echo $targetAnchor->is_view_now();
+}
 
-// 4
-echo "4	. Show number 100: ";
-echo $anchor->get_by_number(100)->ensure_visible()."\n";
-	
-// 5
-echo "5. Is anchor 100 visible: ";
-echo $anchor->get_by_number(100)->is_view_now();
+echo("\n\n");
 
-// end
-echo "<hr><br>";
+// Example 2: Check if anchor 100 is visible and make it visible if not
 
-// Quit
-$app->quit();
+// Get DOM element <a> by number 100
+$targetAnchor = DOM::$anchor->get_by_number(100);
+
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Check if the element is visible in the viewport
+    if (!$targetAnchor->is_view_now()) {
+        echo "not visible";
+    }
+    
+    // Make the element visible by scrolling to it
+    echo $targetAnchor->ensure_visible();
+    
+    // Check again if the element is visible in the viewport
+    echo $targetAnchor->is_view_now();
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

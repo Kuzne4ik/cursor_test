@@ -1,25 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7014";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Perform mouse double click on a DOM element
+// Description: For current page, find a DOM element and perform a mouse double click on it
+// Classes used: XHEImage, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Perform mouse double click on an image element
 
-// 1
-echo "1. Navigate to google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to google
+echo WEB::$browser->navigate("http://google.ru");
 
-// 2
-echo "2. Double click on element with text 'Google': ";
-$img=$image->get_by_id("logo",false);
-echo $img->mouse_double_click($img->get_width()+5,5);
+// Get DOM element <img> by id
+$targetImage = DOM::$image->get_by_id("logo", false);
 
-// end
-echo "<hr><br>";
+// Check that the DOM element was found
+if ($targetImage->inner_number != -1) {
+    // Perform mouse double click on the element with offset (width+5,5)
+    echo $targetImage->mouse_double_click($targetImage->get_width()+5, 5);
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

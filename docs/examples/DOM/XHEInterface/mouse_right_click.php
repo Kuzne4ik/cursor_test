@@ -1,31 +1,41 @@
-<?php $xhe_host = "127.0.0.1:7010";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Perform mouse right click on a DOM element
+// Description: For current page, find a DOM element and perform a mouse right click on it
+// Classes used: XHEElement, XHEInterface, XHEBrowser, XHEApplication, XHEKeyboard
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Perform mouse right click on a button element
 
-// 1
-echo "1. Navigate to google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to google
+echo WEB::$browser->navigate("http://google.ru");
 
-// 2
-echo "2. Call browser context menu: ";
-echo $element->get_by_name("btnI")->mouse_right_click()."<br>";
+// Get DOM element by name
+$targetElement = DOM::$element->get_by_name("btnI");
 
-// pause
-sleep(3);
+// Check that the DOM element was found
+if ($targetElement->inner_number != -1) {
+    // Perform mouse right click on the element
+    echo $targetElement->mouse_right_click();
+    
+    // Wait for 3 seconds
+    sleep(3);
+    
+    // Press Esc key to close context menu
+    echo SYSTEM::$keyboard->key(27);
+}
 
-// 3
-echo "3. Press Esc: ";
-echo $keyboard->key(27);
-
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

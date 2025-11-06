@@ -1,42 +1,49 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Check if a DOM element is checked
+// Description: For current page, find a checkbox element and check its state
+// Classes used: XHECheckButton, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Check and uncheck a checkbox
 
-// for speed
-$browser->set_wait_params(5,1);
-			
-// 1
-echo("1. Navigate to polygon: ");
-echo($browser->navigate(TEST_POLYGON_URL . "checkbox.html")."<br>");
+// Navigate to the polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "checkbox.html");
 
-// 2
-echo("2. Check: ");
-echo($checkbox->get_by_number(4)->check()."<br>");
+// Get DOM element <input type="checkbox"> by number 4
+$targetCheckbox = DOM::$checkbox->get_by_number(4);
 
-// 3
-echo("3. Get checked state: ");
-echo($checkbox->get_by_number(4)->is_checked()."<br>");
+// Check that the DOM element was found
+if ($targetCheckbox->inner_number != -1) {
+    // Check the checkbox
+    echo $targetCheckbox->check();
+    
+    // Get checked state
+    echo $targetCheckbox->is_checked();
+    
+    // Wait for 2 seconds
+    sleep(2);
+    
+    // Uncheck the checkbox
+    echo $targetCheckbox->check(false);
+    
+    // Get checked state again
+    if (!$targetCheckbox->is_checked()) {
+        echo "not checked";
+    }
+}
 
-sleep(2);
-
-// 4
-echo("4. Uncheck: ");
-echo($checkbox->get_by_number(4)->check(false)."<br>");
-
-// 5
-echo("5. Get checked state: ");
-if (!$checkbox->get_by_number(4)->is_checked())
-    echo("not checked");
-
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

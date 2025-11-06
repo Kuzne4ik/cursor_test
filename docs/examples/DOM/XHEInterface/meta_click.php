@@ -1,29 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7010";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Perform meta click on a DOM element
+// Description: For current page, find a DOM element and perform a meta click (shift+click) on it
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Perform meta click on an anchor element
 
-// for speed
-$browser->set_wait_params(5,1);
+// Navigate to the polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Get DOM element <a> by name
+$targetAnchor = DOM::$anchor->get_by_name("onclick", 0);
 
-// 2
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Perform meta click (shift+click) on the element
+    echo $targetAnchor->meta_click(false);
+}
 
-echo $anchor->get_by_name("onclick", 0)->meta_click(false)."<br>";
-
-
-
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

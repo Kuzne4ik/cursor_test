@@ -1,19 +1,28 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Run JavaScript on a DOM element
+// Description: For current page, find a DOM element and run JavaScript code on it
+// Classes used: XHECanvas, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Run JavaScript on a canvas element to draw on it
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "canvas.html")."<br>";
+// Navigate to polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "canvas.html");
 
-// JS
-$js =@"
+// JavaScript code to draw on canvas
+$js = @"
 var context = element.getContext('2d');
       var centerX = element.width / 2;
       var centerY = element.height / 2;
@@ -38,13 +47,15 @@ var context = element.getContext('2d');
 	  i
 ";
 
-// 2
-echo "2. Draw image on element by number (draw on canvas): ";
-echo $canvas->get_by_number(0)->run_js($js)."\n";
+// Get DOM element <canvas> by number 0
+$targetCanvas = DOM::$canvas->get_by_number(0);
 
-// end
-echo "<hr><br>";
+// Check that DOM element was found
+if ($targetCanvas->inner_number != -1) {
+    // Run JavaScript on the canvas element to draw on it
+    echo $targetCanvas->run_js($js);
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

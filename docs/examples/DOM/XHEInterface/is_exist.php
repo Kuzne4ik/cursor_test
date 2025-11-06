@@ -45,6 +45,6 @@ if (!$targetDiv->is_exist()) {
 
 
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

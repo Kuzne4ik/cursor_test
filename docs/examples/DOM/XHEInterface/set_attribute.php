@@ -1,35 +1,41 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Set attribute value for a DOM element
+// Description: For current page, find an element by inner text and set its attribute value
+// Classes used: XHEElement, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Set attribute value for a DOM element
 
-// 1
-echo "1. Navigate to the test site: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Navigate to test site
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// get the element
-$obj=$element->get_by_inner_text("onclick",false);
+// Get DOM element by inner text "onclick"
+$targetElement = DOM::$element->get_by_inner_text("onclick", false);
 
-// 2
-echo "2. Get all attributes of the element with the name 'onclick': <br><br>";
-echo $obj->get_all_attributes_values()."<br><br>";
+// Check that DOM element was found
+if ($targetElement->inner_number != -1) {
+    // Get all attributes of the element
+    echo $targetElement->get_all_attributes_values() . "\n\n";
 
-// 3
-echo "3. Set the attribute with name target=12345 for the element with inner text 'onclick link': ";
-echo $obj->set_attribute("target","12345")."<br><br>";
+    // Set attribute "target" with value "12345"
+    echo $targetElement->set_attribute("target", "12345") . "\n\n";
 
-// 5
-echo "5. Get all attributes of the element with the name 'onclick': <br><br>";
-echo $obj->get_all_attributes_values("onclick")."<br><br>";
+    // Get all attributes again to verify the change
+    echo $targetElement->get_all_attributes_values() . "\n\n";
+}
 
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

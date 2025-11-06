@@ -1,37 +1,66 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Get Y coordinate of a DOM element
+// Description: For current page, find a DOM element and get its Y coordinate relative to the page
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Get Y coordinate of link by href attribute
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Navigate to the polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 2
-echo "2. By full URL: ";
-echo $anchor->get_by_attribute("href",TEST_SITE_URL)->get_y()."<br>";
+// Get DOM element <a> by href attribute
+$targetAnchor = DOM::$anchor->get_by_attribute("href", TEST_SITE_URL);
 
-// 3
-echo "3. Navigate to polygon: ";
-echo $browser->navigate(TEST_SITE_URL)."<br>";
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Get Y coordinate of the found element
+    echo $targetAnchor->get_y();
+}
 
-// 4
-echo "4. Get y coordinate (in visible part of page) of link: ";
-$anchor->get_by_number(110)->focus();
-echo $anchor->get_by_number(110)->get_y(true)."\n";
+echo("\n\n");
 
-// 5
-echo "5. Get y coordinate of link (on page): ";
-echo $anchor->get_by_number(110)->get_y()."<br>";
+// Example 2: Get Y coordinate (in visible part of page) of link
 
-// end
-echo "<hr><br>";
+// Navigate to the test site
+echo WEB::$browser->navigate(TEST_SITE_URL);
 
-// Quit
-$app->quit();
+// Get DOM element <a> by number 110
+$targetAnchor = DOM::$anchor->get_by_number(110);
+
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Set focus to the element
+    $targetAnchor->focus();
+    // Get Y coordinate of the element relative to the visible part of the page
+    echo $targetAnchor->get_y(true);
+}
+
+echo("\n\n");
+
+// Example 3: Get Y coordinate of link (on page)
+
+// Get DOM element <a> by number 110
+$targetAnchor = DOM::$anchor->get_by_number(110);
+
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Get Y coordinate of the element relative to the page
+    echo $targetAnchor->get_y();
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

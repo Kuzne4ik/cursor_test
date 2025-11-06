@@ -1,40 +1,73 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Take screenshot of DOM elements
+// Description: For current page, find DOM elements and take screenshots of them
+// Classes used: XHEImage, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Take screenshot of an image element
 
+// Navigate to polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "image.html")."<br>";
+// Get DOM element <img> by name
+$targetImage = DOM::$image->get_by_name("captcha1");
 
-// 2
-echo "2. Save image by its name to file: ";
-echo $image->get_by_name("captcha1")->screenshot("c:\\sc.jpg")."<br>";
-// show what was saved
-$app->shell_execute("open","c:\\sc.jpg");
+// Check that DOM element was found
+if ($targetImage->inner_number != -1) {
+    // Take screenshot of image and save to file
+    echo $targetImage->screenshot("c:\\sc.jpg");
+    
+    // Open saved file
+    WINDOW::$app->shell_execute("open", "c:\\sc.jpg");
+}
 
-// 3
-echo "3. Save image by its name to file and display image dimensions in browser: ";
-$obj=$image->get_by_name("screen2");
-$obj->focus();
-echo $obj->screenshot("c:\\sc2.jpg")." ".$obj->get_width()." ".$obj->get_height()."<br>";
-// show what was saved
-$app->shell_execute("open","c:\\sc2.jpg");
+echo("\n\n");
 
-echo "4. Save image (simplified) by its name to file: ";
-echo $image->get_by_name("screen1",0)->screenshot("c:\\sc2.jpg",true)."<br>";
-// show what was saved
-$app->shell_execute("open","c:\\sc2.jpg");
+// Example 2: Take screenshot of an image element and display its dimensions
 
-// end
-echo "<hr><br>";
+// Get DOM element <img> by name
+$targetImage = DOM::$image->get_by_name("screen2");
 
-// Quit
-$app->quit();
+// Check that DOM element was found
+if ($targetImage->inner_number != -1) {
+    // Set focus to image
+    $targetImage->focus();
+    
+    // Take screenshot of image and save to file, display dimensions
+    echo $targetImage->screenshot("c:\\sc2.jpg") . " " . $targetImage->get_width() . " " . $targetImage->get_height();
+    
+    // Open saved file
+    WINDOW::$app->shell_execute("open", "c:\\sc2.jpg");
+}
+
+echo("\n\n");
+
+// Example 3: Take simplified screenshot of an image element
+
+// Get DOM element <img> by name
+$targetImage = DOM::$image->get_by_name("screen1", 0);
+
+// Check that DOM element was found
+if ($targetImage->inner_number != -1) {
+    // Take simplified screenshot of image and save to file
+    echo $targetImage->screenshot("c:\\sc2.jpg", true);
+    
+    // Open saved file
+    WINDOW::$app->shell_execute("open", "c:\\sc2.jpg");
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

@@ -1,41 +1,79 @@
-<?php $xhe_host = "127.0.0.1:7010";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Move mouse to a DOM element with different movement patterns
+// Description: For current page, find a DOM element and move mouse to it using different movement patterns
+// Classes used: XHEElement, XHEAnchor, XHEInterface, XHEBrowser, XHEApplication, XHEMouse
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Move mouse to a button element
 
-// 1
-echo "1. Navigate to google: ";
-echo $browser->navigate("http://www.google.ru")."<br>";
+// Navigate to google
+echo WEB::$browser->navigate("http://www.google.ru");
 
-// 2
-echo "2. Move mouse to 'I'm Feeling Lucky' button: ";
-echo $element->get_by_name("btnI")->mouse_move_to(1,1)."<br>";
+// Get DOM element by name
+$targetElement = DOM::$element->get_by_name("btnI");
 
-// 3
-echo "3. Navigate to "  .TEST_SITE_URL . ": ";
-echo $browser->navigate(TEST_SITE_URL)."<br>";
+// Check that the DOM element was found
+if ($targetElement->inner_number != -1) {
+    // Move mouse to the element with offset (1,1)
+    echo $targetElement->mouse_move_to(1,1);
+}
 
-// 4
-echo "4. Move mouse to 2 links: ";
-echo $anchor->get_by_number(110)->mouse_move_to(1,1,"curve",2000)." ";
-sleep(1);
-echo $anchor->get_by_number(100)->mouse_move_to(1,1,"chaotic",2000);
-sleep(1);
-echo $anchor->get_by_number(10)->mouse_move_to(1,1,"circle",2000);
+echo("\n\n");
 
-// 5
-echo "\n5. Click at current point: ";
-echo $mouse->click()."\n";
-$browser->wait_for();
+// Example 2: Move mouse to multiple anchor elements with different movement patterns
 
-// end
-echo "<hr><br>";
+// Navigate to test site
+echo WEB::$browser->navigate(TEST_SITE_URL);
 
-// Quit
-$app->quit();
+// Get DOM element <a> by number 110
+$targetAnchor1 = DOM::$anchor->get_by_number(110);
+
+// Check that the DOM element was found
+if ($targetAnchor1->inner_number != -1) {
+    // Move mouse to the element with curve pattern and 2000ms duration
+    echo $targetAnchor1->mouse_move_to(1,1,"curve",2000);
+    
+    sleep(1);
+    
+    // Get DOM element <a> by number 100
+    $targetAnchor2 = DOM::$anchor->get_by_number(100);
+    
+    // Check that the DOM element was found
+    if ($targetAnchor2->inner_number != -1) {
+        // Move mouse to the element with chaotic pattern and 2000ms duration
+        echo $targetAnchor2->mouse_move_to(1,1,"chaotic",2000);
+        
+        sleep(1);
+        
+        // Get DOM element <a> by number 10
+        $targetAnchor3 = DOM::$anchor->get_by_number(10);
+        
+        // Check that the DOM element was found
+        if ($targetAnchor3->inner_number != -1) {
+            // Move mouse to the element with circle pattern and 2000ms duration
+            echo $targetAnchor3->mouse_move_to(1,1,"circle",2000);
+            
+            // Click at current mouse position
+            echo "\n" . SYSTEM::$mouse->click();
+            
+            // Wait for page to load
+            WEB::$browser->wait_for();
+        }
+    }
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

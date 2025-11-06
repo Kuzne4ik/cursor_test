@@ -1,39 +1,48 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Scroll a DOM element into view
+// Description: For current page, find a DOM element and scroll it into view with different alignment options
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Scroll an anchor element into view with different alignment options
 
-// set browser height
-$browser->set_height(200);
+// Set browser height to 200 pixels
+WEB::$browser->set_height(200);
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Navigate to polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 2
-echo "2. Scroll to visibility area (bottom) element with specified id: ";
-echo $anchor->get_by_id("list")->scroll_to_view(0)."<br>";
+// Get DOM element <a> by id
+$targetAnchor = DOM::$anchor->get_by_id("list");
 
-sleep(2);
+// Check that DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Scroll element to visibility area (bottom alignment)
+    echo $targetAnchor->scroll_to_view(0);
+    
+    sleep(2);
+    
+    // Scroll element to visibility area (top alignment)
+    echo $targetAnchor->scroll_to_view(1);
+    
+    sleep(2);
+    
+    // Smoothly scroll element to visibility area (center alignment)
+    echo $targetAnchor->scroll_to_view(2, true);
+}
 
-// 3
-echo "3. Scroll to visibility area (top) element with specified id: ";
-echo $anchor->get_by_id("list")->scroll_to_view(1)."<br>";
-
-sleep(2);
-
-// 3
-echo "3. Smoothly scroll to visibility area (center) element with specified id: ";
-echo $anchor->get_by_id("list")->scroll_to_view(2,true)."<br>";
-
-// end
-echo "<hr><br>";
-
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

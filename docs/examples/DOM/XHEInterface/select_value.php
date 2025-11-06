@@ -1,24 +1,35 @@
-<?php $xhe_host = "127.0.0.1:5005";
+<?php
 
-// connect the functional objects if not already connected
+// Scenario: Select value in a listbox element
+// Description: For current page, find a listbox element and select an option by its value attribute
+// Classes used: XHEListbox, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Select value in a listbox element
 
-// 1
-echo "1. Navigate to the test site: ";
-echo $browser->navigate(TEST_POLYGON_URL . "listbox.html")."<br>";
+// Navigate to test site
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
-// 2
-echo "2. Select value 'ru' in the element with name 'contries': ";
-echo $listbox->get_by_number(1)->select_value("ru")."<br>";
+// Get DOM element <select> by number 1
+$targetListbox = DOM::$listbox->get_by_number(1);
 
-// end
-echo "<hr><br>";
+// Check that DOM element was found
+if ($targetListbox->inner_number != -1) {
+    // Select option by value "ru"
+    echo $targetListbox->select_value("ru");
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

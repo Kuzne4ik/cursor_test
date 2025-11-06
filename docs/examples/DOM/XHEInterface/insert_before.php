@@ -1,31 +1,48 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Insert new element before a DOM element
+// Description: For current page, find a DOM element and insert a new element before it
+// Classes used: XHEAnchor, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Insert input element before an anchor
 
-// for speed
-$browser->set_wait_params(5,1);
+// Navigate to the polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "anchor.html")."<br>";
+// Get DOM element <a> by number 0
+$targetAnchor = DOM::$anchor->get_by_number(0);
 
-// 2
-echo "2. Insert input into body: ";
-echo $anchor->get_by_number(0)->insert_before("input","")."\n";
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Insert input element before the anchor
+    echo $targetAnchor->insert_before("input", "");
+}
 
-// 3
-echo "3. Insert anchor into body: ";
-echo $anchor->get_by_number(0)->insert_before("a","new child test anchor");
+echo("\n\n");
 
-// end
-echo "<hr><br>";
+// Example 2: Insert anchor element before another anchor
 
-// Quit
-$app->quit();
+// Get DOM element <a> by number 0
+$targetAnchor = DOM::$anchor->get_by_number(0);
+
+// Check that the DOM element was found
+if ($targetAnchor->inner_number != -1) {
+    // Insert anchor element with text before the existing anchor
+    echo $targetAnchor->insert_before("a", "new child test anchor");
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

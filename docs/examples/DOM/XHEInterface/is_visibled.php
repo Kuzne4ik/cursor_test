@@ -1,29 +1,50 @@
-<?php $xhe_host = "127.0.0.1:7014";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Check if a DOM element is visible
+// Description: For current page, find a DOM element and check if it is visible
+// Classes used: XHEButton, XHEDiv, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Check if a button is visible
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate("http://www.wordstat.yandex.ru")."<br>";
+// Navigate to the test site
+echo WEB::$browser->navigate("http://www.wordstat.yandex.ru");
 
-// 2
-echo "2. Is button with number 0 visible: ";
-echo $button->get_by_number(0)->is_visibled()."<br>";
+// Get DOM element <button> by number 0
+$targetButton = DOM::$button->get_by_number(0);
 
-// 3
-echo "3. Is div with name ukraine-region visible: ";
-if (!$div->get_by_name("ukraine-region")->is_visibled())
-	echo "not visible<br>";
+// Check that the DOM element was found
+if ($targetButton->inner_number != -1) {
+    // Check if the button is visible
+    echo $targetButton->is_visibled();
+}
 
-// end
-echo "<hr><br>";
+echo("\n\n");
 
-// Quit
-$app->quit();
+// Example 2: Check if a div is visible
+
+// Get DOM element <div> by name
+$targetDiv = DOM::$div->get_by_name("ukraine-region");
+
+// Check that the DOM element was found
+if ($targetDiv->inner_number != -1) {
+    // Check if the div is visible
+    if (!$targetDiv->is_visibled()) {
+        echo "not visible";
+    }
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

@@ -1,43 +1,73 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Save DOM elements to files
+// Description: For current page, find DOM elements and save them to files
+// Classes used: XHEImage, XHEFlash, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Save an image element to a file
 
-// 1
-echo "1. Navigate to polygon: ";
-echo $browser->navigate(TEST_POLYGON_URL . "image.html")."<br>";
+// Navigate to polygon page
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
 
-// 2
-echo "2. Save image by its name to file: ";
-echo $image->get_by_name("captcha1")->save("c:\\sc.jpg")."<br>";
-// show what was saved
-$app->shell_execute("open","c:\\sc.jpg");
+// Get DOM element <img> by name
+$targetImage = DOM::$image->get_by_name("captcha1");
 
-// 3
-echo "3. Save image by its name to file and display image dimensions in browser: ";
-$obj=$image->get_by_name("screen2");
-echo $obj->save("c:\\sc2.jpg")." ".$obj->get_width()." ".$obj->get_height()."<br>";
-// show what was saved
-$app->shell_execute("open","c:\\sc2.jpg");
+// Check that DOM element was found
+if ($targetImage->inner_number != -1) {
+    // Save image to file
+    echo $targetImage->save("c:\\sc.jpg");
+    
+    // Open saved file
+    WINDOW::$app->shell_execute("open", "c:\\sc.jpg");
+}
 
-// 4
-echo "4. Navigate to polygon: ";
-echo $browser->navigate("http://www.puzzleweb.ru/html/examples/object_width.php")."<br>";
+echo("\n\n");
 
-// 5
-echo "5. Save flash by its number to file: ";
-echo $flash->get_by_number(0,0)->save("c:\\sc3.swf")."<br>";
-// show what was saved
-$app->shell_execute("open","c:\\sc3.swf");
+// Example 2: Save an image element to a file and display its dimensions
 
-// end
-echo "<hr><br>";
+// Get DOM element <img> by name
+$targetImage = DOM::$image->get_by_name("screen2");
 
-// Quit
-$app->quit();
+// Check that DOM element was found
+if ($targetImage->inner_number != -1) {
+    // Save image to file and display its dimensions
+    echo $targetImage->save("c:\\sc2.jpg") . " " . $targetImage->get_width() . " " . $targetImage->get_height();
+    
+    // Open saved file
+    WINDOW::$app->shell_execute("open", "c:\\sc2.jpg");
+}
+
+echo("\n\n");
+
+// Example 3: Save a flash element to a file
+
+// Navigate to another page
+echo WEB::$browser->navigate("http://www.puzzleweb.ru/html/examples/object_width.php");
+
+// Get DOM element <flash> by number 0
+$flash = DOM::$flash->get_by_number(0, 0);
+
+// Check that DOM element was found
+if ($flash->inner_number != -1) {
+    // Save flash to file
+    echo $flash->save("c:\\sc3.swf");
+    
+    // Open saved file
+    WINDOW::$app->shell_execute("open", "c:\\sc3.swf");
+}
+
+// Stop the application
+WINDOW::$app->quit();
 ?>

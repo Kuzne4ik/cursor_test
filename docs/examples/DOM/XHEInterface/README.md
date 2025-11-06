@@ -17,12 +17,12 @@ Before working with any XHEInterface object, you should verify that the element 
 
 ```php
 // Method 1: Using is_exist() function
-if ($element->is_exist()) {
+if ($targetElement->is_exist()) {
     // Element exists, work with it
 }
 
 // Method 2: Checking inner_number property
-if ($element->inner_number != -1) {
+if ($targetElement->inner_number != -1) {
     // Element exists, work with it
 }
 ```

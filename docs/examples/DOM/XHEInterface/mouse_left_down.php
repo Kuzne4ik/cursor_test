@@ -1,26 +1,41 @@
-<?php $xhe_host = "127.0.0.1:7011";
+<?php
 
-// connect functional objects, if not already connected
+// Scenario: Perform mouse left down and up events on a DOM element
+// Description: For current page, find a DOM element and perform mouse left down and up events on it
+// Classes used: XHEElement, XHEInterface, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
 if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
 
-// beginning
-echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
+// Example 1: Perform mouse left down and up events on a button element
 
-// 1
-echo "1. Navigate to google: ";
-echo $browser->navigate("http://google.ru")."<br>";
+// Navigate to google
+echo WEB::$browser->navigate("http://google.ru");
 
-// 2
-echo "2. Press mouse with pause before release on 'I'm Feeling Lucky' button: ";
-echo $element->get_by_name("btnI")->mouse_left_down(1,1)." ";
-sleep(3);
-echo $element->get_by_name("btnI")->mouse_left_up(1,1)."<br>";
+// Get DOM element by name
+$targetElement = DOM::$element->get_by_name("btnI");
 
-// end
-echo "<hr><br>";
+// Check that the DOM element was found
+if ($targetElement->inner_number != -1) {
+    // Perform mouse left down event with offset (1,1)
+    echo $targetElement->mouse_left_down(1,1);
+    
+    // Wait for 3 seconds
+    sleep(3);
+    
+    // Perform mouse left up event with offset (1,1)
+    echo $targetElement->mouse_left_up(1,1);
+}
 
-// Quit
-$app->quit();
+// Stop the application
+WINDOW::$app->quit();
 ?>

@@ -32,6 +32,6 @@ if ($targetInput->inner_number != -1) {
 
 
 
-// Остановить работу
+// Stop the application
 WINDOW::$app->quit();
 ?>

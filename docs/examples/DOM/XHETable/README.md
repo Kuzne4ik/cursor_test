@@ -57,7 +57,7 @@ This folder contains comprehensive examples of using all XHETable class function
 1. **Проверяйте существование элементов** / **Check element existence**:
    ```php
    $element = DOM::$table->get_by_number(0);
-   if ($element->is_exist()) {
+   if ($targetElement->is_exist()) {
        // Работаем с элементом
    }
    ```
