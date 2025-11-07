@@ -1,0 +1,83 @@
+<?php
+
+// Scenario: Get a child element by its outer text from elements in a collection
+// Description: This example demonstrates how to get a collection of elements and retrieve their child elements by outer text
+// Classes used: XHEInterfaces, XHEDiv, XHEBrowser, XHEApplication
+
+// Connection string to XHE API
+$xhe_host = "127.0.0.1:7010";
+
+// Path to init.php file
+if (!isset($path))
+{
+    // Path to init.php file for connecting to XHE API
+    $path = "../../../../../../Templates/init.php";
+    // When connecting init.php file, all functionality of classes for working with XHE API will be available
+    require($path);
+}
+
+// Navigate to the polygon page if the page was not loaded earlier
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
+
+// Example: Get all div elements and retrieve their child elements by outer text
+
+// Get all div elements on the page
+$divs = DOM::$div->get_all();
+
+// Check that we have found at least one div
+if ($divs->count() > 0)
+{
+    echo "Found " . $divs->count() . " div elements\n";
+
+    // Try to find a child element with specific outer text (exact match) and include sub childs to search (for each div element in divs)
+    $searchText = "Example";
+    $childByExactTexts = $divs->get_child_by_outer_text($searchText, true);
+
+    if (count($childByExactTexts) > 0) {
+        $childByExactTextsCount = count($childByExactTexts);
+        echo "For Iterate for each div element in results\n";
+
+        for ($i = 0; $i < $childByExactTextsCount; $i++) {
+            $childByExactText = $childByExactTexts[$i];
+            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+            if ($childByExactText->is_exist()) {
+                echo "Found child with exact outer text '" . $searchText . "':\n";
+                echo "  Tag: " . $childByExactText->get_tag() . "\n";
+                echo "  Outer text: " . $childByExactText->get_outer_text() . "\n";
+                echo "  Inner text: " . $childByExactText->get_inner_text() . "\n";
+            } else {
+                echo "No child found with exact outer text '" . $searchText . "'\n";
+            }
+        }
+    }
+
+    // Try to find a child element containing specific text (partial match) and include sub childs to search (for each div element in divs)
+    $partialSearchText = "amp";
+    $childByPartialTexts = $divs->get_child_by_outer_text($partialSearchText, false);
+
+    if (count($childByPartialTexts) > 0) {
+        $childByPartialTextsCount = count($childByPartialTexts);
+        echo "For Iterate for each div element in results\n";
+
+        for ($i = 0; $i < $childByPartialTextsCount; $i++) {
+            $childByPartialText = $childByPartialTexts[$i];
+            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+            if ($childByPartialText->is_exist()) {
+                echo "Found child containing outer text '" . $partialSearchText . "':\n";
+                echo "  Tag: " . $childByPartialText->get_tag() . "\n";
+                echo "  Outer text: " . $childByPartialText->get_outer_text() . "\n";
+                echo "  Inner text: " . $childByPartialText->get_inner_text() . "\n";
+            } else {
+                echo "No child found containing outer text '" . $partialSearchText . "'\n";
+            }
+        }
+    }
+}
+else
+{
+    echo "No div elements found on the page\n";
+}
+
+// Stop the application
+WINDOW::$app->quit();
+?>

@@ -25,13 +25,13 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "divs.html");
 $divs = DOM::$div->get_all();
 
 // Check that we have found at least one div
-if ($divs->count()> 0)
+if ($divs->count() > 0)
 {
-    echo "Found " . $divs->count(). " div elements\n";
+    echo "Found " . $divs->count() . " div elements\n";
     
-    // Try to find a div with a specific ID in div elements
+    // Try to find a div with a specific ID (exact match) in div elements
     $targetId = "example";
-    $divById = $divs->get_by_id($targetId);
+    $divById = $divs->get_by_id($targetId, true);
     
     // Check if the div with the specified ID was found in div elements and exists
     if ($divById && $divById->is_exist())
@@ -39,15 +39,16 @@ if ($divs->count()> 0)
         echo "\nFound div with ID '" . $targetId . "':\n";
         echo "Div inner text: " . $divById->get_inner_text() . "\n";
         echo "Div inner number: " . $divById->inner_number . "\n";
+        echo "Div name: " . $divById->get_name() . "\n";
     }
     else
     {
         echo "\nNo div with ID '" . $targetId . "' found in the collection\n";
     }
     
-    // Try to find a div with another ID in div elements
+    // Try to find a div with a partial ID match in div elements
     $targetId2 = "test";
-    $divById2 = $divs->get_by_id($targetId2);
+    $divById2 = $divs->get_by_id($targetId2, false);
     
     // Check if the div with the specified ID was found in div elements and exists
     if ($divById2 && $divById2->is_exist())
@@ -55,15 +56,16 @@ if ($divs->count()> 0)
         echo "\nFound div with ID '" . $targetId2 . "':\n";
         echo "Div inner text: " . $divById2->get_inner_text() . "\n";
         echo "Div inner number: " . $divById2->inner_number . "\n";
+        echo "Full ID: " . $divById2->get_id() . "\n";
     }
     else
     {
         echo "\nNo div with ID '" . $targetId2 . "' found in the collection\n";
     }
     
-    // Try to find a div with a non-existent ID in div elements
+    // Try to find a div with a non-existent ID (exact match) in div elements
     $nonExistentId = "nonexistent";
-    $divByNonExistentId = $divs->get_by_id($nonExistentId);
+    $divByNonExistentId = $divs->get_by_id($nonExistentId, true);
     
     // Check if the div with the non-existent ID was found in div elements and exists
     if ($divByNonExistentId && $divByNonExistentId->is_exist())
@@ -74,7 +76,6 @@ if ($divs->count()> 0)
     {
         echo "\nAs expected, no div with ID '" . $nonExistentId . "' found in the collection\n";
     }
-
 }
 else
 {
