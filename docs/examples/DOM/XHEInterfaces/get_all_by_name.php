@@ -31,7 +31,7 @@ if ($inputs->count() > 0)
     echo "Found " . $inputs->count() . " input elements\n";
     
     // Try to find all inputs with a specific name
-    $targetName = "username";
+    $targetName = "Name";
     $inputsByName = $inputs->get_all_by_name($targetName);
     
     // Check if any inputs with the specified name were found
