@@ -1,8 +1,8 @@
 <?php
 
-// Scenario: Click on elements in a collection using mouse events
-// Description: This example demonstrates how to get a collection of elements and click on each element using mouse events
-// Classes used: XHEInterfaces, XHECheckbox, XHEBrowser, XHEApplication
+// Scenario: Press left mouse button down on elements in a collection
+// Description: This example demonstrates how to get a collection of elements and press left mouse button down on each element
+// Classes used: XHEInterfaces, XHEcheckbox, XHEBrowser, XHEApplication
 
 // Connection string to XHE API
 $xhe_host = "127.0.0.1:7010";
@@ -19,7 +19,7 @@ if (!isset($path))
 // Navigate to the polygon page if the page was not loaded earlier
 WEB::$browser->navigate(TEST_POLYGON_URL . "checkbox.html");
 
-// Example: Get all checkbox elements and click on each element using mouse events
+// Example: Get all checkbox elements and press left mouse button down on each element
 
 // Get all checkbox elements on the page
 $checkboxes = DOM::$checkbox->get_all();
@@ -30,13 +30,14 @@ if ($checkboxes->count() > 0)
     echo "Found " . $checkboxes->count() . " checkbox elements\n";
 
     // Execute double-click for each checkbox
-    $clickResults = $checkboxes->mouse_click(3, 3);
+    $clickResults = $checkboxes->mouse_left_down(3, 3);
 
     // Display href attributes
     echo "Click results:\n";
     foreach ($clickResults as $index => $result) {
         echo "Checkbox " . ($index + 1) . ": " . ($result ? 'Yes' : 'No') . "\n";
     }
+
 }
 else
 {
