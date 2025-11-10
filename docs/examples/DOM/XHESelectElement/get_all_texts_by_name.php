@@ -1,0 +1,28 @@
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Path to init.php file for connecting to XHE API
+$path = "../../../../../../Templates/init.php";
+// Including init.php grants access to all classes and functionality for working with the XHE API
+require($path);
+
+// Navigate to a page with a select element
+WEB::$browser->navigate("https://example.com/form-with-select");
+
+// Wait for the page to load
+WEB::$browser->wait_for();
+
+// Get all the text values of options in a select element found by its name attribute
+// The parameter is the name attribute of the select element
+// Returns a string with all option texts separated by "\n[br]\n"
+$allTexts = DOM::$listbox->get_all_texts_by_name("country_select");
+
+if ($allTexts !== false) {
+    echo "All option texts in the select element with name 'country_select':\n";
+    echo $allTexts . "\n\n";
+} else {
+    echo "The select element with name 'country_select' was not found\n\n";
+}
+
+// Quit the application
+WINDOW::$app->quit();
+?>
