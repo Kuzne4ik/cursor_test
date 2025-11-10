@@ -5,8 +5,8 @@ $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// Navigate to a page with a select element
-WEB::$browser->navigate("https://example.com/form-with-select");
+// Navigate to a webpage with listbox elements
+WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
 WEB::$browser->wait_for();
