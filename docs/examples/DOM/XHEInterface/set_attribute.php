@@ -27,12 +27,15 @@ $targetElement = DOM::$element->get_by_inner_text("onclick", false);
 // Check that DOM element was found
 if ($targetElement->inner_number != -1) {
     // Get all attributes of the element
+    echo("\nGet all attributes of the element: ");
     echo $targetElement->get_all_attributes_values() . "\n\n";
 
     // Set attribute "target" with value "12345"
+    echo("\nSet attribute 'target' with value '12345': ");
     echo $targetElement->set_attribute("target", "12345") . "\n\n";
 
     // Get all attributes again to verify the change
+    echo("\nGet all attributes of the element: ");
     echo $targetElement->get_all_attributes_values() . "\n\n";
 }
 
