@@ -26,6 +26,21 @@ if ($success) {
     echo "Failed to add the option or the select element with name 'contries' was not found\n\n";
 }
 
+// Add a new option to a select element found by its name attribute with frame parameter
+// Parameters:
+// - $name: The name attribute of the select element
+// - $text: The text content of the new option
+// - $value: The value attribute of the new option
+// - $index: The position where the new option should be inserted (optional, default is at the end)
+// - $frame: The frame number where the element is located (0-based)
+$successWithFrame = DOM::$listbox->add_option_by_name("contries", "New Zealand", "NZ", 0);
+
+if ($successWithFrame) {
+    echo "Successfully added a new option 'New Zealand' with value 'NZ' to the select element with name 'contries' in frame 0\n\n";
+} else {
+    echo "Failed to add the option or the select element with name 'contries' was not found in frame 0\n\n";
+}
+
 // Quit the application
 WINDOW::$app->quit();
 ?>

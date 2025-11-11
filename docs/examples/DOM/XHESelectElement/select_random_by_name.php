@@ -14,12 +14,24 @@ WEB::$browser->wait_js();
 
 // Select a random option in a select element found by its name attribute
 // The parameter is the name attribute of the select element
-$success = DOM::$listbox->select_random_by_name("contries");
+$success = DOM::$listbox->select_random_by_name("contries", -1);
 
 if ($success) {
     echo "Successfully selected a random option in the select element with name 'contries'\n\n";
 } else {
     echo "Failed to select a random option or the select element with name 'contries' was not found\n\n";
+}
+
+// Select a random option in a select element found by its name attribute with frame parameter
+// Parameters:
+// - $name: The name attribute of the select element
+// - $frame: The frame number where the element is located (0-based)
+$successWithFrame = DOM::$listbox->select_random_by_name("contries", 0);
+
+if ($successWithFrame) {
+    echo "Successfully selected a random option in the select element with name 'contries' in frame 0\n\n";
+} else {
+    echo "Failed to select a random option or the select element with name 'contries' was not found in frame 0\n\n";
 }
 
 // Quit the application

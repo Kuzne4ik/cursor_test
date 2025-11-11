@@ -16,12 +16,25 @@ WEB::$browser->wait_js();
 // Parameters:
 // - $number: The number of the multi-select element on the page (0-based)
 // - $texts: A string containing comma-separated text contents of options to select
-$success = DOM::$listbox->multi_select_texts_by_number(0, "Canada,United States,United Kingdom");
+$success = DOM::$listbox->multi_select_texts_by_number(0, "Canada,United States,United Kingdom", -1);
 
 if ($success) {
     echo "Successfully selected options with texts 'Canada', 'United States', and 'United Kingdom' in the first multi-select element\n\n";
 } else {
     echo "Failed to select the options or the multi-select element was not found\n\n";
+}
+
+// Select multiple options by texts in a multi-select element found by number with frame parameter
+// Parameters:
+// - $number: The number of the multi-select element on the page (0-based)
+// - $texts: A string containing comma-separated text contents of options to select
+// - $frame: The frame number where the element is located (0-based)
+$successWithFrame = DOM::$listbox->multi_select_texts_by_number(0, "France,Germany,Italy", 0);
+
+if ($successWithFrame) {
+    echo "Successfully selected options with texts 'France', 'Germany', and 'Italy' in first multi-select element in frame 0\n\n";
+} else {
+    echo "Failed to select the options or the multi-select element was not found in frame 0\n\n";
 }
 
 // Quit the application

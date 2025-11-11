@@ -13,12 +13,24 @@ WEB::$browser->wait_js();
 
 // Get the index of the selected option in a select element found by name
 // The parameter is the name attribute of the select element
-$selectedIndex = DOM::$listbox->get_selected_index_by_name("contries");
+$selectedIndex = DOM::$listbox->get_selected_index_by_name("contries", -1);
 
 if ($selectedIndex >= 0) {
     echo "The index of the selected option in the select element with name 'contries' is: " . $selectedIndex . "\n\n";
 } else {
     echo "No option is selected or the select element was not found\n\n";
+}
+
+// Get the index of the selected option in a select element found by name with frame parameter
+// Parameters:
+// - $name: The name attribute of the select element
+// - $frame: The frame number where the element is located (0-based)
+$selectedIndexWithFrame = DOM::$listbox->get_selected_index_by_name("contries", 0);
+
+if ($selectedIndexWithFrame >= 0) {
+    echo "The index of the selected option in the select element with name 'contries' in frame 0 is: " . $selectedIndexWithFrame . "\n\n";
+} else {
+    echo "No option is selected or the select element was not found in frame 0\n\n";
 }
 
 // Quit the application

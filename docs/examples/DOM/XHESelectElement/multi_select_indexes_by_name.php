@@ -16,12 +16,25 @@ WEB::$browser->wait_js();
 // Parameters:
 // - $name: The name attribute of the multi-select element
 // - $indexes: A string containing comma-separated indexes of options to select
-$success = DOM::$listbox->multi_select_indexes_by_name("contries", "1,3,5");
+$success = DOM::$listbox->multi_select_indexes_by_name("contries", "1,3,5", -1);
 
 if ($success) {
     echo "Successfully selected options at indexes 1, 3, and 5 in multi-select element with name 'contries'\n\n";
 } else {
     echo "Failed to select the options or the multi-select element with name 'contries' was not found\n\n";
+}
+
+// Select multiple options by indexes in a multi-select element found by its name attribute with frame parameter
+// Parameters:
+// - $name: The name attribute of the multi-select element
+// - $indexes: A string containing comma-separated indexes of options to select
+// - $frame: The frame number where the element is located (0-based)
+$successWithFrame = DOM::$listbox->multi_select_indexes_by_name("contries", "0,2,4", 0);
+
+if ($successWithFrame) {
+    echo "Successfully selected options at indexes 0, 2, and 4 in multi-select element with name 'contries' in frame 0\n\n";
+} else {
+    echo "Failed to select the options or the multi-select element with name 'contries' was not found in frame 0\n\n";
 }
 
 // Quit the application

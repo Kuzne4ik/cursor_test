@@ -19,11 +19,27 @@ WEB::$browser->wait_js();
 // Returns a string with all option texts separated by "<br>"
 $allTexts = DOM::$listbox->get_all_texts_by_attribute("name", "contries", true);
 
-if ($allTexts !== false) {
+if ($allTexts) {
     echo "All option texts in the select element with name 'contries':\n";
     echo $allTexts . "\n\n";
 } else {
     echo "The select element with id 'contries' was not found\n\n";
+}
+
+// Get all the text values of options in a select element found by its attribute with frame parameter
+// Parameters:
+// - $attr_name: The name of the attribute to search by (e.g., "id", "class")
+// - $attr_value: The value of the attribute to match
+// - $exactly: Whether to match the attribute value exactly (true) or partially (false)
+// - $frame: The frame number where the element is located (0-based)
+// Returns a string with all option texts separated by "<br>"
+$allTextsWithFrame = DOM::$listbox->get_all_texts_by_attribute("name", "contries", true, 0);
+
+if ($allTextsWithFrame) {
+    echo "All option texts in the select element with name 'contries' in frame 0:\n";
+    echo $allTextsWithFrame . "\n\n";
+} else {
+    echo "The select element with id 'contries' was not found in frame 0\n\n";
 }
 
 // Quit the application

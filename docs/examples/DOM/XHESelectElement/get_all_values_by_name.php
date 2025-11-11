@@ -15,13 +15,27 @@ WEB::$browser->wait_js();
 // Get all the value attributes of options in a select element found by its name attribute
 // The parameter is the name attribute of the select element
 // Returns a string with all option values separated by "<br>"
-$allValues = DOM::$listbox->get_all_values_by_name("contries");
+$allValues = DOM::$listbox->get_all_values_by_name("contries", -1);
 
-if ($allValues !== false) {
+if ($allValues) {
     echo "All option values in the select element with name 'contries':\n";
     echo $allValues . "\n\n";
 } else {
     echo "The select element with name 'contries' was not found\n\n";
+}
+
+// Get all the value attributes of options in a select element found by its name attribute with frame parameter
+// Parameters:
+// - $name: The name attribute of the select element
+// - $frame: The frame number where the element is located (0-based)
+// Returns a string with all option values separated by "<br>"
+$allValuesWithFrame = DOM::$listbox->get_all_values_by_name("contries", 0);
+
+if ($allValuesWithFrame) {
+    echo "All option values in the select element with name 'contries' in frame 0:\n";
+    echo $allValuesWithFrame . "\n\n";
+} else {
+    echo "The select element with name 'contries' was not found in frame 0\n\n";
 }
 
 // Quit the application

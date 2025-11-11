@@ -19,12 +19,28 @@ WEB::$browser->wait_js();
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
 // - $index: The index of the option to select
 // - $form_number: The number of the form on the page (0-based)
-$success = DOM::$listbox->select_index_by_attribute_by_form_number("name", "contries", true, 2, 0);
+$success = DOM::$listbox->select_index_by_attribute_by_form_number("name", "contries", true, 2, 0, -1);
 
 if ($success) {
     echo "Successfully selected the option at index 2 in the select element with name 'contries' within form 0\n\n";
 } else {
     echo "Failed to select the option or the select element with name 'contries' in form 0 was not found\n\n";
+}
+
+// Select an option by index in a select element within a form, found by attribute and form number with frame parameter
+// Parameters:
+// - $attr_name: The name of attribute to search by (e.g., "id", "class")
+// - $attr_value: The value of attribute to match
+// - $exactly: Whether to match the attribute value exactly (true) or partially (false)
+// - $index: The index of the option to select
+// - $form_number: The number of the form on the page (0-based)
+// - $frame: The frame number where the element is located (0-based)
+$successWithFrame = DOM::$listbox->select_index_by_attribute_by_form_number("name", "contries", true, 1, 0, 0);
+
+if ($successWithFrame) {
+    echo "Successfully selected the option at index 1 in the select element with name 'contries' within form 0 in frame 0\n\n";
+} else {
+    echo "Failed to select the option or the select element with name 'contries' in form 0 was not found in frame 0\n\n";
 }
 
 // Quit the application

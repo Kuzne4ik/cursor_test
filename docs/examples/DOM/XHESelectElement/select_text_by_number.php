@@ -16,12 +16,26 @@ WEB::$browser->wait_js();
 // - $number: The number of the select element on the page (0-based)
 // - $text: The text content of the option to select
 // - $exactly: Whether to match the text exactly (true) or partially (false)
-$success = DOM::$listbox->select_text_by_number(0, "Canada");
+$success = DOM::$listbox->select_text_by_number(0, "Canada", true, -1);
 
 if ($success) {
     echo "Successfully selected the option with text 'Canada' in the first select element\n\n";
 } else {
     echo "Failed to select the option or the select element was not found\n\n";
+}
+
+// Select an option by its text content in a select element found by number with frame parameter
+// Parameters:
+// - $number: The number of the select element on the page (0-based)
+// - $text: The text content of the option to select
+// - $exactly: Whether to match the text exactly (true) or partially (false)
+// - $frame: The frame number where the element is located (0-based)
+$successWithFrame = DOM::$listbox->select_text_by_number(0, "USA", true, 0);
+
+if ($successWithFrame) {
+    echo "Successfully selected the option with text 'USA' in the first select element in frame 0\n\n";
+} else {
+    echo "Failed to select the option or the select element was not found in frame 0\n\n";
 }
 
 // Quit the application

@@ -26,6 +26,21 @@ if ($type) {
     echo "The select element with id 'contries' was not found\n\n";
 }
 
+// Get the type of select element found by its attribute with frame parameter
+// Parameters:
+// - $attr_name: The name of the attribute to search by (e.g., "id", "class")
+// - $attr_value: The value of the attribute to match
+// - $exactly: Whether to match the attribute value exactly (true) or partially (false)
+// - $frame: The frame number where the element is located (0-based)
+// Returns "select-one" for single-select elements or "select-multiple" for multi-select elements
+$typeWithFrame = DOM::$listbox->get_type_by_attribute("name", "contries", true, 0);
+
+if ($typeWithFrame) {
+    echo "The type of the select element with name 'contries' in frame 0 is: " . $typeWithFrame . "\n\n";
+} else {
+    echo "The select element with id 'contries' was not found in frame 0\n\n";
+}
+
 // Quit the application
 WINDOW::$app->quit();
 ?>

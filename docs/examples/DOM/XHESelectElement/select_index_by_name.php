@@ -14,12 +14,25 @@ WEB::$browser->wait_js();
 // Find the select element by name and select option by index
 // The first parameter is the name attribute of the select element
 // The second parameter is the index of the option to select (0-based)
-$success = DOM::$listbox->select_index_by_name("contries", 2);
+$success = DOM::$listbox->select_index_by_name("contries", 2, -1);
 
 if ($success) {
     echo "Successfully selected option at index 2 in the select element with name 'contries'\n\n";
 } else {
     echo "Failed to select option\n\n";
+}
+
+// Find the select element by name and select option by index with frame parameter
+// Parameters:
+// - $name: The name attribute of the select element
+// - $index: The index of the option to select (0-based)
+// - $frame: The frame number where the element is located (0-based)
+$successWithFrame = DOM::$listbox->select_index_by_name("contries", 1, 0);
+
+if ($successWithFrame) {
+    echo "Successfully selected option at index 1 in the select element with name 'contries' in frame 0\n\n";
+} else {
+    echo "Failed to select option in frame 0\n\n";
 }
 
 // Quit the application

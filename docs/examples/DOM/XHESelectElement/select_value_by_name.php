@@ -16,12 +16,26 @@ WEB::$browser->wait_js();
 // - $name: The name attribute of select element
 // - $value: The value attribute of option to select
 // - $exactly: Whether to match the value exactly (true) or partially (false)
-$success = DOM::$listbox->select_value_by_name("contries", "us");
+$success = DOM::$listbox->select_value_by_name("contries", "us", true, -1);
 
 if ($success) {
     echo "Successfully selected the option with value 'us' in the select element with name 'contries'\n\n";
 } else {
     echo "Failed to select the option or the select element with name 'contries' was not found\n\n";
+}
+
+// Select an option by its value attribute in a select element found by its name attribute with frame parameter
+// Parameters:
+// - $name: The name attribute of select element
+// - $value: The value attribute of option to select
+// - $exactly: Whether to match the value exactly (true) or partially (false)
+// - $frame: The frame number where the element is located (0-based)
+$successWithFrame = DOM::$listbox->select_value_by_name("contries", "ca", true, 0);
+
+if ($successWithFrame) {
+    echo "Successfully selected the option with value 'ca' in the select element with name 'contries' in frame 0\n\n";
+} else {
+    echo "Failed to select the option or the select element with name 'contries' was not found in frame 0\n\n";
 }
 
 // Quit the application

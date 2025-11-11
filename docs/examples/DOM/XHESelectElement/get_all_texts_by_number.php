@@ -15,13 +15,27 @@ WEB::$browser->wait_js();
 // Get all the text values of options in a select element found by number
 // The parameter is the number of the select element on the page (0-based)
 // Returns a string with all option texts separated by "\n[br]\n"
-$allTexts = DOM::$listbox->get_all_texts_by_number(0);
+$allTexts = DOM::$listbox->get_all_texts_by_number(0, -1);
 
 if ($allTexts) {
     echo "All option texts in the first select element:\n";
     echo $allTexts . "\n\n";
 } else {
     echo "The select element was not found\n\n";
+}
+
+// Get all the text values of options in a select element found by number with frame parameter
+// Parameters:
+// - $number: The number of the select element on the page (0-based)
+// - $frame: The frame number where the element is located (0-based)
+// Returns a string with all option texts separated by "\n[br]\n"
+$allTextsWithFrame = DOM::$listbox->get_all_texts_by_number(0, 0);
+
+if ($allTextsWithFrame) {
+    echo "All option texts in the first select element in frame 0:\n";
+    echo $allTextsWithFrame . "\n\n";
+} else {
+    echo "The select element was not found in frame 0\n\n";
 }
 
 // Quit the application

@@ -19,10 +19,24 @@ WEB::$browser->wait_js();
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
 $size = DOM::$listbox->get_size_by_attribute("name", "contries", true);
 
-if ($size !== false) {
+if ($size) {
     echo "The size of the select element with name 'contries' is: " . $size . "\n\n";
 } else {
     echo "The select element with name 'contries' was not found\n\n";
+}
+
+// Get the size (number of visible options) of a select element found by its attribute with frame parameter
+// Parameters:
+// - $attr_name: The name of the attribute to search by (e.g., "id", "class")
+// - $attr_value: The value of the attribute to match
+// - $exactly: Whether to match the attribute value exactly (true) or partially (false)
+// - $frame: The frame number where the element is located (0-based)
+$sizeWithFrame = DOM::$listbox->get_size_by_attribute("name", "contries", true, 0);
+
+if ($sizeWithFrame) {
+    echo "The size of the select element with name 'contries' in frame 0 is: " . $sizeWithFrame . "\n\n";
+} else {
+    echo "The select element with name 'contries' was not found in frame 0\n\n";
 }
 
 // Quit the application

@@ -13,12 +13,24 @@ WEB::$browser->wait_js();
 
 // Get the length (total number of options) of a select element found by number
 // The parameter is the number of the select element on the page (0-based)
-$length = DOM::$listbox->get_length_by_number(0);
+$length = DOM::$listbox->get_length_by_number(0, -1);
 
 if ($length !== -1) {
     echo "The length (total number of options) of the first select element is: " . $length . "\n\n";
 } else {
     echo "The select element was not found\n\n";
+}
+
+// Get the length (total number of options) of a select element found by number with frame parameter
+// Parameters:
+// - $number: The number of the select element on the page (0-based)
+// - $frame: The frame number where the element is located (0-based)
+$lengthWithFrame = DOM::$listbox->get_length_by_number(0, 0);
+
+if ($lengthWithFrame !== -1) {
+    echo "The length (total number of options) of the first select element in frame 0 is: " . $lengthWithFrame . "\n\n";
+} else {
+    echo "The select element was not found in frame 0\n\n";
 }
 
 // Quit the application

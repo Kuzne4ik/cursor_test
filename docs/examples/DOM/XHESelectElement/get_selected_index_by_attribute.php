@@ -23,6 +23,20 @@ if ($selectedIndex >= 0) {
     echo "No option is selected or the select element was not found\n\n";
 }
 
+// Get the index of the selected option in a select element found by attribute with frame parameter
+// Parameters:
+// - $attr_name: The attribute name
+// - $attr_value: The attribute value
+// - $exactly: Specifies if an exact match is required
+// - $frame: The frame number where the element is located (0-based)
+$selectedIndexWithFrame = DOM::$listbox->get_selected_index_by_attribute("name", "contries", true, 0);
+
+if ($selectedIndexWithFrame >= 0) {
+    echo "The index of the selected option in the select element with name='contries' in frame 0 is: " . $selectedIndexWithFrame . "\n\n";
+} else {
+    echo "No option is selected or the select element was not found in frame 0\n\n";
+}
+
 // Quit the application
 WINDOW::$app->quit();
 ?>

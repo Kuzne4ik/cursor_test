@@ -24,6 +24,20 @@ if ($length !== -1) {
     echo "The select element with name 'contries' was not found\n\n";
 }
 
+// Get the length (total number of options) of a select element found by its attribute with frame parameter
+// The parameters are:
+// - $attr_name: The name of the attribute to search by (e.g., "id", "class")
+// - $attr_value: The value of the attribute to match
+// - $exactly: Whether to match the attribute value exactly (true) or partially (false)
+// - $frame: The frame number where the element is located (0-based)
+$lengthWithFrame = DOM::$listbox->get_length_by_attribute("name", "contries", true, 0);
+
+if ($lengthWithFrame !== -1) {
+    echo "The length (total number of options) of the select element with name 'contries' in frame 0 is: " . $lengthWithFrame . "\n\n";
+} else {
+    echo "The select element with name 'contries' was not found in frame 0\n\n";
+}
+
 // Quit the application
 WINDOW::$app->quit();
 ?>

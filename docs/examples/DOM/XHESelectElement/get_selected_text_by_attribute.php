@@ -24,6 +24,20 @@ if ($selectedText !== false) {
     echo "No option is selected or the select element with name 'contries' was not found\n\n";
 }
 
+// Get the text of the selected option in a select element found by its attribute with frame parameter
+// Parameters:
+// - $attr_name: The name of the attribute to search by (e.g., "id", "class")
+// - $attr_value: The value of the attribute to match
+// - $exactly: Whether to match the attribute value exactly (true) or partially (false)
+// - $frame: The frame number where the element is located (0-based)
+$selectedTextWithFrame = DOM::$listbox->get_selected_text_by_attribute("name", "contries", true, 0);
+
+if ($selectedTextWithFrame !== false) {
+    echo "The text of the selected option in the select element with name 'contries' in frame 0 is: " . $selectedTextWithFrame . "\n\n";
+} else {
+    echo "No option is selected or the select element with name 'contries' was not found in frame 0\n\n";
+}
+
 // Quit the application
 WINDOW::$app->quit();
 ?>
