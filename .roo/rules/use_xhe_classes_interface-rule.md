@@ -11,6 +11,5 @@ Use `frame` argument for XHE classes DOM elements only:
 First frame number value is number on the page and second one as child number in paren frame. Where an frame numbers is an integer (0-based);
 
 Forbidden use in code global variable names from file `/Templates/init.php` for variable name.
-
 Example:
 Class `XHEAnchor` has method `get_by_attribute` which returns an object of type `XHEInterface` in code: DOM::$anchor->get_by_attribute('id', 'id1');

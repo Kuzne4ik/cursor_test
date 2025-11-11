@@ -52,25 +52,17 @@ $result = DOM::$frame->set_body_by_number(0, $new_content, "0:1");
 
 ```php
 // Поиск без указания frame (frame = -1 по умолчанию)
-$element = DOM::$anchor->get_by_attribute('id', 'main_anchor');
+$element = DOM::$button->get_by_attribute('id', 'bt1');
 
 // Поиск элемента во первом фрейме на странице
-$element_in_first_frame = DOM::$anchor->get_by_attribute('id', 'frame_anchor', 0);
+$element_in_first_frame = DOM::$button->get_by_attribute('id', 'bt1', 0);
 
 // Поиск элемента во втором фрейме на странице
-$element_in_second_frame = DOM::$anchor->get_by_attribute('id', 'frame2_anchor', 1);
+$element_in_second_frame = DOM::$button->get_by_attribute('id', 'bt1', 1);
 
-// Поиск элемента во вложенном фрейме (первый фрейм на странице, второй внутри него)
-$element_in_nested_frame = DOM::$anchor->get_by_attribute('id', 'nested_anchor', "0:1");
+// Поиск элемента во вложенном фрейме (первый фрейм на странице, первый внутри него)
+$element_in_nested_frame = DOM::$button->get_by_attribute('id', 'bt1', "0:0");
 
-// Поиск элемента в глубоко вложенном фрейме
-$element_in_deeply_nested_frame = DOM::$anchor->get_by_attribute('id', 'deeply_nested_anchor', "1:0:2");
-
-// Использование аргумента frame с другими типами элементов
-$button_in_frame = DOM::$button->get_by_name('submit', 0);
-
-// Использование аргумента frame с методами get_all_by_
-$all_inputs_in_frame = DOM::$input->get_all_by_attribute('type', 'text', 0);
 ```
 
 ## Примечания
