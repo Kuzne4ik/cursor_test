@@ -10,14 +10,14 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
-// Get the type of a select element found by number
+// Get the type of select element found by number
 // The parameter is the number of the select element on the page (0-based)
 // Returns "select-one" for single-select elements or "select-multiple" for multi-select elements
 $type = DOM::$listbox->get_type_by_number(0);
 
-if ($type !== false) {
+if ($type) {
     echo "The type of the first select element is: " . $type . "\n\n";
 } else {
     echo "The select element was not found\n\n";

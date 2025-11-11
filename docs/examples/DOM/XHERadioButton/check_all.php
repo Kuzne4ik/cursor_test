@@ -12,7 +12,7 @@ require($path);
 WEB::$browser->navigate("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_input_radio");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Check all radio buttons on the page (within the iframe)
 DOM::$radiobox->check_all(true, "iframeResult");

@@ -10,7 +10,7 @@ require($path);
 
 // Navigate to a page with hidden images
 WEB::$browser->navigate("https://example.com/page-with-hidden-images");
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Show the first image on the page (index 0)
 if (DOM::$image->show_by_number(0)) {

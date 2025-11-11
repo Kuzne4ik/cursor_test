@@ -9,14 +9,14 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the index of the selected option in a select element found by name
 // The parameter is the name attribute of the select element
-$selectedIndex = DOM::$listbox->get_selected_index_by_name("country_select");
+$selectedIndex = DOM::$listbox->get_selected_index_by_name("contries");
 
 if ($selectedIndex >= 0) {
-    echo "The index of the selected option in the select element with name 'country_select' is: " . $selectedIndex . "\n\n";
+    echo "The index of the selected option in the select element with name 'contries' is: " . $selectedIndex . "\n\n";
 } else {
     echo "No option is selected or the select element was not found\n\n";
 }

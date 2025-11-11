@@ -9,19 +9,19 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the text of the selected option in a select element found by its attribute
 // Parameters:
 // - $attr_name: The name of the attribute to search by (e.g., "id", "class")
 // - $attr_value: The value of the attribute to match
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
-$selectedText = DOM::$listbox->get_selected_text_by_attribute("id", "country_dropdown", true);
+$selectedText = DOM::$listbox->get_selected_text_by_attribute("name", "contries", true);
 
 if ($selectedText !== false) {
-    echo "The text of the selected option in the select element with id 'country_dropdown' is: " . $selectedText . "\n\n";
+    echo "The text of the selected option in the select element with name 'contries' is: " . $selectedText . "\n\n";
 } else {
-    echo "No option is selected or the select element with id 'country_dropdown' was not found\n\n";
+    echo "No option is selected or the select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

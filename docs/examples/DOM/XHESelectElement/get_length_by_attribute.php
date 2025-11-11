@@ -10,19 +10,18 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the length (total number of options) of a select element found by its attribute
-// Parameters:
 // - $attr_name: The name of the attribute to search by (e.g., "id", "class")
 // - $attr_value: The value of the attribute to match
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
-$length = DOM::$listbox->get_length_by_attribute("id", "country_dropdown", true);
+$length = DOM::$listbox->get_length_by_attribute("name", "contries", true);
 
-if ($length !== false) {
-    echo "The length (total number of options) of the select element with id 'country_dropdown' is: " . $length . "\n\n";
+if ($length !== -1) {
+    echo "The length (total number of options) of the select element with name 'contries' is: " . $length . "\n\n";
 } else {
-    echo "The select element with id 'country_dropdown' was not found\n\n";
+    echo "The select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

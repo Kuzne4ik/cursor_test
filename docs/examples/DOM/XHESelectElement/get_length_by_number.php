@@ -9,13 +9,13 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the length (total number of options) of a select element found by number
 // The parameter is the number of the select element on the page (0-based)
 $length = DOM::$listbox->get_length_by_number(0);
 
-if ($length !== false) {
+if ($length !== -1) {
     echo "The length (total number of options) of the first select element is: " . $length . "\n\n";
 } else {
     echo "The select element was not found\n\n";

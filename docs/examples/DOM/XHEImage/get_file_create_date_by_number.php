@@ -10,7 +10,7 @@ require($path);
 
 // Navigate to a page with images
 WEB::$browser->navigate("https://example.com/page-with-images");
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the creation date of the first image (index 0)
 $createDate = DOM::$image->get_file_create_date_by_number(0);

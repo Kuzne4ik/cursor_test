@@ -10,7 +10,7 @@ require($path);
 
 // Navigate to a page with images
 WEB::$browser->navigate("https://example.com/page-with-images");
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get file size of image with name="logo"
 $fileSize = DOM::$image->get_file_size_by_name("logo");

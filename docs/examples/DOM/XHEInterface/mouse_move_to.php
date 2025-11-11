@@ -69,7 +69,7 @@ if ($targetAnchor1->inner_number != -1) {
             echo "\n" . SYSTEM::$mouse->click();
             
             // Wait for page to load
-            WEB::$browser->wait_for();
+            WEB::$browser->wait_js();
         }
     }
 }

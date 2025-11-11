@@ -10,7 +10,7 @@ require($path);
 
 // Navigate to a page with hidden images
 WEB::$browser->navigate("https://example.com/page-with-hidden-images");
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Show image with exact alt match
 if (DOM::$image->show_by_alt("Company Logo", true)) {

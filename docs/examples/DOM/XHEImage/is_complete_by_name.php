@@ -9,8 +9,8 @@ $path = "../../../../../../Templates/init.php";
 require($path);
 
 // Navigate to a page with images
-WEB::$browser->navigate("https://example.com/page-with-images");
-WEB::$browser->wait_for();
+WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
+WEB::$browser->wait_js();
 
 // Check if image with name="logo" is completely loaded
 if (DOM::$image->is_complete_by_name("logo")) {

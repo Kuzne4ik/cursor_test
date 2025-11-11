@@ -10,13 +10,13 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the size (number of visible options) of a select element found by number
 // The parameter is the number of the select element on the page (0-based)
 $size = DOM::$listbox->get_size_by_number(0);
 
-if ($size !== false) {
+if ($size !== -1) {
     echo "The size of the first select element is: " . $size . "\n\n";
 } else {
     echo "The select element was not found\n\n";

@@ -8,7 +8,7 @@ require($path);
 
 // Navigate to a test page with embed elements
 WEB::$browser->navigate("https://www.example.com");
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get an embed element by name
 $embed = DOM::$embed->get_by_name("example_embed");

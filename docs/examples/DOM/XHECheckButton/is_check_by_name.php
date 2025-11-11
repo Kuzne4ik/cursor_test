@@ -10,15 +10,15 @@ require($path);
 WEB::$browser->navigate("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_checkbox");
 
 // Wait for the page to fully load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Check if a checkbox with name "vehicle1" is checked
 $isChecked = DOM::$checkbox->is_check_by_name("vehicle1");
 
 if ($isChecked) {
-    echo "Checkbox with name 'vehicle1' is checked<br>";
+    echo "Checkbox with name 'vehicle1' is checked\n";
 } else {
-    echo "Checkbox with name 'vehicle1' is not checked<br>";
+    echo "Checkbox with name 'vehicle1' is not checked\n";
 }
 
 // Check the checkbox with name "vehicle1"
@@ -29,9 +29,9 @@ DOM::$checkbox->check_by_name("vehicle1", true);
 $isChecked = DOM::$checkbox->is_check_by_name("vehicle1");
 
 if ($isChecked) {
-    echo "Checkbox with name 'vehicle1' is now checked<br>";
+    echo "Checkbox with name 'vehicle1' is now checked\n";
 } else {
-    echo "Checkbox with name 'vehicle1' is still not checked<br>";
+    echo "Checkbox with name 'vehicle1' is still not checked\n";
 }
 
 // Stop the application

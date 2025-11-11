@@ -10,7 +10,7 @@ require($path);
 WEB::$browser->navigate("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_checkbox");
 
 // Wait for the page to fully load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Check a checkbox with id attribute "vehicle1" in the first form (form number 0)
 DOM::$checkbox->check_by_attribute_by_form_number("id", "vehicle1", true, true, 0);

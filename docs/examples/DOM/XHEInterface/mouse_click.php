@@ -30,8 +30,7 @@ if ($targetAnchor->inner_number != -1) {
     echo $targetAnchor->mouse_click(1,1);
     
     // Wait for page to load
-    WEB::$browser->wait_for();
-    sleep(3);
+    WEB::$browser->wait_js();
 }
 
 echo("\n\n");

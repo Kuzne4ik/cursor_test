@@ -8,7 +8,7 @@ require($path);
 
 // Navigate to a test page with frame elements
 WEB::$browser->navigate("https://www.example.com");
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the body of the first frame as HTML
 $body_html = DOM::$frame->get_body_by_number(0, true);

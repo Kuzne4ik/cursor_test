@@ -10,16 +10,16 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the size (number of visible options) of a select element found by its name attribute
 // The parameter is the name attribute of the select element
-$size = DOM::$listbox->get_size_by_name("country_select");
+$size = DOM::$listbox->get_size_by_name("contries");
 
-if ($size !== false) {
-    echo "The size of the select element with name 'country_select' is: " . $size . "\n\n";
+if ($size !== -1) {
+    echo "The size of the select element with name 'contries' is: " . $size . "\n\n";
 } else {
-    echo "The select element with name 'country_select' was not found\n\n";
+    echo "The select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

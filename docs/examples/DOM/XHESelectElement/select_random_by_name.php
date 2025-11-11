@@ -10,16 +10,16 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Select a random option in a select element found by its name attribute
 // The parameter is the name attribute of the select element
-$success = DOM::$listbox->select_random_by_name("country_select");
+$success = DOM::$listbox->select_random_by_name("contries");
 
 if ($success) {
-    echo "Successfully selected a random option in the select element with name 'country_select'\n\n";
+    echo "Successfully selected a random option in the select element with name 'contries'\n\n";
 } else {
-    echo "Failed to select a random option or the select element with name 'country_select' was not found\n\n";
+    echo "Failed to select a random option or the select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

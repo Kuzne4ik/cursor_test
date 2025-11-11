@@ -10,19 +10,19 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Select a random option in a select element found by its attribute
 // Parameters:
 // - $attr_name: The name of attribute to search by (e.g., "id", "class")
 // - $attr_value: The value of attribute to match
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
-$success = DOM::$listbox->select_random_by_attribute("id", "country_dropdown", true);
+$success = DOM::$listbox->select_random_by_attribute("name", "contries", true);
 
 if ($success) {
-    echo "Successfully selected a random option in the select element with id 'country_dropdown'\n\n";
+    echo "Successfully selected a random option in the select element with name 'contries'\n\n";
 } else {
-    echo "Failed to select a random option or the select element with id 'country_dropdown' was not found\n\n";
+    echo "Failed to select a random option or the select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

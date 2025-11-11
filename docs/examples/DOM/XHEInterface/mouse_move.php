@@ -33,7 +33,7 @@ if ($targetButton->inner_number != -1) {
     echo SYSTEM::$mouse->click();
     
     // Wait for page to load
-    WEB::$browser->wait_for();
+    WEB::$browser->wait_js();
 }
 
 echo("\n\n");

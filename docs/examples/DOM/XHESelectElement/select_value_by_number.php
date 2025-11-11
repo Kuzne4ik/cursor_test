@@ -9,17 +9,17 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Select an option by its value attribute in a select element found by number
 // Parameters:
 // - $number: The number of select element on page (0-based)
 // - $value: The value attribute of option to select
 // - $exactly: Whether to match the value exactly (true) or partially (false)
-$success = DOM::$listbox->select_value_by_number(0, "CA");
+$success = DOM::$listbox->select_value_by_number(1, "us");
 
 if ($success) {
-    echo "Successfully selected the option with value 'CA' in the first select element\n\n";
+    echo "Successfully selected the option with value 'us' in the second select element\n\n";
 } else {
     echo "Failed to select the option or the select element was not found\n\n";
 }

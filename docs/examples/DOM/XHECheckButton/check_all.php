@@ -10,7 +10,7 @@ require($path);
 WEB::$browser->navigate("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_checkbox");
 
 // Wait for the page to fully load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Check all checkboxes on the page
 DOM::$checkbox->check_all(true);

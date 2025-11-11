@@ -7,7 +7,7 @@ Do not use in code ```<br>``` instead of use ```\n```.
 If echo line is summary of new code example use at text start symbols ```\n\n```.
 For comments in PHP files use English only.
 In each file docs example, add a comment to the top of the file with a short description of the contents, prefixed with: `Scenario:`.
-Use this code before an examples code block to add navigate to test page: 
+Use this code before an examples code block to add navigate to test page:
 ```
 // Navigate to a webpage with anchor elements
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");

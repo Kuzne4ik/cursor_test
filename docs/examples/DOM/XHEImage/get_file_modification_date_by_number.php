@@ -10,7 +10,7 @@ require($path);
 
 // Navigate to a page with images
 WEB::$browser->navigate("https://example.com/page-with-images");
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get modification date of the first image (index 0)
 $modDate = DOM::$image->get_file_modification_date_by_number(0);

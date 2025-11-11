@@ -10,18 +10,18 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Select multiple options by indexes in a multi-select element found by its name attribute
 // Parameters:
 // - $name: The name attribute of the multi-select element
 // - $indexes: A string containing comma-separated indexes of options to select
-$success = DOM::$listbox->multi_select_indexes_by_name("countries_multiselect", "1,3,5");
+$success = DOM::$listbox->multi_select_indexes_by_name("contries", "1,3,5");
 
 if ($success) {
-    echo "Successfully selected options at indexes 1, 3, and 5 in multi-select element with name 'countries_multiselect'\n\n";
+    echo "Successfully selected options at indexes 1, 3, and 5 in multi-select element with name 'contries'\n\n";
 } else {
-    echo "Failed to select the options or the multi-select element with name 'countries_multiselect' was not found\n\n";
+    echo "Failed to select the options or the multi-select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

@@ -10,14 +10,14 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get all the value attributes of options in a select element found by number
 // The parameter is the number of the select element on the page (0-based)
-// Returns a string with all option values separated by "\n[br]\n"
+// Returns a string with all option values separated by "<br>"
 $allValues = DOM::$listbox->get_all_values_by_number(0);
 
-if ($allValues !== false) {
+if ($allValues) {
     echo "All option values in the first select element:\n";
     echo $allValues . "\n\n";
 } else {

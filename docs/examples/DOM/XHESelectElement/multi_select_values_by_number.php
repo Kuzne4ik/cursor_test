@@ -10,16 +10,16 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Select multiple options by values in a multi-select element found by number
 // Parameters:
 // - $number: The number of the multi-select element on the page (0-based)
 // - $values: A string containing comma-separated value attributes of options to select
-$success = DOM::$listbox->multi_select_values_by_number(0, "CA,US,UK");
+$success = DOM::$listbox->multi_select_values_by_number(1, "us,uk");
 
 if ($success) {
-    echo "Successfully selected options with values 'CA', 'US', and 'UK' in the first multi-select element\n\n";
+    echo "Successfully selected options with values 'us', and 'uk' in the second multi-select element\n\n";
 } else {
     echo "Failed to select the options or the multi-select element was not found\n\n";
 }

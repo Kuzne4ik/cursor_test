@@ -10,20 +10,20 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
-// Get the type of a select element found by its attribute
+// Get the type of select element found by its attribute
 // Parameters:
 // - $attr_name: The name of the attribute to search by (e.g., "id", "class")
 // - $attr_value: The value of the attribute to match
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
 // Returns "select-one" for single-select elements or "select-multiple" for multi-select elements
-$type = DOM::$listbox->get_type_by_attribute("id", "country_dropdown", true);
+$type = DOM::$listbox->get_type_by_attribute("name", "contries", true);
 
-if ($type !== false) {
-    echo "The type of the select element with id 'country_dropdown' is: " . $type . "\n\n";
+if ($type) {
+    echo "The type of the select element with name 'contries' is: " . $type . "\n\n";
 } else {
-    echo "The select element with id 'country_dropdown' was not found\n\n";
+    echo "The select element with id 'contries' was not found\n\n";
 }
 
 // Quit the application

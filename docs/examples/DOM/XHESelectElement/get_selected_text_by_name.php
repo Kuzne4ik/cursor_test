@@ -9,16 +9,16 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the text of the selected option in a select element found by its name attribute
 // The parameter is the name attribute of the select element
-$selectedText = DOM::$listbox->get_selected_text_by_name("country_select");
+$selectedText = DOM::$listbox->get_selected_text_by_name("contries");
 
 if ($selectedText !== false) {
-    echo "The text of the selected option in the select element with name 'country_select' is: " . $selectedText . "\n\n";
+    echo "The text of the selected option in the select element with name 'contries' is: " . $selectedText . "\n\n";
 } else {
-    echo "No option is selected or the select element with name 'country_select' was not found\n\n";
+    echo "No option is selected or the select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

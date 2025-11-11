@@ -5,14 +5,14 @@ $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// Пример использования функции check_by_value для радиобокса
+// Пример использования функции check_by_value для радиобокса.
 // Установить отметку на радиобоксе по его значению
 
 // Navigate to a page with radio buttons
-WEB::$browser->navigate("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_input_radio");
+WEB::$browser->navigate(TEST_POLYGON_URL . "radiobox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Check the radio button by value (assuming one radio button has value="male")
 DOM::$radiobox->check_by_value("male", true, true, "iframeResult");

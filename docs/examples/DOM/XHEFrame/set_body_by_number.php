@@ -8,7 +8,7 @@ require($path);
 
 // Navigate to a test page with frame elements
 WEB::$browser->navigate("https://www.example.com");
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Define new HTML content for the frame
 $new_frame_content = "<html><body><h1>New Frame Content</h1><p>This content was set programmatically.</p></body></html>";

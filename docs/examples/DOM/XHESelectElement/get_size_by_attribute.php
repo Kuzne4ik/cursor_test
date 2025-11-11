@@ -10,19 +10,19 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the size (number of visible options) of a select element found by its attribute
 // Parameters:
 // - $attr_name: The name of the attribute to search by (e.g., "id", "class")
 // - $attr_value: The value of the attribute to match
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
-$size = DOM::$listbox->get_size_by_attribute("id", "country_dropdown", true);
+$size = DOM::$listbox->get_size_by_attribute("name", "contries", true);
 
 if ($size !== false) {
-    echo "The size of the select element with id 'country_dropdown' is: " . $size . "\n\n";
+    echo "The size of the select element with name 'contries' is: " . $size . "\n\n";
 } else {
-    echo "The select element with id 'country_dropdown' was not found\n\n";
+    echo "The select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

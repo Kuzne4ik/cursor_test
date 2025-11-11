@@ -10,7 +10,7 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Select an option by index in a select element within a form, found by attribute and form number
 // Parameters:
@@ -19,12 +19,12 @@ WEB::$browser->wait_for();
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
 // - $index: The index of the option to select
 // - $form_number: The number of the form on the page (0-based)
-$success = DOM::$listbox->select_index_by_attribute_by_form_number("id", "country_dropdown", true, 2, 0);
+$success = DOM::$listbox->select_index_by_attribute_by_form_number("name", "contries", true, 2, 0);
 
 if ($success) {
-    echo "Successfully selected the option at index 2 in the select element with id 'country_dropdown' within form 0\n\n";
+    echo "Successfully selected the option at index 2 in the select element with name 'contries' within form 0\n\n";
 } else {
-    echo "Failed to select the option or the select element with id 'country_dropdown' in form 0 was not found\n\n";
+    echo "Failed to select the option or the select element with name 'contries' in form 0 was not found\n\n";
 }
 
 // Quit the application

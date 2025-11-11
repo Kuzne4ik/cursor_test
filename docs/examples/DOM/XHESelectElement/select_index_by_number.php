@@ -9,15 +9,15 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Find the select element by number and select option by index
 // The first parameter is the number of the select element on the page (0-based)
 // The second parameter is the index of the option to select (0-based)
-$success = DOM::$listbox->select_index_by_number(0, 2);
+$success = DOM::$listbox->select_index_by_number(0, 1);
 
 if ($success) {
-    echo "Successfully selected option at index 2 in the first select element\n\n";
+    echo "Successfully selected option at index 1 in the first select element\n\n";
 } else {
     echo "Failed to select option\n\n";
 }

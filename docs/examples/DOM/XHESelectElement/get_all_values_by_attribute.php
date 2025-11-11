@@ -1,6 +1,5 @@
 <?php
 // Scenario: Demonstrates how to get all value options from a select element found by attribute
-// Scenario: Demonstrates how to get all value options from a select element found by attribute
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";
@@ -11,21 +10,21 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get all the value attributes of options in a select element found by its attribute
 // Parameters:
 // - $attr_name: The name of the attribute to search by (e.g., "id", "class")
 // - $attr_value: The value of the attribute to match
 // - $exactly: Whether to match the attribute value exactly (true) or partially (false)
-// Returns a string with all option values separated by "\n[br]\n"
-$allValues = DOM::$listbox->get_all_values_by_attribute("id", "country_dropdown", true);
+// Returns a string with all option values separated by "<br>"
+$allValues = DOM::$listbox->get_all_values_by_attribute("name", "contries", true);
 
 if ($allValues !== false) {
-    echo "All option values in the select element with id 'country_dropdown':\n";
+    echo "All option values in the select element with name 'contries':\n";
     echo $allValues . "\n\n";
 } else {
-    echo "The select element with id 'country_dropdown' was not found\n\n";
+    echo "The select element with name 'contries' was not found\n\n";
 }
 
 // Quit the application

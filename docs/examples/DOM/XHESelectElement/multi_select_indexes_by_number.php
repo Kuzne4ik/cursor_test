@@ -10,7 +10,7 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Select multiple options by indexes in a multi-select element found by number
 // Parameters:

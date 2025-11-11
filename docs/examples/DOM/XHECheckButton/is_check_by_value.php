@@ -10,15 +10,15 @@ require($path);
 WEB::$browser->navigate("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_checkbox");
 
 // Wait for the page to fully load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Check if a checkbox with value "Bike" is checked (Inexact match)
 $isChecked = DOM::$checkbox->is_check_by_value("Bike", exactly: false);
 
 if ($isChecked) {
-    echo "Checkbox with value 'Bike' is checked<br>";
+    echo "Checkbox with value 'Bike' is checked\n";
 } else {
-    echo "Checkbox with value 'Bike' is not checked<br>";
+    echo "Checkbox with value 'Bike' is not checked\n";
 }
 
 // Check the checkbox with value "Bike"
@@ -29,9 +29,9 @@ DOM::$checkbox->check_by_value("Bike", true, true);
 $isChecked = DOM::$checkbox->is_check_by_value("Bike", true);
 
 if ($isChecked) {
-    echo "Checkbox with value 'Bike' is now checked<br>";
+    echo "Checkbox with value 'Bike' is now checked\n";
 } else {
-    echo "Checkbox with value 'Bike' is still not checked<br>";
+    echo "Checkbox with value 'Bike' is still not checked\n";
 }
 
 // Stop the application

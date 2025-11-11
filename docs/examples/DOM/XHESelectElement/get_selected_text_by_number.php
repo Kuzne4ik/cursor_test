@@ -9,7 +9,7 @@ require($path);
 WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html");
 
 // Wait for the page to load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Get the text of the selected option in a select element found by number
 // The parameter is the number of the select element on the page (0-based)

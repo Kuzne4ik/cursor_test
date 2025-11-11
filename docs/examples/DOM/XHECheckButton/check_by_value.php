@@ -7,10 +7,10 @@ require($path);
 
 // The example demonstrates using the check_by_value function to check a checkbox by its value attribute
 // Navigate to a test page with checkboxes
-WEB::$browser->navigate("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_checkbox");
+WEB::$browser->navigate(TEST_POLYGON_URL . "checkbox.html");
 
 // Wait for the page to fully load
-WEB::$browser->wait_for();
+WEB::$browser->wait_js();
 
 // Check a checkbox with value "Bike" (exact match)
 DOM::$checkbox->check_by_value("Bike", true, true);
