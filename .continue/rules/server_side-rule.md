@@ -1,7 +1,6 @@
 ---
 description: Client side
 ---
-
 PHP is a server-side language, but in this case PHP used to write client side code to send known commands to the server and get response.
 The server can directly manipulate the DOM of a webpage in the browser.
 Send only exist commands to the server and get response implemented in classes with prefix `XHE` in name.
