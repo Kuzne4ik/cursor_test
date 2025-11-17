@@ -1,0 +1,1 @@
+{"mcpServers":{"php-xhe-docs-mcp":{"command":"python","args":["run_mcp_server.py"],"cwd":"G:/XHEApiMcp/","disabled":false,"alwaysAllow":["get_method_info","get_examples","search_api"],"timeout":300}}}
