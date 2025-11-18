@@ -1,0 +1,102 @@
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "tools": [
+            {
+                "name": "search_api",
+                "description": "Semantic search for PHP classes and methods. Returns top N most relevant results with minimal context.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "Search query text"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "description": "Maximum number of results (default: 5)"
+                        },
+                        "include_examples": {
+                            "type": "boolean",
+                            "description": "Include code examples in results",
+                            "default": true
+                        },
+                        "category": {
+                            "type": "string",
+                            "description": "Filter by category (Web, DOM, System, Vision, Window)"
+                        },
+                        "type": {
+                            "type": "string",
+                            "description": "Filter by type (class, method, example)"
+                        }
+                    },
+                    "required": [
+                        "query"
+                    ]
+                }
+            },
+            {
+                "name": "get_class_info",
+                "description": "Get complete information about a PHP class.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "class_name": {
+                            "type": "string",
+                            "description": "Name of the class (e.g., 'XHERest')"
+                        }
+                    },
+                    "required": [
+                        "class_name"
+                    ]
+                }
+            },
+            {
+                "name": "get_method_info",
+                "description": "Get complete information about a PHP method, including examples.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "class_name": {
+                            "type": "string",
+                            "description": "Name of the class"
+                        },
+                        "method_name": {
+                            "type": "string",
+                            "description": "Name of the method"
+                        }
+                    },
+                    "required": [
+                        "class_name",
+                        "method_name"
+                    ]
+                }
+            },
+            {
+                "name": "get_examples",
+                "description": "Get code examples for a class or method from Test Samples.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "class_name": {
+                            "type": "string",
+                            "description": "Name of the class"
+                        },
+                        "method_name": {
+                            "type": "string",
+                            "description": "Name of the method (optional, if not provided returns all examples for class)"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "description": "Maximum number of examples (default: 10)"
+                        }
+                    },
+                    "required": [
+                        "class_name"
+                    ]
+                }
+            }
+        ]
+    }
+}
