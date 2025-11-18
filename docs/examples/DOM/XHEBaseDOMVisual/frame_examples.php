@@ -8,7 +8,7 @@ $path = "../../../../../../Templates/init.php";
 require($path);
 
 // Navigate to a webpage with frames
-WEB::$browser->navigate(TEST_POLYGON_URL . "frames.html");
+WEB::$browser->navigate(TEST_POLYGON_URL . "input.html");
 
 // Wait for frame 0 to be available
 $frameExists = DOM::$frame->is_exist_by_number(0);
@@ -16,45 +16,69 @@ $frameExists = DOM::$frame->is_exist_by_number(0);
 if ($frameExists) {
     echo "Frame 0 exists on the page\n";
     
-    // Get an element from frame 0 by number
-    $elementInFrame = DOM::$element->get_by_number(0, "0");
+    // Get an input from frame 0 by number
+    $inputInFrame = DOM::$input->get_by_number(0, "0");
     
-    if ($elementInFrame->is_exist()) {
-        echo "Element with number 0 exists in frame 0\n";
+    if ($inputInFrame->is_exist()) {
+        echo "input with number 0 exists in frame 0\n";
         
-        // Set focus to the element in frame
-        DOM::$element->set_focus_by_number(0, "0");
-        echo "Focus set to element with number 0 in frame 0\n";
+        // Set focus to the input in frame
+        $focusResult = DOM::$input->set_focus_by_number(0, "0");
+        if ($focusResult) {
+            echo "Focus set to input with number 0 in frame 0\n";
+        } else {
+            echo "Failed to set focus to input with number 0 in frame 0\n";
+        }
         
-        // Click on the element in frame
-        DOM::$element->click_by_number(0, "0");
-        echo "Clicked on element with number 0 in frame 0\n";
+        // Click on the input in frame
+        $clickResult = DOM::$input->click_by_number(0, "0");
+        if ($clickResult) {
+            echo "Clicked on input with number 0 in frame 0\n";
+        } else {
+            echo "Failed to click on input with number 0 in frame 0\n";
+        }
         
-        // Set value of the element in frame
-        DOM::$element->set_value_by_number(0, "test value in frame", "0");
-        echo "Set value of element with number 0 in frame 0\n";
+        // Set value of the input in frame
+        $setValueResult = DOM::$input->set_value_by_number(0, "test value in frame", "0");
+        if ($setValueResult) {
+            echo "Set value of input with number 0 in frame 0\n";
+        } else {
+            echo "Failed to set value of input with number 0 in frame 0\n";
+        }
         
-        // Get value of the element in frame
-        $value = DOM::$element->get_value_by_number(0, "0");
-        echo "Value of element with number 0 in frame 0: " . $value . "\n";
+        // Get value of the input in frame
+        $value = DOM::$input->get_value_by_number(0, "0");
+        if ($value !== false) {
+            echo "Value of input with number 0 in frame 0: " . $value . "\n";
+        } else {
+            echo "Failed to get value of input with number 0 in frame 0\n";
+        }
         
-        // Get attribute of the element in frame
-        $attribute = DOM::$element->get_attribute_by_number(0, "type", "0");
-        echo "Attribute 'type' of element with number 0 in frame 0: " . $attribute . "\n";
+        // Get attribute 'type' of the input in frame
+        $attribute = DOM::$input->get_attribute_by_number(0, "type", "0");
+        if ($attribute !== false) {
+            echo "Attribute 'type' of input with number 0 in frame 0: " . $attribute . "\n";
+        } else {
+            echo "Failed to get attribute 'type' of input with number 0 in frame 0\n";
+        }
         
-        // Send event to the element in frame
-        DOM::$element->send_event_by_number(0, "onfocus", "0");
-        echo "Sent 'onfocus' event to element with number 0 in frame 0\n";
+        // Send event 'onfocus' to the input in frame
+        $eventResult = DOM::$input->send_event_by_number(0, "onfocus", "0");
+        if ($eventResult) {
+            echo "Sent 'onfocus' event to input with number 0 in frame 0\n";
+        } else {
+            echo "Failed to send 'onfocus' event to input with number 0 in frame 0\n";
+        }
         
-        // Get inner text of the element in frame
-        $innerText = DOM::$element->get_inner_text_by_number(0, "0");
-        echo "Inner text of element with number 0 in frame 0: " . $innerText . "\n";
-        
-        // Get inner HTML of the element in frame
-        $innerHtml = DOM::$element->get_inner_html_by_number(0, "0");
-        echo "Inner HTML of element with number 0 in frame 0: " . $innerHtml . "\n";
+        // Get inner text of the input in frame
+        $innerText = DOM::$input->get_inner_text_by_number(0, "0");
+        if ($innerText !== false) {
+            echo "Inner text of input with number 0 in frame 0: " . $innerText . "\n";
+        } else {
+            echo "Failed to get inner text of input with number 0 in frame 0\n";
+        }
     } else {
-        echo "Element with number 0 does not exist in frame 0\n";
+        echo "input with number 0 does not exist in frame 0\n";
     }
 } else {
     echo "Frame 0 does not exist on the page\n";
@@ -66,17 +90,21 @@ $nestedFrameExists = DOM::$frame->is_exist_by_number(0, "0:0");
 if ($nestedFrameExists) {
     echo "Nested frame 0:0 exists on the page\n";
     
-    // Get an element from nested frame
-    $elementInNestedFrame = DOM::$element->get_by_number(0, "0:0");
+    // Get an input from nested frame
+    $inputInNestedFrame = DOM::$input->get_by_number(0, "0:0");
     
-    if ($elementInNestedFrame->is_exist()) {
-        echo "Element with number 0 exists in nested frame 0:0\n";
+    if ($inputInNestedFrame->is_exist()) {
+        echo "input with number 0 exists in nested frame 0:0\n";
         
-        // Click on the element in nested frame
-        DOM::$element->click_by_number(0, "0:0");
-        echo "Clicked on element with number 0 in nested frame 0:0\n";
+        // Click on the input in nested frame
+        $nestedClickResult = DOM::$input->click_by_number(0, "0:0");
+        if ($nestedClickResult) {
+            echo "Clicked on input with number 0 in nested frame 0:0\n";
+        } else {
+            echo "Failed to click on input with number 0 in nested frame 0:0\n";
+        }
     } else {
-        echo "Element with number 0 does not exist in nested frame 0:0\n";
+        echo "input with number 0 does not exist in nested frame 0:0\n";
     }
 } else {
     echo "Nested frame 0:0 does not exist on the page\n";

@@ -7,25 +7,23 @@ $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// Navigate to a webpage with elements
-WEB::$browser->navigate(TEST_POLYGON_URL . "input.html");
+// Navigate to a webpage with inputs that have name attributes
+WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");
 
-// Click on an element with name "search"
-$success = DOM::$element->click_by_name("search");
-
-if ($success) {
-    echo "Successfully clicked on element with name 'search'\n";
+// Basic example - click on an input by its name
+$clickResult = DOM::$input->click_by_name("passwd");
+if ($clickResult) {
+    echo "\nSuccessfully clicked on input with name 'passwd'";
 } else {
-    echo "Failed to click on element with name 'search'\n";
+    echo "\nFailed to click on input with name 'passwd'";
 }
 
-// Example with frame parameter - click on an element with name "search" in frame 0
-$successInFrame = DOM::$element->click_by_name("search", "0");
-
-if ($successInFrame) {
-    echo "Successfully clicked on element with name 'search' in frame 0\n";
+// Example with frame parameter - click on an input inside a frame by its name
+$clickResultInFrame = DOM::$input->click_by_name("passwd", 0);
+if ($clickResultInFrame) {
+    echo "\nSuccessfully clicked on input with name 'passwd' in frame 0";
 } else {
-    echo "Failed to click on element with name 'search' in frame 0\n";
+    echo "\nFailed to click on input with name 'passwd' in frame 0";
 }
 
 // Quit the application
