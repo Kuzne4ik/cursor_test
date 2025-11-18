@@ -28,7 +28,7 @@ if ($navigateResult) {
         $elements = DOM::$image->get_all_by_alt($alt, true);
         
         // Check if the operation was successful
-        if ($elements !== false) {
+        if ($elements->get_count() > 0) {
             echo "Successfully retrieved elements with exact alt '{$alt}'\n";
             
             // Get count of elements
@@ -38,40 +38,26 @@ if ($navigateResult) {
             // Example 2: Iterate through retrieved elements and display their details
             echo "\n\nIterating through elements with exact alt '{$alt}':";
             for ($i = 0; $i < $count; $i++) {
-                $element = $elements->get($i);
-                if ($element !== false && $element->is_exist()) {
+                $targetElement = $elements->get($i);
+                if ($targetElement !== false && $targetElement->is_exist()) {
                     echo "\nElement #{$i}:";
                     
-                    $tag = $element->get_tag();
-                    if ($tag !== false) {
-                        echo "\n  Tag: " . $tag;
-                    } else {
-                        echo "\n  Failed to get tag";
-                    }
-                    
-                    $name = $element->get_name();
-                    if ($name !== false) {
+                    $name = $targetElement->get_name();
+                    if ($name) {
                         echo "\n  Name: " . $name;
                     } else {
                         echo "\n  Failed to get name";
                     }
                     
-                    $id = $element->get_id();
-                    if ($id !== false) {
+                    $id = $targetElement->get_id();
+                    if ($id) {
                         echo "\n  ID: " . $id;
                     } else {
                         echo "\n  Failed to get ID";
                     }
                     
-                    $altAttr = $element->get_alt();
-                    if ($altAttr !== false) {
-                        echo "\n  Alt: " . $altAttr;
-                    } else {
-                        echo "\n  Failed to get alt attribute";
-                    }
-                    
-                    $src = $element->get_src();
-                    if ($src !== false) {
+                    $src = $targetElement->get_src();
+                    if ($src) {
                         echo "\n  Src: " . $src;
                     } else {
                         echo "\n  Failed to get src";
@@ -89,7 +75,7 @@ if ($navigateResult) {
         $elements = DOM::$image->get_all_by_alt($alt, false); // exactly = false for partial match
         
         // Check if the operation was successful
-        if ($elements !== false) {
+        if ($elements->get_count() > 0) {
             echo "\n\nSuccessfully retrieved elements with partial alt '{$alt}'\n";
             
             // Get count of elements
@@ -99,18 +85,18 @@ if ($navigateResult) {
             // Example 4: Iterate through elements with partial alt match
             echo "\n\nIterating through elements with partial alt '{$alt}':";
             for ($i = 0; $i < $count; $i++) {
-                $element = $elements->get($i);
-                if ($element !== false && $element->is_exist()) {
+                $targetElement = $elements->get($i);
+                if ($targetElement !== false && $targetElement->is_exist()) {
                     echo "\nElement #{$i}:";
                     
-                    $tag = $element->get_tag();
+                    $tag = $targetElement->get_tag();
                     if ($tag !== false) {
                         echo "\n  Tag: " . $tag;
                     } else {
                         echo "\n  Failed to get tag";
                     }
                     
-                    $altAttr = $element->get_alt();
+                    $altAttr = $targetElement->get_alt();
                     if ($altAttr !== false) {
                         echo "\n  Full alt: " . $altAttr;
                     } else {
@@ -129,44 +115,27 @@ if ($navigateResult) {
         $elements = DOM::$image->get_all_by_alt($alt, true);
         
         // Check if the operation was successful
-        if ($elements !== false) {
+        if ($elements->get_count() > 0) {
             echo "\n\nSuccessfully retrieved elements with alt '{$alt}' for filtering\n";
             
             $imgElements = [];
             $inputElements = [];
             
             for ($i = 0; $i < $elements->get_count(); $i++) {
-                $element = $elements->get($i);
-                if ($element !== false && $element->is_exist()) {
-                    $tag = $element->get_tag();
-                    if ($tag !== false) {
-                        if ($tag === "img") {
-                            $imgElements[] = $element;
-                            
-                            $altAttr = $element->get_alt();
-                            $src = $element->get_src();
-                            
-                            if ($altAttr !== false && $src !== false) {
-                                echo "\nImg element found: alt=" . $altAttr . ", src=" . $src;
-                            } else {
-                                echo "\nImg element found but failed to get attributes";
-                            }
-                        } elseif ($tag === "input") {
-                            $inputElements[] = $element;
-                            
-                            $altAttr = $element->get_alt();
-                            $type = $element->get_attribute("type");
-                            
-                            if ($altAttr !== false && $type !== false) {
-                                echo "\nInput element found: alt=" . $altAttr . ", type=" . $type;
-                            } else {
-                                echo "\nInput element found but failed to get attributes";
-                            }
-                        }
+                $targetElement = $elements->get($i);
+                if ($targetElement !== false && $targetElement->is_exist()) {
+                    $imgElements[] = $targetElement;
+
+                    $altAttr = $targetElement->get_alt();
+                    $src = $targetElement->get_src();
+
+                    if ($altAttr !== false && $src !== false) {
+                        echo "\nImg element found: alt=" . $altAttr . ", src=" . $src;
                     } else {
-                        echo "\nFailed to get tag for element #{$i}";
+                        echo "\nImg element found but failed to get attributes";
                     }
-                } else {
+                }
+                 else {
                     echo "\nFailed to get element #{$i}";
                 }
             }
@@ -182,16 +151,16 @@ if ($navigateResult) {
         $elements = DOM::$image->get_all_by_alt($alt, true);
         
         // Check if the operation was successful
-        if ($elements !== false) {
+        if ($elements->get_count() > 0) {
             echo "\n\nSuccessfully retrieved elements with alt '{$alt}' for interaction\n";
             
             echo "\n\nInteracting with elements containing exact alt '{$alt}':";
             for ($i = 0; $i < $elements->get_count(); $i++) {
-                $element = $elements->get($i);
-                if ($element !== false && $element->is_exist()) {
+                $targetElement = $elements->get($i);
+                if ($targetElement !== false && $targetElement->is_exist()) {
                     echo "\nElement #{$i}:";
                     
-                    $tag = $element->get_tag();
+                    $tag = $targetElement->get_tag();
                     if ($tag !== false) {
                         echo "\n  Tag: " . $tag;
                     } else {
@@ -200,10 +169,10 @@ if ($navigateResult) {
                     
                     // If it's an image, get its details
                     if ($tag === "img") {
-                        $altAttr = $element->get_alt();
-                        $src = $element->get_src();
-                        $width = $element->get_width();
-                        $height = $element->get_height();
+                        $altAttr = $targetElement->get_alt();
+                        $src = $targetElement->get_src();
+                        $width = $targetElement->get_width();
+                        $height = $targetElement->get_height();
                         
                         if ($altAttr !== false) {
                             echo "\n  Image alt: " . $altAttr;
@@ -232,10 +201,10 @@ if ($navigateResult) {
                     
                     // If it's an input, get its details
                     if ($tag === "input") {
-                        $altAttr = $element->get_alt();
-                        $type = $element->get_attribute("type");
-                        $value = $element->get_value();
-                        $name = $element->get_name();
+                        $altAttr = $targetElement->get_alt();
+                        $type = $targetElement->get_attribute("type");
+                        $value = $targetElement->get_value();
+                        $name = $targetElement->get_name();
                         
                         if ($altAttr !== false) {
                             echo "\n  Input alt: " . $altAttr;

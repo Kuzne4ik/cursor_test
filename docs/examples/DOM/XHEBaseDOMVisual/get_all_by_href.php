@@ -38,25 +38,25 @@ if ($navigateResult) {
             // Example 2: Iterate through retrieved anchors and display their details
             echo "\n\nIterating through anchors with exact href '{$href}':";
             for ($i = 0; $i < $count; $i++) {
-                $anchor = $anchors->get($i);
-                if ($anchor !== false && $anchor->is_exist()) {
+                $targetAnchor = $anchors->get($i);
+                if ($targetAnchor !== false && $targetAnchor->is_exist()) {
                     echo "\nanchor #{$i}:";
                     
-                    $id = $anchor->get_id();
+                    $id = $targetAnchor->get_id();
                     if ($id) {
                         echo "\n  ID: " . $id;
                     } else {
                         echo "\n  Failed to get ID";
                     }
                     
-                    $hrefAttr = $anchor->get_href();
+                    $hrefAttr = $targetAnchor->get_href();
                     if ($hrefAttr) {
                         echo "\n  Href: " . $hrefAttr;
                     } else {
                         echo "\n  Failed to get href";
                     }
                     
-                    $innerText = $anchor->get_inner_text();
+                    $innerText = $targetAnchor->get_inner_text();
                     if ($innerText) {
                         echo "\n  Inner text: " . $innerText;
                     } else {
@@ -85,11 +85,11 @@ if ($navigateResult) {
             // Example 4: Iterate through anchors with partial href match
             echo "\n\nIterating through anchors with partial href '{$href}':";
             for ($i = 0; $i < $count; $i++) {
-                $anchor = $anchors->get($i);
-                if ($anchor !== false && $anchor->is_exist()) {
+                $targetAnchor = $anchors->get($i);
+                if ($targetAnchor !== false && $targetAnchor->is_exist()) {
                     echo "\nanchor #{$i}:";
                     
-                    $hrefAttr = $anchor->get_href();
+                    $hrefAttr = $targetAnchor->get_href();
                     if ($hrefAttr) {
                         echo "\n  Full href: " . $hrefAttr;
                     } else {

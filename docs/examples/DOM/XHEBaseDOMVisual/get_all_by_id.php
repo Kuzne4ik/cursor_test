@@ -38,18 +38,18 @@ if ($navigateResult) {
             // Example 2: Iterate through retrieved anchors and display their details
             echo "\n\nIterating through anchors with ID '{$id}':";
             for ($i = 0; $i < $count; $i++) {
-                $anchor = $anchors->get($i);
-                if ($anchor->is_exist()) {
+                $targetAnchor = $anchors->get($i);
+                if ($targetAnchor->is_exist()) {
                     echo "\nanchor #{$i}:";
                     
-                    $idAttr = $anchor->get_id();
+                    $idAttr = $targetAnchor->get_id();
                     if ($idAttr) {
                         echo "\n  ID: " . $idAttr;
                     } else {
                         echo "\n  Failed to get ID";
                     }
                     
-                    $innerText = $anchor->get_inner_text();
+                    $innerText = $targetAnchor->get_inner_text();
                     if ($innerText) {
                         echo "\n  Inner text: " . $innerText;
                     } else {
