@@ -17,7 +17,7 @@ if ($navigateResult) {
     // Example 1: Basic usage - get all attribute values of an element by its name attribute
     $inputName = "id0";
 
-    // Get all attribute values of the input with name="Name"
+    // Get all attribute values of the input with name="id0"
     $attributeValues = DOM::$input->get_all_attributes_values_by_name($inputName);
 
     // Check if the operation was successful
@@ -31,7 +31,7 @@ if ($navigateResult) {
     // Example 2: Get all attribute values of another input by its name attribute
     $inputName = "id3";
 
-    // Get all attribute values of the input with name="frm1"
+    // Get all attribute values of the input with name="id3"
     $attributeValues = DOM::$input->get_all_attributes_values_by_name($inputName);
 
     // Check if the operation was successful
@@ -43,8 +43,8 @@ if ($navigateResult) {
     }
 
     // Example 3: Get all attribute values of an input within a specific frame
-    // This example assumes there is a frame with index 0 on the page
-    $inputName = "frame_input";
+    // This example uses frame with index 0 and input with name="fr_id0" inside that frame
+    $inputName = "fr_id0";
 
     // Check if frame exists first
     $frameExists = DOM::$frame->is_exist_by_number(0);
