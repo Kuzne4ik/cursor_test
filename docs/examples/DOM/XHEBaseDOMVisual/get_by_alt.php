@@ -15,15 +15,15 @@ WEB::$browser->wait_for();
 // Example 1: Get element by exact alt text match
 echo "\n\nExample 1: Get element by exact alt text match";
 $alt = "screenshot1";
-$element = DOM::$image->get_by_alt($alt, true);
+$findedElement = DOM::$image->get_by_alt($alt, true);
 
 // Check if element exists
-if ($element->is_exist()) {
+if ($findedElement->is_exist()) {
     echo "\nElement with exact alt '{$alt}' found successfully";
     // Get and display element details
-    echo "\nElement tag: " . $element->get_tag();
-    echo "\nElement alt attribute: " . $element->get_alt();
-    echo "\nElement src attribute: " . $element->get_src();
+    echo "\nElement tag: " . $findedElement->get_tag();
+    echo "\nElement alt attribute: " . $findedElement->get_alt();
+    echo "\nElement src attribute: " . $findedElement->get_src();
 } else {
     echo "\nElement with exact alt '{$alt}' not found";
 }
@@ -31,15 +31,15 @@ if ($element->is_exist()) {
 // Example 2: Get element by partial alt text match
 echo "\n\nExample 2: Get element by partial alt text match";
 $partialAlt = "captcha";
-$element = DOM::$image->get_by_alt($partialAlt, false);
+$findedElement = DOM::$image->get_by_alt($partialAlt, false);
 
 // Check if element exists
-if ($element->is_exist()) {
+if ($findedElement->is_exist()) {
     echo "\nElement with partial alt '{$partialAlt}' found successfully";
     // Get and display element details
-    echo "\nElement tag: " . $element->get_tag();
-    echo "\nElement alt attribute: " . $element->get_alt();
-    echo "\nElement src attribute: " . $element->get_src();
+    echo "\nElement tag: " . $findedElement->get_tag();
+    echo "\nElement alt attribute: " . $findedElement->get_alt();
+    echo "\nElement src attribute: " . $findedElement->get_src();
 } else {
     echo "\nElement with partial alt '{$partialAlt}' not found";
 }
@@ -50,15 +50,15 @@ echo "\n\nExample 3: Get element by alt text within a specific frame (frame=0)";
 $framesCount = DOM::$frame->get_count();
 if ($framesCount > 0) {
     $frameAlt = "screenshot1";
-    $element = DOM::$image->get_by_alt($frameAlt, true, "0");
+    $findedElement = DOM::$image->get_by_alt($frameAlt, true, "0");
 
     // Check if element exists
-    if ($element->is_exist()) {
+    if ($findedElement->is_exist()) {
         echo "\nElement with alt '{$frameAlt}' found in frame 0";
         // Get and display element details
-        echo "\nElement tag: " . $element->get_tag();
-        echo "\nElement alt attribute: " . $element->get_alt();
-        echo "\nElement src attribute: " . $element->get_src();
+        echo "\nElement tag: " . $findedElement->get_tag();
+        echo "\nElement alt attribute: " . $findedElement->get_alt();
+        echo "\nElement src attribute: " . $findedElement->get_src();
     } else {
         echo "\nElement with alt '{$frameAlt}' not found in frame 0";
     }
@@ -69,11 +69,11 @@ if ($framesCount > 0) {
 // Example 4: Check if element with specific alt exists (exact match by default)
 echo "\n\nExample 4: Check if element with specific alt exists";
 $checkAlt = "captcha";
-$element = DOM::$image->get_by_alt($checkAlt, true);
+$findedElement = DOM::$image->get_by_alt($checkAlt, true);
 
-if ($element->is_exist()) {
+if ($findedElement->is_exist()) {
     echo "\nElement with alt '{$checkAlt}' exists on page";
-    echo "\nElement inner number: " . $element->inner_number;
+    echo "\nElement inner number: " . $findedElement->inner_number;
 } else {
     echo "\nElement with alt '{$checkAlt}' does not exist on page";
     echo "\nNote: There are multiple elements with alt='captcha' on the page (lines 34 and 38)";

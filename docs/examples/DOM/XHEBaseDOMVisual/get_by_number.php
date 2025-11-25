@@ -1,34 +1,28 @@
 <?php
-// Scenario: Get a DOM element by its number
+// Scenario: Example of getting an element by its number
 
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
+// Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
+// Including init.php grants access to all classes and functionality for working with XHE API
 require($path);
 
-// Navigate to a webpage with elements
-WEB::$browser->navigate(TEST_POLYGON_URL . "input.html");
+// Navigate to a webpage with various elements
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
-// Get the first element on the page
-$element = DOM::$element->get_by_number(0);
+// Example 1: Basic usage - get an element by its number
+$elementNumber = 0; // First element on the page
 
-if ($element->is_exist()) {
-    echo "Element with number 0 exists\n";
-    echo "Element inner number: " . $element->inner_number . "\n";
+// Get the element by its number
+$foundElement = DOM::$anchor->get_by_number($elementNumber);
+
+// Check if the element exists
+if ($foundElement->is_exist()) {
+    echo "Element with number $elementNumber exists.\n";
 } else {
-    echo "Element with number 0 does not exist\n";
+    echo "Element with number $elementNumber does not exist.\n";
 }
-
-// Example with frame parameter - get the first element in frame 0
-$elementInFrame = DOM::$element->get_by_number(0, "0");
-
-if ($elementInFrame->is_exist()) {
-    echo "Element with number 0 exists in frame 0\n";
-    echo "Element inner number: " . $elementInFrame->inner_number . "\n";
-} else {
-    echo "Element with number 0 does not exist in frame 0\n";
-}
+echo "\n";
 
 // Quit the application
 WINDOW::$app->quit();

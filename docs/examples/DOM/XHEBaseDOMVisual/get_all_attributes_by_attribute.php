@@ -219,13 +219,13 @@ if ($navigateResult) {
             if (is_array($numbers) && count($numbers) > 0) {
                 foreach ($numbers as $index => $number) {
                     // Get the element by number
-                    $element = DOM::$element->get_by_number($number);
+                    $findedElement = DOM::$element->get_by_number($number);
                     
                     // Check if the operation was successful
-                    if ($element !== false) {
+                    if ($findedElement !== false) {
                         echo "Successfully retrieved element number $number\n";
                         
-                        if ($element->is_exist()) {
+                        if ($findedElement->is_exist()) {
                             echo "- Element number $number exists.\n";
                             
                             // Display the attributes

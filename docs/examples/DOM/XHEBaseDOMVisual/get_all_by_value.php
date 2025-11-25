@@ -24,14 +24,14 @@ echo "\n\nTotal elements found with exact value '{$value}': {$count}";
 // Example 2: Iterate through retrieved elements and display their details
 echo "\n\nIterating through elements with exact value '{$value}':";
 for ($i = 0; $i < $count; $i++) {
-    $element = $elements->get($i);
-    if ($element->is_exist()) {
+    $findedElement = $elements->get($i);
+    if ($findedElement->is_exist()) {
         echo "\nElement #{$i}:";
-        echo "\n  Tag: " . $element->get_tag();
-        echo "\n  Name: " . $element->get_name();
-        echo "\n  ID: " . $element->get_id();
-        echo "\n  Value: " . $element->get_value();
-        echo "\n  Type: " . $element->get_attribute("type");
+        echo "\n  Tag: " . $findedElement->get_tag();
+        echo "\n  Name: " . $findedElement->get_name();
+        echo "\n  ID: " . $findedElement->get_id();
+        echo "\n  Value: " . $findedElement->get_value();
+        echo "\n  Type: " . $findedElement->get_attribute("type");
     }
 }
 

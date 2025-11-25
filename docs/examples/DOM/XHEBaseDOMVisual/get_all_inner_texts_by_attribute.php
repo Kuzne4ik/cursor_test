@@ -59,9 +59,9 @@ if (count($inner_texts) > 0) {
     if (count($numbers) > 0) {
         foreach ($numbers as $index => $number) {
             // Get the element by number
-            $element = DOM::$anchor->get_by_number($number);
+            $findedElement = DOM::$anchor->get_by_number($number);
             
-            if ($element->is_exist()) {
+            if ($findedElement->is_exist()) {
                 echo "- Element number $number exists. ";
                 
                 // Get the inner text to verify

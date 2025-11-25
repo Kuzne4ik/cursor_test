@@ -24,14 +24,14 @@ echo "\n\nTotal elements found with exact src '{$src}': {$count}";
 // Example 2: Iterate through retrieved elements and display their details
 echo "\n\nIterating through elements with exact src '{$src}':";
 for ($i = 0; $i < $count; $i++) {
-    $element = $elements->get($i);
-    if ($element->is_exist()) {
+    $findedElement = $elements->get($i);
+    if ($findedElement->is_exist()) {
         echo "\nElement #{$i}:";
-        echo "\n  Tag: " . $element->get_tag();
-        echo "\n  Name: " . $element->get_name();
-        echo "\n  ID: " . $element->get_id();
-        echo "\n  Src: " . $element->get_src();
-        echo "\n  Alt: " . $element->get_alt();
+        echo "\n  Tag: " . $findedElement->get_tag();
+        echo "\n  Name: " . $findedElement->get_name();
+        echo "\n  ID: " . $findedElement->get_id();
+        echo "\n  Src: " . $findedElement->get_src();
+        echo "\n  Alt: " . $findedElement->get_alt();
     }
 }
 

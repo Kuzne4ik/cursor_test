@@ -24,13 +24,13 @@ echo "\n\nTotal elements found with numbers {$numbers}: {$count}";
 // Example 2: Iterate through retrieved elements and display their details
 echo "\n\nIterating through elements retrieved by numbers:";
 for ($i = 0; $i < $count; $i++) {
-    $element = $elements->get($i);
-    if ($element->is_exist()) {
+    $findedElement = $elements->get($i);
+    if ($findedElement->is_exist()) {
         echo "\nElement #{$i}:";
-        echo "\n  Tag: " . $element->get_tag();
-        echo "\n  Name: " . $element->get_name();
-        echo "\n  ID: " . $element->get_id();
-        echo "\n  Inner text: " . $element->get_inner_text();
+        echo "\n  Tag: " . $findedElement->get_tag();
+        echo "\n  Name: " . $findedElement->get_name();
+        echo "\n  ID: " . $findedElement->get_id();
+        echo "\n  Inner text: " . $findedElement->get_inner_text();
     }
 }
 

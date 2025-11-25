@@ -23,9 +23,9 @@ echo "\n\nTotal elements found on the page: {$count}";
 // Example 2: Iterate through all elements and display their tag names
 echo "\n\nIterating through all elements:";
 for ($k = 0; $k < $count; $k++) {
-    $element = $elements->get($k);
-    if ($element->is_exist()) {
-        echo "\nElement #{$k}: " . $element->get_tag();
+    $findedElement = $elements->get($k);
+    if ($findedElement->is_exist()) {
+        echo "\nElement #{$k}: " . $findedElement->get_tag();
     }
 }
 
@@ -43,7 +43,7 @@ for ($k = 0; $k < $inputElementsCount; $k++) {
     if ($currentInput->is_exist()) {
         $val = $currentInput->get_value();
         if ($val) {
-            $linkElements[] = $element;
+            $linkElements[] = $findedElement;
             echo "\nInput #{$k}: value=" . $val;
         }
         else{

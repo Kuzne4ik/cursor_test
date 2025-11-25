@@ -43,7 +43,7 @@ if ($foundPartialElement->is_exist()) {
 
 // Example 3: Get element by href within a specific frame (frame=0)
 $href = "https://frame-example.com";
-$element = DOM::$anchor->get_by_href($href, true, "0");
+$findedElement = DOM::$anchor->get_by_href($href, true, "0");
 
 // Check if element exists
 if ($foundPartialElement->is_exist()) {
