@@ -53,10 +53,11 @@ if ($findedElement->is_exist()) {
     $attributes = $findedElement->get_all_attributes();
     $tagName = $findedElement->get_tag();
     
-    echo "Tag name: $tagName\n";
-    echo "ID: " . (isset($attributes['id']) ? $attributes['id'] : 'not found') . "\n";
-} else {
-    echo "Element with src '$frameElementSrc' in frame 0 does not exist.\n";
+    // replace delimeter to `;`
+    $attributes = str_replace('<br>', ';', $attributes);
+    
+    // attributes
+    echo "Element attributes:  $attributes";
 }
 echo "\n";
 
