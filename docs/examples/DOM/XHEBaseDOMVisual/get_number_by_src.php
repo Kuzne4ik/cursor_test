@@ -11,7 +11,7 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
 WEB::$browser->wait_for(60, 1000);
 
 // Example 1: Get number of element by exact src
-$elementSrc = "images/logo.png";
+$elementSrc = "./screenshots/01.jpg";
 $number = DOM::$image->get_number_by_src($elementSrc, true);
 
 if ($number >= 0) {
@@ -21,7 +21,7 @@ if ($number >= 0) {
 }
 
 // Example 2: Get number of element by partial src
-$partialElementSrc = "logo";
+$partialElementSrc = "captcha";
 $number = DOM::$image->get_number_by_src($partialElementSrc, false);
 
 if ($number >= 0) {
@@ -30,19 +30,9 @@ if ($number >= 0) {
     echo "\nElement with partial src '$partialElementSrc' not found";
 }
 
-// Example 3: Get number of non-existent element
-$nonExistentSrc = "nonexistent-image.png";
-$number = DOM::$image->get_number_by_src($nonExistentSrc, true);
-
-if ($number >= 0) {
-    echo "\nElement with src '$nonExistentSrc' has number: $number";
-} else {
-    echo "\nElement with src '$nonExistentSrc' not found";
-}
-
-// Example 4: Get number of element by src in frame (frame=0)
+// Example 3: Get number of element by src in frame (frame=0)
 $frameNumber = 0;
-$frameElementSrc = "frame-image.jpg";
+$frameElementSrc = "./screenshots/icq.bmp";
 $number = DOM::$image->get_number_by_src($frameElementSrc, true, $frameNumber);
 
 if ($number >= 0) {

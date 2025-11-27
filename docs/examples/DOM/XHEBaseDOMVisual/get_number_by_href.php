@@ -11,7 +11,7 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 WEB::$browser->wait_for(60, 1000);
 
 // Example 1: Get number of element by exact href
-$elementHref = "https://example.com";
+$elementHref = "https://example.com/mouseover1";
 $number = DOM::$anchor->get_number_by_href($elementHref, true);
 
 if ($number >= 0) {
@@ -20,30 +20,20 @@ if ($number >= 0) {
     echo "\nElement with href '$elementHref' not found";
 }
 
-// Example 2: Get number of element by partial href
-$partialElementHref = "example";
-$number = DOM::$anchor->get_number_by_href($partialElementHref, false);
+// Example 2: Get number of element by exact href
+$elementHref = "https://example.com/onclick1";
+$number = DOM::$anchor->get_number_by_href($elementHref, true);
 
 if ($number >= 0) {
-    echo "\nElement with partial href '$partialElementHref' has number: $number";
+    echo "\nElement with href '$elementHref' has number: $number";
 } else {
-    echo "\nElement with partial href '$partialElementHref' not found";
+    echo "\nElement with href '$elementHref' not found";
 }
 
-// Example 3: Get number of non-existent element
-$nonExistentHref = "https://nonexistent-link.com";
-$number = DOM::$anchor->get_number_by_href($nonExistentHref, true);
-
-if ($number >= 0) {
-    echo "\nElement with href '$nonExistentHref' has number: $number";
-} else {
-    echo "\nElement with href '$nonExistentHref' not found";
-}
-
-// Example 4: Get number of element by href in frame (frame=0)
+// Example 3: Get number of element by href in frame (frame=0)
 $frameNumber = 0;
-$frameElementHref = "frame-link.html";
-$number = DOM::$anchor->get_number_by_href($frameElementHref, true, $frameNumber);
+$frameElementHref = "example";
+$number = DOM::$anchor->get_number_by_href($frameElementHref, false, $frameNumber);
 
 if ($number >= 0) {
     echo "\nElement with href '$frameElementHref' in frame $frameNumber has number: $number";
