@@ -1,1 +1,14 @@
-{"mcpServers":{}}
+{"mcpServers":{
+        "filesystem": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "/local-directory:/local-directory",
+        "mcp/filesystem",
+        "/local-directory"
+      ]
+    }
+}}
