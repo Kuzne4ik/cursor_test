@@ -29,16 +29,16 @@ if ($exists) {
 // Example 2: Check if an element exists in a specific frame
 echo "\n\nExample 2: Checking if an element exists in a specific frame\n";
 $elementNumber = 0; // First element in the frame
-$frame = 0; // First frame
+$frameNumber = 0; // First frame
 
 // Check if element exists in frame
-$exists = DOM::$anchor->is_exist_by_number($elementNumber, $frame);
+$exists = DOM::$anchor->is_exist_by_number($elementNumber, $frameNumber);
 
 // Check the result
 if ($exists) {
-    echo "Element with number {$elementNumber} exists in frame {$frame}.\n";
+    echo "Element with number {$elementNumber} exists in frame {$frameNumber}.\n";
 } else {
-    echo "Element with number {$elementNumber} does not exist in frame {$frame}.\n";
+    echo "Element with number {$elementNumber} does not exist in frame {$frameNumber}.\n";
 }
 
 // Quit the application

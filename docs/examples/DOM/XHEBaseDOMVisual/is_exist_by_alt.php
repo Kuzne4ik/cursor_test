@@ -29,16 +29,16 @@ if ($exists) {
 // Example 3: Check if an element exists in a specific frame by contains alt
 echo "\n\nExample 3: Checking if an element exists in a specific frame  by contains alt\n";
 $elementAlt = "screenshot1"; // Alt text of an image in a frame
-$frame = 0; // First frame
+$frameNumber = 0; // First frame
 
 // Check if element exists in frame by contains alt
-$exists = DOM::$element->is_exist_by_alt($elementAlt, false, $frame);
+$exists = DOM::$element->is_exist_by_alt($elementAlt, false, $frameNumber);
 
 // Check the result
 if ($exists) {
-    echo "Element contains alt '{$elementAlt}' exists in frame {$frame}.\n";
+    echo "Element contains alt '{$elementAlt}' exists in frame {$frameNumber}.\n";
 } else {
-    echo "Element contains alt '{$elementAlt}' does not exist in frame {$frame}.\n";
+    echo "Element contains alt '{$elementAlt}' does not exist in frame {$frameNumber}.\n";
 }
 
 // Quit the application

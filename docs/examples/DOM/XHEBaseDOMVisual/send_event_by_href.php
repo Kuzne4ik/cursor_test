@@ -49,14 +49,14 @@ echo "\n\nExample 3: Sending 'onmouseover2' event to element by href in a specif
 $hrefValue = "https://example.com/frame0/mouseover1";
 $exactly = true;
 $event = "onmouseover2";
-$frame = 0; // First frame
+$frameNumber = 0; // First frame
 
 // Send event
-$eventResult3 = DOM::$anchor->send_event_by_href($hrefValue, $exactly, $event, $frame);
+$eventResult3 = DOM::$anchor->send_event_by_href($hrefValue, $exactly, $event, $frameNumber);
 
 // Check the result
 if ($eventResult3) {
-    echo "Successfully sent '{$event}' event to element with href='{$hrefValue}' in frame {$frame}<br>\n";
+    echo "Successfully sent '{$event}' event to element with href='{$hrefValue}' in frame {$frameNumber}<br>\n";
 } else {
     echo "Failed to send '{$event}' event. Element may not exist in specified frame or error occurred.<br>\n";
 }

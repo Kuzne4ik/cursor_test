@@ -29,16 +29,16 @@ if ($exists) {
 // Example 2: Check if an element exists in a specific frame
 echo "\n\nExample 3: Checking if an element exists in a specific frame\n";
 $elementHref = "https://example.com/frame0/mouseover1"; // Href of an element in a frame
-$frame = 0; // First frame
+$frameNumber = 0; // First frame
 
 // Check if element exists in frame by contains href value
-$exists = DOM::$anchor->is_exist_by_href($elementHref, false, $frame);
+$exists = DOM::$anchor->is_exist_by_href($elementHref, false, $frameNumber);
 
 // Check the result
 if ($exists) {
-    echo "Element contains href '{$elementHref}' exists in frame {$frame}.\n";
+    echo "Element contains href '{$elementHref}' exists in frame {$frameNumber}.\n";
 } else {
-    echo "Element contains href '{$elementHref}' does not exist in frame {$frame}.\n";
+    echo "Element contains href '{$elementHref}' does not exist in frame {$frameNumber}.\n";
 }
 
 // Quit the application

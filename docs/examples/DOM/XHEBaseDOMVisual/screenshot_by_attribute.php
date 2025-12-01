@@ -53,11 +53,11 @@ echo "\n\nExample 3: Taking a screenshot of an element by attribute in a specifi
 $attrName = "name";
 $attrValue = "screen1";
 $exactly = true;
-$frame = 0; // First frame
+$frameNumber = 0; // First frame
 $savePath3 = "output/element_screenshot_frame.png";
 
 // Take screenshot
-$screenshotResult = DOM::$image->screenshot_by_attribute($savePath3, $attrName, $attrValue, $exactly, $frame);
+$screenshotResult = DOM::$image->screenshot_by_attribute($savePath3, $attrName, $attrValue, $exactly, $frameNumber);
 
 // Check the result
 if ($screenshotResult) {

@@ -29,16 +29,16 @@ if ($exists) {
 // Example 2: Check if an anchor exists in a specific frame
 echo "\n\nExample 2: Checking if an input exists in a specific frame\n";
 $inputName = "fr_id0"; // Name of an input in a frame
-$frame = 0; // First frame
+$frameNumber = 0; // First frame
 
 // Check if input exists in frame
-$exists = DOM::$input->is_exist_by_name($inputName, $frame);
+$exists = DOM::$input->is_exist_by_name($inputName, $frameNumber);
 
 // Check the result
 if ($exists) {
-    echo "input with name '{$inputName}' exists in frame {$frame}.\n";
+    echo "input with name '{$inputName}' exists in frame {$frameNumber}.\n";
 } else {
-    echo "input with name '{$inputName}' does not exist in frame {$frame}.\n";
+    echo "input with name '{$inputName}' does not exist in frame {$frameNumber}.\n";
 }
 
 // Quit the application

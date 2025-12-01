@@ -46,14 +46,14 @@ if ($eventResult2) {
 echo "\n\nExample 3: Sending 'onmouseover' event to element by name in a specific frame<br>\n";
 $nameValue = "id_f0_onclick1";
 $event = "onmouseover";
-$frame = 0; // First frame
+$frameNumber = 0; // First frame
 
 // Send event
-$eventResult3 = DOM::$anchor->send_event_by_name($nameValue, $event, $frame);
+$eventResult3 = DOM::$anchor->send_event_by_name($nameValue, $event, $frameNumber);
 
 // Check the result
 if ($eventResult3) {
-    echo "Successfully sent '{$event}' event to element with name='{$nameValue}' in frame {$frame}<br>\n";
+    echo "Successfully sent '{$event}' event to element with name='{$nameValue}' in frame {$frameNumber}<br>\n";
 } else {
     echo "Failed to send '{$event}' event. Element may not exist in the specified frame or error occurred.<br>\n";
 }
