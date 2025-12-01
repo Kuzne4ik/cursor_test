@@ -1,5 +1,6 @@
 <?php
-// Scenario: Example of clicking a DOM element by its number
+
+// Scenario: Demonstrates clicking a DOM element by number
 
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API
@@ -7,8 +8,11 @@ $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// Navigate to a webpage with clickable elements
-WEB::$browser->navigate(TEST_POLYGON_URL . "image.html");
+// Navigate to a webpage with form elements
+$pageUrl = TEST_POLYGON_URL . "image.html";
+echo("Navigate to HTML page: $pageUrl\n");
+WEB::$browser->navigate($pageUrl);
+WEB::$browser->wait_js();
 
 // Click on the first image (number 0) on the page
 $clickResult = DOM::$image->click_by_number(0);
@@ -24,7 +28,7 @@ $imageExists = DOM::$image->is_exist_by_number(1);
 
 if ($imageExists) {
     echo "image number 1 exists on the page\n";
-    
+
     // Click on the second image (number 1) on the page
     $clickResult = DOM::$image->click_by_number(1);
     
@@ -60,7 +64,7 @@ $imageExists2 = DOM::$image->is_exist_by_number(2);
 
 if ($imageExists2) {
     echo "image number 2 exists on the page\n";
-    
+
     // Click on the third image (number 2) on the page
     $clickResult2 = DOM::$image->click_by_number(2);
     
