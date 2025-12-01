@@ -1,6 +1,8 @@
 ---
-description: docs examples rule for DOM
+description: docs examples rule
 ---
+Add for each method example number to log and comment.
+Use for each method example init variables as method arguments before call a method and use variables in log.
 When creating examples or implementing logic related to DOM operation, the model should rely on the structure, style, and practices demonstrated in existing PHP files in the `docs/examples/DOM/` directory. This includes using similar initialization patterns, method calls, and result handling as in these examples.
 For the folder `docs/examples/DOM/` structure, see the file `docs\examples\DOM\README.md`
 Do not use in code ```<br>``` instead of use ```\n```.
