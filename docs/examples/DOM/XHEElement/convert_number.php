@@ -22,10 +22,10 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 // Example 1: Convert the number of a DOM element to the number of an anchor object
 
 // Get the first element on the page as XHEInterface
-$element = DOM::$element->get_by_number(0);
+$findedElement = DOM::$element->get_by_number(0);
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     // Convert the number of the DOM element to the number of an anchor object
     $anchorNumber = DOM::$element->convert_number(0, "anchor");
     
@@ -52,10 +52,10 @@ if ($element->inner_number != -1) {
 // Example 2: Convert the number of a DOM element to the number of an input object
 
 // Get the second element on the page as XHEInterface
-$element = DOM::$element->get_by_number(1);
+$findedElement = DOM::$element->get_by_number(1);
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     // Convert the number of the DOM element to the number of an input object
     $inputNumber = DOM::$element->convert_number(1, "input");
     

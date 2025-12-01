@@ -22,13 +22,13 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 // Example 1: Get an element by ID using JavaScript
 
 // Get an element by ID using JavaScript
-$element = DOM::$element->get_by_js("document.getElementById('id')");
+$findedElement = DOM::$element->get_by_js("document.getElementById('id')");
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "Element found by ID using JavaScript\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element inner text: " . $element->get_inner_text() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element inner text: " . $findedElement->get_inner_text() . "\n";
 } else {
     echo "Element not found by ID using JavaScript\n";
 }
@@ -36,13 +36,13 @@ if ($element->inner_number != -1) {
 // Example 2: Get an element by tag name using JavaScript
 
 // Get an element by tag name using JavaScript
-$element = DOM::$element->get_by_js("document.getElementsByTagName('div')[0]");
+$findedElement = DOM::$element->get_by_js("document.getElementsByTagName('div')[0]");
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "\nFirst DIV element found using JavaScript\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element inner text: " . $element->get_inner_text() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element inner text: " . $findedElement->get_inner_text() . "\n";
 } else {
     echo "\nFirst DIV element not found using JavaScript\n";
 }
@@ -50,13 +50,13 @@ if ($element->inner_number != -1) {
 // Example 3: Get an element by class name using JavaScript
 
 // Get an element by class name using JavaScript
-$element = DOM::$element->get_by_js("document.getElementsByClassName('some_class')[0]");
+$findedElement = DOM::$element->get_by_js("document.getElementsByClassName('some_class')[0]");
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "\nFirst element with class 'some_class' found using JavaScript\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element inner text: " . $element->get_inner_text() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element inner text: " . $findedElement->get_inner_text() . "\n";
 } else {
     echo "\nFirst element with class 'some_class' not found using JavaScript\n";
 }
@@ -64,13 +64,13 @@ if ($element->inner_number != -1) {
 // Example 4: Get an element by query selector using JavaScript
 
 // Get an element by query selector using JavaScript
-$element = DOM::$element->get_by_js("document.querySelector('a[href=\"https://example.com\"]')");
+$findedElement = DOM::$element->get_by_js("document.querySelector('a[href=\"https://example.com\"]')");
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "\nElement with specific href found using JavaScript\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element href: " . $element->get_href() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element href: " . $findedElement->get_href() . "\n";
 } else {
     echo "\nElement with specific href not found using JavaScript\n";
 }
@@ -78,7 +78,7 @@ if ($element->inner_number != -1) {
 // Example 5: Get an element using complex JavaScript
 
 // Get an element using complex JavaScript
-$element = DOM::$element->get_by_js(
+$findedElement = DOM::$element->get_by_js(
     "var elements = document.querySelectorAll('div.container > p'); " .
     "for (var i = 0; i < elements.length; i++) { " .
     "  if (elements[i].textContent.includes('specific text')) { " .
@@ -89,10 +89,10 @@ $element = DOM::$element->get_by_js(
 );
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "\nElement with specific text found using complex JavaScript\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element inner text: " . $element->get_inner_text() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element inner text: " . $findedElement->get_inner_text() . "\n";
 } else {
     echo "\nElement with specific text not found using complex JavaScript\n";
 }

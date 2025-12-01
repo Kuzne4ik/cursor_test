@@ -22,13 +22,13 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 // Example 1: Get an element by ID using query selector
 
 // Get an element by ID using query selector
-$element = DOM::$element->get_by_query_selector("#some_id");
+$findedElement = DOM::$element->get_by_query_selector("#some_id");
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "Element found by ID selector #some_id\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element inner text: " . $element->get_inner_text() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element inner text: " . $findedElement->get_inner_text() . "\n";
 } else {
     echo "Element not found by ID selector #some_id\n";
 }
@@ -36,13 +36,13 @@ if ($element->inner_number != -1) {
 // Example 2: Get an element by class name using query selector
 
 // Get an element by class name using query selector
-$element = DOM::$element->get_by_query_selector(".some_class");
+$findedElement = DOM::$element->get_by_query_selector(".some_class");
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "\nElement found by class selector .some_class\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element inner text: " . $element->get_inner_text() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element inner text: " . $findedElement->get_inner_text() . "\n";
 } else {
     echo "\nElement not found by class selector .some_class\n";
 }
@@ -50,13 +50,13 @@ if ($element->inner_number != -1) {
 // Example 3: Get an element by attribute using query selector
 
 // Get an element by attribute using query selector
-$element = DOM::$element->get_by_query_selector("a[href='https://example.com']");
+$findedElement = DOM::$element->get_by_query_selector("a[href='https://example.com']");
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "\nElement found by attribute selector a[href='https://example.com']\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element href: " . $element->get_href() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element href: " . $findedElement->get_href() . "\n";
 } else {
     echo "\nElement not found by attribute selector a[href='https://example.com']\n";
 }
@@ -64,13 +64,13 @@ if ($element->inner_number != -1) {
 // Example 4: Get an element by complex selector
 
 // Get an element by complex selector
-$element = DOM::$element->get_by_query_selector("div.container > p:first-child");
+$findedElement = DOM::$element->get_by_query_selector("div.container > p:first-child");
 
 // Check that the DOM element is received
-if ($element->inner_number != -1) {
+if ($findedElement->inner_number != -1) {
     echo "\nElement found by complex selector div.container > p:first-child\n";
-    echo "Element tag: " . $element->get_tag() . "\n";
-    echo "Element inner text: " . $element->get_inner_text() . "\n";
+    echo "Element tag: " . $findedElement->get_tag() . "\n";
+    echo "Element inner text: " . $findedElement->get_inner_text() . "\n";
 } else {
     echo "\nElement not found by complex selector div.container > p:first-child\n";
 }

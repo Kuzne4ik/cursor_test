@@ -14,11 +14,11 @@ WEB::$browser->wait_js();
 // Example 1: Default frame usage (frame = -1)
 // If the frame argument is not used in code, then the value of the frame argument is -1 by default
 // This means the search will be performed on the main page, without considering frames
-$element = DOM::$button->get_by_attribute('id', 'bt1');
+$findedElement = DOM::$button->get_by_attribute('id', 'bt1');
 
-if ($element->is_exist()) {
+if ($findedElement->is_exist()) {
     echo "\n\nFound element on the main page (default frame = -1)\n";
-    echo "Element value: " . $element->get_value() . "\n";
+    echo "Element value: " . $findedElement->get_value() . "\n";
 } else {
     echo "\n\nElement not found on the main page\n";
 }
