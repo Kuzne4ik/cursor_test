@@ -1,4 +1,5 @@
 <?php
+// Scenario: Set initialization JavaScript to run when browser starts, then navigate to a website to demonstrate set_init_java_script function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

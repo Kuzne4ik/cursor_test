@@ -1,4 +1,5 @@
 <?php
+// Scenario: Navigate to a website and set multiple cookies to demonstrate set_cookie function
  $xhe_host = "127.0.0.1:7013";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

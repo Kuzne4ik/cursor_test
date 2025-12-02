@@ -1,4 +1,5 @@
 <?php
+// Scenario: Set browser count to 3, then set active browser to browser number 1 to demonstrate set_active_browser function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

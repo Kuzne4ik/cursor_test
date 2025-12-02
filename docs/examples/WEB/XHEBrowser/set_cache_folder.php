@@ -1,4 +1,5 @@
 <?php
+// Scenario: Get current cache folder, set custom cache folder, then verify the change to demonstrate set_cache_folder function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

@@ -1,4 +1,5 @@
 <?php
+// Scenario: Demonstrates how to set the page zoom level to simulate different viewing conditions
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with XHE API

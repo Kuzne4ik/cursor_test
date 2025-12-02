@@ -1,4 +1,5 @@
 <?php
+// Scenario: Demonstrates how to set random bounds fingerprint with custom noise to enhance browser fingerprinting protection
 // Path to init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

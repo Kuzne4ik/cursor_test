@@ -1,4 +1,5 @@
 <?php
+// Scenario: Check if callback is currently enabled, enable it, then disable it to demonstrate the is_enable_callback function
 // Path to the init.php.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

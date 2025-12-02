@@ -1,3 +1,4 @@
+// Scenario: Demonstrates how to pause execution for a specified number of seconds
 <?php
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

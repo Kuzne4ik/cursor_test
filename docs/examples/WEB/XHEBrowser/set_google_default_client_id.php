@@ -1,4 +1,5 @@
 <?php
+// Scenario: Set Google default client ID for OAuth authentication to demonstrate set_google_default_client_id function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

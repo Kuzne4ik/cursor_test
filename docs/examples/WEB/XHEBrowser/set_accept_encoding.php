@@ -1,4 +1,5 @@
 <?php
+// Scenario: Set Accept-Encoding header for gzip and deflate compression to demonstrate set_accept_encoding function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

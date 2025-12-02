@@ -1,4 +1,5 @@
 <?php
+// Scenario: Set platform to Win32 and Win64 to demonstrate set_platform function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

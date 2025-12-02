@@ -1,4 +1,5 @@
 <?php
+// Scenario: Set default download folder, navigate to download site, then reset default download folder to demonstrate set_default_download function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

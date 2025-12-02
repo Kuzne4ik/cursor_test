@@ -1,4 +1,5 @@
 <?php
+// Scenario: Reset authorization, set default authorization credentials, navigate to authenticated site, then reset again to demonstrate set_default_authorization function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

@@ -1,4 +1,5 @@
 <?php
+// Scenario: Navigate to Google website with default parameters and display the result to demonstrate the navigate function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

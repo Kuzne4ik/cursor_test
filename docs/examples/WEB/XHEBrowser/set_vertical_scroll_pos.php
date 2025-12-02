@@ -1,4 +1,5 @@
 <?php
+// Scenario: Demonstrates how to set the vertical scroll position of a webpage to navigate to specific sections
 $xhe_host = "127.0.0.1:7013";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

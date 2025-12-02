@@ -1,4 +1,5 @@
 <?php
+// Scenario: Check if WebRTC is enabled, disable it, then check again to demonstrate the is_enable_web_rtc function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

@@ -1,4 +1,5 @@
 <?php
+// Scenario: Check if popups are enabled, disable them, then check again to demonstrate the is_enable_popup function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

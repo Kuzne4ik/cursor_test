@@ -1,3 +1,4 @@
+// Scenario: Demonstrates how to wait for a file download to complete and retrieve file path
 <?php
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

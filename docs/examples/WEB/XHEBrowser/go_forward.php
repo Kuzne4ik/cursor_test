@@ -1,4 +1,5 @@
 <?php
+// Scenario: Navigate forward to the next page in browser history
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

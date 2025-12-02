@@ -1,4 +1,5 @@
 <?php
+// Scenario: Demonstrates how to set the HTTP referer header to simulate navigation from a specific website
  $xhe_host = "127.0.0.1:7013";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

@@ -1,4 +1,5 @@
 <?php
+// Scenario: Check if common cache and cookies are currently enabled, enable them, then disable them to demonstrate the is_enable_common_cache_and_cookies function
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API

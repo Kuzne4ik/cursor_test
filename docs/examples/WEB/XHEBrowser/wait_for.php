@@ -1,3 +1,4 @@
+// Scenario: Demonstrates how to wait for page navigation to complete with custom timeout and retry parameters
 <?php
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

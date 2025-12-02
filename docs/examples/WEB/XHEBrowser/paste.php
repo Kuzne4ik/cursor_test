@@ -1,4 +1,5 @@
 <?php
+// Scenario: Navigate to Google and paste text to demonstrate the paste function
 $xhe_host = "127.0.0.1:7013";
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";

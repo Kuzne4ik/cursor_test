@@ -1,4 +1,5 @@
 <?php
+// Scenario: Check if browser is currently busy with navigation or loading
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
@@ -6,7 +7,7 @@ require($path);
 
 $bUTF8Ver = true;
 
-// The following code demonstrates the usage of the is_busy function 
+// The following code demonstrates the usage of the is_busy function
 
 // Navigate to a website first. For demonstration: param use_cache set false and use_wait set false.
 $url = "https://www.wikipedia.com";
