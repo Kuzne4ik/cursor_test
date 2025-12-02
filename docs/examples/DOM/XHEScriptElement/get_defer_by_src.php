@@ -1,4 +1,8 @@
 <?php
+// Scenario: Get the defer attribute of a script element by its src
+// Description: Demonstrates how to retrieve the defer attribute value from a script element based on its src attribute
+// Classes used: DOM, XHEScriptElement, XHEBrowser, XHEApplication
+
 // XHE host
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to the XHE API
@@ -14,7 +18,7 @@ WEB::$browser->navigate(TEST_POLYGON_URL . "call_js.html");
 WEB::$browser->wait_js();
 
 // Example 1: Get defer attribute value for a script with specific src
-$script_src = "src";
+$script_src = "js/src.js";
 $defer_value = DOM::$script->get_defer_by_src($script_src);
 
 // Display the result
@@ -25,7 +29,7 @@ if ($defer_value !== false) {
 }
 
 // Example with frame parameter (if needed)
-$script_src = "src";
+$script_src = "js/src.js";
 $frame_number = "0";
 $defer_value_frame = DOM::$script->get_defer_by_src($script_src, $frame_number);
  

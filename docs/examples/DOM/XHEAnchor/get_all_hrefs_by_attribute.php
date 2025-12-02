@@ -1,4 +1,8 @@
 <?php
+// Scenario: Get href attributes from anchor elements based on attribute values
+// Description: Demonstrates how to retrieve href attributes from anchor elements that match specific attribute values
+// Classes used: DOM, XHEAnchor, XHEBrowser, XHEApplication
+
 // XHE host
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API

@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get the number of rows in a table using XHETable class
+// Description: Demonstrates how to find a table by its number and retrieve the total count of rows
+// Classes used: DOM, XHETable, XHEBrowser, XHEApplication
 
 /**
  * Example of using get_rows_count_by_number function of XHETable class

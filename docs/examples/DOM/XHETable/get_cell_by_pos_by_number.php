@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get cell text by position number using XHETable class
+// Description: Demonstrates how to find a table by its number and retrieve text content from a specific cell using its position index
+// Classes used: DOM, XHETable, XHEBrowser, XHEApplication
 
 /**
  * Example of using get_cell_by_pos_by_number function of XHETable class

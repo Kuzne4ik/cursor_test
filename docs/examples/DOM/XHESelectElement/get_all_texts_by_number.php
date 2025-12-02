@@ -1,5 +1,7 @@
 <?php
-// Scenario: Demonstrates how to get all text options from a select element found by number
+// Scenario: Get all text options from a select element by its number
+// Description: Demonstrates how to retrieve all text content from a select element based on its position number on the page
+// Classes used: DOM, XHESelectElement, XHEBrowser, XHEApplication
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";

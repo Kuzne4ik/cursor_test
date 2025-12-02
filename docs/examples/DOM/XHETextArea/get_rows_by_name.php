@@ -1,4 +1,5 @@
 <?php
+// Scenario: Get the number of rows in a textarea element by its name attribute
 // Строка подключения к API XHE
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API

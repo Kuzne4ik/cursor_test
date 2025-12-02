@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get cell text by row and column coordinates using XHETable class
+// Description: Demonstrates how to find a table by its number and retrieve text content from a specific cell using row and column coordinates
+// Classes used: DOM, XHETable, XHEBrowser, XHEApplication
 
 /**
  * Example of using get_cell_by_number function of XHETable class

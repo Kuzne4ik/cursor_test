@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get column text by table number using XHETable class
+// Description: Demonstrates how to find a table by its number and retrieve text content from a specific column
+// Classes used: DOM, XHETable, XHEBrowser, XHEApplication
 
 /**
  * Example of using get_col_by_number function of XHETable class

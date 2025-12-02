@@ -1,4 +1,7 @@
 <?php
+// Scenario: Select an option by index in a select element found by its number
+// Description: Demonstrates how to select an option by its index position from a select element based on its position number on the page
+// Classes used: DOM, XHESelectElement, XHEBrowser, XHEApplication
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

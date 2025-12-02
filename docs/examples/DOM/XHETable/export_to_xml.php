@@ -1,4 +1,7 @@
 <?php
+// Scenario: Export table data to XML format using XHETable class
+// Description: Demonstrates how to export table data to XML file with various options for rows, columns, and formatting
+// Classes used: DOM, XHETable, XHEBrowser, XHEApplication
 
 /**
  * Example of using export_to_xml function of XHETable class

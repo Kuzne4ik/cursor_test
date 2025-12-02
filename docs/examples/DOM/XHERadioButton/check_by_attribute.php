@@ -1,4 +1,8 @@
 <?php
+// Scenario: Check a radio button by its attribute
+// Description: Demonstrates how to check or uncheck a radio button using its attribute name and value
+// Classes used: DOM, XHERadioButton, XHEBrowser, XHEApplication
+
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

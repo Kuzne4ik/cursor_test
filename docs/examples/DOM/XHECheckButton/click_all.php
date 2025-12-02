@@ -1,4 +1,8 @@
 <?php
+// Scenario: Click all checkboxes on a webpage
+// Description: Demonstrates how to click all checkboxes on a webpage at once
+// Classes used: DOM, XHECheckButton, XHEBrowser, XHEApplication
+
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

@@ -1,4 +1,5 @@
 <?php
+// Scenario: Check if a textarea element is read-only by its numerical index on the page
 // Строка подключения к API XHE
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API

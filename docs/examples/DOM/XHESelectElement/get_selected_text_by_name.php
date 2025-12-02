@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get text of selected option in a select element by its name
+// Description: Demonstrates how to retrieve text content of currently selected option from a select element based on its name attribute
+// Classes used: DOM, XHESelectElement, XHEBrowser, XHEApplication
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";

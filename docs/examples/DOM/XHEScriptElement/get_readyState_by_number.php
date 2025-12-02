@@ -1,4 +1,8 @@
 <?php
+// Scenario: Get the readyState property of a script element by its number
+// Description: Demonstrates how to retrieve the readyState property value from a script element based on its position number on the page
+// Classes used: DOM, XHEScriptElement, XHEBrowser, XHEApplication
+
 // XHE host
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to XHE API

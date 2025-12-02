@@ -1,4 +1,8 @@
 <?php
+// Scenario: Check if a radio button is checked by its value
+// Description: Demonstrates how to verify whether a radio button is checked using its value attribute
+// Classes used: DOM, XHERadioButton, XHEBrowser, XHEApplication
+
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

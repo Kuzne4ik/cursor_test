@@ -1,4 +1,8 @@
 <?php
+// Scenario: Get the action attribute of a form by its number
+// Description: Demonstrates how to retrieve the action attribute value from a form element based on its position number on the page
+// Classes used: DOM, XHEForm, XHEBrowser, XHEApplication
+
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
@@ -15,9 +19,9 @@ $formAction = DOM::$form->get_action_by_number(1);
 
 // Display the form action
 if ($formAction !== "") {
-    echo "Form action by number: " . $formAction . "<br>";
+    echo "Form action by number: " . $formAction . "\n";
 } else {
-    echo "Failed to get form action by number.<br>";
+    echo "Failed to get form action by number.\n";
 }
 
 // Stop the application

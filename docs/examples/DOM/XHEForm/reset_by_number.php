@@ -1,4 +1,8 @@
 <?php
+// Scenario: Reset a form by its number
+// Description: Demonstrates how to reset all form fields to their default values using the form's position number on the page
+// Classes used: DOM, XHEForm, XHEInput, XHEBrowser, XHEApplication
+
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
@@ -19,9 +23,9 @@ $formReset = DOM::$form->reset_by_number(1);
 
 // Check if the form was reset successfully
 if ($formReset) {
-    echo "Form reset successfully by number!<br>";
+    echo "Form reset successfully by number!\n";
 } else {
-    echo "Failed to reset form by number.<br>";
+    echo "Failed to reset form by number.\n";
 }
 
 // Stop the application

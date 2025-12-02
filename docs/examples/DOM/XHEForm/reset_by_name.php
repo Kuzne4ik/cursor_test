@@ -1,4 +1,8 @@
 <?php
+// Scenario: Reset a form by its name
+// Description: Demonstrates how to reset all form fields to their default values using the form's name attribute
+// Classes used: DOM, XHEForm, XHEInput, XHEBrowser, XHEApplication
+
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
@@ -19,9 +23,9 @@ $formReset = DOM::$form->reset_by_name("loginForm");
 
 // Check if the form was reset successfully
 if ($formReset) {
-    echo "Form reset successfully by name!<br>";
+    echo "Form reset successfully by name!\n";
 } else {
-    echo "Failed to reset form by name.<br>";
+    echo "Failed to reset form by name.\n";
 }
 
 // Stop the application

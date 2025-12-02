@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get cell Y coordinate by table inner text using XHETable class
+// Description: Demonstrates how to find a table by its inner text content and retrieve the Y coordinate of a specific cell
+// Classes used: DOM, XHETable, XHEBrowser, XHEApplication
 
 /**
  * Example of using get_cell_y_by_inner_text function of XHETable class

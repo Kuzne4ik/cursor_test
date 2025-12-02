@@ -1,4 +1,8 @@
 <?php
+// Scenario: Check if a checkbox is checked by its value
+// Description: Demonstrates how to determine if a checkbox is checked based on its value attribute with exact or partial match options
+// Classes used: DOM, XHECheckButton, XHEBrowser, XHEApplication
+
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

@@ -1,4 +1,8 @@
 <?php
+// Scenario: Get the action attribute of a form by its name
+// Description: Demonstrates how to retrieve the action attribute value from a form element based on its name attribute
+// Classes used: DOM, XHEForm, XHEBrowser, XHEApplication
+
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
@@ -15,9 +19,9 @@ $formAction = DOM::$form->get_action_by_name("loginForm");
 
 // Display the form action
 if ($formAction !== "") {
-    echo "Form action by name: " . $formAction . "<br>";
+    echo "Form action by name: " . $formAction . "\n";
 } else {
-    echo "Failed to get form action by name.<br>";
+    echo "Failed to get form action by name.\n";
 }
 
 // Stop the application

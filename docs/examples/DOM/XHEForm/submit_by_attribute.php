@@ -1,4 +1,8 @@
 <?php
+// Scenario: Submit a form by a custom attribute
+// Description: Demonstrates how to submit a form using a custom attribute name and value
+// Classes used: DOM, XHEForm, XHEBrowser, XHEApplication
+
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";
 // Including init.php grants access to all classes and functionality for working with the XHE API
@@ -15,9 +19,9 @@ $formSubmitted = DOM::$form->submit_by_attribute("data-form-type", "login", true
 
 // Check if the form was submitted successfully
 if ($formSubmitted) {
-    echo "Form submitted successfully by attribute!<br>";
+    echo "Form submitted successfully by attribute!\n";
 } else {
-    echo "Failed to submit form by attribute.<br>";
+    echo "Failed to submit form by attribute.\n";
 }
 
 // Stop the application

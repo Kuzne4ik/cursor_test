@@ -1,5 +1,7 @@
 <?php
-// Scenario: Demonstrates how to add a new option to a select element found by name
+// Scenario: Add a new option to a select element by its name
+// Description: Demonstrates how to add a new option to a select element based on its name attribute
+// Classes used: DOM, XHESelectElement, XHEBrowser, XHEApplication
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";

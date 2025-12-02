@@ -1,4 +1,8 @@
 <?php
+// Scenario: Set the defer attribute of a script element by its number
+// Description: Demonstrates how to set the defer attribute value for a script element based on its position number on the page
+// Classes used: DOM, XHEScriptElement, XHEBrowser, XHEApplication
+
 // XHE host
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API

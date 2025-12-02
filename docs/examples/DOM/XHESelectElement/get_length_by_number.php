@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get the number of options in a select element by its number
+// Description: Demonstrates how to retrieve the total number of options from a select element based on its position number on the page
+// Classes used: DOM, XHESelectElement, XHEBrowser, XHEApplication
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";

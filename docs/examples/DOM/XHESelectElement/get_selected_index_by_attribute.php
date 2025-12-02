@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get the index of the selected option in a select element by its attribute
+// Description: Demonstrates how to retrieve the index of the currently selected option from a select element based on its attribute
+// Classes used: DOM, XHESelectElement, XHEBrowser, XHEApplication
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";

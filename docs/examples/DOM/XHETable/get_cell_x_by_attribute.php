@@ -1,4 +1,7 @@
 <?php
+// Scenario: Get cell X coordinate by table attribute using XHETable class
+// Description: Demonstrates how to find a table by its attribute and retrieve the X coordinate of a specific cell
+// Classes used: DOM, XHETable, XHEBrowser, XHEApplication
 
 /**
  * Example of using get_cell_x_by_attribute function of XHETable class

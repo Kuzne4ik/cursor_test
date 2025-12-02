@@ -1,4 +1,7 @@
 <?php
+// Scenario: Click on an embed element by src attribute at a specific position
+// Description: Demonstrates how to click on an embed element based on its src attribute with exact or partial match options at specified coordinates
+// Classes used: DOM, XHEEmbed, XHEBrowser, XHEApplication
 
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API

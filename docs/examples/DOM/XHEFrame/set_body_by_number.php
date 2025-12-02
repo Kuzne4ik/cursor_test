@@ -1,4 +1,7 @@
 <?php
+// Scenario: Set the body content of a frame by its number
+// Description: Demonstrates how to replace the body content of a frame element with new HTML content
+// Classes used: DOM, XHEFrame, XHEBrowser, XHEApplication
 
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API

@@ -1,4 +1,8 @@
 <?php
+// Scenario: Check or uncheck a checkbox by attribute within a specific form by name
+// Description: Demonstrates how to check or uncheck a checkbox based on attribute values within a form identified by its name attribute
+// Classes used: DOM, XHECheckButton, XHEBrowser, XHEApplication
+
 $xhe_host = "127.0.0.1:7010";
 // Path to the init.php file for connecting to the XHE API
 $path = "../../../../../../Templates/init.php";

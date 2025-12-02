@@ -1,5 +1,7 @@
 <?php
-// Scenario: Demonstrates how to get all value options from a select element found by attribute
+// Scenario: Get all value options from a select element by its attribute
+// Description: Demonstrates how to retrieve all value attributes from a select element based on its attribute
+// Classes used: DOM, XHESelectElement, XHEBrowser, XHEApplication
 $xhe_host = "127.0.0.1:7010";
 // Path to init.php file for connecting to XHE API
 $path = "../../../../../../Templates/init.php";
