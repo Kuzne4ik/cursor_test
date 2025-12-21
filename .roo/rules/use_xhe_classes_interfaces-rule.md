@@ -1,7 +1,44 @@
-    ---
-description: For XHE classes do not need to create an object, just use it directly as static properties in code
 ---
-Each class name that has prefix `XHE` ad `the class` in his name, has a methods name that has prefix `get_all_by_` or full method name `get_all` in each case this method return object of type `XHEInterfaces` and type of each his elements same as `the class`.
-Example:
-Class `XHEAnchor` has method `get_all_by_attribute` which returns an object of type `XHEInterfaces` and his each element in elements is type `XHEInterface` in code: DOM::$anchor->get_all_by_attribute('id', 'id1');
-For object of type `XHEInterfaces` use to get count his elements method `count` in any case.
+description: Use XHEInterfaces rule
+---
+
+## Use XHEInterfaces Rule
+
+### Overview
+Each class name that has prefix `XHE` has methods with prefix `get_all_by_` or full method name `get_all` that return an object of type `XHEInterfaces`. The `elements` field of `XHEInterfaces` is an array of objects of the same type as the class.
+
+### Main Principles
+- Methods with prefix `get_all_by_` return `XHEInterfaces` objects
+- Each element in the `elements` array is of type `XHEInterface`
+- The `XHEInterfaces` type implements ArrayAccess, IteratorAggregate, Countable
+- Use the `count()` method to get the number of elements
+
+### Examples of get_all_by_ Methods
+
+#### Example 1: XHEAnchor get_all_by_attribute
+```php
+// Get all anchors by attribute
+$anchorInterfaces = DOM::$anchor->get_all_by_attribute('id', 'id1');
+```
+
+#### Example 2: XHEInput get_all_by_name
+```php
+// Get all inputs by name
+$inputInterfaces = DOM::$input->get_all_by_name('username', true);
+```
+
+### Using XHEInterfaces as Collection
+
+#### Example: Iterating through XHEInterfaces
+```php
+$inputInterfaces = DOM::$input->get_all_by_name('username', true);
+echo("Found " . $inputInterfaces->count() . " input elements\n");
+foreach($inputInterfaces as $index => $inputInterface){
+    echo("Input #$index has value = '" . $inputInterface->get_value(). "'\n");
+}
+```
+
+### Important Notes
+- For object of type `XHEInterfaces`, use the `count()` method to get the number of elements
+- The `XHEInterfaces` object can be used in foreach loops directly
+- Each element in the collection is an `XHEInterface` object with all its methods

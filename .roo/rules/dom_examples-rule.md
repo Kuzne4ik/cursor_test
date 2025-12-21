@@ -1,17 +1,23 @@
 ---
-description: docs examples rule
+description: Documentation examples rule
 ---
-Add for each method example number to log and comment.
-Use for each method example init variables as method arguments before call a method and use variables in log.
-When creating examples or implementing logic related to DOM operation, the model should rely on the structure, style, and practices demonstrated in existing PHP files in the `docs/examples/DOM/` directory. This includes using similar initialization patterns, method calls, and result handling as in these examples.
-For the folder `docs/examples/DOM/` structure, see the file `docs\examples\DOM\README.md`
-Do not use in code `<br>` instead of use `\n`.
-If echo line is summary of new code example use at text start symbols ```\n\n```.
-For comments in PHP files use English only.
-In each file docs example, add a comment to the top of the file with a short description of the contents, prefixed with: `Scenario:`.
 
-Use this code before an examples code block to add navigate to test page:
-```
+## Documentation Examples Rule
+
+### Overview
+When creating examples or implementing logic related to DOM operations, follow these guidelines for consistency and clarity.
+
+### Main Principles
+1. **Example Numbering**: Add example number to log and comment for each method
+2. **Use Variable for args**: Use a variables as method arguments before calling a method and use this variables in log
+3. **Reference Structure**: Follow the structure, style, and practices demonstrated in existing PHP files in the `docs/examples/DOM/XHEBaseDOMVisual/add_attribute_by_attribute.php` file
+4. **Formatting new line**: Do not use `<br>` in code for new line, use `\n` instead
+5. **Comments**: Use English only for comments in PHP files
+6. **File example Scenario**: In each documentation example file, add a comment at the top with a short description prefixed with: `Scenario:`
+
+### WEB navigation Code
+Use this code before examples code block to navigate to test page:
+```php
 // Navigate to a webpage with anchor elements
 
 $pageUrl = TEST_POLYGON_URL . "anchor.html";
@@ -19,4 +25,8 @@ echo("Navigate to HTML page: $pageUrl\n");
 WEB::$browser->navigate($pageUrl);
 WEB::$browser->wait_js();
 ```
-Do not create example for `non-existent element`.
+
+### Important Notes
+- For the folder `docs/examples/DOM/` structure, see the file `docs/examples/DOM/README.md`
+- If echo line is summary of new code example, use symbols ```\n\n``` at text start
+- Do not create examples for `non-existent` elements

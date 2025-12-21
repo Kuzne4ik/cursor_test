@@ -1,18 +1,55 @@
 ---
-description: For XHE classes
+description: Use XHE classes rule
 ---
-For XHE classes do not need to create an object, just use it directly as static properties in code.
-For XHE classes handling DOM each class name that has prefix `XHE` in his name, has methods name that has prefix `get_by_` in each case this method return object of type `XHEInterface` even if element not has be found.
-Check object of type `XHEInterface` is element exists on page call function `is_exist():bool`.
-Alternative method for object of type `XHEInterface` check is element exists on page check field `inner_number` value: if `inner_number` greater than -1 element is existed.
-Use `frame` argument for XHE classes DOM elements only: 
-1. If the frame argument is not used in code, then the value of the frame argument is -1 by default;
-2. If the frame argument is used to search for a frame by number, then the value of the frame argument is the ordinal number of an element of that type on the page, where the frame number is an integer (0-based);
-3. If the frame argument is used, but the frame being search for is child of another frame, then the value of the frame argument is a colon-separated string of ordinal numbers of elements of that type. 
 
-For variable that store frame number argument use name `frameNumber`. 
+## Use XHE Classes Rule
 
-First frame number value is number on the page and second one as child number in paren frame. Where an frame numbers is an integer (0-based);
+### Overview
+Use XHE classes rules.
+
+### Main Principles
+- XHE classes are accessed as static properties. No object instantiation required
+- `frame` argument usage in methods to get DOM element 
+- Forbidden use in code global variable names from `/Templates/init.php`
+
+### Frame argument Usage
+Use `frame` argument for XHE classes DOM elements only:
+1. If a frame is not used, then the аrame argument value is -1 by default
+2. If a frame is used, then the frame argument value is the ordinal frame number on the page (0-based)
+3. If a frame is used to get element in subframe, then the frame argument value is a colon-separated string of ordinal numbers of the frame and subframe number (as child number in parent frame)
+
+### Variable Naming
+For variable that store frame number argument use name `frameNumber`
+
+### Restrictions
 Forbidden use in code global variable names from file `/Templates/init.php` for variable name.
-Example:
-Class `XHEAnchor` has method `get_by_attribute` which returns an object of type `XHEInterface` in code: DOM::$anchor->get_by_attribute('id', 'id1');
+
+### Examples
+#### Example 1: Using XHEAnchor
+```php
+// Get anchor by attribute
+$targetAnchor = DOM::$anchor->get_by_attribute('id', 'id1');
+if ($targetAnchor->is_exist()) {
+    echo("Anchor found\n");
+}
+```
+
+#### Example 2: Working with frames
+```php
+// Get input element from frame
+$frameNumber = 0;
+$inputName = 'username';
+$targetInputInFrame = DOM::$input->get_by_name($inputName, true, $frameNumber);
+if ($targetInputInFrame->inner_number > -1) {
+    echo("Input found in frame = '$frameNumber' by name = '$inputName'\n");
+}
+```
+
+#### Example 3: Working with subframes
+```php
+// Get button element from subframe
+$frameNumber = "0:1";
+$targetButtonInSubframe = DOM::$button->get_by_attribute('class', 'submit', true, $frameNumber);
+if ($targetButtonInSubframe->is_exist()) {
+    echo("Input found in found in subframe\n");
+}
