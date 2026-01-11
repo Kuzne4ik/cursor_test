@@ -3,12 +3,13 @@
 // Description: Demonstrates how to retrieve inner texts from anchor elements based on exact or partial href attribute values
 // Classes used: DOM, XHEAnchor, XHEBrowser, XHEApplication
 
-// XHE host
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Example of using the get_all_inner_texts_by_href function
 // Get all inner texts from DOM elements anchor by href attribute value
