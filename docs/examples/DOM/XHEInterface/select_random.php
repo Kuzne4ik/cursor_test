@@ -6,18 +6,17 @@ if (!isset($path)){
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
-}
 
 // beginning
 echo "<hr><font color=blue>interface->".basename (__FILE__)."</font><hr>";
 
 // 1
 echo "1. Navigate to the test site: ";
-echo WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html")."<br>";
+echo WEB::$browser->navigate(TEST_POLYGON_URL . "listbox.html")."\n";
 
 // 2
 echo "2. Select a random option: ";
-echo $targetListbox = DOM::$listbox->get_by_number(1)->select_random()."<br>";
+echo $targetListbox = DOM::$listbox->get_by_number(1)->select_random()."\n";
 
 // Quit
 WINDOW::$app->quit();

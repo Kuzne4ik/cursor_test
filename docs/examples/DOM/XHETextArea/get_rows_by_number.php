@@ -30,8 +30,8 @@ if (DOM::$textarea->is_exist_by_number($textarea_number))
         echo "Textarea rows count by number: $rows_count<br>";
         
         // Also display other information about the textarea
-        echo "Textarea value: " . DOM::$textarea->get_value_by_number($textarea_number) . "<br>";
-        echo "Textarea cols count: " . DOM::$textarea->get_cols_by_number($textarea_number) . "<br>";
+        echo "Textarea value: " . DOM::$textarea->get_value_by_number($textarea_number) . "\n";
+        echo "Textarea cols count: " . DOM::$textarea->get_cols_by_number($textarea_number) . "\n";
     }
     else
     {

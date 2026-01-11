@@ -29,7 +29,7 @@ $formAction = DOM::$form->get_action_by_id("userLoginForm");
 
 // Display the form action
 if ($formAction !== "") {
-    echo "Form action by id: " . $formAction . "<br>";
+    echo "Form action by id: " . $formAction . "\n";
 } else {
     echo "Failed to get form action by id.<br>";
 }
@@ -51,7 +51,7 @@ $formAction = DOM::$form->get_action_by_name("loginForm");
 
 // Display the form action
 if ($formAction !== "") {
-    echo "Form action by name: " . $formAction . "<br>";
+    echo "Form action by name: " . $formAction . "\n";
 } else {
     echo "Failed to get form action by name.<br>";
 }
@@ -73,7 +73,7 @@ $formAction = DOM::$form->get_action_by_number(1);
 
 // Display the form action
 if ($formAction !== "") {
-    echo "Form action by number: " . $formAction . "<br>";
+    echo "Form action by number: " . $formAction . "\n";
 } else {
     echo "Failed to get form action by number.<br>";
 }
@@ -98,7 +98,7 @@ $formInnerText = DOM::$form->get_content_by_id("loginFormId", false);
 
 // Display the form inner text
 if ($formInnerText !== "") {
-    echo "Form inner text by id: " . $formInnerText . "<br>";
+    echo "Form inner text by id: " . $formInnerText . "\n";
 } else {
     echo "Failed to get form inner text by id.<br>";
 }
@@ -108,7 +108,7 @@ $formInnerHTML = DOM::$form->get_content_by_id("loginFormId", true);
 
 // Display the form inner HTML
 if ($formInnerHTML !== "") {
-    echo "Form inner HTML by id: " . $formInnerHTML . "<br>";
+    echo "Form inner HTML by id: " . $formInnerHTML . "\n";
 } else {
     echo "Failed to get form inner HTML by id.<br>";
 }
@@ -131,7 +131,7 @@ $formInnerText = DOM::$form->get_content_by_name("loginForm", false);
 
 // Display the form inner text
 if ($formInnerText !== "") {
-    echo "Form inner text by name: " . $formInnerText . "<br>";
+    echo "Form inner text by name: " . $formInnerText . "\n";
 } else {
     echo "Failed to get form inner text by name.<br>";
 }
@@ -141,7 +141,7 @@ $formInnerHTML = DOM::$form->get_content_by_name("loginForm", true);
 
 // Display the form inner HTML
 if ($formInnerHTML !== "") {
-    echo "Form inner HTML by name: " . $formInnerHTML . "<br>";
+    echo "Form inner HTML by name: " . $formInnerHTML . "\n";
 } else {
     echo "Failed to get form inner HTML by name.<br>";
 }
@@ -164,7 +164,7 @@ $formInnerText = DOM::$form->get_content_by_number(1, false);
 
 // Display the form inner text
 if ($formInnerText !== "") {
-    echo "Form inner text by number: " . $formInnerText . "<br>";
+    echo "Form inner text by number: " . $formInnerText . "\n";
 } else {
     echo "Failed to get form inner text by number.<br>";
 }
@@ -174,7 +174,7 @@ $formInnerHTML = DOM::$form->get_content_by_number(1, true);
 
 // Display the form inner HTML
 if ($formInnerHTML !== "") {
-    echo "Form inner HTML by number: " . $formInnerHTML . "<br>";
+    echo "Form inner HTML by number: " . $formInnerHTML . "\n";
 } else {
     echo "Failed to get form inner HTML by number.<br>";
 }
@@ -365,7 +365,7 @@ WEB::$browser->navigate("https://example.com/login");
 
 // Get form action by id
 $formAction = DOM::$form->get_action_by_id("loginForm");
-echo "Form action: " . $formAction . "<br>";
+echo "Form action: " . $formAction . "\n";
 
 // Fill form fields
 DOM::$input->set_value_by_name("username", "testuser");
@@ -400,7 +400,7 @@ WEB::$browser->navigate("https://example.com/forms");
 for ($i = 1; $i <= 5; $i++) {
     $action = DOM::$form->get_action_by_number($i);
     if ($action !== "") {
-        echo "Form " . $i . " action: " . $action . "<br>";
+        echo "Form " . $i . " action: " . $action . "\n";
     } else {
         break; // No more forms found
     }

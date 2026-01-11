@@ -46,7 +46,7 @@ Gets the value of the specified attribute.
 $element = DOM::$anchor->get_by_attribute("id", "example", false);
 if ($element->inner_number != -1) {
     $idValue = $element->get_attribute("id");
-    echo "Element ID: " . $idValue . "<br>";
+    echo "Element ID: " . $idValue . "\n";
 }
 ```
 
@@ -169,7 +169,7 @@ Gets the computed style of the element.
 $element = DOM::$input->get_by_number(0);
 if ($element->inner_number != -1) {
     $styles = $element->get_computed_style();
-    echo "Computed styles: " . $styles . "<br>";
+    echo "Computed styles: " . $styles . "\n";
 }
 ```
 
@@ -187,7 +187,7 @@ Converts the element to a string representation.
 $element = DOM::$input->get_by_number(0);
 if ($element->inner_number != -1) {
     // The __toString method is called automatically when the object is used in a string context
-    echo "Element content: " . $element . "<br>";
+    echo "Element content: " . $element . "\n";
 }
 ```
 
@@ -205,7 +205,7 @@ Gets the inner HTML content of the element.
 $element = DOM::$div->get_by_attribute("id", "content");
 if ($element->inner_number != -1) {
     $html = $element->get_inner_html();
-    echo "Inner HTML: " . htmlspecialchars($html) . "<br>";
+    echo "Inner HTML: " . htmlspecialchars($html) . "\n";
 }
 ```
 
@@ -242,7 +242,7 @@ Gets the inner text content of the element.
 $element = DOM::$div->get_by_attribute("id", "content");
 if ($element->inner_number != -1) {
     $text = $element->get_inner_text();
-    echo "Inner text: " . $text . "<br>";
+    echo "Inner text: " . $text . "\n";
 }
 ```
 
@@ -279,7 +279,7 @@ Gets the outer HTML of the element (including the element itself).
 $element = DOM::$div->get_by_attribute("id", "content");
 if ($element->inner_number != -1) {
     $html = $element->get_outer_html();
-    echo "Outer HTML: " . htmlspecialchars($html) . "<br>";
+    echo "Outer HTML: " . htmlspecialchars($html) . "\n";
 }
 ```
 
@@ -295,7 +295,7 @@ Gets the outer text of the element.
 $element = DOM::$div->get_by_attribute("id", "content");
 if ($element->inner_number != -1) {
     $text = $element->get_outer_text();
-    echo "Outer text: " . $text . "<br>";
+    echo "Outer text: " . $text . "\n";
 }
 ```
 
@@ -578,7 +578,7 @@ Gets the tag name of the element.
 $element = DOM::$div->get_by_attribute("id", "content");
 if ($element->inner_number != -1) {
     $tag = $element->get_tag();
-    echo "Element tag: " . $tag . "<br>";
+    echo "Element tag: " . $tag . "\n";
 }
 ```
 
@@ -594,7 +594,7 @@ Gets the id attribute value of the element.
 $element = DOM::$div->get_by_number(0);
 if ($element->inner_number != -1) {
     $id = $element->get_id();
-    echo "Element ID: " . $id . "<br>";
+    echo "Element ID: " . $id . "\n";
 }
 ```
 
@@ -610,7 +610,7 @@ Gets the name attribute value of the element.
 $element = DOM::$input->get_by_number(0);
 if ($element->inner_number != -1) {
     $name = $element->get_name();
-    echo "Element name: " . $name . "<br>";
+    echo "Element name: " . $name . "\n";
 }
 ```
 
@@ -626,7 +626,7 @@ Gets the value attribute value of the element.
 $element = DOM::$input->get_by_name("username");
 if ($element->inner_number != -1) {
     $value = $element->get_value();
-    echo "Element value: " . $value . "<br>";
+    echo "Element value: " . $value . "\n";
 }
 ```
 
@@ -663,7 +663,7 @@ Gets the type attribute value of the element.
 $element = DOM::$input->get_by_name("username");
 if ($element->inner_number != -1) {
     $type = $element->get_type();
-    echo "Element type: " . $type . "<br>";
+    echo "Element type: " . $type . "\n";
 }
 ```
 
@@ -679,7 +679,7 @@ Gets the src attribute value of the element.
 $element = DOM::$image->get_by_number(0);
 if ($element->inner_number != -1) {
     $src = $element->get_src();
-    echo "Image src: " . $src . "<br>";
+    echo "Image src: " . $src . "\n";
 }
 ```
 
@@ -695,7 +695,7 @@ Gets the href attribute value of the element.
 $element = DOM::$anchor->get_by_number(0);
 if ($element->inner_number != -1) {
     $href = $element->get_href();
-    echo "Anchor href: " . $href . "<br>";
+    echo "Anchor href: " . $href . "\n";
 }
 ```
 
@@ -711,7 +711,7 @@ Gets the alt attribute value of the element.
 $element = DOM::$image->get_by_number(0);
 if ($element->inner_number != -1) {
     $alt = $element->get_alt();
-    echo "Image alt: " . $alt . "<br>";
+    echo "Image alt: " . $alt . "\n";
 }
 ```
 
@@ -888,7 +888,7 @@ Gets the number of child elements.
 $element = DOM::$div->get_by_attribute("id", "container");
 if ($element->inner_number != -1) {
     $count = $element->get_child_count();
-    echo "Child elements count: " . $count . "<br>";
+    echo "Child elements count: " . $count . "\n";
 }
 ```
 
@@ -908,7 +908,7 @@ $element = DOM::$div->get_by_attribute("id", "container");
 if ($element->inner_number != -1) {
     $child = $element->get_child_by_number(0);
     if ($child->inner_number != -1) {
-        echo "First child tag: " . $child->get_tag() . "<br>";
+        echo "First child tag: " . $child->get_tag() . "\n";
     }
 }
 ```
@@ -1016,7 +1016,7 @@ $element = DOM::$anchor->get_by_attribute("id", "link1");
 if ($element->inner_number != -1) {
     $parent = $element->get_parent();
     if ($parent->inner_number != -1) {
-        echo "Parent tag: " . $parent->get_tag() . "<br>";
+        echo "Parent tag: " . $parent->get_tag() . "\n";
     }
 }
 ```
@@ -1073,7 +1073,7 @@ Gets the number of parent elements.
 $element = DOM::$anchor->get_by_attribute("id", "link1");
 if ($element->inner_number != -1) {
     $count = $element->get_parents_count();
-    echo "Parent elements count: " . $count . "<br>";
+    echo "Parent elements count: " . $count . "\n";
 }
 ```
 
@@ -1092,7 +1092,7 @@ $element = DOM::$input->get_by_name("password");
 if ($element->inner_number != -1) {
     $prev = $element->get_prev();
     if ($prev->inner_number != -1) {
-        echo "Previous sibling tag: " . $prev->get_tag() . "<br>";
+        echo "Previous sibling tag: " . $prev->get_tag() . "\n";
     }
 }
 ```
@@ -1110,7 +1110,7 @@ $element = DOM::$input->get_by_name("username");
 if ($element->inner_number != -1) {
     $next = $element->get_next();
     if ($next->inner_number != -1) {
-        echo "Next sibling tag: " . $next->get_tag() . "<br>";
+        echo "Next sibling tag: " . $next->get_tag() . "\n";
     }
 }
 ```
@@ -1356,7 +1356,7 @@ Gets the XPath of the current element.
 $element = DOM::$button->get_by_attribute("id", "submit");
 if ($element->inner_number != -1) {
     $xpath = $element->get_xpath();
-    echo "Element XPath: " . $xpath . "<br>";
+    echo "Element XPath: " . $xpath . "\n";
 }
 ```
 
@@ -1427,7 +1427,7 @@ Gets the number of the current element in the collection (for XHEInterfaces obje
 $elements = DOM::$anchor->get_all_by_attribute("class", "link");
 $first = $elements->get_by_number(0);
 $number = $first->get_number();
-echo "Element number: " . $number . "<br>";
+echo "Element number: " . $number . "\n";
 ```
 
 #### get_numbers_child()
@@ -1443,7 +1443,7 @@ $element = DOM::$div->get_by_attribute("id", "container");
 if ($element->inner_number != -1) {
     $numbers = $element->get_numbers_child();
     foreach ($numbers as $number) {
-        echo "Child number: " . $number . "<br>";
+        echo "Child number: " . $number . "\n";
     }
 }
 ```
@@ -1460,7 +1460,7 @@ Gets the form number that contains the current element.
 $element = DOM::$input->get_by_name("username");
 if ($element->inner_number != -1) {
     $formNumber = $element->get_form_number();
-    echo "Form number: " . $formNumber . "<br>";
+    echo "Form number: " . $formNumber . "\n";
 }
 ```
 
@@ -1476,7 +1476,7 @@ Gets the frame number that contains the current element.
 $element = DOM::$input->get_by_name("username");
 if ($element->inner_number != -1) {
     $frameNumber = $element->get_frame_number();
-    echo "Frame number: " . $frameNumber . "<br>";
+    echo "Frame number: " . $frameNumber . "\n";
 }
 ```
 
@@ -1510,7 +1510,7 @@ Gets the selected index of a select element.
 $element = DOM::$select->get_by_name("country");
 if ($element->inner_number != -1) {
     $index = $element->get_selected_index();
-    echo "Selected index: " . $index . "<br>";
+    echo "Selected index: " . $index . "\n";
 }
 ```
 
@@ -1526,7 +1526,7 @@ Gets the selected text of a select element.
 $element = DOM::$select->get_by_name("country");
 if ($element->inner_number != -1) {
     $text = $element->get_selected_text();
-    echo "Selected text: " . $text . "<br>";
+    echo "Selected text: " . $text . "\n";
 }
 ```
 
@@ -1734,7 +1734,7 @@ $element = DOM::$button->get_by_attribute("id", "submit");
 if ($element->is_exist()) {
     // Get the element's text
     $text = $element->get_inner_text();
-    echo "Button text: " . $text . "<br>";
+    echo "Button text: " . $text . "\n";
     
     // Click the element
     $element->click();
@@ -1826,7 +1826,7 @@ if ($table->is_exist()) {
                 echo ", ";
             }
         }
-        echo "<br>";
+        echo "\n";
     }
 } else {
     echo "Table not found<br>";
@@ -1856,7 +1856,7 @@ $select = DOM::$select->get_by_name("country");
 if ($select->is_exist()) {
     // Get the currently selected option
     $selectedText = $select->get_selected_text();
-    echo "Currently selected: " . $selectedText . "<br>";
+    echo "Currently selected: " . $selectedText . "\n";
     
     // Select an option by text
     $select->select_text("United States");
@@ -1864,7 +1864,7 @@ if ($select->is_exist()) {
     
     // Verify the selection
     $newSelectedText = $select->get_selected_text();
-    echo "Now selected: " . $newSelectedText . "<br>";
+    echo "Now selected: " . $newSelectedText . "\n";
     
     // Select a random option
     $select->select_random();
@@ -1872,7 +1872,7 @@ if ($select->is_exist()) {
     
     // Get the new selection
     $randomSelectedText = $select->get_selected_text();
-    echo "Random selection: " . $randomSelectedText . "<br>";
+    echo "Random selection: " . $randomSelectedText . "\n";
 } else {
     echo "Select element not found<br>";
 }
