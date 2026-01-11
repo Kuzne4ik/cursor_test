@@ -17,7 +17,7 @@ if (!isset($path))
 }
 
 // Navigate to the polygon page if the page was not loaded earlier
-WEB::$browser->navigate(TEST_POLYGON_URL);
+WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");
 
 // Example: Get all anchor elements and retrieve all attribute values for each anchor
 
@@ -34,11 +34,12 @@ if ($anchors->count() > 0)
     
     // Display attribute values
     echo "All attribute values for all anchors:\n";
-    foreach ($allAttributeValues as $index => $attributeValues) {
+    foreach ($allAttributeValues as $index => $attributeValuesStr) {
         echo "Anchor " . ($index + 1) . " attribute values:\n";
+        $attributeValues = explode('<br>', $attributeValuesStr);
         if (is_array($attributeValues)) {
             foreach ($attributeValues as $value) {
-                echo "  " . $value . "\n";
+                echo "  '" . $value . "'\n";
             }
         } else {
             echo "  No attribute values found\n";
