@@ -1,9 +1,13 @@
 <?php
 // Scenario: Demonstrates how to set the page zoom level to simulate different viewing conditions
 // Path to init.php file for connecting to XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with XHE API
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // The following code demonstrates the usage of set_zoom function
 

@@ -1,12 +1,13 @@
 <?php
 // Scenario: Examples of using get_all_by_inner_text function to retrieve multiple DOM elements by their inner text
-
 // Path to init.php file for connecting to XHE API
 $xhe_host = "127.0.0.1:7010";
-$path = "../../../../../../Templates/init.php";
-
-// Including init.php grants access to all classes and functionality for working with XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Navigate to a webpage with various elements
 $navigateResult = WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");

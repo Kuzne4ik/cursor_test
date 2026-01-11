@@ -2,12 +2,13 @@
 // Scenario: Check a radio button by its attribute within a form by number
 // Description: Demonstrates how to check or uncheck a radio button using its attribute within a specific form identified by its position number
 // Classes used: DOM, XHERadioButton, XHEBrowser, XHEApplication
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Пример использования функции check_by_attribute_by_form_number для радиобокса
 // Установить отметку на радиобоксе по значению его атрибута в форме с заданным номером

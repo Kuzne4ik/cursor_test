@@ -1,11 +1,12 @@
 <?php
 // Scenario: Remove borders from an image. This function is useful for removing unwanted borders, frames, or edges from images to focus on the main content.
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Create output directory if it doesn't exist
 $outputDir = "output";

@@ -1,12 +1,12 @@
 <?php
-
 // Scenario: Extract QR code region from an image and save it as a separate file
-
 $xhe_host = "127.0.0.1:7010";
-// Path to init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Path to the source image containing QR code
 $sourceImagePath = "images/image_with_qr.png";

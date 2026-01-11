@@ -2,13 +2,14 @@
 // Scenario: Get the htmlFor attribute of a script element by its number
 // Description: Demonstrates how to retrieve the htmlFor attribute value from a script element based on its position number on the page
 // Classes used: DOM, XHEScriptElement, XHEBrowser, XHEApplication
-
 // XHE host
 $xhe_host = "127.0.0.1:7010";
-// Path to init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Пример использования функции get_htmlFor_by_number
 // Получить значение атрибута htmlFor у скрипта по номеру

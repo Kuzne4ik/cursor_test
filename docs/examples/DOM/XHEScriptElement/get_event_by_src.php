@@ -2,13 +2,14 @@
 // Scenario: Get the event attribute of a script element by its src
 // Description: Demonstrates how to retrieve the event attribute value from a script element based on its src attribute
 // Classes used: DOM, XHEScriptElement, XHEBrowser, XHEApplication
-
 // XHE host
 $xhe_host = "127.0.0.1:7010";
-// Path to init.php file for connecting to XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Пример использования функции get_event_by_src
 // Получить event у скрипта с заданным атрибутом src

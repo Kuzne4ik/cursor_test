@@ -2,12 +2,13 @@
 // Scenario: Click on an embed element by attribute at a specific position
 // Description: Demonstrates how to click on an embed element based on attribute values with exact or partial match options at specified coordinates
 // Classes used: DOM, XHEEmbed, XHEBrowser, XHEApplication
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Navigate to a test page with embed elements
 WEB::$browser->navigate("https://www.example.com");

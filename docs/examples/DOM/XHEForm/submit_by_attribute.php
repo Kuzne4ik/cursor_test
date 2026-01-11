@@ -2,11 +2,14 @@
 // Scenario: Submit a form by a custom attribute
 // Description: Demonstrates how to submit a form using a custom attribute name and value
 // Classes used: DOM, XHEForm, XHEBrowser, XHEApplication
-
 // Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // English: Example of using submit_by_attribute function to submit a form by custom attribute
 // Russian: Пример использования функции submit_by_attribute для отправки формы по пользовательскому атрибуту

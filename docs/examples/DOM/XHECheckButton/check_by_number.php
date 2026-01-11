@@ -2,12 +2,13 @@
 // Scenario: Check or uncheck a checkbox by its number
 // Description: Demonstrates how to check or uncheck a checkbox based on its numerical order on the page
 // Classes used: DOM, XHECheckButton, XHEBrowser, XHEApplication
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // The example demonstrates using the check_by_number function to check a checkbox by its number
 // Navigate to a test page with checkboxes

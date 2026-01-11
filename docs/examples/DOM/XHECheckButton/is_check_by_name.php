@@ -2,12 +2,13 @@
 // Scenario: Check if a checkbox is checked by its name
 // Description: Demonstrates how to determine if a checkbox is checked based on its name attribute value
 // Classes used: DOM, XHECheckButton, XHEBrowser, XHEApplication
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // The example demonstrates using the is_check_by_name function to check if a checkbox is checked by its name
 // Navigate to a test page with checkboxes

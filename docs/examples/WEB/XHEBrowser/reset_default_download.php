@@ -1,9 +1,13 @@
 <?php
 // Scenario: Set default download folder, navigate to download site, then reset default download folder to demonstrate reset_default_download function
 // Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // The following code demonstrates the usage of the reset_default_download function
 

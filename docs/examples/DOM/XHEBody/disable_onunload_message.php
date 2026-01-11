@@ -2,13 +2,14 @@
 // Scenario: Disable the confirmation message that appears when trying to leave a webpage
 // Description: Demonstrates how to disable the onunload event message that typically asks users if they really want to leave a page
 // Classes used: DOM, XHEBody, XHEBrowser, XHEApplication
-
 // XHE host
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Пример использования функции disable_onunload_message
 // Запретить сообщение, подтверждающее желание покинуть текущую страницу

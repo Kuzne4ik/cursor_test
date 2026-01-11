@@ -1,11 +1,12 @@
 <?php
 // Scenario: Preprocess an image to improve OCR (Optical Character Recognition) accuracy. This function applies various image enhancement techniques to make text more readable for OCR engines.
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Create output directory if it doesn't exist
 $outputDir = "output";

@@ -1,11 +1,12 @@
 <?php
 // Scenario: Fix skew in text images by detecting the text angle and rotating the image to make the text horizontal. This is useful for preprocessing scanned documents or images with rotated text before OCR processing.
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Create output directory if it doesn't exist
 $outputDir = "output";

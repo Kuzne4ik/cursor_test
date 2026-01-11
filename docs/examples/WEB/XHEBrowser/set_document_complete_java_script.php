@@ -1,10 +1,12 @@
 <?php
 // Scenario: Set document complete JavaScript to run when page loads, then navigate to a website to demonstrate set_document_complete_java_script function
- $xhe_host = "127.0.0.1:7013";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // The following code demonstrates the usage of the set_document_complete_java_script function
 

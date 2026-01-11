@@ -1,9 +1,13 @@
 <?php
 // Scenario: Set battery API information for a charging laptop with 80% battery to demonstrate set_battery_api function
 // Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // The following code demonstrates the usage of the set_battery_api function
 

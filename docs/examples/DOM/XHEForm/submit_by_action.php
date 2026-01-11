@@ -2,11 +2,14 @@
 // Scenario: Submit a form by its action attribute
 // Description: Demonstrates how to submit a form using its action attribute value
 // Classes used: DOM, XHEForm, XHEBrowser, XHEApplication
-
 // Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // English: Example of using submit_by_action function to submit a form by its action attribute
 // Russian: Пример использования функции submit_by_action для отправки формы по значению атрибута action

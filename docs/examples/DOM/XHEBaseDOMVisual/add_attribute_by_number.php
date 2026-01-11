@@ -1,10 +1,13 @@
 <?php
 // Scenario: Example of using add_attribute_by_number function to add/set attribute to DOM element by number
-
 // Connect to XHE
 $xhe_host = "127.0.0.1:7010";
-$path = "../../../../../../Templates/init.php";
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Navigate to a webpage with elements
 WEB::$browser->navigate(TEST_POLYGON_URL . "anchor.html");

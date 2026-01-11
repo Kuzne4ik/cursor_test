@@ -1,12 +1,13 @@
 <?php
 // Scenario: This example demonstrates how to use the get_by_value function to find DOM elements by their value attribute.
 // The function allows searching for elements by their value with exact or partial matching, and within specific frames.
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Navigate to a webpage with elements having value attributes
 WEB::$browser->navigate(TEST_POLYGON_URL . "form.html");

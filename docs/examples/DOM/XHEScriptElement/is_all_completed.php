@@ -2,13 +2,14 @@
 // Scenario: Check if all script elements are in a non-running state
 // Description: Demonstrates how to verify whether all script elements on a page have completed loading and are not running
 // Classes used: DOM, XHEScriptElement, XHEBrowser, XHEApplication
-
 // XHE host
 $xhe_host = "127.0.0.1:7010";
-// Path to init.php file for connecting to XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Пример использования функции is_all_completed
 // Проверить что все скрипты находятся в незапущенном состоянии

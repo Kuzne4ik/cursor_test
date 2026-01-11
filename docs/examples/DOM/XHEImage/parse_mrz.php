@@ -1,11 +1,12 @@
 <?php
 // Scenario: Parse Machine-Readable Zone (MRZ) data from an image containing an ID card, passport, or other travel document. This function extracts structured information from the MRZ text.
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Create output directory if it doesn't exist
 $outputDir = "output";

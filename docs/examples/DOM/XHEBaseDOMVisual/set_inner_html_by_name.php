@@ -1,10 +1,12 @@
 <?php
 // Scenario: Setting inner HTML of elements by their name attribute
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Navigate to a webpage with anchor elements
 $pageUrl = TEST_POLYGON_URL . "anchor.html";

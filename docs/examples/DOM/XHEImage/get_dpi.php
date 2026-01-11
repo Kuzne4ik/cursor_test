@@ -1,11 +1,12 @@
 <?php
 // Scenario: Get the DPI (Dots Per Inch) of an image. This function retrieves the resolution information of an image, which is important for printing and quality assessment.
-
 $xhe_host = "127.0.0.1:7010";
-// Path to the init.php file for connecting to the XHE API
-$path = "../../../../../../Templates/init.php";
-// Including init.php grants access to all classes and functionality for working with the XHE API
-require($path);
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 // Check if the source image exists
 $sourceImage = "sample_image.png";
