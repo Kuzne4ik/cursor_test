@@ -20,33 +20,6 @@ $tablesStore = "INFORMATION_SCHEMA.TABLES";
 $dbType = "mssql";
 $connectionId = "local";
 
-// Init MSSQL docker container manually by steps:
-// Step 1:  Create file `docker-compose.yml` with content:
-// # docker-compose.yml
-// version: '3.8'
-//
-// services:
-//  mssql:
-//    image: mcr.microsoft.com/mssql/server:2022-latest
-//    container_name: mssql_my_db
-//    environment:
-//      ACCEPT_EULA: "Y"
-//      SA_PASSWORD: "MyStr0ng@Passw0rd!"
-//      MSSQL_PID: Express
-//    ports:
-//      - "1433:1433"
-//    volumes:
-//      - mssql_data:/var/opt/mssql
-//    restart: unless-stopped
-//
-// volumes:
-//  mssql_data:
-
-// Step 2: Run command in terminal:
-// $ docker-compose up -d
-
-
-
 // 0. Connect to database 'master' to check exists test DB. If DB is not exists create one
 echo("\n0. Connect to database 'master': ");
 echo SYSTEM::$bd->connect('master', $connectionMasterStr, $dbType);

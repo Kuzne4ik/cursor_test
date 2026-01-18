@@ -1,0 +1,42 @@
+Init MySQL docker container manually by steps:
+Step 1:  Create file `docker-compose.yml` with content:
+
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_my_db
+    environment:
+      MYSQL_ROOT_PASSWORD: password1
+      MYSQL_DATABASE: my_db
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+
+Step 2: Run command in terminal:
+$ docker-compose up -d
+
+Init MSSQL docker container manually by steps:
+Step 1:  Create file `docker-compose.yml` with content:
+# docker-compose.yml
+version: '3.8'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_my_db
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "MyStr0ng@Passw0rd!"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  mssql_data:
+
+// Step 2: Run command in terminal:
+// $ docker-compose up -d
