@@ -19,24 +19,6 @@ $tablesStore = "INFORMATION_SCHEMA.TABLES";
 $dbType = "mysql";
 $connectionId = "local";
 
-// Init MySQL docker container manually by steps:
-// Step 1:  Create file `docker-compose.yml` with content:
-//
-// version: '3.8'
-// services:
-//  mysql:
-//    image: mysql:8.0
-//    container_name: mysql_my_db
-//    environment:
-//      MYSQL_ROOT_PASSWORD: password1
-//      MYSQL_DATABASE: my_db
-//    ports:
-//      - "3306:3306"
-//    restart: unless-stopped
-//
-// Step 2: Run command in terminal:
-// $ docker-compose up -d
-
 // Example 1.1: Connect to database
 echo("1. Connect to database: ");
 echo SYSTEM::$bd->connect($connectionId, $connectionStr, $dbType);
