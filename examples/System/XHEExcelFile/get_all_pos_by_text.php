@@ -1,0 +1,47 @@
+﻿<?php
+$xhe_host = "127.0.0.1:7010";
+
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
+
+// Scenario: Demonstrate getting all cell positions by text search in Excel file
+echo "\n<span style=\"color: blue; \">excelfile->" . basename(__FILE__) . "</span>\n";
+
+// Initialize Excel
+SYSTEM::$excel->kill();
+
+// Example 1: Get all cell positions with specified text
+echo("Example 1: Get all cell positions with specified text : ");
+// Extract method arguments into variables
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$searchText = "new";
+$caseSensitive = false;
+print_r(SYSTEM::$excelfile->get_all_pos_by_text($filePath, $sheetIndex, $searchText, $caseSensitive));
+
+// Example 2: Get all cell positions with non-existent text
+echo("\nExample 2: Get all cell positions with non-existent text : ");
+// Extract method arguments into variables
+$nonExistentText = "Aффф";
+print_r(SYSTEM::$excelfile->get_all_pos_by_text($filePath, $sheetIndex, $nonExistentText, $caseSensitive));
+
+// Example 3: Get all cell positions with specified text in specific column
+echo("\nExample 3: Get all cell positions with specified text in specific column : ");
+// Extract method arguments into variables
+$columnLetter = "D";
+print_r(SYSTEM::$excelfile->get_all_pos_by_text($filePath, $sheetIndex, $searchText, $caseSensitive, $columnLetter));
+
+// View result
+
+
+// End of script
+echo "\n";
+
+// Quit application
+WINDOW::$app->quit();
+?>
