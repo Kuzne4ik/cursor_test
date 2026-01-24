@@ -1,28 +1,34 @@
-<?php $xhe_host = "127.0.0.1:7010";
+<?php 
+// Scenario: Demonstrates how to create a new Excel file with headers
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excel->".basename (__FILE__)."</font>\n";
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-$excel->kill();
+// Example 1: Create a new Excel file with headers
+echo("\nExample 1: Create a new Excel file with headers\n");
 
-// путь к файлу
-$path = "test/test_create.xlsx";
-// Заголовки (для первой строки)
-$headers=array("header 1","header 2","header 3");
+// Set variables for method arguments
+$filePath = "test/test_create.xlsx";
+$sheetName = "Sheet 1";
+$headers = array("header 1", "header 2", "header 3");
 
-// 1 
-echo("1. Создадим новый Excel файл с заголовками: ");
-echo($excel->create($path, "Sheet 1", $headers));
+// Create a new Excel file with headers
+$result = SYSTEM::$excel->create($filePath, $sheetName, $headers);
+if ($result) {
+    echo("Successfully created new Excel file with headers: $filePath\n");
+} else {
+    echo("Failed to create new Excel file with headers: $filePath\n");
+}
 
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

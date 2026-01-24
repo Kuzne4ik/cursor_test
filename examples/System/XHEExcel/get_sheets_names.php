@@ -1,24 +1,33 @@
-<?php $xhe_host = "127.0.0.1:7027";
+<?php 
+// Scenario: Demonstrates how to get the names of all sheets in an Excel workbook
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
 
-$excel->kill();
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1 
-echo("1. Получим имена листов : ");
-print_r($excel->get_sheets_names("test\\test.xlsx",0));
+// Example 1: Get names of all sheets in a workbook
+echo("\nExample 1: Get names of all sheets in a workbook\n");
+$sheetsNames = SYSTEM::$excel->get_sheets_names($filePath, $sheetIndex);
+if ($sheetsNames !== null) {
+    echo("Successfully retrieved sheet names from workbook $filePath\n");
+    echo("Sheet names:\n");
+    print_r($sheetsNames);
+} else {
+    echo("Failed to get sheet names from workbook $filePath\n");
+}
 
-
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

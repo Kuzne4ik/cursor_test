@@ -1,30 +1,58 @@
-<?php $xhe_host = "127.0.0.1:7010";
+<?php 
+// Scenario: Demonstrates how to get the content of a specific row in an Excel sheet
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excel->".basename (__FILE__)."</font>\n";
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowNumber1 = 1;
+$rowNumber2 = 2;
+$rowNumber3 = 3;
 
-// Закрыть все процессы Excel
-$excel->kill();
-$path="test/test.xlsx";
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1 
-echo("1. Получим строку №1" . PHP_EOL);
-print_r($excel->get_row($path, 0, 1));
+// Example 1: Get row #1
+echo("\nExample 1: Get row #$rowNumber1\n");
+$rowData1 = SYSTEM::$excel->get_row($filePath, $sheetIndex, $rowNumber1);
+if ($rowData1 !== null) {
+    echo("Successfully retrieved row #$rowNumber1\n");
+    echo("Row content:\n");
+    print_r($rowData1);
+} else {
+    echo("Failed to get row #$rowNumber1\n");
+}
 
-echo("2. Получим строку №2" . PHP_EOL);
-print_r($excel->get_row($path, 0, 2));
+// Example 2: Get row #2
+echo("\nExample 2: Get row #$rowNumber2\n");
+$rowData2 = SYSTEM::$excel->get_row($filePath, $sheetIndex, $rowNumber2);
+if ($rowData2 !== null) {
+    echo("Successfully retrieved row #$rowNumber2\n");
+    echo("Row content:\n");
+    print_r($rowData2);
+} else {
+    echo("Failed to get row #$rowNumber2\n");
+}
 
-echo("3. Получим строку №3" . PHP_EOL);
-print_r($excel->get_row($path, 0, 3));
+// Example 3: Get row #3
+echo("\nExample 3: Get row #$rowNumber3\n");
+$rowData3 = SYSTEM::$excel->get_row($filePath, $sheetIndex, $rowNumber3);
+if ($rowData3 !== null) {
+    echo("Successfully retrieved row #$rowNumber3\n");
+    echo("Row content:\n");
+    print_r($rowData3);
+} else {
+    echo("Failed to get row #$rowNumber3\n");
+}
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

@@ -1,24 +1,37 @@
-<?php $xhe_host = "127.0.0.1:7020";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Set numeric format for all cells in a row in an Excel file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
 
-$excel->kill();
+// Kill existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1 
-echo("1. Зададим числовой формат ячеек строки : ");
-echo($excel->set_row_format("test\\test.xlsx",0,1,"Currency"));
+// Example 1: Set numeric format for all cells in a row
+// Set arguments as variables
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowNumber = 1;
+$formatType = "Currency";
 
+echo("\n\n1. Set numeric format for all cells in a row: ");
+$result = SYSTEM::$excel->set_row_format($filePath, $sheetIndex, $rowNumber, $formatType);
+if ($result) {
+    echo("Success - Row $rowNumber format set to '$formatType'\n");
+} else {
+    echo("Failed - Could not set row $rowNumber format to '$formatType'\n");
+}
 
-
-// конец
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

@@ -1,40 +1,89 @@
-<?php $xhe_host = "127.0.0.1:7028";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Get cell content, set cell content with values and formulas, and save the file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
 
-$excel->kill();
-$path = "test/test.xlsx";
-$excel->open($path,false,true);
+// Open Excel file
+SYSTEM::$excel->kill();
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+SYSTEM::$excel->open($filePath, false, true);
 
-// 0
-echo("\n1. Получить содержимое ячейки  : ");
-print_r($excel->get_cell($path,0,1,3));
+// Example 1: Get cell content
+$row = 1;
+$col = 3;
 
-// 1
-echo("\n2. Задать содержимое ячейки  : ");
-print_r($excel->set_cell($path,0,1,3,"new"));
+echo("\n1. Get content of cell at row $row, column $col: ");
+$cellContent = SYSTEM::$excel->get_cell($filePath, $sheetIndex, $row, $col);
+echo("Cell content: " . $cellContent . "\n");
 
-// 2
-echo("\n3. Задать содержимое ячейки  : ");
-print_r($excel->set_cell($path,0,1,4,"new 2"));
+// Example 2: Set cell content with a value
+$row = 1;
+$col = 3;
+$value = "new";
 
-// 3
-echo("\n3. Задать содержимое ячейки как формулу : ");
-print_r($excel->set_cell($path,0,4,"F","=SUM(F1:F3)"));
-print_r($excel->set_cell($path,0,3,"F","029"));
+echo("\n2. Set content of cell at row $row, column $col to value '$value': ");
+$result = SYSTEM::$excel->set_cell($filePath, $sheetIndex, $row, $col, $value);
+if ($result) {
+    echo("Successfully set cell content to '$value'\n");
+} else {
+    echo("Failed to set cell content to '$value'\n");
+}
 
-$excel->save($path);
-$excel->close($path);
+// Example 3: Set another cell content with a value
+$row = 1;
+$col = 4;
+$value = "new 2";
 
-// конец
+echo("\n3. Set content of cell at row $row, column $col to value '$value': ");
+$result = SYSTEM::$excel->set_cell($filePath, $sheetIndex, $row, $col, $value);
+if ($result) {
+    echo("Successfully set cell content to '$value'\n");
+} else {
+    echo("Failed to set cell content to '$value'\n");
+}
+
+// Example 4: Set cell content with a formula
+$row = 4;
+$col = "F";
+$formula = "=SUM(F1:F3)";
+
+echo("\n4. Set content of cell at row $row, column $col to formula '$formula': ");
+$result = SYSTEM::$excel->set_cell($filePath, $sheetIndex, $row, $col, $formula);
+if ($result) {
+    echo("Successfully set cell content to formula '$formula'\n");
+} else {
+    echo("Failed to set cell content to formula '$formula'\n");
+}
+
+// Example 5: Set another cell content with a value
+$row = 3;
+$col = "F";
+$value = "029";
+
+echo("\n5. Set content of cell at row $row, column $col to value '$value': ");
+$result = SYSTEM::$excel->set_cell($filePath, $sheetIndex, $row, $col, $value);
+if ($result) {
+    echo("Successfully set cell content to '$value'\n");
+} else {
+    echo("Failed to set cell content to '$value'\n");
+}
+
+// Save and close the file
+SYSTEM::$excel->save($filePath);
+SYSTEM::$excel->close($filePath);
+
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

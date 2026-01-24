@@ -1,33 +1,45 @@
-<?php $xhe_host = "127.0.0.1:7010";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Set sheet content from an array in an Excel file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excel->".basename (__FILE__)."</font>\n";
 
-$excel->kill();
+// Kill existing Excel processes
+SYSTEM::$excel->kill();
 
-// Путь к файлу Excel
-$path = "test/test.xlsx";
+// Excel file path
+$filePath = "test/test.xlsx";
 
-// 1
-$sheet_array = array
-(
-	array(11,12,13),
-	array(21,22,23),
-	array(31,32,33,44,55),
+// Example 1: Set sheet content from an array
+// Set arguments as variables
+$sheetIndex = 4;
+$sheetArray = array(
+    array(11, 12, 13),
+    array(21, 22, 23),
+    array(31, 32, 33, 44, 55),
 );
-echo("1. Задать содержимое листа из массива : ");
-echo($excel->set_sheet($path, 4, $sheet_array, 3000, 5, 10));
+$timeout = 3000;
+$rowOffset = 5;
+$colOffset = 10;
 
+echo("\n\n1. Set sheet content from an array: ");
+$result = SYSTEM::$excel->set_sheet($filePath, $sheetIndex, $sheetArray, $timeout, $rowOffset, $colOffset);
+if ($result) {
+    echo("Success - Sheet $sheetIndex content set from array\n");
+} else {
+    echo("Failed - Could not set sheet $sheetIndex content from array\n");
+}
 
-
-// конец
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

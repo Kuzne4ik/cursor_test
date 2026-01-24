@@ -1,43 +1,65 @@
-<?php $xhe_host = "127.0.0.1:7010";
+<?php 
+// Scenario: Demonstrates how to open an Excel file, read its content, and close it
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
-
-// путь к файлу
-$path="test\\test.xlsx";
-
-$excel->kill();
-
-// 1 
-echo("\n1. Откроем : ");
-echo($excel->open($path,false));
-
-echo "\n";
-echo $rows= $excel->get_rows_count($path,0);
-echo "\n";
-echo $cols= $excel->get_cols_count($path,0);
-
-// 2
-echo("\n2. Выведем все ячейки : ");
-for ($i=1;$i<=$rows;$i++)
-{
-	for ($j=1;$j<=$cols; $j++)
-		echo $excel->get_cell($path,0,$i,$j)."|";
-	echo "\n";
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
 }
 
-// 3
-echo("\n3. Закроем : ");
-echo($excel->close($path));
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$visible = false;
+$sheetIndex = 0;
 
-// конец
-echo "\n";
+// Example 1: Kill any existing Excel processes
+echo("\nExample 1: Kill any existing Excel processes\n");
+$result1 = SYSTEM::$excel->kill();
+if ($result1) {
+    echo("Successfully killed existing Excel processes\n");
+} else {
+    echo("Failed to kill existing Excel processes\n");
+}
 
-// Quit
-$app->quit();
+// Example 2: Open the Excel file
+echo("\nExample 2: Open the Excel file\n");
+$result2 = SYSTEM::$excel->open($filePath, $visible);
+if ($result2) {
+    echo("Successfully opened Excel file: $filePath\n");
+} else {
+    echo("Failed to open Excel file: $filePath\n");
+}
+
+// Example 3: Get the number of rows and columns
+echo("\nExample 3: Get the number of rows and columns\n");
+$rowsCount = SYSTEM::$excel->get_rows_count($filePath, $sheetIndex);
+$colsCount = SYSTEM::$excel->get_cols_count($filePath, $sheetIndex);
+
+echo("Number of rows: $rowsCount\n");
+echo("Number of columns: $colsCount\n");
+
+// Example 4: Display all cells in the sheet
+echo("\nExample 4: Display all cells in the sheet\n");
+for ($i = 1; $i <= $rowsCount; $i++) {
+    for ($j = 1; $j <= $colsCount; $j++) {
+        $cellValue = SYSTEM::$excel->get_cell($filePath, $sheetIndex, $i, $j);
+        echo($cellValue . "|");
+    }
+    echo("\n");
+}
+
+// Example 5: Close the Excel file
+echo("\nExample 5: Close the Excel file\n");
+$result3 = SYSTEM::$excel->close($filePath);
+if ($result3) {
+    echo("Successfully closed Excel file: $filePath\n");
+} else {
+    echo("Failed to close Excel file: $filePath\n");
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

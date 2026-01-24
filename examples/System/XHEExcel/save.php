@@ -1,47 +1,64 @@
-<?php $xhe_host = "127.0.0.1:7010";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Open an Excel file, display its content, save it, and close it
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
-
-// путь к файлу
-$path="test\\test.xlsx";
-
-$excel->kill();
-
-// 1 
-echo("\n1. Откроем : ");
-echo($excel->open($path,true));
-
-$rows=2;
-$cols=2;
-echo $rows= $excel->get_rows_count($path,0);
-echo $cols= $excel->get_cols_count($path,0);
-
-// 2
-echo("\n2. Выведем все ячейки : ");
-for ($i=1;$i<=$rows;$i++)
-{
-	for ($j=1;$j<=$cols; $j++)
-		echo $excel->get_cell($path,0,$i,$j)."|";
-	echo "\n";
+  require($path);
 }
 
-// 3
-echo("\n3. Сохраним: ");
-echo($excel->save($path));
+// beginning
+echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
 
-// 4
-echo("\n4. Закроем : ");
-echo($excel->close($path));
+// Example 1: Open Excel file
+SYSTEM::$excel->kill();
+$filePath = "test/test.xlsx";
 
-// конец
+echo("\n1. Open Excel file: ");
+$result = SYSTEM::$excel->open($filePath, true);
+if ($result) {
+    echo("Successfully opened file '$filePath'\n");
+} else {
+    echo("Failed to open file '$filePath'\n");
+}
+
+// Get rows and columns count
+$rowsCount = SYSTEM::$excel->get_rows_count($filePath, 0);
+$colsCount = SYSTEM::$excel->get_cols_count($filePath, 0);
+echo("Rows count: $rowsCount, Columns count: $colsCount\n");
+
+// Example 2: Display all cells
+echo("\n2. Display all cells in the file:\n");
+for ($i = 1; $i <= $rowsCount; $i++) {
+    for ($j = 1; $j <= $colsCount; $j++) {
+        $cellValue = SYSTEM::$excel->get_cell($filePath, 0, $i, $j);
+        echo($cellValue . "|");
+    }
+    echo("\n");
+}
+
+// Example 3: Save the file
+echo("\n3. Save the file: ");
+$result = SYSTEM::$excel->save($filePath);
+if ($result) {
+    echo("Successfully saved file '$filePath'\n");
+} else {
+    echo("Failed to save file '$filePath'\n");
+}
+
+// Example 4: Close the file
+echo("\n4. Close the file: ");
+$result = SYSTEM::$excel->close($filePath);
+if ($result) {
+    echo("Successfully closed file '$filePath'\n");
+} else {
+    echo("Failed to close file '$filePath'\n");
+}
+
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

@@ -1,31 +1,69 @@
-<?php $xhe_host = "127.0.0.1:7040";
+<?php 
+// Scenario: Demonstrates how to set cell text and autosize rows and columns in an Excel sheet
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$openVisible = false;
+$debugMode = true;
 
-$excel->kill();
-$excel->open("test\\test.xlsx",false,true);
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1 
-echo("1. Зададим текст ячейки : ");
-echo($excel->set_cell("test\\test.xlsx",0,7,"A","new large large large large large large large large text"));
+// Open the Excel file
+SYSTEM::$excel->open($filePath, $openVisible, $debugMode);
 
-// 2
-echo("\n1. Зададим авторазмеры: ");
-echo($excel->autosize_row("test\\test.xlsx",0));
-echo($excel->autosize_col("test\\test.xlsx",0));
+// Example 1: Set cell text with large content
+echo("\nExample 1: Set cell text with large content\n");
 
-$excel->save("test\\test.xlsx");
-$excel->close("test\\test.xlsx");
+// Set variables for method arguments
+$sheetIndex = 0;
+$row = 7;
+$column = "A";
+$cellText = "new large large large large large large large large text";
 
-// конец
-echo "\n";
+// Set cell text
+$result = SYSTEM::$excel->set_cell($filePath, $sheetIndex, $row, $column, $cellText);
+if ($result) {
+    echo("Cell text set successfully at row $row, column $column\n");
+} else {
+    echo("Failed to set cell text at row $row, column $column\n");
+}
 
-// Quit
-$app->quit();
+// Example 2: Autosize row and column to fit content
+echo("\nExample 2: Autosize row and column to fit content\n");
+
+// Set variables for method arguments
+$autosizeSheetIndex = 0;
+
+// Autosize row
+$result = SYSTEM::$excel->autosize_row($filePath, $autosizeSheetIndex);
+if ($result) {
+    echo("Row autosized successfully for sheet: $autosizeSheetIndex\n");
+} else {
+    echo("Failed to autosize row for sheet: $autosizeSheetIndex\n");
+}
+
+// Autosize column
+$result = SYSTEM::$excel->autosize_col($filePath, $autosizeSheetIndex);
+if ($result) {
+    echo("Column autosized successfully for sheet: $autosizeSheetIndex\n");
+} else {
+    echo("Failed to autosize column for sheet: $autosizeSheetIndex\n");
+}
+
+// Save and close the Excel file
+SYSTEM::$excel->save($filePath);
+SYSTEM::$excel->close($filePath);
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

@@ -1,29 +1,40 @@
-<?php $xhe_host = "127.0.0.1:7040";
+<?php 
+// Scenario: Demonstrates how to add multiple rows with data to an Excel sheet
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Example 1: Add multiple rows with data to an Excel sheet
+echo("\nExample 1: Add multiple rows with data to an Excel sheet\n");
 
-$excel->kill();
-
-$arr = array(
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 4;
+$rowsData = array(
     array(0, 1, 2),
     array(3, 4, 5),
-	array(6, 7, 8),
+    array(6, 7, 8),
     array(9, 10, 11),
 );
 
-// 1 
-echo("1. Добавим строки : ");
-echo($excel->add_rows("test\\test.xlsx",4,$arr));
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// конец
-echo "\n";
+// Add multiple rows to Excel sheet
+$result = SYSTEM::$excel->add_rows($filePath, $sheetIndex, $rowsData);
+if ($result) {
+    echo("Multiple rows added successfully to sheet: $sheetIndex\n");
+    echo("Number of rows added: " . count($rowsData) . "\n");
+} else {
+    echo("Failed to add multiple rows to sheet: $sheetIndex\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

@@ -1,22 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7040";
+<?php 
+// Scenario: Demonstrates how to clear the content of a cell in an Excel sheet
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Example 1: Clear the content of a cell in an Excel sheet
+echo("\nExample 1: Clear the content of a cell in an Excel sheet\n");
 
-$excel->kill();
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$row = 6;
+$column = "A";
 
-// 1 
-echo("1. Очистим ячейку : ");
-echo($excel->clear_cell("test\\test.xlsx",0,6,"A"));
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// конец
-echo "\n";
+// Clear cell content
+$result = SYSTEM::$excel->clear_cell($filePath, $sheetIndex, $row, $column);
+if ($result) {
+    echo("Cell content cleared successfully at row $row, column $column\n");
+} else {
+    echo("Failed to clear cell content at row $row, column $column\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

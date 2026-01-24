@@ -1,22 +1,33 @@
-<?php $xhe_host = "127.0.0.1:3039";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Run a macro by its name in an Excel file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
 
-$excel->kill();
+// Example 1: Run macro by name
+SYSTEM::$excel->kill();
+$filePath = "test/test.xlsm";
+$sheetIndex = 0;
+$macroName = "MacrosName";
 
-// 1
-echo("1. Выполнить макрос с заданным именем : ");
-echo($excel->run_macro_by_name("test/test.xlsm",0,"MacrosName"));
+echo("1. Run macro with name '$macroName' in file '$filePath': ");
+$result = SYSTEM::$excel->run_macro_by_name($filePath, $sheetIndex, $macroName);
+if ($result) {
+    echo("Successfully executed macro '$macroName'\n");
+} else {
+    echo("Failed to execute macro '$macroName'\n");
+}
 
-// конец
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

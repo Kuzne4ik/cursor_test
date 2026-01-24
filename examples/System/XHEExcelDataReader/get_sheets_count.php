@@ -9,16 +9,16 @@ if (!isset($path)){
 // Scenario: Demonstrate getting the number of sheets in an Excel file
 
 // Kill any existing Excel processes
-$excel->kill();
+SYSTEM::$excel->kill();
 
 // Example 1: Get number of sheets in Excel file
 echo("\n\nExample 1: Get number of sheets in Excel file\n");
 $filePath = "test/test.xlsx";
 echo("File path: $filePath\n");
-$sheetsCount = $excelDataReader->get_sheets_count($filePath);
+$sheetsCount = SYSTEM::$excelDataReader->get_sheets_count($filePath);
 echo("Number of sheets: $sheetsCount\n");
 
 
 // Quit the application
-$app->quit();
+WINDOW::$app->quit();
 ?>

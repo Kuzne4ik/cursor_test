@@ -1,22 +1,31 @@
-<?php $xhe_host = "127.0.0.1:7026";
+<?php 
+// Scenario: Demonstrates how to get the number of rows in an Excel sheet
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
 
-$excel->kill();
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1
-echo("1. Получить число строк: ");
-echo($excel->get_rows_count("test/test.xlsx",0));
+// Example 1: Get number of rows in a sheet
+echo("\nExample 1: Get number of rows in a sheet\n");
+$rowsCount = SYSTEM::$excel->get_rows_count($filePath, $sheetIndex);
+if ($rowsCount !== null) {
+    echo("Sheet #$sheetIndex has $rowsCount rows\n");
+} else {
+    echo("Failed to get row count for sheet #$sheetIndex\n");
+}
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

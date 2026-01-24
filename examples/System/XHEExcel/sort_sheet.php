@@ -1,36 +1,72 @@
-<?php $xhe_host = "127.0.0.1:7020";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Sort an Excel sheet by column or all columns
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
 
-// откроем
-$path="test/test.xlsx";
-$excel->kill();
-$excel->open($path,false,true);
+// Kill existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1
-echo("1. Отсортируем лист по столбцу по возрастанию : ");
-echo($excel->sort_sheet("test/test.xlsx",0,"C",true));
+// Example 1: Open the Excel file
+// Set arguments as variables
+$filePath = "test/test.xlsx";
+$visible = false;
+$debug = true;
 
-$app->pause(0);
+echo("\n\n1. Open the Excel file: ");
+$result = SYSTEM::$excel->open($filePath, $visible, $debug);
+if ($result) {
+    echo("Success - Excel file '$filePath' opened\n");
+} else {
+    echo("Failed - Could not open Excel file '$filePath'\n");
+}
 
-// 2
-echo("\n2. Отсортируем лист по всем столбцам по убыванию: ");
-echo($excel->sort_sheet("test/test.xlsx",0,"3",false));
+// Example 2: Sort sheet by column in ascending order
+// Set arguments as variables
+$sheetIndex = 0;
+$sortColumn = "C"; // Column C
+$ascending = true;
 
-$app->pause(0);
+echo("\n2. Sort sheet by column in ascending order: ");
+$result = SYSTEM::$excel->sort_sheet($filePath, $sheetIndex, $sortColumn, $ascending);
+if ($result) {
+    echo("Success - Sheet sorted by column '$sortColumn' in ascending order\n");
+} else {
+    echo("Failed - Could not sort sheet by column '$sortColumn' in ascending order\n");
+}
 
-// закроем
-$excel->close($path);
+// Example 3: Sort sheet by all columns in descending order
+// Set arguments as variables
+$sortColumnAll = "3"; // Column 3 (same as C)
+$ascending = false;
 
-// конец
+echo("\n3. Sort sheet by all columns in descending order: ");
+$result = SYSTEM::$excel->sort_sheet($filePath, $sheetIndex, $sortColumnAll, $ascending);
+if ($result) {
+    echo("Success - Sheet sorted by all columns in descending order\n");
+} else {
+    echo("Failed - Could not sort sheet by all columns in descending order\n");
+}
+
+// Close the Excel file
+echo("\n4. Close the Excel file: ");
+$result = SYSTEM::$excel->close($filePath);
+if ($result) {
+    echo("Success - Excel file '$filePath' closed\n");
+} else {
+    echo("Failed - Could not close Excel file '$filePath'\n");
+}
+
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

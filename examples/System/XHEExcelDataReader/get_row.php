@@ -9,7 +9,7 @@ if (!isset($path)){
 // Scenario: Demonstrate getting a row as an array from an Excel file
 
 // Kill any existing Excel processes
-$excel->kill();
+SYSTEM::$excel->kill();
 
 // Example 1: Get row 2 as an array
 echo("\n\nExample 1: Get row 2 as an array\n");
@@ -17,7 +17,7 @@ $filePath = "test/test.xlsx";
 $sheetIndex = 0;
 $rowIndex = 2;
 echo("File path: $filePath, Sheet index: $sheetIndex, Row index: $rowIndex\n");
-$items = $excelDataReader->get_row($filePath, $sheetIndex, $rowIndex);
+$items = SYSTEM::$excelDataReader->get_row($filePath, $sheetIndex, $rowIndex);
 $itemsCount = count($items);
 echo("Number of items in row: $itemsCount\n");
 
@@ -35,5 +35,5 @@ for ($k = 0; $k < $itemsCount; $k++)
 }
 
 // Quit the application
-$app->quit();
+WINDOW::$app->quit();
 ?>

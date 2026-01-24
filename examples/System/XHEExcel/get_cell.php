@@ -1,29 +1,45 @@
-<?php $xhe_host = "127.0.0.1:7020";
+<?php 
+// Scenario: Demonstrates how to get the content of a specific cell in an Excel file
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowIndex = 1;
+$columnIndex = 3;
 
-$path= "test/test.xlsx";
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1 
-$excel->kill();
-echo("\n1. Откроем : ");
-echo($excel->open($path,true,true));
+// Example 1: Open Excel file
+echo("\nExample 1: Open Excel file\n");
+$result = SYSTEM::$excel->open($filePath, true, true);
+if ($result) {
+    echo("Successfully opened file $filePath\n");
+} else {
+    echo("Failed to open file $filePath\n");
+}
 
-// 1
-echo("\n2. Получить содержимое ячейки  : ");
-print_r($excel->get_cell($path,0,1,3));
+// Example 2: Get cell content
+echo("\nExample 2: Get cell content\n");
+$cellContent = SYSTEM::$excel->get_cell($filePath, $sheetIndex, $rowIndex, $columnIndex);
+if ($cellContent !== null) {
+    echo("Content of cell at row #$rowIndex, column #$columnIndex: '$cellContent'\n");
+} else {
+    echo("Failed to get content of cell at row #$rowIndex, column #$columnIndex\n");
+}
 
-$excel->close($path);
+// Close the Excel file
+SYSTEM::$excel->close($filePath);
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

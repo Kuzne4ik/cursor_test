@@ -1,22 +1,33 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php 
+// Scenario: Demonstrates how to export Excel sheets to separate files
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Example 1: Export sheets to separate files
+echo("\nExample 1: Export sheets to separate files\n");
 
-$excel->kill();
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$outputFolder = "sheets";
 
-// 1 
-echo("\n1. Вытащим страницы : ");
-echo($excel->export_sheets("test\\test.xlsx","sheets"));
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// конец
-echo "\n";
+// Export sheets to separate files
+$result = SYSTEM::$excel->export_sheets($filePath, $outputFolder);
+if ($result) {
+    echo("Successfully exported sheets from $filePath to folder $outputFolder\n");
+} else {
+    echo("Failed to export sheets from $filePath to folder $outputFolder\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

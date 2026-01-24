@@ -9,14 +9,14 @@ if (!isset($path)){
 // Scenario: Demonstrate getting entire sheet content as an array
 
 // Kill any existing Excel processes
-$excel->kill();
+SYSTEM::$excel->kill();
 
 // Example 1: Get entire sheet 0 as an array
 echo("\n\nExample 1: Get entire sheet 0 as an array\n");
 $filePath = "test/test.xlsx";
 $sheetIndex = 0;
 echo("File path: $filePath, Sheet index: $sheetIndex\n");
-$datas = $excelDataReader->get_sheet($filePath, $sheetIndex);
+$datas = SYSTEM::$excelDataReader->get_sheet($filePath, $sheetIndex);
 
 $datasCount = count($datas);
 echo("Number of rows in sheet: $datasCount\n\n");
@@ -42,5 +42,5 @@ for ($k = 0; $k < $datasCount; $k++)
 
 
 // Quit the application
-$app->quit();
+WINDOW::$app->quit();
 ?>

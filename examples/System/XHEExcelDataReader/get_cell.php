@@ -9,7 +9,7 @@ if (!isset($path)){
 // Scenario: Demonstrate getting cell values from an Excel file
 
 // Kill any existing Excel processes
-$excel->kill();
+SYSTEM::$excel->kill();
 
 // Example 1: Get cell value at row 1, column A (index 1)
 echo("\n\nExample 1: Get cell value at row 1, column A\n");
@@ -18,7 +18,7 @@ $sheetIndex = 0;
 $rowIndex = 1;
 $colIndex = 1;
 echo("File path: $filePath, Sheet index: $sheetIndex, Row: $rowIndex, Column: $colIndex\n");
-$cellValue = $excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
+$cellValue = SYSTEM::$excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
 echo("Cell value: $cellValue\n");
 
 // Example 2: Get cell value at row 2, column B (index 2)
@@ -28,7 +28,7 @@ $sheetIndex = 0;
 $rowIndex = 2;
 $colIndex = 2;
 echo("File path: $filePath, Sheet index: $sheetIndex, Row: $rowIndex, Column: $colIndex\n");
-$cellValue = $excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
+$cellValue = SYSTEM::$excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
 echo("Cell value: $cellValue\n");
 
 // Example 3: Get cell value at row 1, column C (index 3)
@@ -38,7 +38,7 @@ $sheetIndex = 0;
 $rowIndex = 1;
 $colIndex = 3;
 echo("File path: $filePath, Sheet index: $sheetIndex, Row: $rowIndex, Column: $colIndex\n");
-$cellValue = $excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
+$cellValue = SYSTEM::$excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
 echo("Cell value: $cellValue\n");
 
 // Example 4: Get cell value with invalid column index (error case)
@@ -48,10 +48,10 @@ $sheetIndex = 0;
 $rowIndex = 5;
 $colIndex = 25;
 echo("File path: $filePath, Sheet index: $sheetIndex, Row: $rowIndex, Column: $colIndex (invalid)\n");
-$cellValue = $excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
+$cellValue = SYSTEM::$excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
 echo("Cell value: $cellValue\n");
 
 
 // Quit the application
-$app->quit();
+WINDOW::$app->quit();
 ?>

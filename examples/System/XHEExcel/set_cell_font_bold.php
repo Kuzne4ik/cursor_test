@@ -1,24 +1,38 @@
-<?php $xhe_host = "127.0.0.1:7026";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Set bold font for a specific cell in an Excel file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
 
-$excel->kill();
+// Kill existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1 
-echo("1. Зададим bold шрифт ячейки :  ");
-echo($excel->set_cell_font_bold("test\\test.xlsx",0,7,"A",true));
+// Example 1: Set bold font for a cell
+// Set arguments as variables
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowNumber = 7;
+$columnLetter = "A";
+$boldValue = true;
 
+echo("\n\n1. Set bold font for a cell: ");
+$result = SYSTEM::$excel->set_cell_font_bold($filePath, $sheetIndex, $rowNumber, $columnLetter, $boldValue);
+if ($result) {
+    echo("Success - Bold font set to cell $columnLetter$rowNumber\n");
+} else {
+    echo("Failed - Could not set bold font to cell $columnLetter$rowNumber\n");
+}
 
-
-// конец
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

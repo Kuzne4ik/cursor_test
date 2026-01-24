@@ -1,27 +1,44 @@
-<?php $xhe_host = "127.0.0.1:7023";
+<?php 
+// Scenario: Demonstrates how to add a new sheet to an Excel file and get sheets count
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Example 1: Add a new sheet to an Excel file
+echo("\nExample 1: Add a new sheet to an Excel file\n");
 
-$excel->kill();
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetName = "new sheet1";
 
-// 1 
-echo("1. Добавим лист : ");
-echo($excel->add_sheet("test\\test.xlsx","new sheet1"));
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// 2
-echo("\n2. Получим число листов : ");
-echo($cnt=$excel->get_sheets_count("test\\test.xlsx"));
+// Add new sheet to Excel file
+$result = SYSTEM::$excel->add_sheet($filePath, $sheetName);
+if ($result) {
+    echo("Sheet added successfully with name: $sheetName\n");
+} else {
+    echo("Failed to add sheet with name: $sheetName\n");
+}
 
+// Example 2: Get the number of sheets in an Excel file
+echo("\nExample 2: Get the number of sheets in an Excel file\n");
 
-// конец
-echo "\n";
+// Get sheets count
+$sheetsCount = SYSTEM::$excel->get_sheets_count($filePath);
+if ($sheetsCount > 0) {
+    echo("Number of sheets in Excel file: $sheetsCount\n");
+} else {
+    echo("Failed to get sheets count or no sheets found\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

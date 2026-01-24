@@ -1,34 +1,74 @@
-<?php $xhe_host = "127.0.0.1:7010";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Merge and unmerge cells in an Excel sheet
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
 
-// 1 
-$excel->kill();
-echo("\n1. Откроем : ");
-echo($excel->open("test/test.xlsx",true,true));
+// Kill existing Excel processes
+SYSTEM::$excel->kill();
 
-// 2
-echo("\n2. Объединим ячейки  : ");
-print_r($excel->merge_cells("test/test.xlsx",0,"A1","D1"));
+// Example 1: Open the Excel file
+// Set arguments as variables
+$filePath = "test/test.xlsx";
+$visible = true;
+$debug = true;
 
+echo("\n\n1. Open the Excel file: ");
+$result = SYSTEM::$excel->open($filePath, $visible, $debug);
+if ($result) {
+    echo("Success - Excel file '$filePath' opened\n");
+} else {
+    echo("Failed - Could not open Excel file '$filePath'\n");
+}
+
+// Example 2: Merge cells in the sheet
+// Set arguments as variables
+$sheetIndex = 0;
+$startCell = "A1";
+$endCell = "D1";
+
+echo("\n2. Merge cells in the sheet: ");
+$result = SYSTEM::$excel->merge_cells($filePath, $sheetIndex, $startCell, $endCell);
+if ($result) {
+    echo("Success - Cells from '$startCell' to '$endCell' merged\n");
+} else {
+    echo("Failed - Could not merge cells from '$startCell' to '$endCell'\n");
+}
+
+// Pause to observe the merged cells
 sleep(10);
 
-// 3
-echo("\n3. Разъединим ячейки  : ");
-print_r($excel->unmerge_cells("test/test.xlsx",0,"A1","D1"));
+// Example 3: Unmerge cells in the sheet
+echo("\n3. Unmerge cells in the sheet: ");
+$result = SYSTEM::$excel->unmerge_cells($filePath, $sheetIndex, $startCell, $endCell);
+if ($result) {
+    echo("Success - Cells from '$startCell' to '$endCell' unmerged\n");
+} else {
+    echo("Failed - Could not unmerge cells from '$startCell' to '$endCell'\n");
+}
 
+// Pause to observe the unmerged cells
 sleep(10);
-$excel->close("test/test.xlsx");
 
-// конец
+// Close the Excel file
+echo("\n4. Close the Excel file: ");
+$result = SYSTEM::$excel->close($filePath);
+if ($result) {
+    echo("Success - Excel file '$filePath' closed\n");
+} else {
+    echo("Failed - Could not close Excel file '$filePath'\n");
+}
+
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

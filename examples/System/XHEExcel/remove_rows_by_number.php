@@ -1,24 +1,30 @@
-<?php $xhe_host = "127.0.0.1:7020";
+<?php 
+// Scenario: Demonstrates how to remove multiple consecutive rows from an Excel sheet by specifying the starting row and count
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$startRow = 7;
+$rowCount = 3;
 
-$path="test\\test.xlsx";
+// Example 1: Remove multiple consecutive rows from the Excel sheet
+echo("\nExample 1: Remove $rowCount consecutive rows starting from row #$startRow\n");
+$result = SYSTEM::$excel->remove_rows_by_number($filePath, $sheetIndex, $startRow, $rowCount);
+if ($result) {
+    echo("Successfully removed $rowCount rows starting from row #$startRow in sheet #$sheetIndex\n");
+} else {
+    echo("Failed to remove $rowCount rows starting from row #$startRow in sheet #$sheetIndex\n");
+}
 
-// 1 
-echo("1. Уберем 7-9 строки: ");
-echo($excel->remove_rows_by_number($path,0,7,3));
-
-
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

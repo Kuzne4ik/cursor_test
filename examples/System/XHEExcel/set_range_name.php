@@ -1,22 +1,38 @@
-<?php $xhe_host = "127.0.0.1:7027";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Set a name for a range of cells in an Excel file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
 
-$excel->kill();
+// Kill existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1
-echo("1. Задать имя диапазона : ");
-echo($excel->set_range_name("test/test.xlsx",0,"A1","C3","__Name__"));
+// Example 1: Set a name for a range of cells
+// Set arguments as variables
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$startCell = "A1";
+$endCell = "C3";
+$rangeName = "__Name__";
 
-// конец
- echo "\n";
+echo("\n\n1. Set a name for a range of cells: ");
+$result = SYSTEM::$excel->set_range_name($filePath, $sheetIndex, $startCell, $endCell, $rangeName);
+if ($result) {
+    echo("Success - Range '$startCell:$endCell' named as '$rangeName'\n");
+} else {
+    echo("Failed - Could not name range '$startCell:$endCell' as '$rangeName'\n");
+}
+
+// end
+echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

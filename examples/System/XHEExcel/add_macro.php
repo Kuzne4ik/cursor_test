@@ -1,22 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7020";
+<?php 
+// Scenario: Demonstrates how to add a macro to an Excel file
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Example 1: Add a macro with a specified name to an Excel file
+echo("\nExample 1: Add a macro with a specified name to an Excel file\n");
 
-$excel->kill();
+// Set variables for method arguments
+$filePath = "test/test.xlsm";
+$sheetIndex = 0;
+$macroName = "test";
+$macroCode = "MsgBox \"test\"";
 
-// 1
-echo("1. Добавить макрос с заданным именем : ");
-echo($excel->add_macro("test/test.xlsm",0,"тест","MsgBox \"тест\""));
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// конец
-echo "\n";
+// Add macro to Excel file
+$result = SYSTEM::$excel->add_macro($filePath, $sheetIndex, $macroName, $macroCode);
+if ($result) {
+    echo("Macro added successfully with name: $macroName\n");
+} else {
+    echo("Failed to add macro with name: $macroName\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

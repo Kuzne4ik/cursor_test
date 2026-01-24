@@ -1,37 +1,59 @@
-<?php $xhe_host = "127.0.0.1:7028";
+<?php 
+// Scenario: Demonstrates how to add and clear autofilters in an Excel sheet
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Example 1: Add autofilter to Excel sheet
+echo("\nExample 1: Add autofilter to Excel sheet\n");
 
-// откроем
-$path="test/test.xlsx";
-$excel->kill();
-$excel->open($path,false,true);
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$range = "1:200";
+$field = 1;
+$criteria = "1";
 
-// 1
-echo("1. Добавим автофильтр : ");
-echo($excel->add_autofilter("test/test.xlsx",0,"1:200",1,"1"));
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-$app->pause(0);
+// Open the Excel file
+$openVisible = false;
+$debugMode = true;
+SYSTEM::$excel->open($filePath, $openVisible, $debugMode);
 
-// 2
-echo("\n2. Удалим автофильтры  : ");
-echo($excel->clear_autofilters("test/test.xlsx",0));
+// Add autofilter
+$result = SYSTEM::$excel->add_autofilter($filePath, $sheetIndex, $range, $field, $criteria);
+if ($result) {
+    echo("Autofilter added successfully to range: $range\n");
+} else {
+    echo("Failed to add autofilter to range: $range\n");
+}
 
-$app->pause(0);
+// Example 2: Clear autofilters from Excel sheet
+echo("\nExample 2: Clear autofilters from Excel sheet\n");
 
-// закроем
-$excel->save($path);
-$excel->close($path);
+// Set variables for method arguments
+$clearSheetIndex = 0;
 
-// конец
-echo "\n";
+// Clear autofilters
+$result = SYSTEM::$excel->clear_autofilters($filePath, $clearSheetIndex);
+if ($result) {
+    echo("Autofilters cleared successfully from sheet: $clearSheetIndex\n");
+} else {
+    echo("Failed to clear autofilters from sheet: $clearSheetIndex\n");
+}
 
-// Quit
-$app->quit();
+// Save and close the Excel file
+SYSTEM::$excel->save($filePath);
+SYSTEM::$excel->close($filePath);
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

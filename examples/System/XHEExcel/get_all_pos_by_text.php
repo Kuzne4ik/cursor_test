@@ -1,34 +1,62 @@
-<?php $xhe_host = "127.0.0.1:7020";
+<?php 
+// Scenario: Demonstrates how to get all cell positions containing specified text in an Excel file
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path); 
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$searchText1 = "new";
+$searchText2 = "Aafsdas";
+$searchText3 = "A?";
+$column = "A";
 
-$path="test\\test.xlsx";
-$excel->kill();
-$excel->open($path,false,true);
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1 
-echo("1. Получим позиции ячеек с заданным текстом: ");
-print_r($excel->get_all_pos_by_text($path,0,"new",false));
+// Open the Excel file
+SYSTEM::$excel->open($filePath, false, true);
 
-// 2
-echo("\n2. Получим позиции ячеек с несуществующим текстом: ");
-print_r($excel->get_all_pos_by_text($path,0,"Aafsdas",false));
+// Example 1: Get positions of cells with specified text
+echo("\nExample 1: Get positions of cells with specified text\n");
+$positions = SYSTEM::$excel->get_all_pos_by_text($filePath, $sheetIndex, $searchText1, false);
+if ($positions) {
+    echo("Found positions for text '$searchText1':\n");
+    print_r($positions);
+} else {
+    echo("No positions found for text '$searchText1'\n");
+}
 
-// 3 
-echo("\n3. Получим позиции ячеек с заданным текстом в заданом столбце :  ");
-print_r($excel->get_all_pos_by_text($path,0,"A?",false,false,"A"));
+// Example 2: Get positions of cells with non-existent text
+echo("\nExample 2: Get positions of cells with non-existent text\n");
+$positions = SYSTEM::$excel->get_all_pos_by_text($filePath, $sheetIndex, $searchText2, false);
+if ($positions) {
+    echo("Found positions for text '$searchText2':\n");
+    print_r($positions);
+} else {
+    echo("No positions found for text '$searchText2'\n");
+}
 
-$excel->close($path);
+// Example 3: Get positions of cells with specified text in a specific column
+echo("\nExample 3: Get positions of cells with specified text in a specific column\n");
+$positions = SYSTEM::$excel->get_all_pos_by_text($filePath, $sheetIndex, $searchText3, false, false, $column);
+if ($positions) {
+    echo("Found positions for text '$searchText3' in column '$column':\n");
+    print_r($positions);
+} else {
+    echo("No positions found for text '$searchText3' in column '$column'\n");
+}
 
-// конец
-echo "\n";
+// Close the Excel file
+SYSTEM::$excel->close($filePath);
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

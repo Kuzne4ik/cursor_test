@@ -31,5 +31,5 @@ $app->shell_execute("open", $filePath);
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>

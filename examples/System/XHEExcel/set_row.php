@@ -1,27 +1,39 @@
-<?php $xhe_host = "127.0.0.1:7010";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
+<?php
+// Scenario: Set values for a row in an Excel file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
   $path = "../../../../../Templates/init.php";
-require($path);
+  require($path);
+}
 
-// начало
+// beginning
 echo "\n<font color=blue>excel->".basename (__FILE__)."</font>\n";
 
-// Убить все процессы Excel
-$excel->kill();
-// Путь к файлу Excel
-$path = "test/test.xlsx";
+// Kill all Excel processes
+SYSTEM::$excel->kill();
 
-// 1 
-echo("1. Зададим строку : ");
-echo($excel->set_row($path, 1, 1, array('Завод "Э"', 2, 3, 4, 5, 6, 7, 8)));
+// Excel file path
+$filePath = "test/test.xlsx";
 
+// Example 1: Set values for a row
+// Set arguments as variables
+$sheetIndex = 1;
+$rowNumber = 1;
+$rowData = array('Завод "Э"', 2, 3, 4, 5, 6, 7, 8);
 
+echo("\n\n1. Set values for a row: ");
+$result = SYSTEM::$excel->set_row($filePath, $sheetIndex, $rowNumber, $rowData);
+if ($result) {
+    echo("Success - Row $rowNumber data set\n");
+} else {
+    echo("Failed - Could not set data for row $rowNumber\n");
+}
 
-// конец
+// end
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>
+

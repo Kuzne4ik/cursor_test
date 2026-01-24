@@ -1,26 +1,46 @@
-<?php $xhe_host = "127.0.0.1:7040";
+<?php 
+// Scenario: Demonstrates how to get the content of an entire Excel sheet as an array
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Set variables for method arguments
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$maxCells = 3000;
+$visibleOnly = true;
 
-$excel->kill();
+// Kill any existing Excel processes
+SYSTEM::$excel->kill();
 
-// 1
-echo("1. Получить содержимое листа как массив : ");
-print_r($excel->get_sheet("test/test.xlsx",0));
+// Example 1: Get content of a sheet as array
+echo("\nExample 1: Get content of a sheet as array\n");
+$sheetData = SYSTEM::$excel->get_sheet($filePath, $sheetIndex);
+if ($sheetData !== null) {
+    echo("Successfully retrieved sheet data from sheet #$sheetIndex\n");
+    echo("Sheet content:\n");
+    print_r($sheetData);
+} else {
+    echo("Failed to get sheet data from sheet #$sheetIndex\n");
+}
 
-// 2
-echo("\n2. Получить содержимое листа как массив (тольок видимые) : ");
-print_r($excel->get_sheet("test/test.xlsx",0,3000,true));
+// Example 2: Get content of a sheet as array (only visible cells)
+echo("\nExample 2: Get content of a sheet as array (only visible cells)\n");
+$sheetDataVisible = SYSTEM::$excel->get_sheet($filePath, $sheetIndex, $maxCells, $visibleOnly);
+if ($sheetDataVisible !== null) {
+    echo("Successfully retrieved visible sheet data from sheet #$sheetIndex\n");
+    echo("Visible sheet content:\n");
+    print_r($sheetDataVisible);
+} else {
+    echo("Failed to get visible sheet data from sheet #$sheetIndex\n");
+}
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>
