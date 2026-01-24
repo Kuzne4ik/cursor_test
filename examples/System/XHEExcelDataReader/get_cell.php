@@ -1,34 +1,57 @@
-<?php $xhe_host = "127.0.0.1:7011";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Demonstrate getting cell values from an Excel file
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
-
+// Kill any existing Excel processes
 $excel->kill();
 
-// 1 
-echo("1. Получим текст ячейки (1 A): ");
-echo($excelDataReader->get_cell("test/test.xlsx", 0, 1, 1));
+// Example 1: Get cell value at row 1, column A (index 1)
+echo("\n\nExample 1: Get cell value at row 1, column A\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowIndex = 1;
+$colIndex = 1;
+echo("File path: $filePath, Sheet index: $sheetIndex, Row: $rowIndex, Column: $colIndex\n");
+$cellValue = $excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
+echo("Cell value: $cellValue\n");
 
-// 2 
-echo("\n2. Получим текст ячейки (2 B): ");
-echo($excelDataReader->get_cell("test/test.xlsx", 0, 2, 2));
+// Example 2: Get cell value at row 2, column B (index 2)
+echo("\nExample 2: Get cell value at row 2, column B\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowIndex = 2;
+$colIndex = 2;
+echo("File path: $filePath, Sheet index: $sheetIndex, Row: $rowIndex, Column: $colIndex\n");
+$cellValue = $excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
+echo("Cell value: $cellValue\n");
 
-// 3
-echo("\n3. Получим текст ячейки (1 C): ");
-echo($excelDataReader->get_cell("test/test.xlsx", 0, 1, 3));
+// Example 3: Get cell value at row 1, column C (index 3)
+echo("\nExample 3: Get cell value at row 1, column C\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowIndex = 1;
+$colIndex = 3;
+echo("File path: $filePath, Sheet index: $sheetIndex, Row: $rowIndex, Column: $colIndex\n");
+$cellValue = $excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
+echo("Cell value: $cellValue\n");
 
-// 4
-echo("\n4. Получим текст ячейки (ошибка больше чем доступно колонок): ");
-echo($excelDataReader->get_cell("test/test.xlsx", 0, 5, 25));
+// Example 4: Get cell value with invalid column index (error case)
+echo("\nExample 4: Get cell value with invalid column index (error case)\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowIndex = 5;
+$colIndex = 25;
+echo("File path: $filePath, Sheet index: $sheetIndex, Row: $rowIndex, Column: $colIndex (invalid)\n");
+$cellValue = $excelDataReader->get_cell($filePath, $sheetIndex, $rowIndex, $colIndex);
+echo("Cell value: $cellValue\n");
 
-// посмотрим
-$app->shell_execute("open","test/test.xlsx");
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

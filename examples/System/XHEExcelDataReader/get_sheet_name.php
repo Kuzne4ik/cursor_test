@@ -1,25 +1,32 @@
-<?php 
-$xhe_host = "127.0.0.1:7011";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-require("../../../Templates/init.php");
+// Scenario: Demonstrate getting sheet names by index
 
-// начало
-echo "\n<font color=blue>excelDataReader->" . basename (__FILE__)."</font>\n";
-
+// Kill any existing Excel processes
 $excel->kill();
 
-// 1
-echo("1. Получим имя первого листа (0) : ");
-echo($excelDataReader->get_sheet_name("test/test.xlsx", 0));
+// Example 1: Get name of first sheet (index 0)
+echo("\n\nExample 1: Get name of first sheet (index 0)\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+echo("File path: $filePath, Sheet index: $sheetIndex\n");
+$sheetName = $excelDataReader->get_sheet_name($filePath, $sheetIndex);
+echo("Sheet name: $sheetName\n");
 
-// 2
-echo("\n2. Получим имя второго листа (1): ");
-echo($excelDataReader->get_sheet_name("test/test.xlsx", 1));
+// Example 2: Get name of second sheet (index 1)
+echo("\nExample 2: Get name of second sheet (index 1)\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 1;
+echo("File path: $filePath, Sheet index: $sheetIndex\n");
+$sheetName = $excelDataReader->get_sheet_name($filePath, $sheetIndex);
+echo("Sheet name: $sheetName\n");
 
-// посмотрим
-$app->shell_execute("open","test/test.xlsx");
-
-// Quit
+// Quit the application
 $app->quit();
 ?>

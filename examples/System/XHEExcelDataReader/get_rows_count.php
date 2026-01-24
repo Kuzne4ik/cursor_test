@@ -1,30 +1,41 @@
-<?php $xhe_host = "127.0.0.1:7011";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Demonstrate getting the number of rows in a sheet
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
-
+// Kill any existing Excel processes
 $excel->kill();
 
-// 1 
-echo("1. Получим количество строк в 0 листе: ");
-echo($excelDataReader->get_rows_count("test/test.xlsx", 0));
+// Example 1: Get number of rows in sheet 0
+echo("\n\nExample 1: Get number of rows in sheet 0\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+echo("File path: $filePath, Sheet index: $sheetIndex\n");
+$rowsCount = $excelDataReader->get_rows_count($filePath, $sheetIndex);
+echo("Number of rows: $rowsCount\n");
 
-// 2
-echo("\n2. Получим количество строк в 4 листе: ");
-echo($excelDataReader->get_rows_count("test/test.xlsx", 4));
+// Example 2: Get number of rows in sheet 4 (error case)
+echo("\nExample 2: Get number of rows in sheet 4 (error case)\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 4;
+echo("File path: $filePath, Sheet index: $sheetIndex (invalid)\n");
+$rowsCount = $excelDataReader->get_rows_count($filePath, $sheetIndex);
+echo("Number of rows: $rowsCount\n");
 
-// 4
-echo("\n4. Получим количество строк в 6 листе (ошибка значение от 0): ");
-echo($excelDataReader->get_rows_count("test/test.xlsx", 6));
+// Example 3: Get number of rows in sheet 6 (error case - value from 0)
+echo("\nExample 3: Get number of rows in sheet 6 (error case - value from 0)\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 6;
+echo("File path: $filePath, Sheet index: $sheetIndex (invalid)\n");
+$rowsCount = $excelDataReader->get_rows_count($filePath, $sheetIndex);
+echo("Number of rows: $rowsCount\n");
 
-// посмотрим
-$app->shell_execute("open","test/test.xlsx");
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

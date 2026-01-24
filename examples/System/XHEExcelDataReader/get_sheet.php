@@ -1,35 +1,46 @@
-<?php $xhe_host = "127.0.0.1:7011";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-    $path = "../../../../../Templates/init.php";
-require($path);
+// Scenario: Demonstrate getting entire sheet content as an array
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
-
+// Kill any existing Excel processes
 $excel->kill();
 
-// 1 
-echo("1. Получим содержимео листа как массив : \n\n");
-$datas = $excelDataReader->get_sheet("test/test.xlsx",0);
+// Example 1: Get entire sheet 0 as an array
+echo("\n\nExample 1: Get entire sheet 0 as an array\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+echo("File path: $filePath, Sheet index: $sheetIndex\n");
+$datas = $excelDataReader->get_sheet($filePath, $sheetIndex);
 
 $datasCount = count($datas);
+echo("Number of rows in sheet: $datasCount\n\n");
 
+// Display each row with its cell values
 for ($k = 0; $k < $datasCount; $k++)
 {
-    echo("Line #" . ($k + 1) . "\n");
-    for ($j = 0; $j < count($datas[$k]); $j++)
-    {
-        echo($datas[$k][$j] . ", ");
+    echo("Line #" . ($k + 1) . ": ");
+    $row = $datas[$k];
+    // Check if the row is countable (array or Countable object) before iterating
+    if (is_array($row)) {
+        $rowColCount = count($row);
+        for ($j = 0; $j < $rowColCount; $j++)
+        {
+            echo($row[$j] . ", ");
+        }
+    } else {
+        // Handle case where row is a scalar value (string, int, etc.)
+        echo($row . ", ");
     }
     echo("\n");
 }
 
 
-// посмотрим
-$app->shell_execute("open", "test/test.xlsx");
-
-// Quit
+// Quit the application
 $app->quit();
 ?>

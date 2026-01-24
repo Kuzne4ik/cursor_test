@@ -1,22 +1,24 @@
-<?php $xhe_host = "127.0.0.1:7011";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Demonstrate getting the number of sheets in an Excel file
 
+// Kill any existing Excel processes
 $excel->kill();
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+// Example 1: Get number of sheets in Excel file
+echo("\n\nExample 1: Get number of sheets in Excel file\n");
+$filePath = "test/test.xlsx";
+echo("File path: $filePath\n");
+$sheetsCount = $excelDataReader->get_sheets_count($filePath);
+echo("Number of sheets: $sheetsCount\n");
 
-// 1 
-echo("1. Получим количество листов : ");
-echo($excelDataReader->get_sheets_count("test/test.xlsx"));
 
-// посмотрим
-$app->shell_execute("open","test/test.xlsx");
-
-// Quit
+// Quit the application
 $app->quit();
 ?>

@@ -2,7 +2,7 @@
 
 // Connect functional objects
 if (!isset($path)){
-  $path="../../../Templates/init.php";
+  $path = "../../../../../Templates/init.php";
   require($path);
 }
 // Scenario: Demonstrate adding a sheet to Excel file and getting sheet count

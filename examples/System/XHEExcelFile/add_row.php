@@ -3,7 +3,7 @@ $xhe_host = "127.0.0.1:7013";
 
 // Connect functional objects
 if (!isset($path)){
-  $path="../../../Templates/init.php";
+  $path = "../../../../../Templates/init.php";
   require($path);
 }
 

@@ -2,7 +2,7 @@
 
 // Connect functional objects if not already connected
 if (!isset($path))
-  $path="../../../Templates/init.php";
+  $path = "../../../../../Templates/init.php";
 require($path);
 
 // Scenario: Demonstrate removing sheet by number

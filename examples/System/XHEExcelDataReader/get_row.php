@@ -1,35 +1,39 @@
-<?php $xhe_host = "127.0.0.1:7011";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path = "../../../Templates/init.php";
-require($path);
+// Scenario: Demonstrate getting a row as an array from an Excel file
 
-// начало
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
-
+// Kill any existing Excel processes
 $excel->kill();
 
-// 1 
-echo("1. Получим 1 строку как массив: \n");
-$items = $excelDataReader->get_row("test/test.xlsx", 0, 2);
+// Example 1: Get row 2 as an array
+echo("\n\nExample 1: Get row 2 as an array\n");
+$filePath = "test/test.xlsx";
+$sheetIndex = 0;
+$rowIndex = 2;
+echo("File path: $filePath, Sheet index: $sheetIndex, Row index: $rowIndex\n");
+$items = $excelDataReader->get_row($filePath, $sheetIndex, $rowIndex);
 $itemsCount = count($items);
+echo("Number of items in row: $itemsCount\n");
 
+// Create alphabet characters for column labels
 $alphachar = range('A', 'Z');
 $alphacharCount = count($alphachar);
 
+// Display each cell value with column label
 for ($k = 0; $k < $itemsCount; $k++)
 {
     if ($alphacharCount > $k)
-        echo($alphachar[$k] . "(" .  ($k  + 1)  . ") =>" . $items[$k] . "\n");
+        echo("Column " . $alphachar[$k] . " (" . ($k + 1) . ") => " . $items[$k] . "\n");
     else
-        echo(($k  + 1) . "=>" . $items[$k] . "\n");
+        echo("Column " . ($k + 1) . " => " . $items[$k] . "\n");
 }
 
-
-// посмотрим
-$app->shell_execute("open", "test/test.xlsx");
-
-// Quit
+// Quit the application
 $app->quit();
 ?>
