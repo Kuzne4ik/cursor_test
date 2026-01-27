@@ -1,20 +1,25 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Play a system beep sound
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>sound->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>sound->".basename (__FILE__)."</font>\n";
+// Example 1: Play a system beep sound
+echo("\n\nExample 1. Play a system beep sound: ");
+$beepResult = SYSTEM::$sound->beep();
 
-// 1 
-echo "1. Пикнуть : ";
-echo $sound->beep();
+if ($beepResult) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

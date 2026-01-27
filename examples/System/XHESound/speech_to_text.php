@@ -1,47 +1,87 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Convert speech from audio files to text using various methods
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>sound->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>sound->".basename (__FILE__)."</font>\n";
+// Example 1: Recognize speech from audio file using API (default method)
+// Input data
+$audioFile1 = "test/audio8.wav";
 
-// 1 
-echo "1. Распознаем речь из аудиофайла через API (метод по умолчанию) : ";
-$result = $sound->speech_to_text("test/audio8.wav");
-echo $result;
-echo "\n";
+echo("\n\nExample 1. Recognize speech from audio file using API (default method): ");
+$result1 = SYSTEM::$sound->speech_to_text($audioFile1);
 
-// 2 
-echo "2. Распознаем речь из аудиофайла через API с указанием языка : ";
-$result = $sound->speech_to_text("test/audio8.wav", "api", "ru");
-echo $result;
-echo "\n";
+if ($result1) {
+    echo("true: " . $result1 . "\n");
+} else {
+    echo("false\n");
+}
 
-// 3 
-echo "3. Распознаем речь из аудиофайла через локальный метод (whisper.cpp) : ";
-$result = $sound->speech_to_text("test/audio8.wav", "local");
-echo $result;
-echo "\n";
+// Example 2: Recognize speech from audio file using API with specified language
+// Input data
+$audioFile2 = "test/audio8.wav";
+$method2 = "api";
+$language2 = "ru";
 
-// 4 
-echo "4. Распознаем речь из аудиофайла через локальный метод с указанием языка и модели : ";
-$result = $sound->speech_to_text("test/audio8.wav", "local", "ru", 60, "ggml-base.bin");
-echo $result;
-echo "\n";
+echo("\n\nExample 2. Recognize speech from audio file using API with specified language: ");
+$result2 = SYSTEM::$sound->speech_to_text($audioFile2, $method2, $language2);
 
-// 5 
-echo "5. Распознаем речь из MP3 файла через API : ";
-$result = $sound->speech_to_text("test/mp3/68323.mp3");
-echo $result;
-echo "\n";
+if ($result2) {
+    echo("true: " . $result2 . "\n");
+} else {
+    echo("false\n");
+}
 
-// конец
-echo "\n";
+// Example 3: Recognize speech from audio file using local method (whisper.cpp)
+// Input data
+$audioFile3 = "test/audio8.wav";
+$method3 = "local";
 
-// Quit
-$app->quit();
+echo("\n\nExample 3. Recognize speech from audio file using local method (whisper.cpp): ");
+$result3 = SYSTEM::$sound->speech_to_text($audioFile3, $method3);
+
+if ($result3) {
+    echo("true: " . $result3 . "\n");
+} else {
+    echo("false\n");
+}
+
+// Example 4: Recognize speech from audio file using local method with specified language and model
+// Input data
+$audioFile4 = "test/audio8.wav";
+$method4 = "local";
+$language4 = "ru";
+$timeout4 = 60;
+$model4 = "ggml-base.bin";
+
+echo("\n\nExample 4. Recognize speech from audio file using local method with specified language and model: ");
+$result4 = SYSTEM::$sound->speech_to_text($audioFile4, $method4, $language4, $timeout4, $model4);
+
+if ($result4) {
+    echo("true: " . $result4 . "\n");
+} else {
+    echo("false\n");
+}
+
+// Example 5: Recognize speech from MP3 file using API
+// Input data
+$audioFile5 = "test/mp3/68323.mp3";
+
+echo("\n\nExample 5. Recognize speech from MP3 file using API: ");
+$result5 = SYSTEM::$sound->speech_to_text($audioFile5);
+
+if ($result5) {
+    echo("true: " . $result5 . "\n");
+} else {
+    echo("false\n");
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>
-
