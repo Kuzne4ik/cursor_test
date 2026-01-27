@@ -1,40 +1,60 @@
-<?php 
-$xhe_host = "127.0.0.1:7011";
+<?php
+// Scenario: Set cell values in LibreOffice Calc spreadsheet
 
-// подключим функциональные объекты, если еще не подключен
-require("../../../Templates/init.php");
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>libreOfficeCalc->".basename (__FILE__)."</font>\n";
+// Example 1
+echo("1. Set text of cell (8, 1): \n");
+$filePath = "test/test.ods";
+$sheetIndex = 0;
+$row = 8;
+$column = 1;
+$cellValue = "99999";
+$result = SYSTEM::$libreOfficeCalc->set_cell($filePath, $sheetIndex, $row, $column, $cellValue);
+$result = $result ? 'true' : 'false';
+echo("Cell set: $result\n");
 
-// 1
-echo("1. Зададим текст ячейки (8, 1): ");
-echo($libreOfficeCalc->set_cell("test/test.ods", 0, 8, 1, "99999"));
+// Example 2
+echo("\n\n2. Get text of cell (8, 1): \n");
+$cellValue = SYSTEM::$libreOfficeCalc->get_cell($filePath, $sheetIndex, $row, $column);
+echo("Cell value: $cellValue\n");
 
-// 2 
-echo("\n2. Получим текст ячейки (8, 1): ");
-echo($libreOfficeCalc->get_cell("test/test.ods", 0, 8, 1));
+// Example 3
+echo("\n\n3. Set text of cell (5, 33): \n");
+$row = 5;
+$column = 33;
+$cellValue = "new text 5";
+$result = SYSTEM::$libreOfficeCalc->set_cell($filePath, $sheetIndex, $row, $column, $cellValue);
+$result = $result ? 'true' : 'false';
+echo("Cell set: $result\n");
 
-// 3
-echo("\n3. Зададим текст ячейки (5, 33): ");
-echo($libreOfficeCalc->set_cell("test/test.ods", 0, 5, 33, "new text 5"));
+// Example 4
+echo("\n\n4. Get text of cell (5, 33): \n");
+$cellValue = SYSTEM::$libreOfficeCalc->get_cell($filePath, $sheetIndex, $row, $column);
+echo("Cell value: $cellValue\n");
 
-// 4
-echo("\n4. Получим текст ячейки (5, 33): ");
-echo($libreOfficeCalc->get_cell("test/test.ods", 0, 5, 33));
+// Example 5 (commented out)
+//echo("\n\n5. Set formula: \n");
+//$row = 10;
+//$column = "B";
+//$formula = "=SUM(B7:B9)";
+//$result = SYSTEM::$libreOfficeCalc->set_cell($filePath, $sheetIndex, $row, $column, $formula);
+//$result = $result ? 'true' : 'false';
+//echo("Formula set: $result\n");
+//$libreOfficeCalc->set_cell_type($filePath, $sheetIndex, $row, $column, "Number");
 
-// 5
-//echo("\n5. Формула: ");
-//echo($libreOfficeCalc->set_cell("test/test.ods", 0, 10, "B", "=SUM(B7:B9)"));
-//$libreOfficeCalc->set_cell_type("test/test.ods", 0, 10, "B", "Number");
 
 
-// посмотрим
-$app->shell_execute("open","test/test.ods");
-
-// конец
+// end
 echo "\n";
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

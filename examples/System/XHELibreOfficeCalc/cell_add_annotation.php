@@ -8,7 +8,7 @@ if (!isset($path)){
   require($path);
 }
 // info
-echo "\n<font color=blue>keyboard->" . basename (__FILE__) . "</font>\n";
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
 // Example 1
 echo "1. Add annotation to cell B2[3, 2]: \n";
@@ -20,12 +20,11 @@ $author = "Author";
 $comment = "Comment 1";
 $annotationSettings = '{"x": "2cm", "y": "4cm"}';
 
-$res1 = $libreOfficeCalc->cell_add_annotation($filePath, $sheetIndex, $row, $column, $author, $comment, $annotationSettings);
+$res1 = SYSTEM::$libreOfficeCalc->cell_add_annotation($filePath, $sheetIndex, $row, $column, $author, $comment, $annotationSettings);
 $res1 = $res1 ? 'true' : 'false';
 echo "Annotation added: $res1\n";
 
-// Let's see the result
-$app->shell_execute("open", $filePath);
+
 
 // end
 echo "\n";

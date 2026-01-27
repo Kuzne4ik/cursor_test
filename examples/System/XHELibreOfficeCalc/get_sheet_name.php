@@ -1,26 +1,33 @@
-<?php 
-$xhe_host = "127.0.0.1:7011";
+<?php
+// Scenario: Get sheet name from LibreOffice Calc spreadsheet
 
-// подключим функциональные объекты, если еще не подключен
-require("../../../Templates/init.php");
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>libreOfficeCalc->".basename (__FILE__)."</font>\n";
+// Example 1
+echo("1. Get name of the first sheet: \n");
+$filePath = "test/test.ods";
+$sheetIndex = 0;
+$sheetName = SYSTEM::$libreOfficeCalc->get_sheet_name($filePath, $sheetIndex);
+echo("Sheet name: $sheetName\n");
 
-// 1
-echo("1. Получим имя первого листа : ");
-echo($libreOfficeCalc->get_sheet_name("test/test.ods", 0));
+// Example 2
+echo("\n\n2. Get name of the second sheet: \n");
+$sheetIndex = 1;
+$sheetName = SYSTEM::$libreOfficeCalc->get_sheet_name($filePath, $sheetIndex);
+echo("Sheet name: $sheetName\n");
 
-// 2
-echo("\n2. Получим имя второго листа : ");
-echo($libreOfficeCalc->get_sheet_name("test/test.ods", 1));
 
-// посмотрим
-$app->shell_execute("open","test/test.ods");
 
-// конец
+// end
 echo "\n";
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

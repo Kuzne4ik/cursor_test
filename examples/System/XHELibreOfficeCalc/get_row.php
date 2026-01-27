@@ -8,14 +8,14 @@ if (!isset($path)){
   require($path);
 }
 // info
-echo "\n<font color=blue>keyboard->" . basename (__FILE__) . "</font>\n";
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
 // Example 1
 echo("1. Get first row as array: \n");
 $filePath = "test/test.ods";
 $sheetIndex = 0;
 $rowIndex = 1;
-$items = $libreOfficeCalc->get_row($filePath, $sheetIndex, $rowIndex);
+$items = SYSTEM::$libreOfficeCalc->get_row($filePath, $sheetIndex, $rowIndex);
 $itemsCount = count($items);
 
 $alphachar = range('A', 'Z');
@@ -27,8 +27,7 @@ for ($k = 0; $k < $itemsCount; $k++) {
 		echo(($k  + 1) . '=>'. $items[$k]. PHP_EOL);
 }
   
-// Let's see the result
-$app->shell_execute("open", $filePath);
+
 
 // end
 echo "\n";

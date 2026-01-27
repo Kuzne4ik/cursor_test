@@ -15,12 +15,11 @@ echo("1. Add a new row to the spreadsheet: \n");
 $filePath = "test/test.ods";
 $sheetIndex = 0;
 $rowData = array(11, 22, 33);
-$result = $libreOfficeCalc->add_row($filePath, $sheetIndex, $rowData);
+$result = SYSTEM::$libreOfficeCalc->add_row($filePath, $sheetIndex, $rowData);
 $result = $result ? 'true' : 'false';
 echo("Row added: $result\n");
 
-// Let's see the result
-$app->shell_execute("open", $filePath);
+
 
 // end
 echo "\n";

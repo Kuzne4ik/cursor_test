@@ -1,30 +1,42 @@
-<?php 
-$xhe_host = "127.0.0.1:7011";
+<?php
+// Scenario: Set cell colors in LibreOffice Calc spreadsheet
 
-// подключим функциональные объекты, если еще не подключен
-require("../../../Templates/init.php");
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>libreOfficeCalc->".basename (__FILE__)."</font>\n";
-
-// 1
-echo "1. Установить шрифт оранжевый, фон зеленый для ячейки [2,3]: \n";
-$res1 = $libreOfficeCalc->set_cell_color("test/test.ods", 0, 2, 3, "#e75322", "#22e74a");
+// Example 1
+echo "1. Set orange font and green background for cell [2,3]: \n";
+$filePath = "test/test.ods";
+$sheetIndex = 0;
+$row = 2;
+$column = 3;
+$fontColor = "#e75322";
+$backgroundColor = "#22e74a";
+$res1 = SYSTEM::$libreOfficeCalc->set_cell_color($filePath, $sheetIndex, $row, $column, $fontColor, $backgroundColor);
 $res1 = $res1 ? 'true' : 'false';
-echo $res1."\n";
+echo "Colors set: $res1\n";
 
-//2
-echo "\n2. Установить шрифт оранжевый, фон синий для ячейки [5,1]: \n";
-$res2 = $libreOfficeCalc->set_cell_color("test/test.ods", 0, 5, 1, "#e75322", "#227ee7");
+// Example 2
+echo "\n\n2. Set orange font and blue background for cell [5,1]: \n";
+$row = 5;
+$column = 1;
+$fontColor = "#e75322";
+$backgroundColor = "#227ee7";
+$res2 = SYSTEM::$libreOfficeCalc->set_cell_color($filePath, $sheetIndex, $row, $column, $fontColor, $backgroundColor);
 $res2 = $res2 ? 'true' : 'false';
-echo $res2."\n";
+echo "Colors set: $res2\n";
 
-// посмотрим
-$app->shell_execute("open","test/test.ods");
 
-// конец
+
+// end
 echo "\n";
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

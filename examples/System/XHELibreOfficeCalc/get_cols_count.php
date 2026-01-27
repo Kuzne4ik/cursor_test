@@ -8,17 +8,14 @@ if (!isset($path)){
   require($path);
 }
 // info
-echo "\n<font color=blue>keyboard->" . basename (__FILE__) . "</font>\n";
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
 // Example 1
 echo("1. Get number of columns in the first sheet: \n");
 $filePath = "test/test.ods";
 $sheetIndex = 0;
-$colsCount = $libreOfficeCalc->get_cols_count($filePath, $sheetIndex);
+$colsCount = SYSTEM::$libreOfficeCalc->get_cols_count($filePath, $sheetIndex);
 echo("Number of columns: $colsCount\n");
-
-// Let's see the result
-$app->shell_execute("open", $filePath);
 
 // end
 echo "\n";

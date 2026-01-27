@@ -8,16 +8,13 @@ if (!isset($path)){
   require($path);
 }
 // info
-echo "\n<font color=blue>keyboard->" . basename (__FILE__) . "</font>\n";
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
 // Example 1
 echo("1. Get number of sheets: \n");
 $filePath = "test/test.ods";
-$sheetsCount = $libreOfficeCalc->get_sheets_count($filePath);
+$sheetsCount = SYSTEM::$libreOfficeCalc->get_sheets_count($filePath);
 echo("Number of sheets: $sheetsCount\n");
-
-// Let's see the result
-$app->shell_execute("open", $filePath);
 
 // end
 echo "\n";

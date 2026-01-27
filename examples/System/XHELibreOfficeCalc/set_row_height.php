@@ -1,24 +1,30 @@
-<?php 
-$xhe_host = "127.0.0.1:7011";
+<?php
+// Scenario: Set row height in LibreOffice Calc spreadsheet
 
-// подключим функциональные объекты, если еще не подключен
-require("../../../Templates/init.php");
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>libreOfficeCalc->".basename (__FILE__)."</font>\n";
-
-// 1
-echo("1. Увеличить высоту строки 8 до 1.6см в 0 листе : ");
-$res1 = $libreOfficeCalc->set_row_height("test/test.ods", 0,  8, "1.6cm");
+// Example 1
+echo("1. Increase height of row 8 to 1.6cm in the first sheet: \n");
+$filePath = "test/test.ods";
+$sheetIndex = 0;
+$rowIndex = 8;
+$height = "1.6cm";
+$res1 = SYSTEM::$libreOfficeCalc->set_row_height($filePath, $sheetIndex, $rowIndex, $height);
 $res1 = $res1 ? 'true' : 'false';
-echo $res1."\n";
+echo("Height set: $res1\n");
 
-// посмотрим
-$app->shell_execute("open","test/test.ods");
 
-// конец
+
+// end
 echo "\n";
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

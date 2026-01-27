@@ -1,25 +1,33 @@
-<?php 
-$xhe_host = "127.0.0.1:7011";
+<?php
+// Scenario: Get sheet number by name from LibreOffice Calc spreadsheet
 
-// подключим функциональные объекты, если еще не подключен
-require("../../../Templates/init.php");
-// начало
-echo "\n<font color=blue>libreOfficeCalc->".basename (__FILE__)."</font>\n";
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
 
-// 1
-echo("1. Получим номер листа по имени : ");
-echo($libreOfficeCalc->get_sheet_number_by_name("test/test.ods", "Лист2"));
+// Example 1
+echo("1. Get sheet number by name: \n");
+$filePath = "test/test.ods";
+$sheetName = "Лист2";
+$sheetNumber = SYSTEM::$libreOfficeCalc->get_sheet_number_by_name($filePath, $sheetName);
+echo("Sheet number: $sheetNumber\n");
 
-// 2
-echo("\n2. Получим номер листа по имени (-1) : ");
-echo($libreOfficeCalc->get_sheet_number_by_name("test/test.ods", "Лист1"));
+// Example 2
+echo("\n\n2. Get sheet number by name (-1 if not found): \n");
+$sheetName = "Лист1";
+$sheetNumber = SYSTEM::$libreOfficeCalc->get_sheet_number_by_name($filePath, $sheetName);
+echo("Sheet number: $sheetNumber\n");
 
-// посмотрим
-$app->shell_execute("open","test/test.ods");
 
-// конец
+
+// end
 echo "\n";
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>
