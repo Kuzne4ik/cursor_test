@@ -1,20 +1,28 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Count the number of lines in a file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+// Example 1: Count lines in a file
+// Set file path
+$filePath = "test/test_count.txt";
+// Set timeout
+$timeout = 60;
 
-// 1 
-echo("1. Посчитать число строк в файле : ");
-echo($textfile->get_lines_count("test\\test_count.txt",60));
+echo("1. Count number of lines in file $filePath: ");
+$linesCount = SYSTEM::$textfile->get_lines_count($filePath, $timeout);
+echo($linesCount . "\n");
 
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

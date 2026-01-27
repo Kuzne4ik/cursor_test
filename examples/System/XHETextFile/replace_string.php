@@ -1,23 +1,37 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
+// Scenario: Replace strings in a file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Example 1: Replace string in a file
+// Set source file
+$sourceFile = "test/test_count.txt";
+// Set target file
+$targetFile = "test/test_replaced.txt";
+// Set search string
+$searchString = "№";
+// Set replace string
+$replaceString = "#";
+// Set timeout
+$timeout = 60;
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+echo("1. Replace string '$searchString' with '$replaceString' in file $sourceFile and save to file $targetFile: ");
+$result = SYSTEM::$textfile->replace_string($sourceFile, $targetFile, $searchString, $replaceString, $timeout);
+if ($result) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
 
-// 1 
-echo("1. Сделаем замену строки в заданном файле : ");
-echo($textfile->replace_string("test\\test_count.txt","test\\test_replaced.txt","№","#",60)."<br>");
-
-// рузультат
-$app->shell_execute("","test\\test_replaced.txt");
-
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

@@ -1,26 +1,39 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Generate folders based on strings from a file
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+// Set target folder name
+$targetFolder = "test_generated";
 
-// очистим то что будем создавать
-$folder->delete("test_generated");
+// Clear target folder if it exists
+echo("Clear target folder if it exists: $targetFolder\n");
+SYSTEM::$folder->delete($targetFolder);
 
-// 1 
-echo("1. Создать каталоги с именами взятыми из строк файла в задангном каталоге : ");
-echo($textfile->generate_folders_by_strings_file("test\\test_generated.txt","test_generated",60));
+// Example 1: Create folders with names taken from strings in a file
+// Set source file with folder names
+$sourceFile = "test/test_generated.txt";
+// Set timeout
+$timeout = 60;
 
-// покажем результаты
-$app->shell_execute("","test_generated");
+echo("1. Create folders with names taken from strings in file $sourceFile in target folder $targetFolder: ");
+$result = SYSTEM::$textfile->generate_folders_by_strings_file($sourceFile, $targetFolder, $timeout);
+if ($result) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
 
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

@@ -1,23 +1,36 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Randomize lines in a file and save to another file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
 
-// 1 
-echo("1. Рандомизировать заданный файл в файл результатов : ");
-echo($textfile->randomize_to("test\\test_randomize.txt","test\\test_randomized.txt",60)."<br>");
 
-// показать результаты
-$app->shell_execute("","test\\test_randomized.txt");
+// Example 1: Randomize lines in a file
+// Set source file
+$sourceFile = "test/test_randomize.txt";
+// Set target file
+$targetFile = "test/test_randomized.txt";
+// Set timeout
+$timeout = 60;
 
-// конец
+echo("1. Randomize lines in file $sourceFile and save to file $targetFile: ");
+$result = SYSTEM::$textfile->randomize_to($sourceFile, $targetFile, $timeout);
+if ($result) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
+
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

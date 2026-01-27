@@ -1,29 +1,44 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Add multiple strings to a text file and display the result
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
 
-// 1 
-$file = "test\\add_string.txt";
-//$file = "D:\\add_string.txt";
-echo("1. Добавляем строки в файл : \n\n");
-for ($i=0;$i<10;$i++)
+// Example 1: Add strings to file
+// Set file path
+$filePath = "test/add_string.txt";
+//$filePath = "D:/add_string.txt";
+// Set timeout
+$timeout = 60;
+
+echo("1. Add strings to file : \n\n");
+for ($k=0;$k<10;$k++)
 {
-	echo ("Добавили строку: строка №".$i." : ");
-	echo ($textfile->add_string_to_file($file,"строка_ №".$i."\r\n",60)."<br>");
+	// Set string to add
+	$stringToAdd = "string_ №".$k."\r\n";
+	
+	// Add string to file
+	$result = SYSTEM::$textfile->add_string_to_file($filePath, $stringToAdd, $timeout);
+	
+	// Check result and echo appropriate message
+	if ($result) {
+		echo ("Added string: string №".$k." : true\n");
+	} else {
+		echo ("Added string: string №".$k." : false\n");
+	}
 }
 
-// покажем результаты
-$app->shell_execute("",$file);
 
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

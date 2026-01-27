@@ -1,23 +1,35 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
+// Scenario: Split a file into multiple parts
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Example 1: Split a file into multiple parts
+// Set source file
+$sourceFile = "test/test_dedupe.txt";
+// Set target folder prefix
+$targetPrefix = "test_split";
+// Set number of parts
+$partsCount = 3;
+// Set timeout
+$timeout = 60;
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+echo("1. Split file $sourceFile into $partsCount parts with prefix $targetPrefix : ");
+$result = SYSTEM::$textfile->split_to_part($sourceFile, $targetPrefix, $partsCount, $timeout);
+if ($result) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
 
-// 1 
-echo("1. Разделим заданный файл : ");
-echo($textfile->split_to_part("test\\test_dedupe.txt","test_split",3,60));
-
-// покажем результаты
-$app->shell_execute("","test_split");
-
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

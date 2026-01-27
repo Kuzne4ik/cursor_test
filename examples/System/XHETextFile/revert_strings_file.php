@@ -1,23 +1,33 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
+// Scenario: Reverse the order of lines in a file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Example 1: Reverse lines in a file
+// Set source file
+$sourceFile = "test/test_count.txt";
+// Set target file
+$targetFile = "test/test_revert.txt";
+// Set timeout
+$timeout = 60;
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+echo("1. Reverse the order of lines in file $sourceFile and save to file $targetFile : ");
+$result = SYSTEM::$textfile->revert_strings_file($sourceFile, $targetFile, $timeout);
+if ($result) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
 
-// 1 
-echo("1. Перевернуть порядок строк в заданом файле : ");
-echo($textfile->revert_strings_file("test\\test_count.txt","test\\test_revert.txt",60));
-
-// рузультат
-$app->shell_execute("","test\\test_revert.txt");
-
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

@@ -1,20 +1,25 @@
-<?php $xhe_host = "127.0.0.1:7040";
+<?php 
+// Scenario: Get encoding of a file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Example 1: Get encoding of a file
+// Set file path
+$filePath = "test/test_dedupe.txt";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+echo("1. Get encoding of file $filePath: ");
+$encoding = SYSTEM::$textfile->get_encoding($filePath);
+echo($encoding . "\n");
 
-// 1 
-echo("1. Получим кодировку файла : ");
-echo($textfile->get_encoding("test\\test_dedupe.txt"));
-
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

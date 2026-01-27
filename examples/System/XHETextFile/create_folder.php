@@ -1,23 +1,36 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
+// Scenario: Create a new folder
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
 
-// удалим
-$folder->delete("test_create_folder");
+// Example 1: Create a folder named test_create_folder
+// Set folder name
+$folderName = "test_create_folder";
 
-// 1 
-echo("1. Cоздать каталог с именем test_create_folder, в каталоге где лежат скрипт : ");
-echo($textfile->create_folder("test_create_folder",60));
+// Delete folder if it exists
+echo("Delete folder if it exists: $folderName\n");
+SYSTEM::$folder->delete($folderName);
 
-// конец
+// Create folder
+echo("1. Create folder with name $folderName in script directory : ");
+$result = SYSTEM::$textfile->create_folder($folderName);
+if ($result) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
+
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

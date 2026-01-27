@@ -1,23 +1,33 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
+// Scenario: Write a string to a file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Example 1: Write a string to a file
+// Set file path
+$filePath = "test/test_write.txt";
+// Set string to write
+$stringToWrite = "127.0.0.1";
+// Set timeout
+$timeout = 60;
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+echo("1. Write string \"$stringToWrite\" to file $filePath in script directory : ");
+$result = SYSTEM::$textfile->write_file($filePath, $stringToWrite, $timeout);
+if ($result) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
 
-// 1 
-echo("1. Запишем строку \"127.0.0.1\", в файл  TestWrite.txt в каталоге скрипта : ");
-echo($textfile->write_file("test\\test_write.txt","127.0.0.1",60));
-
-// покажем результаты
-$app->shell_execute("","test\\test_write.txt");
-
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

@@ -1,20 +1,27 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
+// Scenario: Get the folder where a file is located
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Example 1: Get folder of a file
+// Set file path
+$filePath = "C:/Windows/hh.exe";
+// Set timeout
+$timeout = 10;
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+echo("1. Get folder where file $filePath is located : ");
+$folder = SYSTEM::$textfile->get_file_folder($filePath, $timeout);
+echo($folder . "\n");
 
-// 1 
-echo("1. Получим папку, где лежит файл : ");
-echo($textfile->get_file_folder("C:\\Windows\\hh.exe",10));
-
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>

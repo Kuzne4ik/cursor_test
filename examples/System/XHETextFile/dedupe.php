@@ -1,23 +1,31 @@
-<?php $xhe_host = "127.0.0.1:5002";
+<?php 
+// Scenario: Remove duplicate lines from a file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Example 1: Remove duplicates from a file
+// Set source file
+$sourceFile = "test/test_dedupe.txt";
+// Set target file
+$targetFile = "test/test_dedupe.txt";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+echo("1. Remove duplicates from file $sourceFile: ");
+$result = SYSTEM::$textfile->dedupe($sourceFile, $targetFile);
+if ($result) {
+    echo("true\n");
+} else {
+    echo("false\n");
+}
 
-// 1 
-echo("1. Уберем дубликаты из файла : ");
-echo($textfile->dedupe("test\\test_dedupe.txt","test\\test_dedupe.txt"));
-
-// покажем результаты
-$app->shell_execute("","test\\test_dedupe.txt");
-
-// конец
+// End
 echo "\n";
 
-// Quit
+// Quit the application
 $app->quit();
 ?>
