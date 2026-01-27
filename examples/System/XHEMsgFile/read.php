@@ -1,22 +1,35 @@
-<?php $xhe_host = "127.0.0.1:7027";
+<?php
+// Scenario: Demonstrates how to read a message file using the XHEMsgFile functionality
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>msgfile->" . basename (__FILE__) . "</font>\n";
 
-// 1 
-echo("1. Прочитать заданный файл : <br><br>");
-print_r($msgfile->read("test\\test.msg"));
+// Example 1: Read a specified message file
+$filePath = "test/test.msg";
+echo("1. Read the specified file: $filePath\n");
 
-// конец
-echo "\n";
+// Get file content using XHEMsgFile
+$fileContent = SYSTEM::$msgfile->read($filePath);
 
-sleep(1);
+// Check if file content was successfully retrieved
+if ($fileContent !== false) {
+    echo("Successfully read file content\n");
+    echo("File content:\n");
+    print_r($fileContent);
+} else {
+    echo("Failed to read file content\n");
+}
 
-// Quit
-$app->quit();
+// end
+echo("\n");
+
+// Quit the application
+WINDOW::$app->quit();
 ?>
