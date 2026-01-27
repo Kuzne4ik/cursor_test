@@ -10,7 +10,9 @@ if (!isset($path)){
 }
 
 // Scenario: Demonstrate adding autofilter to Excel file
-echo "\n<span style=\"color: blue; \">excelfile->" . basename(__FILE__) . "</span>\n";
+
+// info
+echo "\n<font color=blue>excelfile->" . basename (__FILE__) . "</font>\n";
 
 // Initialize Excel and prepare file path
 $filePath = "test/test.xlsx";

@@ -17,7 +17,8 @@ if (!isset($path)){
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
-echo "\n<font color=blue>libreOffice->".basename (__FILE__)."</font>\n";
+// info
+echo "\n<font color=blue>folder->" . basename (__FILE__) . "</font>\n";
 
 
 $defaultWindowsPath = "C:\\Program Files\\LibreOffice\\program\\";

@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>folder->" . basename (__FILE__) . "</font>\n";
+
 // Example 1: Get count of items in a specific folder
 echo "\n\n";
 

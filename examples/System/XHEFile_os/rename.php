@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+
 // Example 1: Copy a file (preparation for renaming)
 echo "\n\n1. Copy file (preparation for renaming): ";
 $sourceFile = "test/test1.txt";

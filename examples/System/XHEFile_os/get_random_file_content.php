@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+
 // Example 1: Get content of random txt or php file from test folder
 echo "\n\n1. Get content of random txt or php file from test folder: ";
 $folderPath = "test";

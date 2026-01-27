@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+
 // Example 1: Check readonly attribute for file
 echo "\n\n1. Check readonly attribute for file: ";
 $filePath = "test/test1.txt";

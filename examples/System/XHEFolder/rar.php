@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>folder->" . basename (__FILE__) . "</font>\n";
+
 // Example 1: Create a RAR archive of a folder
 echo "\n\n";
 

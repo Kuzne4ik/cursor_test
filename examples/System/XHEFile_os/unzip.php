@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+
 // Clear the unzipped folder
 $folderPath = "test/unzipped";
 SYSTEM::$folder->delete($folderPath);

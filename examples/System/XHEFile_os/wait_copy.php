@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+
 // File path
 $filePath = "E:/Disk Copy/B917A2DBC6B2900F-00-00.mrimg";
 

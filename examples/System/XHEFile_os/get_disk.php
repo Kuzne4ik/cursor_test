@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+
 // Example 1: Get disk name where file is located
 echo "\n\n1. Get disk name where file is located: ";
 $filePath = "test/test1.txt";

@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+
 // Example 1: Check if file exists
 echo "\n\n1. Check if file exists: ";
 $filePath = "test/test1.txt";

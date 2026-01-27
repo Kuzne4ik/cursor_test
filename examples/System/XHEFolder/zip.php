@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>folder->" . basename (__FILE__) . "</font>\n";
+
 // Delete existing zip file if it exists
 echo "\n\n";
 

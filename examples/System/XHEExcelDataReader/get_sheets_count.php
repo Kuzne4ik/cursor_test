@@ -8,6 +8,9 @@ if (!isset($path)){
 
 // Scenario: Demonstrate getting the number of sheets in an Excel file
 
+// info
+echo "\n<font color=blue>excelDataReader->" . basename (__FILE__) . "</font>\n";
+
 // Kill any existing Excel processes
 SYSTEM::$excel->kill();
 

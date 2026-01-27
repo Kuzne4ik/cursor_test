@@ -8,6 +8,9 @@ if (!isset($path)){
   require($path);
 }
 
+// info
+echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+
 // Example 1: Get folder from relative path
 echo "\n\n1. Get folder from relative path: ";
 $filePath = "test/test1.txt";

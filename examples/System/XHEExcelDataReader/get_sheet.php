@@ -8,6 +8,9 @@ if (!isset($path)){
 
 // Scenario: Demonstrate getting entire sheet content as an array
 
+// info
+echo "\n<font color=blue>excelDataReader->" . basename (__FILE__) . "</font>\n";
+
 // Kill any existing Excel processes
 SYSTEM::$excel->kill();
 

@@ -8,6 +8,9 @@ if (!isset($path)){
 
 // Scenario: Demonstrate getting cell values from an Excel file
 
+// info
+echo "\n<font color=blue>keyboard->" . basename (__FILE__) . "</font>\n";
+
 // Kill any existing Excel processes
 SYSTEM::$excel->kill();
 
