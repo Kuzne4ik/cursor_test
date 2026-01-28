@@ -26,10 +26,10 @@ echo "Всего ссылок на странице: " . $count_links . "\n";
 $link_ids = array();
 
 // Iterate through all links on the page
-for ($i = 0; $i < $count_links; $i++)
+for ($k = 0; $k < $count_links; $k++)
 {
     // Get id of link by its number
-    $link_id = DOM::$anchor->get_atribute_by_number($i, "id");
+    $link_id = DOM::$anchor->get_atribute_by_number($k, "id");
     
     // If link has id, add it to array
     if ($link_id != "")
@@ -66,10 +66,10 @@ echo "Всего ссылок на странице (через XHEInterfaces): 
 $link_ids_2 = array();
 
 // Проходим по всем ссылкам в коллекции
-for ($i = 0; $i < $links_count; $i++)
+for ($k = 0; $k < $links_count; $k++)
 {
     // Получаем текущую ссылку из коллекции
-    $link = $links->get($i);
+    $link = $links->get($k);
     
     // Получаем id ссылки
     $link_id = $link->get_id();
