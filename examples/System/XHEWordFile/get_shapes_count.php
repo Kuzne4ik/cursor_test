@@ -1,22 +1,31 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Get the number of shapes in a Word document
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>wordfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Initialize variables
+$filePath = "test/test.docx";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+// Open the file to read
+SYSTEM::$wordfile->open($filePath, true);
 
-// 1 
-echo("1. Получить число фигур в файле : ");
-echo $wordfile->get_shapes_count("test\\test.docx");
+// Example 1: Get the number of shapes in the file
+echo("1. Get the number of shapes in the file: ");
+$shapesCount = SYSTEM::$wordfile->get_shapes_count($filePath);
+echo($shapesCount);
 
-// конец
+// Close the file
+SYSTEM::$wordfile->close($filePath);
+
+
 echo "\n";
 
-sleep(1);
-
-// Quit
+// Quit the application
 $app->quit();
 ?>

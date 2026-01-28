@@ -1,38 +1,44 @@
-<?php $xhe_host = "127.0.0.1:5006";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
-
-$path = "test\\test.docx";
-//$debug->view_tab_as_text("Отладка",true);
-
-// открыть с возможностью записи
-$wordfile->open($path,false);
-
-// 1 шаг
-echo "1. Получем свойства всех фигур : \n";
-$nums = $wordfile->get_shapes_count($path);
-for ($i=0;$i<$nums;$i++)
-{
-	echo($i.":");
-	echo($wordfile->get_shape_properties($path,$i)."\n");
+<?php
+// Scenario: Open a Word document file and access its content
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
 }
+// info
+echo "\n<font color=blue>wordfile->" . basename (__FILE__) . "</font>\n";
 
-// сохранить
-$wordfile->save($path);
-// закрыть
-$wordfile->close($path);
+// Initialize variables
+$filePath = "test/test.docx";
+$writePermission = false;
 
-// конец
+// Example 1. Open the file with write permission
+echo("\n1. Open the file with write permission: ");
+$openResult = SYSTEM::$wordfile->open($filePath, $writePermission);
+if ($openResult)
+    echo("true\n");
+else
+    echo("false\n");
+
+// Close the file
+SYSTEM::$wordfile->close($filePath);
+
+// Example 2. Open the file with read permission
+$writePermission = false;
+echo("\n2. Open the file with read permission: ");
+$openResult = SYSTEM::$wordfile->open($filePath, $writePermission);
+if ($openResult)
+    echo("true\n");
+else
+    echo("false\n");
+
+// Close the file
+SYSTEM::$wordfile->close($filePath);
+
+
 echo "\n";
 
-sleep(1);
-
-// Quit
+// Quit the application
 $app->quit();
 ?>

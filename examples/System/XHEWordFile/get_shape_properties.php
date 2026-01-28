@@ -1,30 +1,35 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Get properties of all shapes in a Word document
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>wordfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Initialize variables
+$filePath = "test/test.docx";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+// Open the file to read
+SYSTEM::$wordfile->open($filePath, true);
 
-$path = "test\\test.docx";
-//$debug->view_tab_as_text("Отладка",true);
 
-// 1 шаг
-echo "1. Получем свойства всех фигур : \n";
-$nums = $wordfile->get_shapes_count($path);
-for ($i=0;$i<$nums;$i++)
-{
-	echo($i.":");
-	echo($wordfile->get_shape_properties($path,$i)."\n");
+// Example 1: Get properties of all shapes
+echo "1. Get properties of all shapes: \n";
+$shapesCount = SYSTEM::$wordfile->get_shapes_count($filePath);
+for ($k = 0; $k < $shapesCount; $k++) {
+    echo($k . ":");
+    $shapeProperties = SYSTEM::$wordfile->get_shape_properties($filePath, $k);
+    echo($shapeProperties . "\n");
 }
 
-// конец
+// Close the file
+SYSTEM::$wordfile->close($filePath);
+
 echo "\n";
 
-sleep(1);
-
-// Quit
+// Quit the application
 $app->quit();
 ?>

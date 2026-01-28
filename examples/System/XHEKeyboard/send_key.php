@@ -344,9 +344,9 @@ if ($result1 && $result2) {
 sleep(1);
 echo("\n");
 
-// Example 15: Set focus on input send one uppercase symbol
+// Example 15: Set focus on input send one uppercase сyrillic symbol
 $inputNumber = 3;
-$keyCode = "V"; // V key uppercase
+$keyCode = "Ф"; // Cyrillic key uppercase
 $isAltKey = false; // use key code
 $isCtrl = false;
 
@@ -399,7 +399,7 @@ if ($result1 && $result2) {
 // Get input value for control
 $targetInputVal2 = DOM::$input->get_value_by_number($inputNumber);
 if ($targetInputVal2){
-    echo("Value of input #$inputNumber (must be 'vVV$targetInputVal'): $targetInputVal2\n");
+    echo("Value of input #$inputNumber (must be 'vФV$targetInputVal'): $targetInputVal2\n");
 }
 
 // Quit the application

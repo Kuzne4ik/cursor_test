@@ -1,38 +1,31 @@
-<?php $xhe_host = "127.0.0.1:5006";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
-
-$path = "test\\test.docx";
-WINDOW::$debug->view_tab_as_text("Отладка",true);
-
-// открыть с возможностью записи
-$wordfile->open($path,false);
-
-// 1 шаг
-echo "1. Получем свойства всех фигур : \n";
-$nums = $wordfile->get_shapes_count($path);
-for ($k=0;$k<$nums;$k++)
-{
-	echo($k.":");
-	echo($wordfile->get_shape_properties($path,$k)."\n");
+<?php
+// Scenario: Close a Word document file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
 }
+// info
+echo "\n<font color=blue>wordfile->" . basename (__FILE__) . "</font>\n";
 
-// сохранить
-$wordfile->save($path);
-// закрыть
-$wordfile->close($path);
+// Initialize variables
+$filePath = "test/test.docx";
 
-// конец
+// Open the file with for read
+SYSTEM::$wordfile->open($filePath, true);
+
+// Example 1: Close the file
+echo ("1. Close the file '$filePath': ");
+$closeResult = SYSTEM::$wordfile->close($filePath);
+if ($closeResult)
+    echo("true\n");
+else
+    echo("false\n");
+
+
 echo "\n";
 
-sleep(1);
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

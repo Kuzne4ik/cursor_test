@@ -1,38 +1,36 @@
-<?php $xhe_host = "127.0.0.1:5006";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
-
-$path = "test\\test.docx";
-//$debug->view_tab_as_text("Отладка",true);
-
-// открыть с возможностью записи
-$wordfile->open($path,false);
-
-// 1 шаг
-echo "1. Получем свойства всех фигур : \n";
-$nums = $wordfile->get_shapes_count($path);
-for ($i=0;$i<$nums;$i++)
-{
-	echo($i.":");
-	echo($wordfile->get_shape_properties($path,$i)."\n");
+<?php
+// Scenario: Save changes to a Word document file
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
 }
+// info
+echo "\n<font color=blue>wordfile->" . basename (__FILE__) . "</font>\n";
 
-// сохранить
-$wordfile->save($path);
-// закрыть
-$wordfile->close($path);
+// Initialize variables
+$filePath = "test/test.docx";
+$writePermission = false;
 
-// конец
+// Open the file with write permission
+SYSTEM::$wordfile->open($filePath, $writePermission);
+
+// Execute change file
+
+// Example 1. Save the file
+echo("1. Save the file '$filePath': ");
+$saveResult = SYSTEM::$wordfile->save($filePath);
+if ($saveResult)
+    echo("true\n");
+else
+    echo("false\n");
+
+// Close the file
+SYSTEM::$wordfile->close($filePath);
+
 echo "\n";
 
-sleep(1);
-
-// Quit
+// Quit the application
 $app->quit();
 ?>

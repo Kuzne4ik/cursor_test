@@ -1,26 +1,37 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Get table data from a Word document by table number
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>wordfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Initialize variables
+$filePath = "test/test.docx";
+$tableNumber = 0;
+$asArray = true;
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+// Open the file to read
+SYSTEM::$wordfile->open($filePath, true);
 
-// 1 
-echo("1. Прочитать заданную таблицу как текст : <br><br>");
-echo $wordfile->get_table_by_number("test\\test.docx",0);
+// Example 1: Read the specified table as text
+echo("1. Read the specified table as text: <br><br>");
+$tableText = SYSTEM::$wordfile->get_table_by_number($filePath, $tableNumber);
+echo($tableText);
 
-// 2
-echo("\n\n2. Прочитать заданную таблицу как массив : <br><br>");
-print_r($wordfile->get_table_by_number("test\\test.docx",0,true));
+// Example 2: Read the specified table as an array
+echo("\n\n2. Read the specified table as an array: <br><br>");
+$tableArray = SYSTEM::$wordfile->get_table_by_number($filePath, $tableNumber, $asArray);
+print_r($tableArray);
 
-// конец
+// Close the file
+SYSTEM::$wordfile->close($filePath);
+
 echo "\n";
 
-sleep(1);
-
-// Quit
+// Quit the application
 $app->quit();
 ?>

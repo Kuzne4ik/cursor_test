@@ -1,24 +1,37 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Extract images from a Word document
+$xhe_host = "127.0.0.1:7010";
+// Connect functional objects if not already connected
+if (!isset($path)){
+  $path = "../../../../../Templates/init.php";
+  require($path);
+}
+// info
+echo "\n<font color=blue>wordfile->" . basename (__FILE__) . "</font>\n";
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Initialize variables
+$filePath = "test/test.docx";
+$outputFolder = "test/images";
 
-// начало
-echo "\n<font color=blue>textfile->".basename (__FILE__)."</font>\n";
+// Open the file to read
+SYSTEM::$wordfile->open($filePath, true);
 
-// 1 
-echo("1. Вытащить картинки : ");
-echo $wordfile->extract_images("test\\test.docx","test\\images");
+// Example 1: Extract images from the document
+echo("1. Extract images from the document: ");
+$extractResult = SYSTEM::$wordfile->extract_images($filePath, $outputFolder);
+if ($extractResult)
+    echo("true\n");
+else
+    echo("false\n");
 
-$app->shell_execute("open","test\\images");
+// Close the file
+SYSTEM::$wordfile->close($filePath);
 
-// конец
+// Open the folder with extracted images
+//$app->shell_execute("open", $outputFolder);
+
 echo "\n";
 
-sleep(1);
-
-// Quit
+// Quit the application
 $app->quit();
 ?>
