@@ -39,13 +39,13 @@ if ($inputs->count() > 0)
         echo "\nFound " . $inputsByValue->count() . " input elements with value '" . $targetValue . "' (exact match):\n";
         
         // Process each found input
-        for ($i = 0; $i < $inputsByValue->count(); $i++)
+        for ($k = 0; $k < $inputsByValue->count(); $k++)
         {
-            $currentInput = $inputsByValue->get($i);
+            $currentInput = $inputsByValue->get($k);
             
             if ($currentInput->is_exist())
             {
-                echo "\nInput #" . ($i + 1) . " with value '" . $targetValue . "':\n";
+                echo "\nInput #" . ($k + 1) . " with value '" . $targetValue . "':\n";
                 echo "Input name: " . $currentInput->get_name() . "\n";
                 echo "Input inner number: " . $currentInput->inner_number . "\n";
                 echo "Input type: " . $currentInput->get_type() . "\n";
@@ -67,13 +67,13 @@ if ($inputs->count() > 0)
         echo "\nFound " . $inputsByPartialValue->count() . " input elements with partial value '" . $partialValue . "':\n";
         
         // Process each found input
-        for ($i = 0; $i < $inputsByPartialValue->count(); $i++)
+        for ($k = 0; $k < $inputsByPartialValue->count(); $k++)
         {
-            $currentInput = $inputsByPartialValue->get($i);
+            $currentInput = $inputsByPartialValue->get($k);
             
             if ($currentInput && $currentInput->is_exist())
             {
-                echo "\nInput #" . ($i + 1) . " with partial value '" . $partialValue . "':\n";
+                echo "\nInput #" . ($k + 1) . " with partial value '" . $partialValue . "':\n";
                 echo "Input name: " . $currentInput->get_name() . "\n";
                 echo "Input inner number: " . $currentInput->inner_number . "\n";
                 echo "Full value: " . $currentInput->get_value() . "\n";
@@ -95,13 +95,13 @@ if ($inputs->count() > 0)
         echo "\nFound " . $inputsByValue2->count() . " input elements with value '" . $targetValue2 . "':\n";
         
         // Process each found input
-        for ($i = 0; $i < $inputsByValue2->count(); $i++)
+        for ($k = 0; $k < $inputsByValue2->count(); $k++)
         {
-            $currentInput = $inputsByValue2->get($i);
+            $currentInput = $inputsByValue2->get($k);
             
             if ($currentInput && $currentInput->is_exist())
             {
-                echo "\nInput #" . ($i + 1) . " with value '" . $targetValue2 . "':\n";
+                echo "\nInput #" . ($k + 1) . " with value '" . $targetValue2 . "':\n";
                 echo "Input name: " . $currentInput->get_name() . "\n";
                 echo "Input inner number: " . $currentInput->inner_number . "\n";
             }
@@ -128,9 +128,9 @@ if ($inputs->count() > 0)
     
     // Display all input values in the collection for reference
     echo "\nAll input values in the collection:\n";
-    for ($i = 0; $i < $inputs->count(); $i++)
+    for ($k = 0; $k < $inputs->count(); $k++)
     {
-        $currentInput = $inputs->get($i);
+        $currentInput = $inputs->get($k);
         
         if ($currentInput && $currentInput->is_exist())
         {
@@ -138,7 +138,7 @@ if ($inputs->count() > 0)
             $inputName = $currentInput->get_name();
             $inputType = $currentInput->get_type();
             
-            echo "Input #" . ($i + 1) . ": Name = '" . $inputName . "', Type = '" . $inputType . "', Value = '" . $inputValue . "'\n";
+            echo "Input #" . ($k + 1) . ": Name = '" . $inputName . "', Type = '" . $inputType . "', Value = '" . $inputValue . "'\n";
         }
     }
 }

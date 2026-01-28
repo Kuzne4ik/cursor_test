@@ -26,9 +26,9 @@ else
 echo("\nExample 2: Display all cells : ");
 $rowsCount = SYSTEM::$excelfile->get_rows_count($filePath, $sheetNumber);
 $colsCount = SYSTEM::$excelfile->get_cols_count($filePath, $sheetNumber);
-for ($i = 1; $i <= $rowsCount; $i++) {
+for ($k = 1; $k <= $rowsCount; $k++) {
     for ($j = 1; $j <= $colsCount; $j++) {
-        echo SYSTEM::$excelfile->get_cell($filePath, $sheetNumber, $i, $j) . "|";
+        echo SYSTEM::$excelfile->get_cell($filePath, $sheetNumber, $k, $j) . "|";
     }
     echo "\n";
 }
@@ -38,12 +38,12 @@ echo("\nExample 3: Copy cells to sheet 2 with new colors : ");
 $targetSheet = 1;
 $backgroundColor = "FF0000FF";
 $textColor = "FFFFFF00";
-for ($i = 1; $i <= $rowsCount; $i++) {
+for ($k = 1; $k <= $rowsCount; $k++) {
     for ($j = 1; $j <= $colsCount; $j++) {
-        $cellValue = SYSTEM::$excelfile->get_cell($filePath, $sheetNumber, $i, $j);
-        SYSTEM::$excelfile->set_cell($filePath, $targetSheet, $i, $j, $cellValue);
-        SYSTEM::$excelfile->set_cell_background_color($filePath, $targetSheet, $i, $j, $backgroundColor);
-        SYSTEM::$excelfile->set_cell_color($filePath, $targetSheet, $i, $j, $textColor);
+        $cellValue = SYSTEM::$excelfile->get_cell($filePath, $sheetNumber, $k, $j);
+        SYSTEM::$excelfile->set_cell($filePath, $targetSheet, $k, $j, $cellValue);
+        SYSTEM::$excelfile->set_cell_background_color($filePath, $targetSheet, $k, $j, $backgroundColor);
+        SYSTEM::$excelfile->set_cell_color($filePath, $targetSheet, $k, $j, $textColor);
     }
     echo "\n";
 }

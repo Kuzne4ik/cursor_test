@@ -38,10 +38,10 @@ if ($navigateResult) {
             
             // Example 2: Iterate through retrieved anchors and display their details
             echo "\n\nIterating through anchors with exact inner HTML '{$inner_html}':";
-            for ($i = 0; $i < $count; $i++) {
-                $targetAnchor = $anchors->get($i);
+            for ($k = 0; $k < $count; $k++) {
+                $targetAnchor = $anchors->get($k);
                 if ($targetAnchor !== false && $targetAnchor->is_exist()) {
-                    echo "\nanchor #{$i}:";
+                    echo "\nanchor #{$k}:";
                     
                     $name = $targetAnchor->get_name();
                     if ($name) {
@@ -64,7 +64,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get inner HTML";
                     }
                 } else {
-                    echo "\nFailed to get anchor #{$i}";
+                    echo "\nFailed to get anchor #{$k}";
                 }
             }
         } else {
@@ -85,10 +85,10 @@ if ($navigateResult) {
             
             // Example 4: Iterate through anchors with partial HTML match
             echo "\n\nIterating through anchors with partial inner HTML '{$inner_html}':";
-            for ($i = 0; $i < $count; $i++) {
-                $targetAnchor = $anchors->get($i);
+            for ($k = 0; $k < $count; $k++) {
+                $targetAnchor = $anchors->get($k);
                 if ($targetAnchor !== false && $targetAnchor->is_exist()) {
-                    echo "\nanchor #{$i}:";
+                    echo "\nanchor #{$k}:";
                     
                     $innerHTML = $targetAnchor->get_inner_html();
                     if ($innerHTML) {
@@ -97,7 +97,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get inner HTML";
                     }
                 } else {
-                    echo "\nFailed to get anchor #{$i}";
+                    echo "\nFailed to get anchor #{$k}";
                 }
             }
         } else {

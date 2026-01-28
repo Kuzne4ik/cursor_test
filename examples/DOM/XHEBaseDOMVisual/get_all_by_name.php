@@ -34,10 +34,10 @@ if ($navigateResult) {
 
         // Example 2: Iterate through retrieved elements and display their details
         echo "\n\nIterating through elements with name '{$name}':";
-        for ($i = 0; $i < $count; $i++) {
-            $targetElement = $elements->get($i);
+        for ($k = 0; $k < $count; $k++) {
+            $targetElement = $elements->get($k);
             if ($targetElement !== false && $targetElement->is_exist()) {
-                echo "\nElement #{$i}:";
+                echo "\nElement #{$k}:";
 
                 $nameAttr = $targetElement->get_name();
                 if ($nameAttr) {
@@ -67,7 +67,7 @@ if ($navigateResult) {
                     echo "\n  Failed to get value";
                 }
             } else {
-                echo "\nFailed to get element #{$i}";
+                echo "\nFailed to get element #{$k}";
             }
         }
     } else {

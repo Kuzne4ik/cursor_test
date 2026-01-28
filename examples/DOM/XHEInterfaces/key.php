@@ -34,15 +34,15 @@ if ($inputs->count() > 0)
     echo "Found " . $inputs->count() . " input elements\n";
     
     // Process each input to send key events to it
-    for ($i = 0; $i < $inputs->count(); $i++)
+    for ($k = 0; $k < $inputs->count(); $k++)
     {
         // Get the current input
-        $currentInput = $inputs->get($i);
+        $currentInput = $inputs->get($k);
         
         // Check that the element exists
         if ($currentInput && $currentInput->is_exist())
         {
-            echo "\nProcessing input #" . ($i + 1) . "\n";
+            echo "\nProcessing input #" . ($k + 1) . "\n";
             echo "Input name: " . $currentInput->get_name() . "\n";
             echo "Input type: " . $currentInput->get_type() . "\n";
 
@@ -50,7 +50,7 @@ if ($inputs->count() > 0)
             $focusResult = $currentInput->focus();
 
             if ($focusResult) {
-                echo "Successfully focused on input #" . ($i + 1) . "\n";
+                echo "Successfully focused on input #" . ($k + 1) . "\n";
 
                 // Wait a moment
                 sleep(1);
@@ -63,7 +63,7 @@ if ($inputs->count() > 0)
 
                 // Check if the key event was successful
                 if ($result) {
-                    echo "Successfully sent ALt key '83' to input #" . ($i + 1) . "\n";
+                    echo "Successfully sent ALt key '83' to input #" . ($k + 1) . "\n";
 
                     // Wait a moment to see the result
                     sleep(0.2);
@@ -72,7 +72,7 @@ if ($inputs->count() > 0)
                     $updatedValue = $currentInput->get_value();
                     echo "Updated value: " . $updatedValue . "\n";
                 } else {
-                    echo "Failed to send ALt key '83' to input #" . ($i + 1) . "\n";
+                    echo "Failed to send ALt key '83' to input #" . ($k + 1) . "\n";
                 }
 
                 echo "\nSending special ALt key (whitespace): " . 32 . "\n";
@@ -81,19 +81,19 @@ if ($inputs->count() > 0)
 
                 // Check if the special key event was successful
                 if ($specialKeyResult) {
-                    echo "Successfully sent special symbol ALt key '32' to input #" . ($i + 1) . "\n";
+                    echo "Successfully sent special symbol ALt key '32' to input #" . ($k + 1) . "\n";
 
                     // Get the updated value
                     $updatedValue = $currentInput->get_value();
                     echo "Updated value: " . $updatedValue . "\n";
                 } else {
-                    echo "Failed to send special ALt key '32' to input #" . ($i + 1) . "\n";
+                    echo "Failed to send special ALt key '32' to input #" . ($k + 1) . "\n";
                 }
 
             }
             else
             {
-                echo "Failed to focus on input #" . ($i + 1) . "\n";
+                echo "Failed to focus on input #" . ($k + 1) . "\n";
             }
         }
     }

@@ -37,11 +37,11 @@ if ($images->count() > 0) {
         echo "\nFound " . $imagesByAlt->count() . " image elements with alt '" . $targetAlt . "' (exact match):\n";
 
         // Process each found image
-        for ($i = 0; $i < $imagesByAlt->count(); $i++) {
-            $currentImage = $imagesByAlt->get($i);
+        for ($k = 0; $k < $imagesByAlt->count(); $k++) {
+            $currentImage = $imagesByAlt->get($k);
 
             if ($currentImage && $currentImage->is_exist()) {
-                echo "\nImage #" . ($i + 1) . " with alt '" . $targetAlt . "':\n";
+                echo "\nImage #" . ($k + 1) . " with alt '" . $targetAlt . "':\n";
                 echo "Image src: " . $currentImage->get_src() . "\n";
                 echo "Image inner number: " . $currentImage->inner_number . "\n";
                 echo "Image width: " . $currentImage->get_width() . "\n";
@@ -61,11 +61,11 @@ if ($images->count() > 0) {
         echo "\nFound " . $imagesByPartialAlt->count() . " image elements with partial alt '" . $partialAlt . "':\n";
 
         // Process each found image
-        for ($i = 0; $i < $imagesByPartialAlt->count(); $i++) {
-            $currentImage = $imagesByPartialAlt->get($i);
+        for ($k = 0; $k < $imagesByPartialAlt->count(); $k++) {
+            $currentImage = $imagesByPartialAlt->get($k);
 
             if ($currentImage && $currentImage->is_exist()) {
-                echo "\nImage #" . ($i + 1) . " with partial alt '" . $partialAlt . "':\n";
+                echo "\nImage #" . ($k + 1) . " with partial alt '" . $partialAlt . "':\n";
                 echo "Image src: " . $currentImage->get_src() . "\n";
                 echo "Image inner number: " . $currentImage->inner_number . "\n";
                 echo "Full alt: " . $currentImage->get_alt() . "\n";

@@ -79,16 +79,16 @@ if ($anchors->count() > 0)
     
     // Display all anchor names in the collection for reference
     echo "\nAll anchor names in the collection:\n";
-    for ($i = 0; $i < $anchors->count(); $i++)
+    for ($k = 0; $k < $anchors->count(); $k++)
     {
-        $currentAnchor = $anchors->get($i);
+        $currentAnchor = $anchors->get($k);
         
         if ($currentAnchor && $currentAnchor->is_exist())
         {
             $anchorName = $currentAnchor->get_name();
             $anchorInnerText = $currentAnchor->get_inner_text();
             
-            echo "Anchor #" . ($i + 1) . ": Name = '" . $anchorName . "', Text = '" . $anchorInnerText . "'\n";
+            echo "Anchor #" . ($k + 1) . ": Name = '" . $anchorName . "', Text = '" . $anchorInnerText . "'\n";
         }
     }
 }

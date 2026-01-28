@@ -39,13 +39,13 @@ if ($anchors->count() > 0)
         echo "\nFound " . $anchorsByHref->count() . " anchor elements with href '" . $targetHref . "' (exact match):\n";
         
         // Process each found anchor
-        for ($i = 0; $i < $anchorsByHref->count(); $i++)
+        for ($k = 0; $k < $anchorsByHref->count(); $k++)
         {
-            $currentAnchor = $anchorsByHref->get($i);
+            $currentAnchor = $anchorsByHref->get($k);
             
             if ($currentAnchor && $currentAnchor->is_exist())
             {
-                echo "\nAnchor #" . ($i + 1) . " with href '" . $targetHref . "':\n";
+                echo "\nAnchor #" . ($k + 1) . " with href '" . $targetHref . "':\n";
                 echo "Anchor inner text: " . $currentAnchor->get_inner_text() . "\n";
                 echo "Anchor inner number: " . $currentAnchor->inner_number . "\n";
                 echo "Anchor name: " . $currentAnchor->get_name() . "\n";
@@ -67,13 +67,13 @@ if ($anchors->count() > 0)
         echo "\nFound " . $anchorsByPartialHref->count() . " anchor elements with partial href '" . $partialHref . "':\n";
         
         // Process each found anchor
-        for ($i = 0; $i < $anchorsByPartialHref->count(); $i++)
+        for ($k = 0; $k < $anchorsByPartialHref->count(); $k++)
         {
-            $currentAnchor = $anchorsByPartialHref->get($i);
+            $currentAnchor = $anchorsByPartialHref->get($k);
             
             if ($currentAnchor->is_exist())
             {
-                echo "\nAnchor #" . ($i + 1) . " with partial href '" . $partialHref . "':\n";
+                echo "\nAnchor #" . ($k + 1) . " with partial href '" . $partialHref . "':\n";
                 echo "Anchor inner text: " . $currentAnchor->get_inner_text() . "\n";
                 echo "Anchor inner number: " . $currentAnchor->inner_number . "\n";
                 echo "Full href: " . $currentAnchor->get_href() . "\n";
@@ -102,16 +102,16 @@ if ($anchors->count() > 0)
     
     // Display all anchor hrefs in the collection for reference
     echo "\nAll anchor hrefs in the collection:\n";
-    for ($i = 0; $i < $anchors->count(); $i++)
+    for ($k = 0; $k < $anchors->count(); $k++)
     {
-        $currentAnchor = $anchors->get($i);
+        $currentAnchor = $anchors->get($k);
         
         if ($currentAnchor->is_exist())
         {
             $anchorHref = $currentAnchor->get_href();
             $anchorInnerText = $currentAnchor->get_inner_text();
             
-            echo "Anchor #" . ($i + 1) . ": Href = '" . $anchorHref . "', Text = '" . $anchorInnerText . "'\n";
+            echo "Anchor #" . ($k + 1) . ": Href = '" . $anchorHref . "', Text = '" . $anchorInnerText . "'\n";
         }
     }
 }

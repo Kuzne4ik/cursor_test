@@ -43,9 +43,9 @@ echo("Number of columns: $colsCount\n");
 
 // Example 4: Display all cells in the sheet
 echo("\nExample 4: Display all cells in the sheet\n");
-for ($i = 1; $i <= $rowsCount; $i++) {
+for ($k = 1; $k <= $rowsCount; $k++) {
     for ($j = 1; $j <= $colsCount; $j++) {
-        $cellValue = SYSTEM::$excel->get_cell($filePath, $sheetIndex, $i, $j);
+        $cellValue = SYSTEM::$excel->get_cell($filePath, $sheetIndex, $k, $j);
         echo($cellValue . "|");
     }
     echo("\n");

@@ -30,15 +30,15 @@ if ($inputs->count() > 0)
     echo "Found " . $inputs->count() . " input elements\n";
     
     // Process each input to send key up events to it
-    for ($i = 0; $i < $inputs->count(); $i++)
+    for ($k = 0; $k < $inputs->count(); $k++)
     {
         // Get the current input
-        $currentInput = $inputs->get($i);
+        $currentInput = $inputs->get($k);
         
         // Check that the element exists
         if ($currentInput && $currentInput->is_exist())
         {
-            echo "\nProcessing input #" . ($i + 1) . "\n";
+            echo "\nProcessing input #" . ($k + 1) . "\n";
             echo "Input name: " . $currentInput->get_name() . "\n";
             echo "Input type: " . $currentInput->get_type() . "\n";
 
@@ -47,7 +47,7 @@ if ($inputs->count() > 0)
             
             if ($focusResult)
             {
-                echo "Successfully focused on input #" . ($i + 1) . "\n";
+                echo "Successfully focused on input #" . ($k + 1) . "\n";
                 
                 // Clear the input first
                 $currentInput->set_value("");
@@ -63,7 +63,7 @@ if ($inputs->count() > 0)
                     
                     if ($keyDownResult)
                     {
-                        echo "Successfully sent key down event for '" . $charKey . "' to input #" . ($i + 1) . "\n";
+                        echo "Successfully sent key down event for '" . $charKey . "' to input #" . ($k + 1) . "\n";
                         
                         // Wait a moment
                         sleep(0.5);
@@ -74,7 +74,7 @@ if ($inputs->count() > 0)
                         // Check if the key up event was successful
                         if ($result)
                         {
-                            echo "Successfully sent key up event for '" . $charKey . "' to input #" . ($i + 1) . "\n";
+                            echo "Successfully sent key up event for '" . $charKey . "' to input #" . ($k + 1) . "\n";
                             
                             // Wait a moment to see the result
                             sleep(0.5);
@@ -85,18 +85,18 @@ if ($inputs->count() > 0)
                         }
                         else
                         {
-                            echo "Failed to send key up event for '" . $charKey . "' to input #" . ($i + 1) . "\n";
+                            echo "Failed to send key up event for '" . $charKey . "' to input #" . ($k + 1) . "\n";
                         }
                     }
                     else
                     {
-                        echo "Failed to send key down event for '" . $charKey . "' to input #" . ($i + 1) . "\n";
+                        echo "Failed to send key down event for '" . $charKey . "' to input #" . ($k + 1) . "\n";
                     }
                 }
             }
             else
             {
-                echo "Failed to focus on input #" . ($i + 1) . "\n";
+                echo "Failed to focus on input #" . ($k + 1) . "\n";
             }
         }
     }

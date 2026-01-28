@@ -24,10 +24,10 @@ echo "\n\nTotal input elements found: {$count}";
 
 // Example 2: Iterate through retrieved elements and display their details
 echo "\n\nIterating through all input elements:";
-for ($i = 0; $i < $count; $i++) {
-    $findedElement = $elements->get($i);
+for ($k = 0; $k < $count; $k++) {
+    $findedElement = $elements->get($k);
     if ($findedElement->is_exist()) {
-        echo "\nInput element #{$i}:";
+        echo "\nInput element #{$k}:";
         echo "\n  Type: " . $findedElement->get_attribute("type");
         echo "\n  Name: " . $findedElement->get_name();
         echo "\n  ID: " . $findedElement->get_id();

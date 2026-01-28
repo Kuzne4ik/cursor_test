@@ -39,13 +39,13 @@ if ($divs->count() > 0)
         echo "\nFound " . $divsById->count() . " div elements with ID '" . $targetId . "':\n";
         
         // Process each found div
-        for ($i = 0; $i < $divsById->count(); $i++)
+        for ($k = 0; $k < $divsById->count(); $k++)
         {
-            $currentDiv = $divsById->get($i);
+            $currentDiv = $divsById->get($k);
             
             if ($currentDiv && $currentDiv->is_exist())
             {
-                echo "\nDiv #" . ($i + 1) . " with ID '" . $targetId . "':\n";
+                echo "\nDiv #" . ($k + 1) . " with ID '" . $targetId . "':\n";
                 echo "Div inner text: " . $currentDiv->get_inner_text() . "\n";
                 echo "Div inner number: " . $currentDiv->inner_number . "\n";
             }
@@ -66,13 +66,13 @@ if ($divs->count() > 0)
         echo "\nFound " . $divsById2->count() . " div elements with ID '" . $targetId2 . "':\n";
         
         // Process each found div
-        for ($i = 0; $i < $divsById2->count(); $i++)
+        for ($k = 0; $k < $divsById2->count(); $k++)
         {
-            $currentDiv = $divsById2->get($i);
+            $currentDiv = $divsById2->get($k);
             
             if ($currentDiv && $currentDiv->is_exist())
             {
-                echo "\nDiv #" . ($i + 1) . " with ID '" . $targetId2 . "':\n";
+                echo "\nDiv #" . ($k + 1) . " with ID '" . $targetId2 . "':\n";
                 echo "Div inner text: " . $currentDiv->get_inner_text() . "\n";
                 echo "Div inner number: " . $currentDiv->inner_number . "\n";
             }
@@ -99,9 +99,9 @@ if ($divs->count() > 0)
     
     // Display all div IDs in the collection for reference
     echo "\nAll div IDs in the collection:\n";
-    for ($i = 0; $i < $divs->count(); $i++)
+    for ($k = 0; $k < $divs->count(); $k++)
     {
-        $currentDiv = $divs->get($i);
+        $currentDiv = $divs->get($k);
         
         if ($currentDiv && $currentDiv->is_exist())
         {
@@ -109,7 +109,7 @@ if ($divs->count() > 0)
             $divInnerText = $currentDiv->get_inner_text();
             $divClass = $currentDiv->get_attribute("class");
             
-            echo "Div #" . ($i + 1) . ": ID = '" . $divId . "', Class = '" . $divClass . "', Text = '" . $divInnerText . "'\n";
+            echo "Div #" . ($k + 1) . ": ID = '" . $divId . "', Class = '" . $divClass . "', Text = '" . $divInnerText . "'\n";
         }
     }
 }

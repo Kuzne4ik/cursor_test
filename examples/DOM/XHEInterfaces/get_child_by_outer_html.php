@@ -37,9 +37,9 @@ if ($divs->count() > 0)
         $childByExactHtmlsCount = count($childByExactHtmls);
         echo "For Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $childByExactHtmlsCount; $i++) {
-            $childByExactHtml = $childByExactHtmls[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $childByExactHtmlsCount; $k++) {
+            $childByExactHtml = $childByExactHtmls[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($childByExactHtml->is_exist()) {
                 echo "Found child with exact outer HTML '" . $searchHtml . "':\n";
                 echo "  Tag: " . $childByExactHtml->get_tag() . "\n";
@@ -58,9 +58,9 @@ if ($divs->count() > 0)
         $childByPartialHtmlsCount = count($childByPartialHtmls);
         echo "For Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $childByPartialHtmlsCount; $i++) {
-            $childByPartialHtml = $childByPartialHtmls[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $childByPartialHtmlsCount; $k++) {
+            $childByPartialHtml = $childByPartialHtmls[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($childByPartialHtml->is_exist()) {
                 echo "Found child containing outer HTML '" . $partialSearchHtml . "':\n";
                 echo "  Tag: " . $childByPartialHtml->get_tag() . "\n";

@@ -57,9 +57,9 @@ echo("Rows count: $rowsCount, Columns count: $colsCount\n");
 // Example 3: Display all cell data
 echo("\nExample 3: Display all cell data\n");
 
-for ($i = 1; $i <= $rowsCount; $i++) {
+for ($k = 1; $k <= $rowsCount; $k++) {
     for ($j = 1; $j <= $colsCount; $j++) {
-        $cellValue = SYSTEM::$excel->get_cell($pathAlias, 0, $i, $j);
+        $cellValue = SYSTEM::$excel->get_cell($pathAlias, 0, $k, $j);
         echo($cellValue . "|");
     }
     echo("\n");

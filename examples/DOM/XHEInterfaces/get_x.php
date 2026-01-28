@@ -35,10 +35,10 @@ if ($anchors->count() > 0)
     // Display results
     echo "\nGetting X coordinates for all anchors\n";
     
-    for ($i = 0; $i < $anchors->count(); $i++)
+    for ($k = 0; $k < $anchors->count(); $k++)
     {
-        echo "\nProcessing anchor #" . ($i + 1) . "\n";
-        echo "Anchor X coordinate: " . $xCoordinates[$i] . "\n";
+        echo "\nProcessing anchor #" . ($k + 1) . "\n";
+        echo "Anchor X coordinate: " . $xCoordinates[$k] . "\n";
     }
 }
 else

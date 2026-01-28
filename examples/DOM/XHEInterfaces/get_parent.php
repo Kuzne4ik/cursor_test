@@ -39,23 +39,23 @@ if ($anchors->count() > 0)
     $hrefs = $anchors->get_href();
     $inner_texts = $anchors->get_inner_text();
     
-    for ($i = 0; $i < $anchors->count(); $i++)
+    for ($k = 0; $k < $anchors->count(); $k++)
     {
-        echo "\nProcessing anchor #" . ($i + 1) . "\n";
-        echo "Anchor href: " . $hrefs[$i] . "\n";
-        echo "Anchor inner text: " . $inner_texts[$i] . "\n";
+        echo "\nProcessing anchor #" . ($k + 1) . "\n";
+        echo "Anchor href: " . $hrefs[$k] . "\n";
+        echo "Anchor inner text: " . $inner_texts[$k] . "\n";
         
         // Check if parent element exists
-        if ($parentElements[$i] && $parentElements[$i]->is_exist())
+        if ($parentElements[$k] && $parentElements[$k]->is_exist())
         {
             echo "Parent element found:\n";
-            echo "  Parent tag: " . $parentElements[$i]->get_tag() . "\n";
-            echo "  Parent ID: " . $parentElements[$i]->get_id() . "\n";
-            echo "  Parent class: " . $parentElements[$i]->get_attribute("class") . "\n";
-            echo "  Parent inner text: " . $parentElements[$i]->get_inner_text() . "\n";
+            echo "  Parent tag: " . $parentElements[$k]->get_tag() . "\n";
+            echo "  Parent ID: " . $parentElements[$k]->get_id() . "\n";
+            echo "  Parent class: " . $parentElements[$k]->get_attribute("class") . "\n";
+            echo "  Parent inner text: " . $parentElements[$k]->get_inner_text() . "\n";
             
             // Add a new attribute to the parent to mark it as processed
-            $attrResult = $parentElements[$i]->set_attribute("data-parent-of-anchor", ($i + 1));
+            $attrResult = $parentElements[$k]->set_attribute("data-parent-of-anchor", ($k + 1));
             
             if ($attrResult)
             {
@@ -68,7 +68,7 @@ if ($anchors->count() > 0)
         }
         else
         {
-            echo "No parent element found for anchor #" . ($i + 1) . "\n";
+            echo "No parent element found for anchor #" . ($k + 1) . "\n";
         }
     }
     
@@ -94,20 +94,20 @@ if ($anchors->count() > 0)
         // Process each attribute anchor and its parent
         $hrefsByAttribute = $anchorsByAttribute->get_href();
         
-        for ($i = 0; $i < $anchorsByAttribute->count(); $i++)
+        for ($k = 0; $k < $anchorsByAttribute->count(); $k++)
         {
-            echo "\nProcessing attribute anchor #" . ($i + 1) . "\n";
-            echo "Anchor href: " . $hrefsByAttribute[$i] . "\n";
+            echo "\nProcessing attribute anchor #" . ($k + 1) . "\n";
+            echo "Anchor href: " . $hrefsByAttribute[$k] . "\n";
             
             // Check if parent element exists
-            if ($parentElementsByAttribute[$i] && $parentElementsByAttribute[$i]->is_exist())
+            if ($parentElementsByAttribute[$k] && $parentElementsByAttribute[$k]->is_exist())
             {
                 echo "Parent element found:\n";
-                echo "  Parent tag: " . $parentElementsByAttribute[$i]->get_tag() . "\n";
-                echo "  Parent ID: " . $parentElementsByAttribute[$i]->get_id() . "\n";
+                echo "  Parent tag: " . $parentElementsByAttribute[$k]->get_tag() . "\n";
+                echo "  Parent ID: " . $parentElementsByAttribute[$k]->get_id() . "\n";
                 
                 // Add a new attribute to the parent
-                $attrResult = $parentElementsByAttribute[$i]->set_attribute("data-parent-of-attr-anchor", ($i + 1));
+                $attrResult = $parentElementsByAttribute[$k]->set_attribute("data-parent-of-attr-anchor", ($k + 1));
                 
                 if ($attrResult)
                 {
@@ -120,7 +120,7 @@ if ($anchors->count() > 0)
             }
             else
             {
-                echo "No parent element found for attribute anchor #" . ($i + 1) . "\n";
+                echo "No parent element found for attribute anchor #" . ($k + 1) . "\n";
             }
         }
     }

@@ -30,15 +30,15 @@ if ($inputs->count() > 0)
     echo "Found " . $inputs->count() . " input elements\n";
     
     // Process each input to input text to it
-    for ($i = 0; $i < $inputs->count(); $i++)
+    for ($k = 0; $k < $inputs->count(); $k++)
     {
         // Get the current input
-        $currentInput = $inputs->get($i);
+        $currentInput = $inputs->get($k);
         
         // Check that the element exists
         if ($currentInput && $currentInput->is_exist())
         {
-            echo "\nProcessing input #" . ($i + 1) . "\n";
+            echo "\nProcessing input #" . ($k + 1) . "\n";
             echo "Input name: " . $currentInput->get_name() . "\n";
             echo "Input type: " . $currentInput->get_type() . "\n";
 
@@ -47,16 +47,16 @@ if ($inputs->count() > 0)
             
             if ($focusResult)
             {
-                echo "Successfully focused on input and clear the input #" . ($i + 1) . "\n";
+                echo "Successfully focused on input and clear the input #" . ($k + 1) . "\n";
                 
                 // Input text to the element with default settings
-                $inputText = "Test Input #" . ($i + 1);
+                $inputText = "Test Input #" . ($k + 1);
                 $result = $currentInput->input($inputText);
 
                 // Check if the input was successful
                 if ($result)
                 {
-                    echo "Successfully input text '" . $inputText . "' to input #" . ($i + 1) . "\n";
+                    echo "Successfully input text '" . $inputText . "' to input #" . ($k + 1) . "\n";
                     
                     // Wait a moment to see the result
                     sleep(1);
@@ -67,12 +67,12 @@ if ($inputs->count() > 0)
                 }
                 else
                 {
-                    echo "Failed to input text to input #" . ($i + 1) . "\n";
+                    echo "Failed to input text to input #" . ($k + 1) . "\n";
                 }
             }
             else
             {
-                echo "Failed to focus on input #" . ($i + 1) . "\n";
+                echo "Failed to focus on input #" . ($k + 1) . "\n";
             }
         }
     }

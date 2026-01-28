@@ -92,16 +92,16 @@ if ($divs->count() > 0)
     
     // Display all div outer HTMLs in the collection for reference
     echo "\nAll div outer HTMLs in the collection:\n";
-    for ($i = 0; $i < $divs->count(); $i++)
+    for ($k = 0; $k < $divs->count(); $k++)
     {
-        $currentDiv = $divs->get($i);
+        $currentDiv = $divs->get($k);
         
         if ($currentDiv && $currentDiv->is_exist())
         {
             $divOuterHtml = $currentDiv->get_outer_html();
             $divId = $currentDiv->get_id();
             
-            echo "Div #" . ($i + 1) . ": ID = '" . $divId . "', Outer HTML = '" . $divOuterHtml . "'\n";
+            echo "Div #" . ($k + 1) . ": ID = '" . $divId . "', Outer HTML = '" . $divOuterHtml . "'\n";
         }
     }
 }

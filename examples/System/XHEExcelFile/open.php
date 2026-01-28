@@ -32,10 +32,10 @@ else
 echo("\nExample 2: Output all cells : ");
 // Extract method arguments into variables
 $sheetIndex = 0;
-for ($i=1;$i<=SYSTEM::$excelfile->get_rows_count($filePath, $sheetIndex);$i++)
+for ($k=1;$k<=SYSTEM::$excelfile->get_rows_count($filePath, $sheetIndex);$k++)
 {
 	for ($j=1;$j<=SYSTEM::$excelfile->get_cols_count($filePath, $sheetIndex);$j++)
-		echo SYSTEM::$excelfile->get_cell($filePath, $sheetIndex, $i, $j)."|";
+		echo SYSTEM::$excelfile->get_cell($filePath, $sheetIndex, $k, $j)."|";
 	echo "\n";
 }
 
@@ -45,13 +45,13 @@ echo("\nExample 3: Copy cells to sheet 2 with new colors: ");
 $destSheetIndex = 1;
 $bgColor = "FF0000FF";
 $fgColor = "FFFFFF00";
-for ($i=1;$i<=SYSTEM::$excelfile->get_rows_count($filePath, $sheetIndex);$i++)
+for ($k=1;$k<=SYSTEM::$excelfile->get_rows_count($filePath, $sheetIndex);$k++)
 {
 	for ($j=1;$j<=SYSTEM::$excelfile->get_cols_count($filePath, $sheetIndex);$j++)
 	{
-		echo SYSTEM::$excelfile->set_cell($filePath, $destSheetIndex, $i, $j, SYSTEM::$excelfile->get_cell($filePath, $sheetIndex, $i, $j))." ";
-		SYSTEM::$excelfile->set_cell_background_color($filePath, $destSheetIndex, $i, $j, $bgColor);
-		SYSTEM::$excelfile->set_cell_color($filePath, $destSheetIndex, $i, $j, $fgColor);
+		echo SYSTEM::$excelfile->set_cell($filePath, $destSheetIndex, $k, $j, SYSTEM::$excelfile->get_cell($filePath, $sheetIndex, $k, $j))." ";
+		SYSTEM::$excelfile->set_cell_background_color($filePath, $destSheetIndex, $k, $j, $bgColor);
+		SYSTEM::$excelfile->set_cell_color($filePath, $destSheetIndex, $k, $j, $fgColor);
 	}
 	echo "\n";
 }

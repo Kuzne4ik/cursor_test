@@ -38,15 +38,15 @@ if ($anchors->count() > 0)
     // Process each anchor and its previous sibling
     $hrefs = $anchors->get_href();
     
-    for ($i = 0; $i < $anchors->count(); $i++)
+    for ($k = 0; $k < $anchors->count(); $k++)
     {
-        echo "\nProcessing anchor #" . ($i + 1) . "\n";
-        echo "Current anchor href: " . $hrefs[$i] . "\n";
+        echo "\nProcessing anchor #" . ($k + 1) . "\n";
+        echo "Current anchor href: " . $hrefs[$k] . "\n";
         
         // Check if the previous element exists
-        if ($prevElements[$i] && $prevElements[$i]->is_exist())
+        if ($prevElements[$k] && $prevElements[$k]->is_exist())
         {
-            echo "Previous element tag: " . $prevElements[$i]->get_tag() . "\n";
+            echo "Previous element tag: " . $prevElements[$k]->get_tag() . "\n";
         }
         else
         {

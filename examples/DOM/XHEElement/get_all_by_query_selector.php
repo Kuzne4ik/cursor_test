@@ -51,11 +51,11 @@ $linkCount = $links->get_count();
 echo "\nNumber of links with href attribute: " . $linkCount . "\n";
 
 // If there are any links, display information about the first three
-for ($i = 0; $i < min(3, $linkCount); $i++) {
-    $link = $links->get($i);
+for ($k = 0; $k < min(3, $linkCount); $k++) {
+    $link = $links->get($k);
     if ($link->inner_number != -1) {
-        echo "Link " . ($i + 1) . " href: " . $link->get_href() . "\n";
-        echo "Link " . ($i + 1) . " text: " . $link->get_inner_text() . "\n";
+        echo "Link " . ($k + 1) . " href: " . $link->get_href() . "\n";
+        echo "Link " . ($k + 1) . " text: " . $link->get_inner_text() . "\n";
     }
 }
 

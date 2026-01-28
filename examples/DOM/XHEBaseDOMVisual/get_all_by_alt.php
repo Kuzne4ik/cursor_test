@@ -38,10 +38,10 @@ if ($navigateResult) {
             
             // Example 2: Iterate through retrieved elements and display their details
             echo "\n\nIterating through elements with exact alt '{$alt}':";
-            for ($i = 0; $i < $count; $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $count; $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
-                    echo "\nElement #{$i}:";
+                    echo "\nElement #{$k}:";
                     
                     $name = $targetElement->get_name();
                     if ($name) {
@@ -64,7 +64,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get src";
                     }
                 } else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
         } else {
@@ -85,10 +85,10 @@ if ($navigateResult) {
             
             // Example 4: Iterate through elements with partial alt match
             echo "\n\nIterating through elements with partial alt '{$alt}':";
-            for ($i = 0; $i < $count; $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $count; $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
-                    echo "\nElement #{$i}:";
+                    echo "\nElement #{$k}:";
                     
                     $tag = $targetElement->get_tag();
                     if ($tag !== false) {
@@ -104,7 +104,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get alt attribute";
                     }
                 } else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
         } else {
@@ -122,8 +122,8 @@ if ($navigateResult) {
             $imgElements = [];
             $inputElements = [];
             
-            for ($i = 0; $i < $elements->get_count(); $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $elements->get_count(); $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
                     $imgElements[] = $targetElement;
 
@@ -137,7 +137,7 @@ if ($navigateResult) {
                     }
                 }
                  else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
             
@@ -156,10 +156,10 @@ if ($navigateResult) {
             echo "\n\nSuccessfully retrieved elements with alt '{$alt}' for interaction\n";
             
             echo "\n\nInteracting with elements containing exact alt '{$alt}':";
-            for ($i = 0; $i < $elements->get_count(); $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $elements->get_count(); $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
-                    echo "\nElement #{$i}:";
+                    echo "\nElement #{$k}:";
                     
                     $tag = $targetElement->get_tag();
                     if ($tag !== false) {
@@ -232,7 +232,7 @@ if ($navigateResult) {
                         }
                     }
                 } else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
         } else {

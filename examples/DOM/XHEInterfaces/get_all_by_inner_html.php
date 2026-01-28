@@ -39,13 +39,13 @@ if ($divs->count() > 0)
         echo "\nFound " . $divsByHtml->count() . " div elements with inner HTML '" . $targetHtml . "' (exact match):\n";
         
         // Process each found div
-        for ($i = 0; $i < $divsByHtml->count(); $i++)
+        for ($k = 0; $k < $divsByHtml->count(); $k++)
         {
-            $currentDiv = $divsByHtml->get($i);
+            $currentDiv = $divsByHtml->get($k);
             
             if ($currentDiv->is_exist())
             {
-                echo "\nDiv #" . ($i + 1) . " with inner HTML '" . $targetHtml . "':\n";
+                echo "\nDiv #" . ($k + 1) . " with inner HTML '" . $targetHtml . "':\n";
                 echo "Div ID: " . $currentDiv->get_id() . "\n";
                 echo "Div inner number: " . $currentDiv->inner_number . "\n";
             }
@@ -66,13 +66,13 @@ if ($divs->count() > 0)
         echo "\nFound " . $divsByPartialHtml->count() . " div elements with partial inner HTML '" . $partialHtml . "':\n";
         
         // Process each found div
-        for ($i = 0; $i < $divsByPartialHtml->count(); $i++)
+        for ($k = 0; $k < $divsByPartialHtml->count(); $k++)
         {
-            $currentDiv = $divsByPartialHtml->get($i);
+            $currentDiv = $divsByPartialHtml->get($k);
             
             if ($currentDiv->is_exist())
             {
-                echo "\nDiv #" . ($i + 1) . " with partial inner HTML '" . $partialHtml . "':\n";
+                echo "\nDiv #" . ($k + 1) . " with partial inner HTML '" . $partialHtml . "':\n";
                 echo "Div ID: " . $currentDiv->get_id() . "\n";
                 echo "Div inner number: " . $currentDiv->inner_number . "\n";
                 echo "Full inner HTML: " . $currentDiv->get_inner_html() . "\n";

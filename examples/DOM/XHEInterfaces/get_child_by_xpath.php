@@ -37,9 +37,9 @@ if ($divs->count() > 0)
         $childrenCount = count($children);
         echo "For Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $childrenCount; $i++) {
-            $child = $children[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $childrenCount; $k++) {
+            $child = $children[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($child->is_exist()) {
                 echo "Found child with XPath '$xpath':\n";
                 echo "  Tag: " . $child->get_tag() . "\n";
@@ -48,7 +48,7 @@ if ($divs->count() > 0)
                 echo "  Inner text: " . $child->get_inner_text() . "\n";
                 
                 // Add a new attribute to the child
-                $attrResult = $child->set_attribute("data-first-xpath-child", ($i + 1));
+                $attrResult = $child->set_attribute("data-first-xpath-child", ($k + 1));
                 
                 if ($attrResult) {
                     echo "  Successfully added data-first-xpath-child attribute to child\n";
@@ -71,9 +71,9 @@ if ($divs->count() > 0)
         $spanChildrenCount = count($spanChildren);
         echo "\nFor Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $spanChildrenCount; $i++) {
-            $spanChild = $spanChildren[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $spanChildrenCount; $k++) {
+            $spanChild = $spanChildren[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($spanChild->is_exist()) {
                 echo "Found span child with XPath '$spanXpath':\n";
                 echo "  Tag: " . $spanChild->get_tag() . "\n";
@@ -82,7 +82,7 @@ if ($divs->count() > 0)
                 echo "  Inner text: " . $spanChild->get_inner_text() . "\n";
                 
                 // Add a new attribute to the child
-                $attrResult = $spanChild->set_attribute("data-span-xpath-child", ($i + 1));
+                $attrResult = $spanChild->set_attribute("data-span-xpath-child", ($k + 1));
                 
                 if ($attrResult) {
                     echo "  Successfully added data-span-xpath-child attribute to child\n";
@@ -105,9 +105,9 @@ if ($divs->count() > 0)
         $attrChildrenCount = count($attrChildren);
         echo "\nFor Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $attrChildrenCount; $i++) {
-            $attrChild = $attrChildren[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $attrChildrenCount; $k++) {
+            $attrChild = $attrChildren[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($attrChild->is_exist()) {
                 echo "Found child with class attribute using XPath '$attrXpath':\n";
                 echo "  Tag: " . $attrChild->get_tag() . "\n";
@@ -116,7 +116,7 @@ if ($divs->count() > 0)
                 echo "  Inner text: " . $attrChild->get_inner_text() . "\n";
                 
                 // Add a new attribute to the child
-                $attrResult = $attrChild->set_attribute("data-attr-xpath-child", ($i + 1));
+                $attrResult = $attrChild->set_attribute("data-attr-xpath-child", ($k + 1));
                 
                 if ($attrResult) {
                     echo "  Successfully added data-attr-xpath-child attribute to child\n";
@@ -139,9 +139,9 @@ if ($divs->count() > 0)
         $complexChildrenCount = count($complexChildren);
         echo "\nFor Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $complexChildrenCount; $i++) {
-            $complexChild = $complexChildren[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $complexChildrenCount; $k++) {
+            $complexChild = $complexChildren[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($complexChild->is_exist()) {
                 echo "Found child using complex XPath '$complexXpath':\n";
                 echo "  Tag: " . $complexChild->get_tag() . "\n";
@@ -150,7 +150,7 @@ if ($divs->count() > 0)
                 echo "  Inner text: " . $complexChild->get_inner_text() . "\n";
                 
                 // Add a new attribute to the child
-                $attrResult = $complexChild->set_attribute("data-complex-xpath-child", ($i + 1));
+                $attrResult = $complexChild->set_attribute("data-complex-xpath-child", ($k + 1));
                 
                 if ($attrResult) {
                     echo "  Successfully added data-complex-xpath-child attribute to child\n";
@@ -173,9 +173,9 @@ if ($divs->count() > 0)
         $nonExistentChildrenCount = count($nonExistentChildren);
         echo "\nFor Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $nonExistentChildrenCount; $i++) {
-            $nonExistentChild = $nonExistentChildren[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $nonExistentChildrenCount; $k++) {
+            $nonExistentChild = $nonExistentChildren[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($nonExistentChild->is_exist()) {
                 echo "Unexpectedly found child using non-existent XPath '$nonExistentXpath':\n";
                 echo "  Tag: " . $nonExistentChild->get_tag() . "\n";

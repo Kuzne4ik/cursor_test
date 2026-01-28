@@ -80,16 +80,16 @@ if ($images->count() > 0)
     
     // Display all image srcs in the collection for reference
     echo "\nAll image srcs in the collection:\n";
-    for ($i = 0; $i < $images->count(); $i++)
+    for ($k = 0; $k < $images->count(); $k++)
     {
-        $currentImage = $images->get($i);
+        $currentImage = $images->get($k);
         
         if ($currentImage && $currentImage->is_exist())
         {
             $imageSrc = $currentImage->get_src();
             $imageAlt = $currentImage->get_alt();
             
-            echo "Image #" . ($i + 1) . ": Src = '" . $imageSrc . "', Alt = '" . $imageAlt . "'\n";
+            echo "Image #" . ($k + 1) . ": Src = '" . $imageSrc . "', Alt = '" . $imageAlt . "'\n";
         }
     }
 }

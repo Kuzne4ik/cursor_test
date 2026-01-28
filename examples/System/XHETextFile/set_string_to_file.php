@@ -18,9 +18,9 @@ SYSTEM::$file_os->delete($filePath);
 
 // Example 1: Add strings to the beginning of file
 echo("1. Add strings to the beginning of file $filePath : \n\n");
-for ($i = 0; $i < 5; $i++) {
+for ($k = 0; $k < 5; $k++) {
     // Set string to add
-    $stringToAdd = "string №$i\n";
+    $stringToAdd = "string №$k\n";
     // Set position (0 - beginning of file)
     $position = 0;
     

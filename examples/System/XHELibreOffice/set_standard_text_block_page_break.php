@@ -39,9 +39,9 @@ $pageBreakCount = SYSTEM::$libreOffice->get_page_break_text_blocks_count_odt($fi
 if ($pageBreakCount > 0) {
     echo "Found {$pageBreakCount} page breaks with custom marker:\n";
     
-    for ($i = 0; $i < min(3, $pageBreakCount); $i++) {
-        $pageBreakText = SYSTEM::$libreOffice->get_page_break_text_block_by_index_odt($filePath, $i);
-        echo "Page break {$i}: {$pageBreakText}\n";
+    for ($k = 0; $k < min(3, $pageBreakCount); $k++) {
+        $pageBreakText = SYSTEM::$libreOffice->get_page_break_text_block_by_index_odt($filePath, $k);
+        echo "Page break {$k}: {$pageBreakText}\n";
     }
 } else if ($pageBreakCount == 0) {
     echo "No page breaks found in the document.\n";

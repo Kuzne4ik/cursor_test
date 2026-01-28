@@ -38,11 +38,11 @@ if ($divs->count() > 0) {
         echo "\nFound " . $divsByAttr->count() . " div elements with attribute '" . $targetAttrName . "' = '" . $targetAttrValue . "' (exact match):\n";
 
         // Process each found div
-        for ($i = 0; $i < $divsByAttr->count(); $i++) {
-            $currentDiv = $divsByAttr->get($i);
+        for ($k = 0; $k < $divsByAttr->count(); $k++) {
+            $currentDiv = $divsByAttr->get($k);
 
             if ($currentDiv->is_exist()) {
-                echo "\nDiv #" . ($i + 1) . " with attribute '" . $targetAttrName . "' = '" . $targetAttrValue . "':\n";
+                echo "\nDiv #" . ($k + 1) . " with attribute '" . $targetAttrName . "' = '" . $targetAttrValue . "':\n";
                 echo "Div inner text: " . $currentDiv->get_inner_text() . "\n";
                 echo "Div inner number: " . $currentDiv->inner_number . "\n";
 
@@ -65,11 +65,11 @@ if ($divs->count() > 0) {
         echo "\nFound " . $divsByPartialAttr->count() . " div elements with partial attribute '" . $partialAttrName . "' = '" . $partialAttrValue . "':\n";
 
         // Process each found div
-        for ($i = 0; $i < $divsByPartialAttr->count(); $i++) {
-            $currentDiv = $divsByPartialAttr->get($i);
+        for ($k = 0; $k < $divsByPartialAttr->count(); $k++) {
+            $currentDiv = $divsByPartialAttr->get($k);
 
             if ($currentDiv->is_exist()) {
-                echo "\nDiv #" . ($i + 1) . " with partial attribute '" . $partialAttrName . "' = '" . $partialAttrValue . "':\n";
+                echo "\nDiv #" . ($k + 1) . " with partial attribute '" . $partialAttrName . "' = '" . $partialAttrValue . "':\n";
                 echo "Div inner text: " . $currentDiv->get_inner_text() . "\n";
                 echo "Div inner number: " . $currentDiv->inner_number . "\n";
                 echo "Full class attribute: " . $currentDiv->get_attribute("class") . "\n";
@@ -89,11 +89,11 @@ if ($divs->count() > 0) {
         echo "\nFound " . $divsByAttr2->count() . " div elements with attribute '" . $targetAttrName2 . "' = '" . $targetAttrValue2 . "':\n";
 
         // Process each found div
-        for ($i = 0; $i < $divsByAttr2->count(); $i++) {
-            $currentDiv = $divsByAttr2->get($i);
+        for ($k = 0; $k < $divsByAttr2->count(); $k++) {
+            $currentDiv = $divsByAttr2->get($k);
 
             if ($currentDiv->is_exist()) {
-                echo "\nDiv #" . ($i + 1) . " with attribute '" . $targetAttrName2 . "' = '" . $targetAttrValue2 . "':\n";
+                echo "\nDiv #" . ($k + 1) . " with attribute '" . $targetAttrName2 . "' = '" . $targetAttrValue2 . "':\n";
                 echo "Div inner text: " . $currentDiv->get_inner_text() . "\n";
                 echo "Div inner number: " . $currentDiv->inner_number . "\n";
             }

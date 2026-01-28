@@ -36,8 +36,8 @@ if ($listboxes->count() > 0)
     $results = $listboxes->get_selected_index();
     
     // Display the selected index for each listbox
-    foreach ($results as $i => $selectedIndex) {
-        echo "Listbox " . ($i + 1) . " selected index: " . $selectedIndex . "\n";
+    foreach ($results as $k => $selectedIndex) {
+        echo "Listbox " . ($k + 1) . " selected index: " . $selectedIndex . "\n";
     }
 }
 else

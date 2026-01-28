@@ -38,10 +38,10 @@ if ($navigateResult) {
             
             // Example 2: Iterate through retrieved anchors and display their details
             echo "\n\nIterating through anchors with exact href '{$href}':";
-            for ($i = 0; $i < $count; $i++) {
-                $targetAnchor = $anchors->get($i);
+            for ($k = 0; $k < $count; $k++) {
+                $targetAnchor = $anchors->get($k);
                 if ($targetAnchor !== false && $targetAnchor->is_exist()) {
-                    echo "\nanchor #{$i}:";
+                    echo "\nanchor #{$k}:";
                     
                     $id = $targetAnchor->get_id();
                     if ($id) {
@@ -64,7 +64,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get inner text";
                     }
                 } else {
-                    echo "\nFailed to get anchor #{$i}";
+                    echo "\nFailed to get anchor #{$k}";
                 }
             }
         } else {
@@ -85,10 +85,10 @@ if ($navigateResult) {
             
             // Example 4: Iterate through anchors with partial href match
             echo "\n\nIterating through anchors with partial href '{$href}':";
-            for ($i = 0; $i < $count; $i++) {
-                $targetAnchor = $anchors->get($i);
+            for ($k = 0; $k < $count; $k++) {
+                $targetAnchor = $anchors->get($k);
                 if ($targetAnchor !== false && $targetAnchor->is_exist()) {
-                    echo "\nanchor #{$i}:";
+                    echo "\nanchor #{$k}:";
                     
                     $hrefAttr = $targetAnchor->get_href();
                     if ($hrefAttr) {
@@ -97,7 +97,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get href";
                     }
                 } else {
-                    echo "\nFailed to get anchor #{$i}";
+                    echo "\nFailed to get anchor #{$k}";
                 }
             }
         } else {

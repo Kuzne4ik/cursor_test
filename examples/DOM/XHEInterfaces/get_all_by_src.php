@@ -39,13 +39,13 @@ if ($images->count() > 0)
         echo "\nFound " . $imagesBySrc->count() . " image elements with src '" . $targetSrc . "' (exact match):\n";
         
         // Process each found image
-        for ($i = 0; $i < $imagesBySrc->count(); $i++)
+        for ($k = 0; $k < $imagesBySrc->count(); $k++)
         {
-            $currentImage = $imagesBySrc->get($i);
+            $currentImage = $imagesBySrc->get($k);
             
             if ($currentImage->is_exist())
             {
-                echo "\nImage #" . ($i + 1) . " with src '" . $targetSrc . "':\n";
+                echo "\nImage #" . ($k + 1) . " with src '" . $targetSrc . "':\n";
                 echo "Image alt: " . $currentImage->get_alt() . "\n";
                 echo "Image inner number: " . $currentImage->inner_number . "\n";
                 echo "Image width: " . $currentImage->get_width() . "\n";
@@ -68,13 +68,13 @@ if ($images->count() > 0)
         echo "\nFound " . $imagesByPartialSrc->count() . " image elements with partial src '" . $partialSrc . "':\n";
         
         // Process each found image
-        for ($i = 0; $i < $imagesByPartialSrc->count(); $i++)
+        for ($k = 0; $k < $imagesByPartialSrc->count(); $k++)
         {
-            $currentImage = $imagesByPartialSrc->get($i);
+            $currentImage = $imagesByPartialSrc->get($k);
             
             if ($currentImage && $currentImage->is_exist())
             {
-                echo "\nImage #" . ($i + 1) . " with partial src '" . $partialSrc . "':\n";
+                echo "\nImage #" . ($k + 1) . " with partial src '" . $partialSrc . "':\n";
                 echo "Image alt: " . $currentImage->get_alt() . "\n";
                 echo "Image inner number: " . $currentImage->inner_number . "\n";
                 echo "Full src: " . $currentImage->get_src() . "\n";
@@ -96,13 +96,13 @@ if ($images->count() > 0)
         echo "\nFound " . $imagesBySrc2->count() . " image elements with src '" . $targetSrc2 . "':\n";
         
         // Process each found image
-        for ($i = 0; $i < $imagesBySrc2->count(); $i++)
+        for ($k = 0; $k < $imagesBySrc2->count(); $k++)
         {
-            $currentImage = $imagesBySrc2->get($i);
+            $currentImage = $imagesBySrc2->get($k);
             
             if ($currentImage->is_exist())
             {
-                echo "\nImage #" . ($i + 1) . " with src '" . $targetSrc2 . "':\n";
+                echo "\nImage #" . ($k + 1) . " with src '" . $targetSrc2 . "':\n";
                 echo "Image alt: " . $currentImage->get_alt() . "\n";
                 echo "Image inner number: " . $currentImage->inner_number . "\n";
             }

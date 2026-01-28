@@ -29,9 +29,9 @@ echo("Rows count: $rowsCount, Columns count: $colsCount\n");
 
 // Example 2: Display all cells
 echo("\n2. Display all cells in the file:\n");
-for ($i = 1; $i <= $rowsCount; $i++) {
+for ($k = 1; $k <= $rowsCount; $k++) {
     for ($j = 1; $j <= $colsCount; $j++) {
-        $cellValue = SYSTEM::$excel->get_cell($filePath, 0, $i, $j);
+        $cellValue = SYSTEM::$excel->get_cell($filePath, 0, $k, $j);
         echo($cellValue . "|");
     }
     echo("\n");

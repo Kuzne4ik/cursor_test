@@ -24,10 +24,10 @@ echo "\n\nTotal elements found with exact outer text '{$outer_text}': {$count}";
 
 // Example 2: Iterate through retrieved elements and display their details
 echo "\n\nIterating through elements with exact outer text '{$outer_text}':";
-for ($i = 0; $i < $count; $i++) {
-    $currentElement = $elements->get($i);
+for ($k = 0; $k < $count; $k++) {
+    $currentElement = $elements->get($k);
     if ($currentElement->is_exist()) {
-        echo "\nElement #{$i}:";
+        echo "\nElement #{$k}:";
         echo "\n  Tag: " . $currentElement->get_tag();
         echo "\n  Name: " . $currentElement->get_name();
         echo "\n  ID: " . $currentElement->get_id();

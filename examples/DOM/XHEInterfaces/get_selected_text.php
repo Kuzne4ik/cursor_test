@@ -36,8 +36,8 @@ if ($listboxes->count()> 0)
     $results = $listboxes->get_selected_text();
     
     // Display selected text for each listbox
-    foreach ($results as $i => $selectedText) {
-        echo "Listbox " . ($i + 1) . " selected text: " . $selectedText . "\n";
+    foreach ($results as $k => $selectedText) {
+        echo "Listbox " . ($k + 1) . " selected text: " . $selectedText . "\n";
     }
 }
 else

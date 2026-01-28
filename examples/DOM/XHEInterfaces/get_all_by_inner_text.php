@@ -39,13 +39,13 @@ if ($anchors->count() > 0)
         echo "\nFound " . $anchorsByText->count() . " anchor elements with inner text '" . $targetText . "' (exact match):\n";
         
         // Process each found anchor
-        for ($i = 0; $i < $anchorsByText->count(); $i++)
+        for ($k = 0; $k < $anchorsByText->count(); $k++)
         {
-            $currentAnchor = $anchorsByText->get($i);
+            $currentAnchor = $anchorsByText->get($k);
             
             if ($currentAnchor->is_exist())
             {
-                echo "\nAnchor #" . ($i + 1) . " with inner text '" . $targetText . "':\n";
+                echo "\nAnchor #" . ($k + 1) . " with inner text '" . $targetText . "':\n";
                 echo "Anchor href: " . $currentAnchor->get_href() . "\n";
                 echo "Anchor inner number: " . $currentAnchor->inner_number . "\n";
             }
@@ -66,13 +66,13 @@ if ($anchors->count() > 0)
         echo "\nFound " . $anchorsByPartialText->count() . " anchor elements with partial inner text '" . $partialText . "':\n";
         
         // Process each found anchor
-        for ($i = 0; $i < $anchorsByPartialText->count(); $i++)
+        for ($k = 0; $k < $anchorsByPartialText->count(); $k++)
         {
-            $currentAnchor = $anchorsByPartialText->get($i);
+            $currentAnchor = $anchorsByPartialText->get($k);
             
             if ($currentAnchor->is_exist())
             {
-                echo "\nAnchor #" . ($i + 1) . " with partial inner text '" . $partialText . "':\n";
+                echo "\nAnchor #" . ($k + 1) . " with partial inner text '" . $partialText . "':\n";
                 echo "Anchor href: " . $currentAnchor->get_href() . "\n";
                 echo "Anchor inner number: " . $currentAnchor->inner_number . "\n";
                 echo "Full inner text: " . $currentAnchor->get_inner_text() . "\n";

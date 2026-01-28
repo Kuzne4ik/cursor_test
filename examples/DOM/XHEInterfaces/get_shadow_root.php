@@ -39,17 +39,17 @@ if ($divElements->count() > 0)
     $tags = $divElements->get_tag();
     $inner_htmls = $divElements->get_inner_html();
     
-    for ($i = 0; $i < $divElements->count(); $i++)
+    for ($k = 0; $k < $divElements->count(); $k++)
     {
-        echo "\nProcessing div element #" . ($i + 1) . "\n";
+        echo "\nProcessing div element #" . ($k + 1) . "\n";
         //echo "Element tag: " . $tags[$i] . "\n";
         //echo "Element inner HTML: " . $inner_htmls[$i] . "\n";
         
         // Check if the shadow root exists
-        $currentShadowRoot = $shadowRoots[$i];
+        $currentShadowRoot = $shadowRoots[$k];
         if ($currentShadowRoot->is_exist())
         {
-            echo "Shadow root found for element #" . ($i + 1) . "\n";
+            echo "Shadow root found for element #" . ($k + 1) . "\n";
             
             // Get the inner HTML of the shadow root
             echo "Shadow root inner HTML: " . $currentShadowRoot->get_inner_html() . "\n";
@@ -60,7 +60,7 @@ if ($divElements->count() > 0)
         }
         else
         {
-            echo "No shadow root found for element #" . ($i + 1) . "\n";
+            echo "No shadow root found for element #" . ($k + 1) . "\n";
         }
     }
 }

@@ -39,11 +39,11 @@ if ($anchors->count() > 0)
     $hrefs = $anchors->get_href();
     $inner_texts = $anchors->get_inner_text();
     
-    for ($i = 0; $i < $anchors->count(); $i++)
+    for ($k = 0; $k < $anchors->count(); $k++)
     {
-        echo "\nAnchor #" . ($i + 1) . "\n";
-        echo "Anchor href: " . $hrefs[$i] . "\n";
-        echo "Anchor XPath: " . $xpaths[$i] . "\n";
+        echo "\nAnchor #" . ($k + 1) . "\n";
+        echo "Anchor href: " . $hrefs[$k] . "\n";
+        echo "Anchor XPath: " . $xpaths[$k] . "\n";
     }
 
 }

@@ -95,9 +95,9 @@ if ($anchors->count() > 0)
     
     // Display all anchor outer texts in the collection for reference
     echo "\nAll anchor outer texts in the collection:\n";
-    for ($i = 0; $i < $anchors->count(); $i++)
+    for ($k = 0; $k < $anchors->count(); $k++)
     {
-        $currentAnchor = $anchors->get($i);
+        $currentAnchor = $anchors->get($k);
         
         if ($currentAnchor && $currentAnchor->is_exist())
         {
@@ -105,7 +105,7 @@ if ($anchors->count() > 0)
             $anchorInnerText = $currentAnchor->get_inner_text();
             $anchorHref = $currentAnchor->get_href();
             
-            echo "Anchor #" . ($i + 1) . ": Outer Text = '" . $anchorOuterText . "', Inner Text = '" . $anchorInnerText . "', Href = '" . $anchorHref . "'\n";
+            echo "Anchor #" . ($k + 1) . ": Outer Text = '" . $anchorOuterText . "', Inner Text = '" . $anchorInnerText . "', Href = '" . $anchorHref . "'\n";
         }
     }
 }

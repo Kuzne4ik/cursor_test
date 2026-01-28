@@ -39,10 +39,10 @@ if ($navigateResult) {
             
             // Example 2: Iterate through retrieved elements and display their details
             echo "\n\nIterating through elements with exact attribute '{$attr_name}'='{$attr_value}':";
-            for ($i = 0; $i < $count; $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $count; $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
-                    echo "\nElement #{$i}:";
+                    echo "\nElement #{$k}:";
                     
                     $tag = $targetElement->get_tag();
                     if ($tag !== false) {
@@ -79,7 +79,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get value";
                     }
                 } else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
         } else {
@@ -101,10 +101,10 @@ if ($navigateResult) {
             
             // Example 4: Iterate through elements with partial attribute match
             echo "\n\nIterating through elements with partial attribute '{$attr_name}' containing '{$attr_value}':";
-            for ($i = 0; $i < $count; $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $count; $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
-                    echo "\nElement #{$i}:";
+                    echo "\nElement #{$k}:";
                     
                     $tag = $targetElement->get_tag();
                     if ($tag !== false) {
@@ -120,7 +120,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get attribute '{$attr_name}'";
                     }
                 } else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
         } else {
@@ -139,8 +139,8 @@ if ($navigateResult) {
             $linkElements = [];
             $otherElements = [];
             
-            for ($i = 0; $i < $elements->get_count(); $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $elements->get_count(); $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
                     $tag = $targetElement->get_tag();
                     if ($tag !== false) {
@@ -168,10 +168,10 @@ if ($navigateResult) {
                             }
                         }
                     } else {
-                        echo "\nFailed to get tag for element #{$i}";
+                        echo "\nFailed to get tag for element #{$k}";
                     }
                 } else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
             
@@ -191,10 +191,10 @@ if ($navigateResult) {
             echo "\n\nSuccessfully retrieved elements with attribute '{$attr_name}'='{$attr_value}' for interaction\n";
             
             echo "\n\nInteracting with elements containing exact attribute '{$attr_name}'='{$attr_value}':";
-            for ($i = 0; $i < $elements->get_count(); $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $elements->get_count(); $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
-                    echo "\nElement #{$i}:";
+                    echo "\nElement #{$k}:";
                     
                     $tag = $targetElement->get_tag();
                     if ($tag !== false) {
@@ -232,7 +232,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get ID";
                     }
                 } else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
         } else {
@@ -290,10 +290,10 @@ if ($navigateResult) {
             echo "\n\nSuccessfully retrieved elements with attribute '{$attr_name}'='{$attr_value}'\n";
             
             echo "\n\nChecking attributes of elements with attribute '{$attr_name}'='{$attr_value}':";
-            for ($i = 0; $i < $elements->get_count(); $i++) {
-                $targetElement = $elements->get($i);
+            for ($k = 0; $k < $elements->get_count(); $k++) {
+                $targetElement = $elements->get($k);
                 if ($targetElement !== false && $targetElement->is_exist()) {
-                    echo "\nElement #{$i}:";
+                    echo "\nElement #{$k}:";
                     
                     $tag = $targetElement->get_tag();
                     if ($tag !== false) {
@@ -323,7 +323,7 @@ if ($navigateResult) {
                         echo "\n  Failed to get title";
                     }
                 } else {
-                    echo "\nFailed to get element #{$i}";
+                    echo "\nFailed to get element #{$k}";
                 }
             }
         } else {

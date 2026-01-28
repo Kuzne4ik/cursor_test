@@ -35,8 +35,8 @@ if ($divs->count() > 0)
     $resultCount = count($divs);
     echo "\nFor Iterate for each div element child count\n";
 
-   for ($i = 0; $i < $resultCount; $i++) {
-       echo "\nFor div element number " . ($i + 1) . " child count: " . $childCounts[$i] . "\n";
+   for ($k = 0; $k < $resultCount; $k++) {
+       echo "\nFor div element number " . ($k + 1) . " child count: " . $childCounts[$k] . "\n";
     }
 
     // Get child count (for each div element in divs) and include count sub childs
@@ -45,8 +45,8 @@ if ($divs->count() > 0)
     $resultCount = count($divs);
     echo "\nFor Iterate for each div element child count include count sub childs\n";
 
-    for ($i = 0; $i < $resultCount; $i++) {
-        echo "\nFor div element number " . ($i + 1) . " child count: " . $childCounts2[$i] . "\n";
+    for ($k = 0; $k < $resultCount; $k++) {
+        echo "\nFor div element number " . ($k + 1) . " child count: " . $childCounts2[$k] . "\n";
     }
 }
 else

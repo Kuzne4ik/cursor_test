@@ -37,9 +37,9 @@ if ($divs->count() > 0)
         $childByExactTextsCount = count($childByExactTexts);
         echo "For Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $childByExactTextsCount; $i++) {
-            $childByExactText = $childByExactTexts[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $childByExactTextsCount; $k++) {
+            $childByExactText = $childByExactTexts[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($childByExactText->is_exist()) {
                 echo "Found child with exact outer text '" . $searchText . "':\n";
                 echo "  Tag: " . $childByExactText->get_tag() . "\n";
@@ -59,9 +59,9 @@ if ($divs->count() > 0)
         $childByPartialTextsCount = count($childByPartialTexts);
         echo "For Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $childByPartialTextsCount; $i++) {
-            $childByPartialText = $childByPartialTexts[$i];
-            echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $childByPartialTextsCount; $k++) {
+            $childByPartialText = $childByPartialTexts[$k];
+            echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($childByPartialText->is_exist()) {
                 echo "Found child containing outer text '" . $partialSearchText . "':\n";
                 echo "  Tag: " . $childByPartialText->get_tag() . "\n";

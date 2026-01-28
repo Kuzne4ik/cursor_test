@@ -40,13 +40,13 @@ if ($inputs->count() > 0)
         echo "\nFound " . $inputsByName->count() . " input elements with name '" . $targetName . "':\n";
         
         // Process each found input
-        for ($i = 0; $i < $inputsByName->count(); $i++)
+        for ($k = 0; $k < $inputsByName->count(); $k++)
         {
-            $currentInput = $inputsByName->get($i);
+            $currentInput = $inputsByName->get($k);
             
             if ($currentInput && $currentInput->is_exist())
             {
-                echo "\nInput #" . ($i + 1) . " with name '" . $targetName . "':\n";
+                echo "\nInput #" . ($k + 1) . " with name '" . $targetName . "':\n";
                 echo "Input type: " . $currentInput->get_type() . "\n";
                 echo "Input value: " . $currentInput->get_value() . "\n";
                 echo "Input inner number: " . $currentInput->inner_number . "\n";

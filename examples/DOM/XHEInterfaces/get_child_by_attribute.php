@@ -38,9 +38,9 @@ if ($divs->count() > 0)
         $childByIdsCount = count($childByIds);
         echo "For Iterate for each div element in results\n";
 
-        for ($i = 0; $i < $childByIdsCount; $i++) {
-            $childById = $childByIds[$i];
-			echo "\nFor div element number " . ($i + 1) ." in results: \n";
+        for ($k = 0; $k < $childByIdsCount; $k++) {
+            $childById = $childByIds[$k];
+			echo "\nFor div element number " . ($k + 1) ." in results: \n";
             if ($childById->is_exist()) {
                 echo "Found child with $atr_name='$atr_value':\n";
                 echo "  Tag: " . $childById->get_tag() . "\n";

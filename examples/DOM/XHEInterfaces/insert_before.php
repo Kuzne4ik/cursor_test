@@ -30,15 +30,15 @@ if ($anchors->count() > 0)
     echo "Found " . $anchors->count() . " anchor elements\n";
     
     // Process each anchor to insert an element before it
-    for ($i = 0; $i < $anchors->count(); $i++)
+    for ($k = 0; $k < $anchors->count(); $k++)
     {
         // Get the current anchor
-        $currentAnchor = $anchors->get($i);
+        $currentAnchor = $anchors->get($k);
         
         // Check that the element exists
         if ($currentAnchor && $currentAnchor->is_exist())
         {
-            echo "\nProcessing anchor #" . ($i + 1) . "\n";
+            echo "\nProcessing anchor #" . ($k + 1) . "\n";
             echo "Original anchor href: " . $currentAnchor->get_href() . "\n";
             echo "Original anchor inner text: " . $currentAnchor->get_inner_text() . "\n";
             
@@ -50,13 +50,13 @@ if ($anchors->count() > 0)
             // Check if the element was inserted successfully
             if ($result)
             {
-                echo "Successfully inserted new element before anchor #" . ($i + 1) . "\n";
+                echo "Successfully inserted new element before anchor #" . ($k + 1) . "\n";
                 // Note: The anchor's outer HTML would now include the new element before it
                 echo "Operation completed successfully\n";
             }
             else
             {
-                echo "Failed to insert new element before anchor #" . ($i + 1) . "\n";
+                echo "Failed to insert new element before anchor #" . ($k + 1) . "\n";
             }
         }
     }
