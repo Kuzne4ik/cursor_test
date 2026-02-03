@@ -3,11 +3,11 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>textfile->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >textfile->" . basename (__FILE__) . "</span>\n";
 
 // Example 1: Read a file
 // Set file path
@@ -23,5 +23,5 @@ echo($content);
 echo "\n";
 
 // Quit the application
-$app->quit();
+WINDOW::$app->quit();
 ?>

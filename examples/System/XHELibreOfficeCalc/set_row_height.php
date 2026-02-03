@@ -4,11 +4,11 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >libreOfficeCalc->" . basename (__FILE__) . "</span>\n";
 
 // Example 1
 echo("1. Increase height of row 8 to 1.6cm in the first sheet: \n");

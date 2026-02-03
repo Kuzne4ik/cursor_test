@@ -5,34 +5,59 @@
 // Classes used: XHEInput, XHEInterface, XHEBrowser, XHEKeyboard, XHEApplication
 
 // Connection string to XHE API
-$xhe_host = "127.0.0.1:7010";
+$xhe_host = "127.0.0.1:7013";
 
 // Path to init.php file
 if (!isset($path))
 {
     // Path to init.php file for connecting to XHE API
-    $path = "../../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // When connecting init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Example 1: Send key down event to an input element
+// Navigate to
+WEB::$browser->navigate(TEST_POLYGON_URL . "input.html");
 
-// Navigate to Yandex
-WEB::$browser->navigate("https://ya.ru");
-
-// Get DOM element <input> by number 0
-$targetInput = DOM::$input->get_by_number(0);
-echo $targetInput->inner_number . "\n";
+// Get DOM element <input> by number
+$targetInputNumber = 1;
+$targetInput = DOM::$input->get_by_number($targetInputNumber);
+echo(" \nTarget input inner number: $targetInput->inner_number");
 
 // Check that DOM element was found
 if ($targetInput->inner_number != -1) {
-    // Enter s (code 83)
+    // set focus
+    $targetInput->focus();
+
+    // Set En keyboard language
     SYSTEM::$keyboard->set_current_language("en");
-    var_export($targetInput->send_key_down(83, false));
-    echo("\n");
-    var_export($targetInput->send_key_up(83, false));
+
+    // Example 1: Send keydown to input by symbol;
+    echo("\n1: Send keydown 's' to input by symbol: ");
+    $sendKeyResult = $targetInput->send_key_down("s", false);
+    if ($sendKeyResult)
+        echo("true");
+    else
+        echo("false");
+
+    // Example 2: Send keydown to input by code
+    echo("\n1: Send keydown 'r' to input by alt code '114': ");
+    $sendKeyResult = $targetInput->send_key_down(114, true);
+    if ($sendKeyResult)
+        echo("true");
+    else
+        echo("false");
+
+    // Example 3: Send keydown 'tab' to input by code '9'
+    echo("\n3: Send keydown to the input: ");
+    $sendKeyResult = $targetInput->send_key_down(9, true);
+    if ($sendKeyResult)
+        echo("true");
+    else
+        echo("false");
 }
+echo("\n");
+
 
 // Stop the application
 WINDOW::$app->quit();

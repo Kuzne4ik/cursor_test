@@ -3,12 +3,12 @@ $xhe_host = "127.0.0.1:7013";
 
 // Connect functional objects if not already connected
 if (!isset($path)) {
-    $path = "../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     require($path);
 }
 
 // Scenario: Demonstrate removing column types dictionary from Excel sheet
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+echo "\n<span >excelfile->".basename (__FILE__)."</span>\n";
 
 // Initialize Excel
 SYSTEM::$excel->kill();

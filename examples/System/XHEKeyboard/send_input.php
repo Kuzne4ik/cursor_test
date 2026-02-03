@@ -4,7 +4,7 @@
 $xhe_host = "127.0.0.1:7011";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path="../../../Templates/init.php";
   require($path);
 }
 
@@ -21,7 +21,7 @@ if ($result) {
 }
 
 // info
-echo "\n<font color=blue>keyboard->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >keyboard->" . basename (__FILE__) . "</span>\n";
 
 // Set focus on search input field
 echo "\n";

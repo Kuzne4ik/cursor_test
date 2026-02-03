@@ -4,13 +4,13 @@
 $xhe_host = "127.0.0.1:7010";
 if (!isset($path)){
     // Path to the init.php file for connecting to the XHE API
-    $path = "../../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
 
 // beginning
-echo "\n<font color=blue>clipboard->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >clipboard->" . basename (__FILE__) . "</span>\n";
 
 // 1
 $rawAudioData = "RIFF\x24\x00\x00\x00WAVEfmt \x10\x00\x00\x00\x01\x00\x01\x00\x44\xAC\x00\x00\x88X\x01\x00\x02\x00\x10\x00data\x00\x00\x00\x00";

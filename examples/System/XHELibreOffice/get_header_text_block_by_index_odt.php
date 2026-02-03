@@ -6,12 +6,12 @@ $xhe_host = "127.0.0.1:7010";
 // подключим функциональные объекты, если еще не подключен
 if (!isset($path)){
     // Path to the init.php file for connecting to the XHE API
-    $path = "../../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
 
-echo "\n<font color=blue>libreOffice->".basename (__FILE__)."</font>\n";
+echo "\n<span >libreOffice->".basename (__FILE__)."</span>\n";
 
 // Example 1: Get the first header from a document
 echo "\n\nExample 1: Getting the first header from a document\n";

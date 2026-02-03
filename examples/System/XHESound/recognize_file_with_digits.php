@@ -4,11 +4,11 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>sound->" . basename (__FILE__) . "</font>\n";
+echo "\n<span>sound->" . basename (__FILE__) . "</span>\n";
 
 // Example 1: Recognize file with English digits (0-9)
 // Input data
@@ -38,7 +38,7 @@ if ($digits2) {
 
 // Example 3: Download file with Recaptcha V2
 echo("\n\nExample 3. Download file with Recaptcha V2\n");
-echo("<center><h5>Download file with Recaptcha V2</h5></center>\n");
+echo("Download file with Recaptcha V2\n");
 
 // Example 4: Navigate to polygon
 // Input data

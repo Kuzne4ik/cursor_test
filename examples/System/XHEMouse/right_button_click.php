@@ -4,11 +4,11 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>keyboard->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >keyboard->" . basename (__FILE__) . "</span>\n";
 
 // Navigate to test site
 $testSiteUrl = TEST_POLYGON_URL . "anchor.html";

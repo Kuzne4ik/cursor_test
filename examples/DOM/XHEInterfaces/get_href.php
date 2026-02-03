@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // Scenario: Get href attributes for a collection of anchor elements
 // Description: This example demonstrates how to get a collection of anchor elements and retrieve href attribute for each anchor
@@ -11,7 +11,7 @@ $xhe_host = "127.0.0.1:7010";
 if (!isset($path))
 {
     // Path to init.php file for connecting to XHE API
-    $path = "../../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // When connecting init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }

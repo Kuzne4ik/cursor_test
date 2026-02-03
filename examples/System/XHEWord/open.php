@@ -8,7 +8,7 @@ if (!isset($filePath)){
 }
 
 // info
-echo "\n<font color=blue>word->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >word->" . basename (__FILE__) . "</span>\n";
 
 // Kill any existing Word app processes
 SYSTEM::$word->kill();
@@ -37,5 +37,5 @@ else
 echo "\n";
 
 // Quit
-$app->quit();
+WINDOW::$app->quit();
 ?>

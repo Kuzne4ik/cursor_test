@@ -1,14 +1,14 @@
 <?php
 // Scenario: Get row data from LibreOffice Calc spreadsheet
 
-$xhe_host = "127.0.0.1:7010";
+$xhe_host = "127.0.0.1:7013";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>libreOfficeCalc->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >libreOfficeCalc->" . basename (__FILE__) . "</span>\n";
 
 // Example 1
 echo("1. Get first row as array: \n");

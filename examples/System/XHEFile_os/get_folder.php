@@ -4,12 +4,12 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 
 // info
-echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >file_os->" . basename (__FILE__) . "</span>\n";
 
 // Example 1: Get folder from relative path
 echo "\n\n1. Get folder from relative path: ";
@@ -23,7 +23,7 @@ if ($folderPath !== false) {
 
 // Example 2: Get folder from absolute path
 echo "\n2. Get folder from absolute path: ";
-$programPath = $app->get_program_path();
+$programPath = WINDOW::$app->get_program_path();
 $folderPath = SYSTEM::$file_os->get_folder($programPath);
 if ($folderPath !== false) {
     echo "Folder path: " . $folderPath . "\n";
@@ -33,7 +33,7 @@ if ($folderPath !== false) {
 
 // Example 3: Get full folder path from absolute path
 echo "\n3. Get full folder path from absolute path: ";
-$programPath = $app->get_program_path();
+$programPath = WINDOW::$app->get_program_path();
 $folderLevel = -1;
 $folderPath = SYSTEM::$file_os->get_folder($programPath, $folderLevel);
 if ($folderPath !== false) {
@@ -44,7 +44,7 @@ if ($folderPath !== false) {
 
 // Example 4: Get last 2 folders from absolute path
 echo "\n4. Get last 2 folders from absolute path: ";
-$programPath = $app->get_program_path();
+$programPath = WINDOW::$app->get_program_path();
 $folderLevel = 1;
 $folderPath = SYSTEM::$file_os->get_folder($programPath, $folderLevel);
 if ($folderPath !== false) {

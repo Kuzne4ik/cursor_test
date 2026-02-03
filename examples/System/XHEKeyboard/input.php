@@ -4,12 +4,12 @@
 $xhe_host = "127.0.0.1:7011";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path="../../../Templates/init.php";
   require($path);
 }
 
 // info
-echo "\n<font color=blue>keyboard->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >keyboard->" . basename (__FILE__) . "</span>\n";
 
 // Set variables for navigation
 $url = TEST_POLYGON_URL . "input.html";
@@ -24,7 +24,7 @@ if ($result) {
 }
 
 // Example 1: Set focus on the search input field
-
+$inputNumber = 1;
 echo "1. Set focus on input field number $inputNumber: ";
 $result = DOM::$input->set_focus_by_number($inputNumber);
 if ($result) {

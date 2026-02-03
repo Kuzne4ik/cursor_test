@@ -4,16 +4,16 @@ $xhe_host = "127.0.0.1:7010";
 
 // Connect functional objects if not already connected
 if (!isset($path)){
-    $path = "../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     require($path);
 }
 // info
-echo "\n<font color=blue>mouse->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >mouse->" . basename (__FILE__) . "</span>\n";
 
 // Example 1: Navigate to test polygon page with Flash embed
 echo "1. Navigate to test polygon page with Flash embed: ";
 $testSiteUrl = TEST_POLYGON_URL . "anchor.html";
-$navigateResult = WEB::$browser->navigate($testPageUrl);
+$navigateResult = WEB::$browser->navigate($testSiteUrl);
 if ($navigateResult) {
     echo "Successfully navigated to test page with Flash embed\n";
 } else {

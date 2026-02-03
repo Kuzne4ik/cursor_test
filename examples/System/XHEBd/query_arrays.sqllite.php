@@ -4,13 +4,13 @@ $xhe_host = "127.0.0.1:7010";
 
 if (!isset($path)){
     // Path to the init.php file for connecting to the XHE API
-    $path = "../../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
 
 // Example 1: Connect to SQLite database and execute queries with array results
-echo "\n<font color=blue>db->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >db->" . basename (__FILE__) . "</span>\n";
 
 //$connectionStr = "SERVER=localhost;DATABASE=my_db;USER=root;PASSWORD=big2006fozzy2001;";
 //$bBtype = "mysql";

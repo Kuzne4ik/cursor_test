@@ -3,12 +3,12 @@ $xhe_host = "127.0.0.1:7013";
 
 // Connect functional objects
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 
 // Scenario: Demonstrate adding rows with different data types and column type dictionaries
-echo "\n<span style=\"color: blue; \">excelfile->" .basename (__FILE__). "</span>\n";
+echo "\n<span >excelfile->" .basename (__FILE__). "</span>\n";
 
 // Initialize Excel
 SYSTEM::$excel->kill();

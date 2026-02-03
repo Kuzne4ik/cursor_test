@@ -4,12 +4,12 @@ $xhe_host = "127.0.0.1:7010";
 
 // подключим функциональные объекты, если еще не подключен !!!
 if (!isset($path)){
-  $path = "../../../../../../Templates/init.php";
+$path = "../../../Templates/init.php";
   require($path);
 }
 
 // начало
-echo "\n<font color=blue>textarea->".basename (__FILE__)."</font>\n";
+echo "\n<span>textarea->".basename (__FILE__)."</span>\n";
 
 // 1
 echo("1. Navigate to test page: ");

@@ -4,22 +4,22 @@ $xhe_host = "127.0.0.1:7013";
 // Connect functional objects if not already connected
 if (!isset($path)) {
     // Path to the init.php file for connecting to the XHE API
-    $path = "../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
 
 // Scenario: Demonstrate setting column types dictionary
-echo "\n<span style=\"color: blue; \">excelfile->" . basename(__FILE__) . "</span>\n";
+echo "\n<span >excelfile->" . basename(__FILE__) . "</span>\n";
 
 // Initialize Excel
 SYSTEM::$excel->kill();
 
-// Example 0: Remove column types dictionary
-echo("\nExample 0: Remove column types dictionary for sheet $sheetNumber : ");
+// Remove column types dictionary
+$sheetNumber = 1;
+echo("\nRemove column types dictionary for sheet $sheetNumber : ");
 // Extract method arguments into variables
 $excelFilePath = "test/test.xlsx";
-$sheetNumber = 1;
 $result = SYSTEM::$excelfile->remove_column_types_dict($excelFilePath, $sheetNumber);
 if ($result === true)
     echo("true\n");

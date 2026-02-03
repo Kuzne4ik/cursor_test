@@ -5,7 +5,7 @@ $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
     // Path to the init.php file for connecting to the XHE API
-    $path = "../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
@@ -23,7 +23,7 @@ echo("\nExample 1: Open Excel file using shell execute\n");
 $shellOperation = "open";
 
 // Open Excel file using shell execute
-$result = $app->shell_execute($shellOperation, $filePath);
+$result = WINDOW::$app->shell_execute($shellOperation, $filePath);
 if ($result) {
     echo("Excel file opened using shell execute: $filePath\n");
 } else {
@@ -34,7 +34,7 @@ if ($result) {
 sleep(5);
 
 // Get window handle
-$windowHandle = $window->get_by_class("XLMAIN", true, false)->get_hwnd();
+$windowHandle = WINDOW::$window->get_by_class("XLMAIN", true, false)->get_hwnd();
 $pathAlias = "@doc1";
 
 // Example 2: Connect to Excel by HWND

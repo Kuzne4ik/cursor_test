@@ -11,28 +11,53 @@ $xhe_host = "127.0.0.1:7010";
 if (!isset($path))
 {
     // Path to init.php file for connecting to XHE API
-    $path = "../../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // When connecting init.php file, all functionality of classes for working with XHE API will be available
     require($path);
 }
 
-// Example 1: Send key up event to an input element
+// Navigate to
+WEB::$browser->navigate(TEST_POLYGON_URL . "input.html");
 
-// Navigate to Yandex
-WEB::$browser->navigate("http://ya.ru");
-
-// Get DOM element <input> by number 0
-$targetInput = DOM::$input->get_by_number(0);
-echo $targetInput->inner_number . "\n";
+// Get DOM element <input> by number
+$targetInputNumber = 1;
+$targetInput = DOM::$input->get_by_number($targetInputNumber);
+echo(" \nTarget input inner number: $targetInput->inner_number");
 
 // Check that DOM element was found
 if ($targetInput->inner_number != -1) {
-    // Enter s (code 83)
+    // set focus
+    $targetInput->focus();
+
+    // Set En keyboard language
     SYSTEM::$keyboard->set_current_language("en");
-    var_export($targetInput->send_key_down(83, true));
-    echo("\n");
-    var_export( $targetInput->send_key_up(83, true));
+
+    // Example 1: Send keyup to input by symbol;
+    echo("\n1: Send keyup 's' to input by symbol: ");
+    $sendKeyResult = $targetInput->send_key_up("s", false);
+    if ($sendKeyResult)
+        echo("true");
+    else
+        echo("false");
+
+    // Example 2: Send keyup to input by code
+    echo("\n1: Send keyup 'r' to input by alt code '114': ");
+    $sendKeyResult = $targetInput->send_key_up(114, true);
+    if ($sendKeyResult)
+        echo("true");
+    else
+        echo("false");
+
+    // Example 3: Send keyup 'tab' to input by code '9'
+    echo("\n3: Send keyup to the input: ");
+    $sendKeyResult = $targetInput->send_key_up(9, true);
+    if ($sendKeyResult)
+        echo("true");
+    else
+        echo("false");
 }
+echo("\n");
+
 
 // Stop the application
 WINDOW::$app->quit();

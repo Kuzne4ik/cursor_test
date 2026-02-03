@@ -4,11 +4,11 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>mouse->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >mouse->" . basename (__FILE__) . "</span>\n";
 
 // Example 1: Get current mouse Y and X coordinates on screen
 echo("1. Get current mouse Y and X coordinates on screen\n");

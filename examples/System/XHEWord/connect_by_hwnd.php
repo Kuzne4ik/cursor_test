@@ -3,11 +3,11 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>word->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >word->" . basename (__FILE__) . "</span>\n";
 
 // Initialize variables
 $filePath = "test/test_create.docx";
@@ -31,7 +31,7 @@ if ($result) {
 }
 
 // Open the document with shell execute
-$app->shell_execute("open", $filePath);
+WINDOW::$app->shell_execute("open", $filePath);
 sleep($sleepTime);
 
 // Example 1: Connect to the document by window handle (can visibled Word application)

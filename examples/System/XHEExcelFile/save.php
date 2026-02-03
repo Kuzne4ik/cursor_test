@@ -2,11 +2,11 @@
 
 // Connect functional objects if not already connected
 if (!isset($path))
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
 require($path);
 
 // Scenario: Demonstrate saving Excel file
-echo "\n<font color=blue>excelfile->".basename (__FILE__)."</font>\n";
+echo "\n<span >excelfile->".basename (__FILE__)."</span>\n";
 
 // Initialize Excel
 SYSTEM::$excel->kill();

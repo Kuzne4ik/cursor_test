@@ -4,22 +4,22 @@ $xhe_host = "127.0.0.1:7013";
 // Connect functional objects if not already connected
 if (!isset($path)) {
     // Path to the init.php file for connecting to the XHE API
-    $path = "../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
 
 // Scenario: Demonstrate setting cell values with different types
-echo "\n<span style=\"color: blue; \">excelfile->" . basename(__FILE__) . "</span>\n";
+echo "\n<span >excelfile->" . basename(__FILE__) . "</span>\n";
 
 // Initialize Excel
 SYSTEM::$excel->kill();
 
 // Example 1: Set cell value as number
+$sheetNumber = 0;
 echo("\nExample 1: Set cell value as number J4 Sheet $sheetNumber : ");
 // Extract method arguments into variables
 $excelFilePath = "test/test.xlsx";
-$sheetNumber = 0;
 $rowNumber1 = 4;
 $columnLetter1 = "J";
 $cellValue1 = "99999";

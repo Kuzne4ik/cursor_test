@@ -13,12 +13,12 @@ $xhe_host = "127.0.0.1:7010";
 // подключим функциональные объекты, если еще не подключен
 if (!isset($path)){
     // Path to the init.php file for connecting to the XHE API
-    $path = "../../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     // Including init.php grants access to all classes and functionality for working with the XHE API
     require($path);
 }
 // info
-echo "\n<font color=blue>folder->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >folder->" . basename (__FILE__) . "</span>\n";
 
 
 $defaultWindowsPath = "C:\\Program Files\\LibreOffice\\program\\";

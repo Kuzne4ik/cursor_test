@@ -4,12 +4,12 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 
 // info
-echo "\n<font color=blue>file_os->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >file_os->" . basename (__FILE__) . "</span>\n";
 
 // File path
 $filePath = "E:/Disk Copy/B917A2DBC6B2900F-00-00.mrimg";

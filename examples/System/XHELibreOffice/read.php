@@ -5,12 +5,12 @@ $xhe_host = "127.0.0.1:7013";
 
 // подключим функциональные объекты, если еще не подключен
 if (!isset($path)) {
-    $path = "../../../../../Templates/init.php";
+    $path = "../../../Templates/init.php";
     require($path);
 }
 
 // начало
-echo "\n<font color=blue>libreOffice->".basename (__FILE__)."</font>\n";
+echo "\n<span >libreOffice->".basename (__FILE__)."</span>\n";
 
 // Example 1: ODT file path
 $filePath = "test/test_style.odt";

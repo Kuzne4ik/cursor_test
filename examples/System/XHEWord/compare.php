@@ -3,11 +3,11 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>word->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >word->" . basename (__FILE__) . "</span>\n";
 
 // Initialize variables
 $firstFilePath = "test/test.docx";

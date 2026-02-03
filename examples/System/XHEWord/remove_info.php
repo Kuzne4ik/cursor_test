@@ -3,11 +3,11 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 // info
-echo "\n<font color=blue>word->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >word->" . basename (__FILE__) . "</span>\n";
 
 // Kill any existing Word app processes
 $result = SYSTEM::$word->kill();
@@ -19,9 +19,10 @@ if ($result) {
 
 // Define file paths in Linux format
 $inputPath = "test/test.docx";
+$outputPath = "test/test_ri.docx";
 
 // Open the file for edit
-SYSTEM::$word->open($filePath, false);
+SYSTEM::$word->open($inputPath, false);
 
 // Example 1: Remove personal information from Word document and save with new name
 echo("1. Remove personal information from Word document and save with new name: ");
@@ -32,8 +33,8 @@ else
     echo("false\n");
 
 // Save and close the document
-SYSTEM::$word->save($filePath);
-SYSTEM::$word->close($filePath);
+SYSTEM::$word->save($inputPath);
+SYSTEM::$word->close($inputPath);
 
 echo "\n";
 

@@ -2,14 +2,14 @@
 $xhe_host = "127.0.0.1:7010";
 // Connect functional objects if not already connected
 if (!isset($path)){
-  $path = "../../../../../Templates/init.php";
+  $path = "../../../Templates/init.php";
   require($path);
 }
 
 // Scenario: Demonstrate getting the number of columns in a sheet
 
 // info
-echo "\n<font color=blue>excelDataReader->" . basename (__FILE__) . "</font>\n";
+echo "\n<span >excelDataReader->" . basename (__FILE__) . "</span>\n";
 
 // Kill any existing Excel processes
 SYSTEM::$excel->kill();
