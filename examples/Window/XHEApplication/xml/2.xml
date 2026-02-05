@@ -1,0 +1,28 @@
+<freeDlg x="10" y="10" width="300" height="430" value="app freedlg" x_ok="70" y_ok="370" x_cancel="170" y_cancel="370">
+	<COMBOBOX x="10" y="10" width="100" height="150" value="ccc" >
+		<VALUE>1</VALUE>
+		<VALUE>2</VALUE>
+		<VALUE>3</VALUE>
+	</COMBOBOX>
+	<LISTBOX x="10" y="50" width="100" height="150" value="4" >
+		<VALUE>4</VALUE>
+		<VALUE>5</VALUE>
+		<VALUE>6</VALUE>
+	</LISTBOX>
+	<EDIT x="150" y="10" width="100" height="20" value="2000" ></EDIT>
+	<MULTIEDIT x="150" y="100" width="100" height="80" value="2000" ></MULTIEDIT>
+	<CHECKBOX x="150" y="50" width="100" height="20" value="0" ></CHECKBOX>
+	<LABEL x="150" y="80" width="100" height="20" value="label" ></LABLE>
+	<TREE x="150" y="200" width="100" height="100" value="tree" >
+		<VALUE value="tree0">
+			<VALUE value="tree10"></VALUE>
+			<VALUE value="tree20"></VALUE>
+			<VALUE value="tree30"></VALUE>
+		</VALUE>
+		<VALUE value="tree1"></VALUE>
+		<VALUE value="tree2"></VALUE>
+	</TREE>
+	<FILESELECT x="10" y="310" width="280" height="22" value="C:\1.txt" button="..." command="sel_file_1" ext="*.txt"></FILESELECT>
+	<FOLDERSELECT x="10" y="340" width="280" height="22" value="C:\" button="..." command="sel_folder_1" ext="Выбор папки для чего-нибудь"></FOLDERSELECT>
+</freeDlg>
+

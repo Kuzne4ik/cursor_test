@@ -1,1 +1,0 @@
-"C:\Program Files\7-Zip\7z.exe" x -aoa -o"D:\Src XHE without Telerik\bin\x64\Debug\Test Samples\System\file_os\test\unzipped\" "D:\Src XHE without Telerik\bin\x64\Debug\Test Samples\System\file_os\test\test1.txt.zip"
