@@ -1,29 +1,59 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+﻿<?php
+// Scenario: Edit existing scheduled tasks
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+echo "\n<span>debug->" . basename(__FILE__) . "</span>\n";
 
-// 1 
-echo "1. Получим нулевую заадчу : ";
-echo $scheduler->get(0,$path,$type,$date,$time,$count,$active,$comments,$add_param)."<br>";
+// Step: Prepare variables to store task parameters
+$taskPath = "";
+$taskType = "";
+$taskDate = "";
+$taskTime = "";
+$taskCount = "";
+$taskActive = "";
+$taskComments = "";
+$taskAddParam = "";
 
-// 2 
-echo "2. Отредактируем нулевую задчу : ";
-$next_time = date("H:i:s", time() + 200);
-$new_date=date("Y-m-d");
-$add_param=15;
-echo $scheduler->edit(0,$path,$type, $new_date,$next_time,$count, true,$comments,$add_param);
+// Step: Prepare task index for editing
+$taskIndex = 0;
 
-//$app->restart('','',$app->get_port());
+// Step: Get the zero task
+echo "Step: Get the zero task\n";
+$getResult = WINDOW::$scheduler->get($taskIndex, $taskPath, $taskType, $taskDate, $taskTime, $taskCount, $taskActive, $taskComments, $taskAddParam);
+if ($getResult) {
+    echo "Task retrieved successfully\n";
+    echo "Path: " . $taskPath . "\n";
+    echo "Type: " . $taskType . "\n";
+    echo "Date: " . $taskDate . "\n";
+    echo "Time: " . $taskTime . "\n";
+    echo "Count: " . $taskCount . "\n";
+    echo "Active: " . $taskActive . "\n";
+    echo "Comments: " . $taskComments . "\n";
+    echo "Additional parameters: " . $taskAddParam . "\n";
+} else {
+    echo "Failed to retrieve task\n";
+}
 
-// конец
-echo "\n";
+// Step: Prepare new task parameters
+$nextTime = date("H:i:s", time() + 200);
+$newDate = date("Y-m-d");
+$newAddParam = 15;
 
-// Quit
-$app->quit();
+// Example 1: Edit the zero task
+echo "\nExample 1: Edit the zero task\n";
+$editResult = WINDOW::$scheduler->edit($taskIndex, $taskPath, $taskType, $newDate, $nextTime, $taskCount, true, $taskComments, $newAddParam);
+if ($editResult)
+    echo "Task edited successfully\n";
+else
+    echo "Failed to edit task\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

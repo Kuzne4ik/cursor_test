@@ -1,20 +1,24 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+﻿<?php
+// Scenario: Delete all scheduled tasks
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+echo "\n<span>debug->" . basename(__FILE__) . "</span>\n";
 
-// 1 
-echo "1. Удалим все задачи из расписания скриптов : ";
-echo $scheduler->delete_all()."<br>";
+// Example 1: Delete all tasks from the script schedule
+echo "Example 1: Delete all tasks from the script schedule\n";
+$deleteAllResult = WINDOW::$scheduler->delete_all();
+if ($deleteAllResult)
+    echo "All tasks deleted successfully\n";
+else
+    echo "Failed to delete all tasks\n";
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

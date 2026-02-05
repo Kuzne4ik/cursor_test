@@ -1,28 +1,46 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+﻿<?php
+// Scenario: Get parameters of a scheduled task
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+echo "\n<span>debug->" . basename(__FILE__) . "</span>\n";
 
-// 1 
-echo "1. Получим параметры заданной задачи : ";
-echo $scheduler->get(2,$path_,$type,$date,$time,$count,$active,$comments,$add_param)." : <br>";
-echo "path=".$path_;
-echo "\ntype=".$type;
-echo "\ndate=".$date;
-echo "\ntime=".$time;
-echo "\ncount=".$count;
-echo "\nactive=".$active;
-echo "\ncomments=".$comments;
-echo "\nadd_param=".$add_param;
+// Step: Prepare variables to store task parameters
+$taskPath = "";
+$taskType = "";
+$taskDate = "";
+$taskTime = "";
+$taskCount = "";
+$taskActive = "";
+$taskComments = "";
+$taskAddParam = "";
 
-// конец
-echo "\n";
+// Step: Prepare task index for retrieval
+$taskIndex = 2;
 
-// Quit
-$app->quit();
+// Example 1: Get parameters of the specified task
+echo "Example 1: Get parameters of the specified task\n";
+$getResult = WINDOW::$scheduler->get($taskIndex, $taskPath, $taskType, $taskDate, $taskTime, $taskCount, $taskActive, $taskComments, $taskAddParam);
+if ($getResult) {
+    echo "Task parameters retrieved successfully:\n";
+    echo "Path: " . $taskPath . "\n";
+    echo "Type: " . $taskType . "\n";
+    echo "Date: " . $taskDate . "\n";
+    echo "Time: " . $taskTime . "\n";
+    echo "Count: " . $taskCount . "\n";
+    echo "Active: " . $taskActive . "\n";
+    echo "Comments: " . $taskComments . "\n";
+    echo "Additional parameters: " . $taskAddParam . "\n";
+} else {
+    echo "Failed to retrieve task parameters\n";
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

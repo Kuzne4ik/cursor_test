@@ -1,28 +1,30 @@
-<?php $xhe_host = "127.0.0.1:7012";
+<?php
+// Scenario: Add a new scheduled task
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Step: Prepare parameters for adding a new task
+$scriptPath = WINDOW::$debug->get_cur_script_path();
+$taskType = 0;
+$taskDate = "2015-07-01";
+$taskTime = "00:00:00";
+$taskCount = 1;
+$isActive = true;
 
-  $d ="2015-07-01";
-  $t = "00:00:00";
-echo $scheduler->add($debug->get_cur_script_path(),
-    0,
-    $d,
-    $t,
-    1,
-    true
-  );  
+// Example 1: Add a new scheduled task
+echo "Example 1: Add a new scheduled task\n";
+$addResult = WINDOW::$scheduler->add($scriptPath, $taskType, $taskDate, $taskTime, $taskCount, $isActive);
+if ($addResult)
+    echo "Task added successfully\n";
+else
+    echo "Failed to add task\n";
 
-
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>
