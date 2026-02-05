@@ -9,7 +9,7 @@ if (!isset($path)){
     require($path);
 }
 
-echo "\n<span>debug->" . basename(__FILE__) . "</span>\n";
+echo "\n<span>scheduler->" . basename(__FILE__) . "</span>\n";
 
 // Step: Prepare variables to store task parameters
 $taskPath = "";

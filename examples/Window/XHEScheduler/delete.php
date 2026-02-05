@@ -9,6 +9,8 @@ if (!isset($path)){
     require($path);
 }
 
+echo "\n<span>scheduler->" . basename(__FILE__) . "</span>\n";
+
 // Step: Prepare task index for deletion (numbering starts from zero)
 $taskIndex = 1;
 

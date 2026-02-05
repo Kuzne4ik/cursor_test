@@ -9,7 +9,7 @@ if (!isset($path)){
     require($path);
 }
 
-echo "\n<span>debug->" . basename(__FILE__) . "</span>\n";
+echo "\n<span>scheduler->" . basename(__FILE__) . "</span>\n";
 
 // Example 1: Delete all tasks from the script schedule
 echo "Example 1: Delete all tasks from the script schedule\n";

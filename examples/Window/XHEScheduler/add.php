@@ -9,6 +9,8 @@ if (!isset($path)){
     require($path);
 }
 
+echo "\n<span>scheduler->" . basename(__FILE__) . "</span>\n";
+
 // Step: Prepare parameters for adding a new task
 $scriptPath = WINDOW::$debug->get_cur_script_path();
 $taskType = 0;
