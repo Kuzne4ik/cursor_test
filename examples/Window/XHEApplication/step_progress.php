@@ -27,11 +27,11 @@ else
 
 // Example 1
 echo "\n\n2. Run progress loop\n";
-for($i = 0; $i < 10; $i++) {
+for($k = 0; $k < 10; $k++) {
     // Set current progress position
     $stepProgressResult = WINDOW::$app->step_progress();
     sleep(1);
-    echo $i." ";
+    echo $k." ";
 }
 
 // Example 2

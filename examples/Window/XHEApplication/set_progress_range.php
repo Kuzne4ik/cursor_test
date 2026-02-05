@@ -34,10 +34,10 @@ else
 
 // Example 1
 echo "\n\n2. Run progress with range 0-10\n";
-for($i = 0; $i < 10; $i++){
+for($k = 0; $k < 10; $k++){
     // step progress
     $stepResult = WINDOW::$app->step_progress();
-    echo $i . " ";
+    echo $k . " ";
     sleep(1);
 }
 

@@ -31,19 +31,19 @@ else
 
 // Example 1
 echo "\n\n2. Run progress with step position and text updates\n";
-for($i = 0; $i < 10; $i++){
+for($k = 0; $k < 10; $k++){
     // set current position of progress
-    $currentPos = $i;
+    $currentPos = $k;
     $setPosResult = WINDOW::$app->set_progress_pos($currentPos);
     
     // set current step text
-    $stepText = "step: " . ($i + 1);
+    $stepText = "step: " . ($k + 1);
     $setTextResult = WINDOW::$app->set_progress_text($stepText);
     
     // step progress
     $stepResult = WINDOW::$app->step_progress();
     
-    echo "Step " . ($i + 1) . " completed\n";
+    echo "Step " . ($k + 1) . " completed\n";
     sleep(1);
 }
 
