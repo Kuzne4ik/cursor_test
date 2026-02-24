@@ -1,32 +1,49 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+// Scenario: Change the system date
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windows->".basename (__FILE__)."</font>\n";
-
-// 1  
-echo "1. Получим текущую дату : ";
-echo $windows->get_system_date()."<br>";
-$date=explode("-",$windows->get_system_date());
-
-// 2 
-echo "2. Зададим новую системную дату 2012.11.06 : ";
-echo $windows->set_system_date(2012,11,6)."<br>";
-
-// пауза
-sleep(5);
-
-// 3 
-echo "3. Вернём старую дату : ";
-echo $windows->set_system_date($date[0],$date[1],$date[2]);
-
-// конец
+// Step: Start the script
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get current system date
+echo "Get current system date: ";
+$currentDate = WINDOW::$windows->get_system_date();
+echo $currentDate . "\n";
+$dateParts = explode("-", $currentDate);
+
+// Example 1: Set new system date to 2012-11-06
+$newYear = 2012;
+$newMonth = 11;
+$newDay = 6;
+echo "\nSet new system date to 2012-11-06: ";
+$result1 = WINDOW::$windows->set_system_date($newYear, $newMonth, $newDay);
+if ($result1) {
+    echo "Successfully set system date to 2012-11-06\n";
+} else {
+    echo "Failed to set system date to 2012-11-06\n";
+}
+
+// Pause
+sleep(5);
+
+// Example 2: Restore original system date
+echo "\nRestore original system date: ";
+$result2 = WINDOW::$windows->set_system_date($dateParts[0], $dateParts[1], $dateParts[2]);
+if ($result2) {
+    echo "Successfully restored original system date\n";
+} else {
+    echo "Failed to restore original system date\n";
+}
+
+// End
+echo "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

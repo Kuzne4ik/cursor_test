@@ -1,20 +1,24 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Get the current Windows build number
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windows->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Выведем текущий билд Windows : ";
-echo $windows->get_windows_build();
-
-// конец
+// Step: Start the script
 echo "\n";
 
-// Quit
-$app->quit();
+// Example 1: Get Windows build
+echo "Get Windows build: ";
+$windowsBuild = WINDOW::$windows->get_windows_build();
+echo $windowsBuild . "\n";
+
+// End
+echo "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

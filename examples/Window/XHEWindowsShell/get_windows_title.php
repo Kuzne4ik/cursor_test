@@ -1,20 +1,24 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Get the Windows title/name
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windows->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Выведем название Windows : ";
-echo $windows->get_windows_title();
-
-// конец
+// Step: Start the script
 echo "\n";
 
-// Quit
-$app->quit();
+// Example 1: Get Windows title
+echo "Get Windows title: ";
+$windowsTitle = WINDOW::$windows->get_windows_title();
+echo $windowsTitle . "\n";
+
+// End
+echo "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

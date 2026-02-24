@@ -1,77 +1,37 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Get paths to Windows special folders
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windows->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Получить папку c Windows : ";
-echo ($windows->get_special_folder("Windows"))."\n";
-
-// 2
-echo "2. Получить папку c Windows : ";
-echo ($windows->get_special_folder("Temp"))."\n";
-
-// 3
-echo "3. Получить папку c автозагрузкой  : ";
-echo ($windows->get_special_folder("Startup"))."\n";
-
-// конец
+// Step: Start the script
 echo "\n";
 
-// Quit
-$app->quit();
-?>
+// Example 1: Get Windows folder
+$windowsFolder = "Windows";
+echo "Get Windows folder: ";
+$windowsFolderPath = WINDOW::$windows->get_special_folder($windowsFolder);
+echo $windowsFolderPath . "\n";
 
-/* полный список папок:
-Desktop;
-Programs
-Personal
-MyDocuments
-Favorites
-Startup
-Recent
-SendTo
-StartMenu
-MyMusic
-MyVideos
-DesktopDirectory
-MyComputer
-NetworkShortcuts
-Fonts
-Templates
-CommonStartMenu
-CommonPrograms
-CommonStartup
-CommonDesktopDirectory
-ApplicationData
-PrinterShortcuts
-LocalApplicationData
-InternetCache
-Cookies
-History
-CommonApplicationData
-Windows
-System
-ProgramFiles
-MyPictures
-UserProfile
-SystemX86
-ProgramFilesX86
-CommonProgramFiles
-CommonProgramFilesX86
-CommonTemplates
-CommonDocuments
-CommonAdminTools
-AdminTools
-CommonMusic
-CommonPictures
-CommonVideos":
-Resources
-LocalizedResources
-CommonOemLinks
-CDBurning*/
+// Example 2: Get Temp folder
+$tempFolder = "Temp";
+echo "Get Temp folder: ";
+$tempFolderPath = WINDOW::$windows->get_special_folder($tempFolder);
+echo $tempFolderPath . "\n";
+
+// Example 3: Get Startup folder
+$startupFolder = "Startup";
+echo "Get Startup folder: ";
+$startupFolderPath = WINDOW::$windows->get_special_folder($startupFolder);
+echo $startupFolderPath . "\n";
+
+// End
+echo "\n";
+
+// Quit the application
+WINDOW::$app->quit();
+?>

@@ -1,38 +1,57 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Change the screen resolution
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windows->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Выведем разрешение экрана : ";
-echo $x=$windows->get_screen_width();
-echo " x ".$y=$windows->get_screen_height();
-
-// 2 
-echo "\n2. Зададим новое разрешение экрана : 1024 x 768 : ";
-echo $windows->set_screen_resolution(1024,768)."<br>";
-sleep(6);
-
-// 3 
-echo "3. Выведем новое разрешение экрана : ";
-echo $windows->get_screen_width()."x";
-echo $windows->get_screen_height()."<br>";
-
-// пауза
-sleep(5);
-
-// 4 
-echo "4. Зададим старое разрешение экрана : ";
-echo $windows->set_screen_resolution($x,$y);
-
-// конец
+// Step: Start the script
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get current screen resolution
+echo "Get current screen resolution: ";
+$currentWidth = WINDOW::$windows->get_screen_width();
+echo $currentWidth . " x ";
+$currentHeight = WINDOW::$windows->get_screen_height();
+echo $currentHeight . "\n";
+
+// Example 1: Set new screen resolution to 1024x768
+$newWidth = 1024;
+$newHeight = 768;
+echo "\nSet new screen resolution to 1024x768: ";
+$result1 = WINDOW::$windows->set_screen_resolution($newWidth, $newHeight);
+if ($result1) {
+    echo "Successfully set screen resolution to 1024x768\n";
+} else {
+    echo "Failed to set screen resolution to 1024x768\n";
+}
+sleep(6);
+
+// Step: Verify new resolution
+echo "\nVerify new resolution: ";
+$verifyWidth = WINDOW::$windows->get_screen_width();
+echo $verifyWidth . "x";
+$verifyHeight = WINDOW::$windows->get_screen_height();
+echo $verifyHeight . "\n";
+
+// Pause
+sleep(5);
+
+// Example 2: Restore original screen resolution
+echo "\nRestore original screen resolution: ";
+$result2 = WINDOW::$windows->set_screen_resolution($currentWidth, $currentHeight);
+if ($result2) {
+    echo "Successfully restored original screen resolution\n";
+} else {
+    echo "Failed to restore original screen resolution\n";
+}
+
+// End
+echo "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

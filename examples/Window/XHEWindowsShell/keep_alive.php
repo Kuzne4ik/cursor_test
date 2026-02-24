@@ -1,20 +1,28 @@
-<?php $xhe_host = "127.0.0.1:5006";
+<?php
+// Scenario: Reset monitor turn-off and sleep mode timers
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windows->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Сбросить время отключения монитора и ухода в спящий режим: ";
-echo $windows->keep_alive();
-
-// конец
+// Step: Start the script
 echo "\n";
 
-// Quit
-$app->quit();
+// Example 1: Reset monitor and sleep timers
+echo "Reset monitor and sleep timers: ";
+$result = WINDOW::$windows->keep_alive();
+if ($result) {
+    echo "Successfully reset monitor and sleep timers\n";
+} else {
+    echo "Failed to reset monitor and sleep timers\n";
+}
+
+// End
+echo "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>
