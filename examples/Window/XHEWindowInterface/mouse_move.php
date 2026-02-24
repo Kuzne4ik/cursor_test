@@ -1,21 +1,38 @@
-<?php $xhe_host = "127.0.0.1:7025";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Path to the init.php file for connecting to the XHE API
+$path = "../../../Templates/init.php";
+// Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Scenario: Move mouse to inspector coordinates
 
-// 1 
-echo "1. Передвинем мышь в инспектор в координаты +100 +100: ";
-$inspector=$window->get_by_text("localhost")->get_child_by_text("Инспектор",true,true)->get_ui();
-echo $inspector->mouse_move(100,100);
+// Step: Get the main window interface
+$windowText = "localhost";
+$mainWindow = WINDOW::$window->get_by_text($windowText);
 
-// конец
-echo "\n";
+// Step: Define parameters for getting child window by text
+$childText = "Инспектор";
+$visibly = true;
+$recursively = true;
 
-// Quit
-$app->quit();
+// Example 1: Move mouse to inspector coordinates +100 +100
+echo "Example 1: Move mouse to inspector coordinates +100 +100\n";
+$inspector = $mainWindow->get_child_by_text($childText, $visibly, $recursively);
+$inspectorUI = $inspector->get_ui_element();
+
+// Step: Define coordinates for mouse movement
+$moveX = 100;
+$moveY = 100;
+
+// Step: Perform mouse move operation
+$moveResult = $inspectorUI->mouse_move($moveX, $moveY);
+if ($moveResult) {
+    echo "Mouse moved to inspector coordinates successfully\n";
+} else {
+    echo "Failed to move mouse to inspector coordinates\n";
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

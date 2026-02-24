@@ -1,26 +1,35 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Получим координаты 'Левой Панели' в приложении: ";
-$xhe=$window->get_by_text("localhost");
-$left_pane=$xhe->get_child_by_class("XTPDockingPaneTabbedContainer");
-echo $left_pane->get_x()." ".$left_pane->get_y()."<br>";
-
-// 2 
-echo "2. Получим текст верхнего окна владельца для 'Левой панели': ";
-echo $left_pane->get_top_owner()->get_text();
-
-// конец
+// Scenario: Get coordinates of a child window and text of its top owner window
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get the main window interface
+$windowText = "localhost";
+$mainWindow = WINDOW::$window->get_by_text($windowText);
+
+// Step: Define parameters for getting child window by class
+$childClass = "XTPDockingPaneTabbedContainer";
+
+// Example 1: Get coordinates of the Left Pane in XHE
+echo "Example 1: Get coordinates of the Left Pane in XHE\n";
+$leftPane = $mainWindow->get_child_by_class($childClass);
+$leftPaneX = $leftPane->get_x();
+$leftPaneY = $leftPane->get_y();
+echo "Left Pane coordinates: X=" . $leftPaneX . " Y=" . $leftPaneY . "\n";
+
+// Example 2: Get text of the top owner window for the Left Pane
+echo "Example 2: Get text of the top owner window for the Left Pane\n";
+$topOwnerWindow = $leftPane->get_top_owner();
+$topOwnerWindowText = $topOwnerWindow->get_text();
+echo "Text of the top owner window: " . $topOwnerWindowText . "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

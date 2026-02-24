@@ -1,21 +1,28 @@
-﻿<?php $xhe_host = "127.0.0.1:705";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Проверим пользовательский фокус главного видимого окна содержащего название 'localhost': ";
-$xweb=$window->get_by_text("localhost");
-echo $xweb->is_foreground();
-
-// конец
+// Scenario: Check if a window is in the foreground
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get the main window interface
+$windowText = "localhost";
+$mainWindow = WINDOW::$window->get_by_text($windowText);
+
+// Example 1: Check if the main visible window containing 'localhost' text is in the foreground
+echo "Example 1: Check if the main visible window containing 'localhost' text is in the foreground\n";
+$isForegroundResult = $mainWindow->is_foreground();
+if ($isForegroundResult) {
+    echo "Window with text '" . $windowText . "' is in the foreground\n";
+} else {
+    echo "Window with text '" . $windowText . "' is not in the foreground\n";
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

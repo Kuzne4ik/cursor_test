@@ -1,25 +1,36 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+// Scenario: Enable and disable a window
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Step: Get the XHE window interface
+$windowText = "localhost";
+$xheWindow = WINDOW::$window->get_by_text($windowText);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Example 1: Disable the XHE window
+echo "Example 1: Disable the XHE window\n";
+$disableResult = $xheWindow->enable(false);
+if ($disableResult) {
+    echo "XHE window disabled successfully\n";
+} else {
+    echo "Failed to disable XHE window\n";
+}
+sleep(5);
 
-// 1 
-echo "1. Запретим XHE : ";
-$xhe=$window->get_by_text("localhost");
-echo $xhe->enable(false)."<br>";sleep(5);
+// Example 2: Enable the XHE window
+echo "Example 2: Enable the XHE window\n";
+$enableResult = $xheWindow->enable(true);
+if ($enableResult) {
+    echo "XHE window enabled successfully\n";
+} else {
+    echo "Failed to enable XHE window\n";
+}
 
-// 2 
-echo "2. Разрешим XHE : ";
-echo $xhe->enable(true)."<br>";
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

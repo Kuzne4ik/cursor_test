@@ -1,21 +1,30 @@
-﻿<?php
+<?php
 $xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Получим заголовок окона XHE (как список родительских): \n";
-print_r ($window->get_by_text("localhost")->get_child_by_text("Панель",false)->get_all_parent()->get_text());
-
-// конец
+// Scenario: Get text of all parent windows of a child element
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get the main window interface
+$windowText = "localhost";
+$mainWindow = WINDOW::$window->get_by_text($windowText);
+
+// Step: Get a child window by text
+$childText = "Панель";
+$visibly = false;
+$childWindow = $mainWindow->get_child_by_text($childText, $visibly);
+
+// Example 1: Get text of all parent windows of the child element
+echo "Example 1: Get text of all parent windows of the child element with text '" . $childText . "'\n";
+$parentWindows = $childWindow->get_all_parent();
+$parentWindowTexts = $parentWindows->get_text();
+print_r($parentWindowTexts);
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

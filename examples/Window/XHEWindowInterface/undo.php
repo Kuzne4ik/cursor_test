@@ -1,25 +1,61 @@
-<?php $xhe_host = "127.0.0.1:7026";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Undo operation in Notepad application
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get the Notepad window interface
+$windowText = "Notepad";
+$visibly = false;
+$mainWindow = true;
+$childWindow = true;
+$notepadWindow = WINDOW::$window->get_by_text($windowText, $visibly, $mainWindow, $childWindow);
 
-// 1 
-echo "1. Отмена операции в открытом блокноте : ";
-$notebook=$window->get_by_text("Блокнот",false,true,true)->get_child_by_number(0);
-$notebook->focus();
-$notebook->paste("text1\r\n");
-$notebook->paste("text2");
+// Step: Get the text area (first child element)
+$childNumber = 0;
+$notebook = $notepadWindow->get_child_by_number($childNumber);
+
+// Step: Set focus to the text area
+$focusResult = $notebook->focus();
+if ($focusResult) {
+    echo "Focus set to Notepad text area successfully\n";
+} else {
+    echo "Failed to set focus to Notepad text area\n";
+}
+
+// Step: Paste first text
+$text1 = "text1\r\n";
+$pasteResult1 = $notebook->paste($text1);
+if ($pasteResult1) {
+    echo "First text pasted successfully\n";
+} else {
+    echo "Failed to paste first text\n";
+}
+
+// Step: Paste second text
+$text2 = "text2";
+$pasteResult2 = $notebook->paste($text2);
+if ($pasteResult2) {
+    echo "Second text pasted successfully\n";
+} else {
+    echo "Failed to paste second text\n";
+}
 sleep(2);
-echo $notebook->undo();
 
-// конец
-echo "\n";
+// Example 1: Undo operation in Notepad
+echo "Example 1: Undo operation in Notepad\n";
+$undoResult = $notebook->undo();
+if ($undoResult) {
+    echo "Undo operation executed successfully\n";
+} else {
+    echo "Failed to execute undo operation\n";
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

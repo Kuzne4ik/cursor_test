@@ -1,23 +1,32 @@
-<?php $xhe_host = "127.0.0.1:7026";
+<?php
+// Scenario: Copy text from address bar to clipboard
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Step: Get the address bar element
+$addressBarText = WEB::$webpage->get_url();
+$addressBar = WINDOW::$window->get_by_text($addressBarText, true, false, true);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Set focus to the address bar
+$addressBar->focus();
 
-// 1 
-echo "1. Скопируем текст с адресной строки: ";
-$addres_bar=$window->get_by_text($webpage->get_url(),true,false,true);
-$addres_bar->focus();
-echo $addres_bar->copy()."<br>";
-echo "copied text: ".$clipboard->get_text();
+// Example 1: Copy text from address bar to clipboard
+echo "Example 1: Copy text from address bar to clipboard\n";
+$copyResult = $addressBar->copy();
+if ($copyResult) {
+    echo "Text copied successfully from address bar\n";
+    // Step: Get copied text from clipboard
+    $copiedText = SYSTEM::$clipboard->get_text();
+    echo "Copied text: " . $copiedText . "\n";
+} else {
+    echo "Failed to copy text from address bar\n";
+}
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

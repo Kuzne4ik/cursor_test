@@ -1,23 +1,32 @@
-<?php $xhe_host = "127.0.0.1:7026";
+<?php
+// Scenario: Cut text from address bar to clipboard
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Step: Get the address bar element
+$addressBarText = WEB::$webpage->get_url();
+$addressBar = WINDOW::$window->get_by_text($addressBarText, true, false, true);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Set focus to the address bar
+$addressBar->focus();
 
-// 1 
-echo "1. Вырежем текст с адресной строки: ";
-$addres_bar=$window->get_by_text($webpage->get_url(),true,false,true);
-$addres_bar->focus();
-echo $addres_bar->cut()."<br>";
-echo "cutted text: ".$clipboard->get_text();
+// Example 1: Cut text from address bar to clipboard
+echo "Example 1: Cut text from address bar to clipboard\n";
+$cutResult = $addressBar->cut();
+if ($cutResult) {
+    echo "Text cut successfully from address bar\n";
+    // Step: Get cut text from clipboard
+    $cutText = SYSTEM::$clipboard->get_text();
+    echo "Cut text: " . $cutText . "\n";
+} else {
+    echo "Failed to cut text from address bar\n";
+}
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

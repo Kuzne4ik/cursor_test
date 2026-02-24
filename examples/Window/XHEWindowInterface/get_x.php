@@ -1,32 +1,45 @@
-<?php $xhe_host = "127.0.0.1:7019";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Получим положение XHE на рабочем столе : <br><br>";
-$skype=$window->get_by_text("Human",false);
-echo "x=".$skype->get_x()."<br>";
-echo "y=".$skype->get_y()."<br>";
-echo "width=".$skype->get_width()."<br>";
-echo "height=".$skype->get_height()."<br>";
-
-// 2
-echo "\n2. Получим положение клиентской части XHE на рабочем столе : <br><br>";
-$skype=$window->get_by_text("Human",false);
-echo "x=".$skype->get_x(true)."<br>";
-echo "y=".$skype->get_y(true)."<br>";
-echo "width=".$skype->get_width(true)."<br>";
-echo "height=".$skype->get_height(true)."<br>";
-
-// конец
+// Scenario: Get window position and dimensions including client area
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get the main window interface
+$windowText = "Human";
+$mainWindow = WINDOW::$window->get_by_text($windowText, false);
+
+// Example 1: Get position and dimensions of the window on the desktop
+echo "Example 1: Get position and dimensions of the window on the desktop\n";
+$windowX = $mainWindow->get_x();
+$windowY = $mainWindow->get_y();
+$windowWidth = $mainWindow->get_width();
+$windowHeight = $mainWindow->get_height();
+
+echo "Window position and dimensions:\n";
+echo "X=" . $windowX . "\n";
+echo "Y=" . $windowY . "\n";
+echo "Width=" . $windowWidth . "\n";
+echo "Height=" . $windowHeight . "\n";
+
+// Example 2: Get position and dimensions of the client area of the window
+echo "\n\nExample 2: Get position and dimensions of the client area of the window\n";
+$clientX = $mainWindow->get_x(true);
+$clientY = $mainWindow->get_y(true);
+$clientWidth = $mainWindow->get_width(true);
+$clientHeight = $mainWindow->get_height(true);
+
+echo "Client area position and dimensions:\n";
+echo "X=" . $clientX . "\n";
+echo "Y=" . $clientY . "\n";
+echo "Width=" . $clientWidth . "\n";
+echo "Height=" . $clientHeight . "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

@@ -1,27 +1,58 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Path to the init.php file for connecting to the XHE API
+$path = "../../../Templates/init.php";
+// Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Scenario: Select text in the editor using send_mouse_left_down and send_mouse_left_up
 
-// 1 
-echo "1. Выделим текст в редакторе : ";
-$browser_wnd=$window->get_by_text("localhost");
-for ($i=200;$i<500;$i+=50)
-{
-	echo $browser_wnd->send_mouse_left_up($i,$i);
-	echo $browser_wnd->send_mouse_left_down($i,$i)." ";
-   sleep(1);
+// Step: Get the browser window interface
+$windowText = "localhost";
+$browserWindow = WINDOW::$window->get_by_text($windowText);
+
+// Example 1: Select text in the editor using send_mouse_left_down and send_mouse_left_up
+echo "Example 1: Select text in the editor using send_mouse_left_down and send_mouse_left_up\n";
+
+// Step: Define loop parameters
+$startX = 200;
+$endX = 500;
+$increment = 50;
+
+// Step: Loop through coordinates
+for ($x = $startX; $x < $endX; $x += $increment) {
+    $y = $x; // Use the same value for y coordinate
+    
+    // Step: Send mouse left up at current coordinates
+    $leftUpResult = $browserWindow->send_mouse_left_up($x, $y);
+    if ($leftUpResult) {
+        echo "Mouse left up sent successfully at coordinates (" . $x . ", " . $y . ")\n";
+    } else {
+        echo "Failed to send mouse left up at coordinates (" . $x . ", " . $y . ")\n";
+    }
+    
+    // Step: Send mouse left down at current coordinates
+    $leftDownResult = $browserWindow->send_mouse_left_down($x, $y);
+    if ($leftDownResult) {
+        echo "Mouse left down sent successfully at coordinates (" . $x . ", " . $y . ")\n";
+    } else {
+        echo "Failed to send mouse left down at coordinates (" . $x . ", " . $y . ")\n";
+    }
+    
+    sleep(1);
 }
-echo $browser_wnd->send_mouse_left_up($i,$i);
 
-// конец
-echo "\n";
+// Step: Send final mouse left up at the last coordinates
+$finalX = $endX;
+$finalY = $finalX;
+$finalLeftUpResult = $browserWindow->send_mouse_left_up($finalX, $finalY);
+if ($finalLeftUpResult) {
+    echo "Final mouse left up sent successfully at coordinates (" . $finalX . ", " . $finalY . ")\n";
+    echo "Text selection completed successfully\n";
+} else {
+    echo "Failed to send final mouse left up at coordinates (" . $finalX . ", " . $finalY . ")\n";
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

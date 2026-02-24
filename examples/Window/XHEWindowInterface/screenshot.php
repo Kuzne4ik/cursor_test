@@ -1,30 +1,60 @@
-<?php $xhe_host = "127.0.0.1:7010";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Path to the init.php file for connecting to the XHE API
+$path = "../../../Templates/init.php";
+// Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Scenario: Take screenshots of the application window
 
-// 1 
-echo "1. Сделаем скриншот приложения: ";
-echo $window->get_by_text("localhost",false)->screenshot("test\\1.bmp")."<br>";
+// Step: Get the application window interface
+$windowText = "localhost";
+$visibly = false;
+$xheWindow = WINDOW::$window->get_by_text($windowText, $visibly);
 
-$app->shell_execute("open","test\\1.bmp");
+// Example 1: Take a screenshot of the application
+echo "Example 1: Take a screenshot of the application\n";
+$savePath1 = "test\\1.bmp";
+$screenshotResult1 = $xheWindow->screenshot($savePath1);
+if ($screenshotResult1) {
+    echo "Screenshot saved successfully to: " . $savePath1 . "\n";
+} else {
+    echo "Failed to take screenshot\n";
+}
+
+// Step: Open the screenshot file
+$shellExecuteResult1 = WINDOW::$app->shell_execute("open", $savePath1);
+if ($shellExecuteResult1) {
+    echo "Screenshot file opened successfully\n";
+} else {
+    echo "Failed to open screenshot file\n";
+}
 sleep(5);
 
-// 2
-echo "2. Сделаем скриншот приложения включая не клиентскую часть : ";
-echo $window->get_by_text("localhost",false)->screenshot("test\\1.bmp",-1,-1,-1,-1,true,true)."<br>";
+// Example 2: Take a screenshot of the application including non-client area
+echo "Example 2: Take a screenshot of the application including non-client area\n";
+$savePath2 = "test\\1.bmp";
+$x1 = -1;
+$y1 = -1;
+$x2 = -1;
+$y2 = -1;
+$includeNonClient = true;
+$includeChildWindows = true;
+$screenshotResult2 = $xheWindow->screenshot($savePath2, $x1, $y1, $x2, $y2, $includeNonClient, $includeChildWindows);
+if ($screenshotResult2) {
+    echo "Screenshot with non-client area saved successfully to: " . $savePath2 . "\n";
+} else {
+    echo "Failed to take screenshot with non-client area\n";
+}
 
-$app->shell_execute("open","test\\1.bmp");
+// Step: Open the screenshot file
+$shellExecuteResult2 = WINDOW::$app->shell_execute("open", $savePath2);
+if ($shellExecuteResult2) {
+    echo "Screenshot file with non-client area opened successfully\n";
+} else {
+    echo "Failed to open screenshot file with non-client area\n";
+}
 
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

@@ -1,25 +1,37 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Hide and show the XHE application window
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get the XHE window interface
+$windowText = "localhost";
+$xheWindow = WINDOW::$window->get_by_text($windowText);
 
-// 1 
-echo "1. Спрячем XHE : ";
-$xhe=$window->get_by_text("localhost");
-echo $xhe->show(false)."<br>";sleep(2);
+// Example 1: Hide the XHE application window
+echo "Example 1: Hide the XHE application window\n";
+$showResult1 = $xheWindow->show(false);
+if ($showResult1) {
+    echo "XHE window hidden successfully\n";
+} else {
+    echo "Failed to hide XHE window\n";
+}
+sleep(2);
 
-// 2 
-echo "2. Покажем XHE : ";
-echo $xhe->show(true)."<br>";
+// Example 2: Show the XHE application window
+echo "Example 2: Show the XHE application window\n";
+$showResult2 = $xheWindow->show(true);
+if ($showResult2) {
+    echo "XHE window shown successfully\n";
+} else {
+    echo "Failed to show XHE window\n";
+}
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

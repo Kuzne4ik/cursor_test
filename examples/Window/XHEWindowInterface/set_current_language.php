@@ -1,33 +1,66 @@
-<?php $xhe_host = "127.0.0.1:7012";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Scenario: Set current language for keyboard input in Notepad application
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get the Notepad window interface
+$windowText = "Notepad";
+$visibly = false;
+$notepadWindow = WINDOW::$window->get_by_text($windowText, $visibly);
 
-// 1 
-echo "1. Получим окно блокнота : ";
-$notebook=$window->get_by_text("Блокнот",false);
-echo $notebook->is_exist()."<br>";
+// Example 1: Check if Notepad window exists
+echo "Example 1: Check if Notepad window exists\n";
+$existsResult = $notepadWindow->is_exist();
+if ($existsResult) {
+    echo "Notepad window exists\n";
+} else {
+    echo "Notepad window does not exist\n";
+}
 
-// 2 
-echo "2. Введем на английском языке : ";
-echo $notebook->set_current_language("en");
-echo $notebook->key("abcd",true)."<br>";
+// Example 2: Set language to English and input text
+echo "Example 2: Set language to English and input text\n";
+$language1 = "en";
+$setLanguageResult1 = $notepadWindow->set_current_language($language1);
+if ($setLanguageResult1) {
+    echo "Language set to English successfully\n";
+} else {
+    echo "Failed to set language to English\n";
+}
+
+$text1 = "abcd";
+$keyResult1 = $notepadWindow->key($text1, true);
+if ($keyResult1) {
+    echo "English text input successfully\n";
+} else {
+    echo "Failed to input English text\n";
+}
 sleep(1);
 
-// 3 
-echo "3. Введем на русском языке : ";
-$notebook->set_current_language("ru");
-echo $notebook->key("абвгд")."<br>";
+// Example 3: Set language to Russian and input text
+echo "Example 3: Set language to Russian and input text\n";
+$language2 = "ru";
+$setLanguageResult2 = $notepadWindow->set_current_language($language2);
+if ($setLanguageResult2) {
+    echo "Language set to Russian successfully\n";
+} else {
+    echo "Failed to set language to Russian\n";
+}
+
+$text2 = "абвгд";
+$keyResult2 = $notepadWindow->key($text2);
+if ($keyResult2) {
+    echo "Russian text input successfully\n";
+} else {
+    echo "Failed to input Russian text\n";
+}
 sleep(1);
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

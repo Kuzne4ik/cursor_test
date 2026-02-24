@@ -1,29 +1,42 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Click menu items in Notepad application
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// запустим блокнот
-$app->shell_execute("open","C:\\windows\\notepad.exe");
+// Step: Launch Notepad application
+$notepadPath = "C:\\windows\\notepad.exe";
+WINDOW::$app->shell_execute("open", $notepadPath);
 sleep(1);
-$xhe=$window->get_by_text("Блокнот",false,true);
 
-// 1 
-echo "1. Выполнить пункт меню Печать : ";
-echo $xhe->click_menu_item("0:7");
+// Step: Get Notepad window interface
+$windowText = "Notepad";
+$notepadWindow = WINDOW::$window->get_by_text($windowText, false, true);
 
-// 2
-echo "\n2. Выполнить пункт меню Формат:Шрифт : ";
-echo $xhe->click_menu_item("Формат:Шрифт");
+// Example 1: Click Print menu item
+$menuPath1 = "0:7";
+echo "Example 1: Click Print menu item\n";
+$clickResult1 = $notepadWindow->click_menu_item($menuPath1);
+if ($clickResult1) {
+    echo "Print menu item clicked successfully\n";
+} else {
+    echo "Failed to click Print menu item\n";
+}
 
-// конец
-echo "\n";
+// Example 2: Click Format:Font menu item
+$menuPath2 = "Format:Font";
+echo "Example 2: Click Format:Font menu item\n";
+$clickResult2 = $notepadWindow->click_menu_item($menuPath2);
+if ($clickResult2) {
+    echo "Format:Font menu item clicked successfully\n";
+} else {
+    echo "Failed to click Format:Font menu item\n";
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

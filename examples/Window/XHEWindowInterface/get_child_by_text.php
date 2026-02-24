@@ -1,26 +1,43 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Получим координаты инспектора окон в XHE : ";
-$xhe=$window->get_by_text("Human",false);
-$inspector=$xhe->get_child_by_text("Инспектор Окон",true,true);
-echo $inspector->get_x()." ".$inspector->get_y();
-
-// 2 
-echo "\n2. Закроем инспектор : ";
-echo $mouse->click_to_screen($inspector->get_x()+$inspector->get_width()-8,$inspector->get_y()-8);
-
-// конец
+// Scenario: Get coordinates of a child window by text and interact with it
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get the main window interface
+$windowText = "Human";
+$mainWindow = WINDOW::$window->get_by_text($windowText, false);
+
+// Step: Define parameters for getting child window by text
+$childText = "Инспектор Окон";
+$visibly = true;
+$recursively = true;
+
+// Example 1: Get coordinates of the Window Inspector in XHE
+echo "Example 1: Get coordinates of the Window Inspector in XHE\n";
+$inspector = $mainWindow->get_child_by_text($childText, $visibly, $recursively);
+$inspectorX = $inspector->get_x();
+$inspectorY = $inspector->get_y();
+echo "Window Inspector coordinates: X=" . $inspectorX . " Y=" . $inspectorY . "\n";
+
+// Example 2: Close the Window Inspector by clicking on its close button
+echo "Example 2: Close the Window Inspector by clicking on its close button\n";
+// Calculate coordinates for the close button (top-right corner of the inspector)
+$clickX = $inspectorX + $inspector->get_width() - 8;
+$clickY = $inspectorY - 8;
+$clickResult = $mouse->click_to_screen($clickX, $clickY);
+if ($clickResult) {
+    echo "Window Inspector closed successfully\n";
+} else {
+    echo "Failed to close Window Inspector\n";
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

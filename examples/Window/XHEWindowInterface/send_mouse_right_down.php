@@ -11,10 +11,10 @@ echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
 // 1 
 echo "1. Покажем контекстное меню : ";
 $browser_wnd=$window->get_by_text("[localhost");
-for ($i=0;$i<500;$i+=50)
+for ($k=0;$k<500;$k+=50)
 {
-	echo $browser_wnd->send_mouse_right_down($i,$i);
-    echo $browser_wnd->send_mouse_right_up($i,$i);
+	echo $browser_wnd->send_mouse_right_down($k,$k);
+    echo $browser_wnd->send_mouse_right_up($k,$k);
     sleep(1);
     $keyboard->key(27);    
 }

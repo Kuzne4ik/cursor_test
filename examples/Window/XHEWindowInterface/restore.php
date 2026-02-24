@@ -1,29 +1,47 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Path to the init.php file for connecting to the XHE API
+$path = "../../../Templates/init.php";
+// Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Scenario: Minimize, maximize, and restore the application window
 
-// 1 
-echo "1. Минимизируем приложение: ";
-$xhe=$window->get_by_text("localhost",false);
-echo $xhe->minimize()."<br>";sleep(1);
+// Step: Get the application window interface
+$windowText = "localhost";
+$visibly = false;
+$xheWindow = WINDOW::$window->get_by_text($windowText, $visibly);
 
-// 2 
-echo "2. Максимизируем приложение: ";
-echo $xhe->maximize()."<br>";sleep(1);
+// Example 1: Minimize the application
+echo "Example 1: Minimize the application\n";
+$minimizeResult = $xheWindow->minimize();
+if ($minimizeResult) {
+    echo "Application minimized successfully\n";
+} else {
+    echo "Failed to minimize application\n";
+}
+sleep(1);
 
-// 3 
-echo "3. Восстановим приложение: ";
-echo $xhe->restore()."<br>";sleep(1);
+// Example 2: Maximize the application
+echo "Example 2: Maximize the application\n";
+$maximizeResult = $xheWindow->maximize();
+if ($maximizeResult) {
+    echo "Application maximized successfully\n";
+} else {
+    echo "Failed to maximize application\n";
+}
+sleep(1);
 
-// конец
-echo "\n";
+// Example 3: Restore the application
+echo "Example 3: Restore the application\n";
+$restoreResult = $xheWindow->restore();
+if ($restoreResult) {
+    echo "Application restored successfully\n";
+} else {
+    echo "Failed to restore application\n";
+}
+sleep(1);
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

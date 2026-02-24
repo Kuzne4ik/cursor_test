@@ -1,24 +1,31 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+// Scenario: Set focus to a window
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Step: Get the Skype window interface
+$windowText = "Skype";
+$skypeWindow = WINDOW::$window->get_by_text($windowText, false);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Bring Skype window to foreground
+$foregroundResult = $skypeWindow->foreground();
 
-// 1 
-echo "1. Зададим фокус на Skype : ";
-$skype=$window->get_by_text("Skype",false);
-echo $skype->foreground()." ";
-echo $skype->focus()."<br>";
+// Example 1: Set focus to Skype window
+echo "Example 1: Set focus to Skype window\n";
+$focusResult = $skypeWindow->focus();
+if ($focusResult && $foregroundResult) {
+    echo "Skype window focused successfully\n";
+} else {
+    echo "Failed to focus Skype window\n";
+}
 
 sleep(2);
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

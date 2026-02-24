@@ -1,29 +1,53 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Path to the init.php file for connecting to the XHE API
+$path = "../../../Templates/init.php";
+// Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Scenario: Resize, move, and maximize the application window
 
-// 1 
-echo "1. Задать новый размер приложения : ";
-$xhe=$window->get_by_text("localhost", false);
-echo $xhe->resize(800,600)."<br>";sleep(1);
+// Step: Get the application window interface
+$windowText = "localhost";
+$visibly = false;
+$xheWindow = WINDOW::$window->get_by_text($windowText, $visibly);
 
-// 2 
-echo "2. Переместить приложение: ";
-echo $xhe->move(300,300)."<br>";sleep(1);
+// Step: Define new window dimensions and position
+$newWidth = 800;
+$newHeight = 600;
+$newX = 300;
+$newY = 300;
 
-// 3 
-echo "3. Максимизировать приложение : ";
-echo $xhe->maximize()."<br>";sleep(1);
+// Example 1: Set new size for the application
+echo "Example 1: Set new size for the application\n";
+$resizeResult = $xheWindow->resize($newWidth, $newHeight);
+if ($resizeResult) {
+    echo "Application resized successfully to " . $newWidth . "x" . $newHeight . "\n";
+} else {
+    echo "Failed to resize application\n";
+}
+sleep(1);
 
-// конец
-echo "\n";
+// Example 2: Move the application to new position
+echo "Example 2: Move the application to new position\n";
+$moveResult = $xheWindow->move($newX, $newY);
+if ($moveResult) {
+    echo "Application moved successfully to position (" . $newX . ", " . $newY . ")\n";
+} else {
+    echo "Failed to move application\n";
+}
+sleep(1);
 
-// Quit
-$app->quit();
+// Example 3: Maximize the application
+echo "Example 3: Maximize the application\n";
+$maximizeResult = $xheWindow->maximize();
+if ($maximizeResult) {
+    echo "Application maximized successfully\n";
+} else {
+    echo "Failed to maximize application\n";
+}
+sleep(1);
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

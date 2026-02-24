@@ -1,21 +1,34 @@
-<?php $xhe_host = "127.0.0.1:7025";
-
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
+<?php
+$xhe_host = "127.0.0.1:7010";
+// Path to the init.php file for connecting to the XHE API
+$path = "../../../Templates/init.php";
+// Including init.php grants access to all classes and functionality for working with the XHE API
 require($path);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Scenario: Hide the inspector element using mouse click
 
-// 1 
-echo "1. Спрячем инспектор мышкой : ";
-$inspector=$window->get_by_text("localhost")->get_child_by_text("Инспектор",true,true)->get_ui();
-echo $inspector->mouse_click(0,0);
+// Step: Get the main window interface
+$windowText = "localhost";
+$mainWindow = WINDOW::$window->get_by_text($windowText);
 
-// конец
-echo "\n";
+// Step: Define parameters for getting child window by text
+$childText = "Инспектор";
+$visibly = true;
+$recursively = true;
 
-// Quit
-$app->quit();
+// Example 1: Hide the inspector element using mouse click
+echo "Example 1: Hide the inspector element using mouse click\n";
+$inspector = $mainWindow->get_child_by_text($childText, $visibly, $recursively);
+$inspectorUI = $inspector->get_ui_element();
+$clickX = 0;
+$clickY = 0;
+$clickResult = $inspectorUI->mouse_click($clickX, $clickY);
+if ($clickResult) {
+    echo "Inspector element hidden successfully\n";
+} else {
+    echo "Failed to hide inspector element\n";
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

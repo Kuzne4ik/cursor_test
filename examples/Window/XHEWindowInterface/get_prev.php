@@ -1,27 +1,38 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Получим координаты Левой Панели в XHE : ";
-$xhe=$window->get_by_text("Human");
-echo $xhe->get_text();
-$left_pane=$xhe->get_child_by_class("WindowsForms10.Scintilla",false);
-echo $left_pane->get_x()." ".$left_pane->get_y()."<br>";
-
-// 2 
-echo "2. Получим текст окна предыдущего перед Левой панелью : ";
-echo $left_pane->get_prev()->get_text();
-
-// конец
+// Scenario: Get coordinates of a child window and text of the previous window
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get the main window interface
+$windowText = "Human";
+$mainWindow = WINDOW::$window->get_by_text($windowText);
+
+// Step: Define parameters for getting child window by class
+$childClass = "WindowsForms10.Scintilla";
+$visibly = false;
+
+// Example 1: Get coordinates of the Left Pane in XHE
+echo "Example 1: Get coordinates of the Left Pane in XHE\n";
+$mainWindowText = $mainWindow->get_text();
+$leftPane = $mainWindow->get_child_by_class($childClass, $visibly);
+$leftPaneX = $leftPane->get_x();
+$leftPaneY = $leftPane->get_y();
+echo "Main window text: " . $mainWindowText . "\n";
+echo "Left Pane coordinates: X=" . $leftPaneX . " Y=" . $leftPaneY . "\n";
+
+// Example 2: Get text of the window previous to the Left Pane
+echo "Example 2: Get text of the window previous to the Left Pane\n";
+$prevWindow = $leftPane->get_prev();
+$prevWindowText = $prevWindow->get_text();
+echo "Text of the previous window: " . $prevWindowText . "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

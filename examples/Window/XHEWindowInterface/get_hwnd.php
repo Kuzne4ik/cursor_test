@@ -1,20 +1,24 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Получим HWND XHE : ";
-echo $window->get_by_text("localhost")->get_hwnd();
-
-// конец
+// Scenario: Get window handle (HWND)
 echo "\n";
 
-// Quit
-$app->quit();
+// Step: Get the main window interface
+$windowText = "localhost";
+$mainWindow = WINDOW::$window->get_by_text($windowText);
+
+// Example 1: Get HWND of the XHE window
+echo "Example 1: Get HWND of the XHE window\n";
+$windowHwnd = $mainWindow->get_hwnd();
+echo "HWND of window with text '" . $windowText . "': " . $windowHwnd . "\n";
+
+// Quit the application
+WINDOW::$app->quit();
 ?>
