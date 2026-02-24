@@ -1,23 +1,49 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Demonstrates how to wait for a UI element to close by a single property
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1 
-echo "1. Дождемся закрытия меню файл : ";
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-$mfile=$xhe->get_by_property("Name","Файл");
-$mfile->invoke();
-echo($mfile->wait_for_ui_close_by_property("Name","Печать"));
+// Step: Find the File menu
+$propertyName = "Name";
+$propertyValue = "File";
+$fileMenuElement = $xheElement->get_by_property($propertyName, $propertyValue);
 
-// конец
-echo "\n";
+if ($fileMenuElement && $fileMenuElement->is_exist()) {
+    // Step: Invoke the File menu to open it
+    $invokeResult = $fileMenuElement->invoke();
+    
+    if ($invokeResult) {
+        echo("File menu opened successfully\n");
+        
+        // Example 1: Wait for Print menu item to close
+        $printPropertyName = "Name";
+        $printPropertyValue = "Print";
+        $result = $fileMenuElement->wait_for_ui_close_by_property($printPropertyName, $printPropertyValue);
+        
+        if ($result) {
+            echo("Example 1: Successfully waited for Print menu item to close\n");
+            echo("The Print menu item has been closed\n");
+        } else {
+            echo("Example 1: Failed to wait for Print menu item to close\n");
+            echo("The Print menu item may not have closed\n");
+        }
+    } else {
+        echo("Failed to open File menu\n");
+    }
+} else {
+    echo("File menu element not found\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

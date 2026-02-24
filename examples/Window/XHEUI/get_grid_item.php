@@ -1,21 +1,31 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Demonstrates how to get a specific item from a grid UI element
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1 
-echo "1. Получим ячейку в таблице : ";
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-echo($xhe->get_grid_item(0,0));
+// Example 1: Get grid item at specific row and column
+$rowIndex = 0;
+$columnIndex = 0;
+$gridItem = $xheElement->get_grid_item($rowIndex, $columnIndex);
 
-// конец
-echo "\n";
+if ($gridItem && $gridItem->is_exist()) {
+    $itemInfo = $gridItem->get_info();
+    echo("Example 1: Successfully retrieved grid item at row $rowIndex, column $columnIndex\n");
+    echo("Grid item name: " . $itemInfo->Name . "\n");
+} else {
+    echo("Example 1: Failed to retrieve grid item at row $rowIndex, column $columnIndex\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

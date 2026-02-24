@@ -1,21 +1,40 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Demonstrates how to get scroll information of a UI element
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1 
-echo "1. Развернем : ";
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-print_r($xhe->get_scroll_info());
+// Example 1: Get scroll information
+$scrollInfo = $xheElement->get_scroll_info();
 
-// конец
-echo "\n";
+if ($scrollInfo && is_array($scrollInfo)) {
+    echo("Example 1: Successfully retrieved scroll information\n");
+    echo("Scroll information:\n");
+    if (isset($scrollInfo['horizontal'])) {
+        echo("  Horizontal scroll: " . $scrollInfo['horizontal'] . "\n");
+    }
+    if (isset($scrollInfo['vertical'])) {
+        echo("  Vertical scroll: " . $scrollInfo['vertical'] . "\n");
+    }
+    if (isset($scrollInfo['horizontal_max'])) {
+        echo("  Horizontal max: " . $scrollInfo['horizontal_max'] . "\n");
+    }
+    if (isset($scrollInfo['vertical_max'])) {
+        echo("  Vertical max: " . $scrollInfo['vertical_max'] . "\n");
+    }
+} else {
+    echo("Example 1: Failed to retrieve scroll information or element is not scrollable\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

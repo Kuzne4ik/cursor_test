@@ -1,21 +1,37 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Demonstrates how to get the rectangle coordinates of a UI element
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1 
-echo "1. Получим прямоугольник XHE через UI : ";
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-print_r($xhe->get_rect());
+// Example 1: Get rectangle coordinates of the UI element
+$elementRect = $xheElement->get_rect();
 
-// конец
-echo "\n";
+if ($elementRect && is_array($elementRect)) {
+    echo("Example 1: Successfully retrieved element rectangle\n");
+    echo("Rectangle coordinates:\n");
+    echo("  Left: " . $elementRect[0] . "\n");
+    echo("  Top: " . $elementRect[1] . "\n");
+    echo("  Right: " . $elementRect[2] . "\n");
+    echo("  Bottom: " . $elementRect[3] . "\n");
+    
+    $width = $elementRect[2] - $elementRect[0];
+    $height = $elementRect[3] - $elementRect[1];
+    echo("  Width: " . $width . "\n");
+    echo("  Height: " . $height . "\n");
+} else {
+    echo("Example 1: Failed to retrieve element rectangle\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

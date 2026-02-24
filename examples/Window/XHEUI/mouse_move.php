@@ -1,22 +1,37 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Demonstrates how to move the mouse to a UI element
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1 
-echo("1. Переместить мышь к элементу : ");
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-$qstart=$xhe->get_by_property("Name" , "Быстрый Старт");
-print_r($qstart->mouse_move());
+// Step: Find a specific element to move to (Quick Start button)
+$propertyName = "Name";
+$propertyValue = "Quick Start";
+$quickStartElement = $xheElement->get_by_property($propertyName, $propertyValue);
 
-// конец
-echo "\n";
+if ($quickStartElement && $quickStartElement->is_exist()) {
+    // Example 1: Move mouse to the Quick Start element
+    $result = $quickStartElement->mouse_move();
+    
+    if ($result) {
+        echo("Example 1: Successfully moved mouse to Quick Start element\n");
+        echo("Mouse cursor is now positioned over the element\n");
+    } else {
+        echo("Example 1: Failed to move mouse to Quick Start element\n");
+    }
+} else {
+    echo("Example 1: Quick Start element not found\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

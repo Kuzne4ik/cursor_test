@@ -1,21 +1,32 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Demonstrates how to get a UI element from specific screen coordinates
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1 
-echo "1. Получим свойства об XHE как об UI : \n";
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-print_r($xhe->get_from_point(500,500)->get_info());
+// Example 1: Get UI element from specific coordinates
+$pointX = 500;
+$pointY = 500;
+$elementFromPoint = $xheElement->get_from_point($pointX, $pointY);
 
-// конец
-echo "\n";
+if ($elementFromPoint && $elementFromPoint->is_exist()) {
+    $elementInfo = $elementFromPoint->get_info();
+    echo("Example 1: Successfully found UI element at coordinates ($pointX, $pointY)\n");
+    echo("Element name: " . $elementInfo->Name . "\n");
+    echo("Element type: " . $elementInfo->LocalizedControlType . "\n");
+} else {
+    echo("Example 1: No UI element found at coordinates ($pointX, $pointY)\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

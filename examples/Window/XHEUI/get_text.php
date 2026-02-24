@@ -1,23 +1,54 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
+// Scenario: Demonstrates how to get text content from a UI element and input text
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Open Notepad for text input demonstration
+$notepadPath = "C:\\Windows\\System32\\notepad.exe";
+WINDOW::$app->shell_execute("open", $notepadPath);
+sleep(2);
 
-// 1 
-echo "1. Получим значение : ";
-$notepad = $window->get_by_class("Notepad",true,false)->get_ui_element()->get_child();
-echo($notepad->input("12345"));
-echo($notepad->input(" 5678",false));
-echo($notepad->get_text());
+// Step: Get Notepad UI element
+$notepadWindow = WINDOW::$window->get_by_class("Notepad", true, false);
+$notepadElement = $notepadWindow->get_ui_element();
+$notepadChild = $notepadElement->get_child();
 
-// конец
-echo "\n";
+// Example 1: Input text into Notepad
+$firstText = "12345";
+$result1 = $notepadChild->input($firstText);
 
-// Quit
-$app->quit();
+if ($result1) {
+    echo("Example 1: Successfully input first text: '$firstText'\n");
+} else {
+    echo("Example 1: Failed to input first text\n");
+}
+
+// Example 2: Append additional text
+$secondText = " 5678";
+$result2 = $notepadChild->input($secondText, false);
+
+if ($result2) {
+    echo("Example 2: Successfully appended text: '$secondText'\n");
+} else {
+    echo("Example 2: Failed to append text\n");
+}
+
+// Example 3: Get all text content
+$allText = $notepadChild->get_text();
+
+if ($allText !== null) {
+    echo("Example 3: Successfully retrieved text content\n");
+    echo("Complete text: '$allText'\n");
+} else {
+    echo("Example 3: Failed to retrieve text content\n");
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

@@ -1,23 +1,30 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Demonstrates how to wait for a UI element to close by multiple properties
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1
-echo("1. Найдем элементы по нескольким условиям : ");
-        $xhe=$window->get_by_text("localhost")->get_ui_element();
+// Example 1: Wait for UI element to close by multiple properties
+$properties = array("Name" => "Quick Start", "IsSelectionItemPatternAvailable" => "true");
+$result = $xheElement->wait_for_ui_close_by_properties($properties);
 
-$properties = array( "Name" => "Быстрый Старт", "IsSelectionItemPatternAvailable" => "true" );
-echo $xhe->wait_for_ui_close_by_properties($properties);
+if ($result) {
+    echo("Example 1: Successfully waited for UI element to close\n");
+    echo("The UI element matching the specified properties has closed\n");
+} else {
+    echo("Example 1: Failed to wait for UI element to close\n");
+    echo("The UI element may not have closed or doesn't match the properties\n");
+}
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

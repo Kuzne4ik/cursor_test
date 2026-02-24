@@ -1,33 +1,56 @@
-<?php $xhe_host = "127.0.0.1:7026";
+<?php
+// Scenario: Demonstrates how to send key down events to a UI element
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>keyboard->".basename (__FILE__)."</font>\n";
+// Step: Open Notepad for key input demonstration
+$notepadPath = "C:\\Windows\\System32\\notepad.exe";
+WINDOW::$app->shell_execute("open", $notepadPath);
+sleep(2);
 
-echo "1.  Два раза нажмем Enter в открытом блокноте : ";
-$notebook=$window->get_by_class("Notepad",false,true,true)->get_ui();
-$notebook=$notebook->get_child(0);
-$notebook->focus();
+// Step: Get Notepad UI element
+$notepadWindow = WINDOW::$window->get_by_class("Notepad", false, true, true);
+$notepadUI = $notepadWindow->get_ui();
+$notepadElement = $notepadUI->get_child(0);
 
-// enter
-$notebook->send_key_down("13");
-$notebook->send_key_up("13");
+// Step: Set focus to Notepad
+$notepadElement->focus();
 
-// a
-$notebook->send_key_down("65");
-$notebook->send_key_up("65");
+// Example 1: Send Enter key down
+$enterKeyCode = "13";
+$result1 = $notepadElement->send_key_down($enterKeyCode);
 
-// enter
-$notebook->send_key_down("13");
-$notebook->send_key_up("13");
+if ($result1) {
+    echo("Example 1: Successfully sent Enter key down\n");
+} else {
+    echo("Example 1: Failed to send Enter key down\n");
+}
 
-// конец
-echo "\n";
+// Step: Send 'a' key down
+$letterAKeyCode = "65";
+$result2 = $notepadElement->send_key_down($letterAKeyCode);
 
-// Quit
-$app->quit();
+if ($result2) {
+    echo("Example 2: Successfully sent 'a' key down\n");
+} else {
+    echo("Example 2: Failed to send 'a' key down\n");
+}
+
+// Step: Send Enter key down again
+$result3 = $notepadElement->send_key_down($enterKeyCode);
+
+if ($result3) {
+    echo("Example 3: Successfully sent Enter key down\n");
+} else {
+    echo("Example 3: Failed to send Enter key down\n");
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

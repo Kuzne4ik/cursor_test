@@ -1,30 +1,49 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
+// Scenario: Demonstrates how to find UI elements by a single property
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1 
-echo "1. Получим имена всех доступных для щелчка меню: ";
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-$menus=$xhe->get_all_by_property("LocalizedControlType","элемент меню");
-foreach($menus as $menu)
-echo $menu->get_info()->Name."\n";
+// Example 1: Get all clickable menu items by exact match
+$propertyName = "LocalizedControlType";
+$propertyValue = "menu item";
+$menuItems = $xheElement->get_all_by_property($propertyName, $propertyValue);
 
-// 2
-echo "\n2. Получим имена всех (частичное соответствие): ";
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-$menus=$xhe->get_all_by_property("LocalizedControlType","элемент",exactly:false);
-foreach($menus as $menu)
-	echo $menu->get_info()->Name."\n";
+if ($menuItems && $menuItems->count() > 0) {
+    echo("Example 1: Found " . $menuItems->count() . " clickable menu items\n");
+    foreach($menuItems as $index => $menuItem) {
+        $menuItemInfo = $menuItem->get_info();
+        echo("Menu item #$index: " . $menuItemInfo->Name . "\n");
+    }
+} else {
+    echo("Example 1: No clickable menu items found\n");
+}
 
-// конец
-echo "\n";
+// Example 2: Get all elements by partial match
+$propertyName2 = "LocalizedControlType";
+$propertyValue2 = "element";
+$exactly = false;
+$allElements = $xheElement->get_all_by_property($propertyName2, $propertyValue2, $exactly);
 
-// Quit
-$app->quit();
+if ($allElements && $allElements->count() > 0) {
+    echo("\nExample 2: Found " . $allElements->count() . " elements with partial match\n");
+    foreach($allElements as $index => $element) {
+        $elementInfo = $element->get_info();
+        echo("Element #$index: " . $elementInfo->Name . "\n");
+    }
+} else {
+    echo("\nExample 2: No elements found with partial match\n");
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

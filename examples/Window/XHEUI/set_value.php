@@ -1,21 +1,30 @@
-<?php $xhe_host = "127.0.0.1:3039";
+<?php
+// Scenario: Demonstrates how to set the value property of a UI element
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// Step: Get UI element for interaction
+$windowText = "localhost";
+$xheElement = WINDOW::$window->get_by_text($windowText)->get_ui_element();
 
-// 1 
-echo "1. Зададим значение : ";
-$xhe=$window->get_by_text("localhost")->get_ui_element();
-print_r($xhe->set_value("12345"));
+// Example 1: Set the value property
+$newValue = "12345";
+$result = $xheElement->set_value($newValue);
 
-// конец
-echo "\n";
+if ($result) {
+    echo("Example 1: Successfully set element value to '$newValue'\n");
+    echo("The element's value property has been updated\n");
+} else {
+    echo("Example 1: Failed to set element value\n");
+    echo("The element may not support setting values or the value is invalid\n");
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>
