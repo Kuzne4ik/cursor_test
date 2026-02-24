@@ -1,25 +1,28 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
+// Scenario: Get window by handle (hwnd)
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Step: Get Studio window to obtain its handle
+$windowText = "Studio";
+echo("Step: Get Studio window to obtain its handle\n");
+$xhe = WINDOW::$window->get_by_text($windowText);
+$windowTextResult = $xhe->get_text();
+echo("Found window with text: $windowTextResult\n");
 
-// 1 
-echo "1. Получим текст окна программы : ";
-$xhe=$window->get_by_text("Studio");
-echo $xhe->get_text()."<br>";
+// Example 1: Get window by handle
+$windowHandle = $xhe->get_hwnd();
+echo("Example 1: Get window by handle\n");
+$windowByHwnd = WINDOW::$window->get_by_hwnd($windowHandle);
+$windowTextByHwnd = $windowByHwnd->get_text();
+echo("Found window with handle $windowHandle and text: $windowTextByHwnd\n");
 
-// 2 
-echo "2. Получим текст окна по hwnd : ";
-echo $window->get_by_hwnd($xhe->get_hwnd())->get_text()."<br>";
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

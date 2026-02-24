@@ -1,14 +1,21 @@
-{"mcpServers":{
-        "filesystem": {
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-v",
-        "/local-directory:/local-directory",
-        "mcp/filesystem",
-        "/local-directory"
-      ]
-    }
-}}
+{
+	"mcpServers": {
+		"filesystem": {
+			"command": "docker",
+			"args": [
+				"run",
+				"-i",
+				"--rm",
+				"-v",
+				"/local-directory:/local-directory",
+				"mcp/filesystem",
+				"/local-directory"
+			],
+			"alwaysAllow": [
+				"create_directory",
+				"list_directory",
+				"list_allowed_directories"
+			]
+		}
+	}
+}

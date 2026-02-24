@@ -1,21 +1,22 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+﻿<?php
+// Scenario: Get all windows by specific point coordinates
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Example 1: Get texts of main visible windows by point 10,10
+$pointX = 10;
+$pointY = 10;
+echo("Example 1: Get texts of main visible windows by point 10,10\n");
+$windows_10x10 = WINDOW::$window->get_all_by_point($pointX, $pointY);
+$windowTexts = $windows_10x10->get_text();
+echo("Found " . count($windowTexts) . " windows at point ($pointX, $pointY)\n");
 
-// 1 
-echo "1. Получим тексты главных видимых окон по точке 10,10 : ";
-$windows_10x10=$window->get_all_by_point(10,10);
-print_r($windows_10x10->get_text());
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

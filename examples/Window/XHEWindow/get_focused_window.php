@@ -1,22 +1,24 @@
-﻿<?php $xhe_host = "127.0.0.1:705";
+﻿<?php
+// Scenario: Get currently focused window information
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
-
+// Step: Wait for user to focus on a window
 sleep(2);
 
-// 1
-echo "1. Получим x,y окна с фокусом: ";
-echo $window->get_focused_window()->get_x()." ".$window->get_focused_window()->get_y();
+// Example 1: Get coordinates of focused window
+echo("Example 1: Get coordinates of focused window\n");
+$focusedWindow = WINDOW::$window->get_focused_window();
+$windowX = $focusedWindow->get_x();
+$windowY = $focusedWindow->get_y();
+echo("Focused window coordinates: X=$windowX, Y=$windowY\n");
 
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

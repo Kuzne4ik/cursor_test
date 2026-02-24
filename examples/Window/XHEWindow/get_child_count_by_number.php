@@ -1,24 +1,30 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+﻿<?php
+// Scenario: Get child window count by parent window number
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Example 1: Get child windows count for emulator (window 0, visible and main)
+$windowNumber1 = 0;
+$visible1 = true;
+$main1 = true;
+echo("Example 1: Get child windows count for emulator (window 0, visible and main)\n");
+$childCount1 = WINDOW::$window->get_child_count_by_number($windowNumber1, $visible1, $main1);
+echo("Child windows count for window $windowNumber1: $childCount1\n");
 
-// 1 
-echo "1. Получим число дочерних окон эмулятора (0 видимого и главного окна) : ";
-echo $window->get_child_count_by_number(0,true,true)."<br>";
+// Example 2: Get child windows count for window 4 (visible, including child windows)
+$windowNumber2 = 4;
+$visible2 = true;
+$main2 = false;
+echo("Example 2: Get child windows count for window 4 (visible, including child windows)\n");
+$childCount2 = WINDOW::$window->get_child_count_by_number($windowNumber2, $visible2, $main2);
+echo("Child windows count for window $windowNumber2: $childCount2\n");
 
-// 2 
-echo "2. Получим число дочерних окон 4 видимого окна : ";
-echo $window->get_child_count_by_number(4,true,false);
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

@@ -1,31 +1,38 @@
-<?php $xhe_host = "127.0.0.1:7022";
+<?php
+// Scenario: Get all windows with different visibility and main window filters
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Example 1: Get texts of main visible windows
+$visible = true;
+$main = true;
+echo("Example 1: Get texts of main visible windows\n");
+$windows1 = WINDOW::$window->get_all();
+$windowTexts1 = $windows1->get_text();
+echo("Found " . count($windowTexts1) . " main visible windows\n");
 
-// 1 
-echo "1. Получим тексты главных видимых окон : ";
-$windows=$window->get_all();
-print_r($windows->get_text());
+// Example 2: Get texts of main windows (including invisible)
+$visible2 = true;
+$main2 = false;
+echo("Example 2: Get texts of main windows (including invisible)\n");
+$windows2 = WINDOW::$window->get_all($visible2, $main2);
+$windowTexts2 = $windows2->get_text();
+echo("Found " . count($windowTexts2) . " main windows\n");
 
-// 2 
-echo "2. Получим тексты главных окон : ";
-$windows=$window->get_all(true,false);
-print_r($windows->get_text());
+// Example 3: Get texts of all windows (including child windows)
+$visible3 = false;
+$main3 = false;
+echo("Example 3: Get texts of all windows (including child windows)\n");
+$windows3 = WINDOW::$window->get_all($visible3, $main3);
+$windowTexts3 = $windows3->get_text();
+echo("Found " . count($windowTexts3) . " total windows\n");
 
-// 3 
-echo "3. Получим тексты всех окон : ";
-$windows=$window->get_all(false,false);
-print_r($windows->get_text());
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

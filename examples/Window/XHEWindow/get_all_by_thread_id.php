@@ -1,25 +1,30 @@
-<?php $xhe_host = "127.0.0.1:7025";
+<?php
+// Scenario: Get all windows by thread ID
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Step: Get Studio window to obtain its thread ID
+$windowText = "Studio";
+echo("Step: Get Studio window to obtain its thread ID\n");
+$xhe = WINDOW::$window->get_by_text($windowText);
+$windowTextResult = $xhe->get_text();
+echo("Found window with text: $windowTextResult\n");
 
-// 1 
-echo "1. Получим текст окна программы : ";
-$xhe=$window->get_by_text("Studio");
-echo $xhe->get_text()."<br>";
+// Example 1: Get windows by thread ID
+$threadId = $xhe->get_thread_id();
+$visible = false;
+$main = false;
+echo("Example 1: Get windows by thread ID\n");
+$windowsByThread = WINDOW::$window->get_all_by_thread_id($threadId, $visible, $main);
+$windowTextsByThread = $windowsByThread->get_text();
+echo("Found " . count($windowTextsByThread) . " windows with thread ID: $threadId\n");
 
-// 2 
-echo "2. Получим тексты окон по thread_id : ";
-print_r($window->get_all_by_thread_id($xhe->get_thread_id(),false,false)->get_text());
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

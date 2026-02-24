@@ -1,26 +1,27 @@
-<?php 
+<?php
+// Scenario: Execute authorization with default login and password
 
-$xhe_host = "127.0.0.1:7011";
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// Step: Navigate to test page
+$pageUrl = TEST_SITE_URL . "personal/myshopping/";
+echo("Navigate to HTML page: $pageUrl\n");
+WEB::$browser->navigate($pageUrl);
+WEB::$browser->wait_js();
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Example 1: Set default login and password
+$login = "login";
+$password = "password";
+echo("Example 1: Set default login and password\n");
+$result = WINDOW::$window->execute_authorization($login, $password);
+echo("Authorization result: " . ($result ? "Success" : "Failed") . "\n");
 
-// 1  
-echo "1. Укажем логин и пароль по умолчанию : ";
-echo $window->execute_authorization("login","password")."<br>";
-
-// 2 
-echo "2. Перейдем на полигон: ";
-echo $browser->navigate( TEST_SITE_URL . "personal/myshopping/")."<br>";
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

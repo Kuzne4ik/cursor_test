@@ -1,63 +1,56 @@
 <?php
-$xhe_host = "127.0.0.1:7013";
+// Scenario: Execute open file dialog with file selection parameters
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
-
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
 while (true)
 {
-	// 1 
-	echo "1. Перейдем на полигон: ";
-	echo $browser->navigate(TEST_POLYGON_URL . "inputfile.html")."<br>";
+    // Step: Navigate to input file test page
+    $testPageUrl = TEST_POLYGON_URL . "inputfile.html";
+    echo("Navigate to HTML page: $testPageUrl\n");
+    WEB::$browser->navigate($testPageUrl);
+    WEB::$browser->wait_js();
     sleep(1);
 
-	// 2  
-	echo "2. Указали что при появлении диалога, задавать имя файла: ";
-	echo $window->execute_open_file("ф","test\\file.txt","&Открыть",false,true)."<br>";
+    // Example 1: Set file dialog parameters for single file
+    $dialogFilter = "ф";
+    $filePath = "test\\file.txt";
+    $dialogButton = "&Открыть";
+    $isModal = false;
+    $isDialog = true;
+    echo("Example 1: Set file dialog parameters for single file\n");
+    $result1 = WINDOW::$window->execute_open_file($dialogFilter, $filePath, $dialogButton, $isModal, $isDialog);
+    echo("Single file dialog setup: " . ($result1 ? "Success" : "Failed") . "\n");
 
-	//  3 
-	echo "3. Откроем диалог выбора файла : ";
-	$obj=$inputfile->get_by_name("Name");
-    echo($obj->focus()."\n");
-    $obj->send_mouse_click();
-
+    // Step: Open file selection dialog
+    echo("Step: Open file selection dialog\n");
+    $inputElement = DOM::$inputfile->get_by_name("Name");
+    $focusResult = $inputElement->focus();
+    echo("Input element focused: " . ($focusResult ? "Success" : "Failed") . "\n");
+    $inputElement->send_mouse_click();
     sleep(1);
 
-	// 4  
-	echo "4. Указали что при появлении диалога, задавать несколько имен файлов: ";
-	echo $window->execute_open_file("ф","\"c:\\file1.txt\" \"c:\\file2.txt\" " ,"&Открыть",false,true)."<br>";
+    // Example 2: Set file dialog parameters for multiple files
+    $multipleFilePaths = "\"c:\\file1.txt\" \"c:\\file2.txt\" ";
+    echo("Example 2: Set file dialog parameters for multiple files\n");
+    $result2 = WINDOW::$window->execute_open_file($dialogFilter, $multipleFilePaths, $dialogButton, $isModal, $isDialog);
+    echo("Multiple files dialog setup: " . ($result2 ? "Success" : "Failed") . "\n");
 
-	//  5 
-	echo "5. Откроем диалог выбора файла : ";
-	$obj=$inputfile->get_by_name("Name1");
-    echo($obj->focus()."\n");
-    $obj->send_mouse_click();
-
-	sleep(2);
+    // Step: Open file selection dialog for multiple files
+    echo("Step: Open file selection dialog for multiple files\n");
+    $inputElement1 = DOM::$inputfile->get_by_name("Name1");
+    $focusResult1 = $inputElement1->focus();
+    echo("Input element1 focused: " . ($focusResult1 ? "Success" : "Failed") . "\n");
+    $inputElement1->send_mouse_click();
+    sleep(2);
 }
-/* для Selenium моделей
-$path="C:\\222.txt";
-$browser->navigate("https://the-internet.herokuapp.com/upload");
-$window->execute_open_file("id:file-upload",$path,"");
-$app->pause(0);
 
-$browser->navigate("https://the-internet.herokuapp.com/upload");
-$inputfile->get_by_number(0)->mouse_click(5,5);
-sleep(2);
-$window->execute_open_file("dlg:Открытие",$path,"");
-$app->pause(0);
-
-$browser->navigate("https://the-internet.herokuapp.com/upload");
-$window->execute_open_file("xpath:/html/body/div[2]/div/div[1]/form/input[1]",$path,"");
-$app->pause(0);*/
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

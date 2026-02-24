@@ -1,28 +1,36 @@
-<?php $xhe_host = "127.0.0.1:7094";
+<?php
+// Scenario: Execute prompt dialog with predefined input value
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Step: Navigate to test page
+$testPageUrl = "http://javascript.ru/prompt";
+echo("Navigate to HTML page: $testPageUrl\n");
+WEB::$browser->navigate($testPageUrl);
+WEB::$browser->wait_js();
 
-// 1 
-echo "1. Перейдем на полигон: ";
-echo $browser->navigate("http://javascript.ru/prompt")."<br>";
+// Example 1: Set prompt dialog parameters
+$dialogTitle = "javascript.ru";
+$dialogInput = "100500";
+$dialogButton = "ОК";
+$isModal = false;
+$isDialog = true;
+echo("Example 1: Set prompt dialog parameters\n");
+$result = WINDOW::$window->execute_prompt($dialogTitle, $dialogInput, $dialogButton, $isModal, $isDialog);
+echo("Prompt dialog setup: " . ($result ? "Success" : "Failed") . "\n");
 
-// 2  
-echo "2. Указали что при появлении диалога, задавать 100500 : ";
-echo $window->execute_prompt("javascript.ru","100500","ОК",false)."<br>";
+// Step: Open prompt dialog
+$buttonValue = "Запустить";
+echo("Step: Open prompt dialog\n");
+$clickResult = DOM::$button->click_by_value($buttonValue, false);
+echo("Button clicked: " . ($clickResult ? "Success" : "Failed") . "\n");
 
-// 3 
-echo "3. Откроем диалог ввода данных : ";
-echo $button->click_by_value("Запустить",false);
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

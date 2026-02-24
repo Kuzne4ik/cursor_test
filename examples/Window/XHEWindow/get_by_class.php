@@ -1,20 +1,21 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+﻿<?php
+// Scenario: Get window by class name containing specific text
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// начало
-echo "\n<font color=blue>window->".basename (__FILE__)."</font>\n";
+// Example 1: Get first main visible window whose class contains letter 'a'
+$classFilter = "a";
+echo("Example 1: Get first main visible window whose class contains letter 'a'\n");
+$window = WINDOW::$window->get_by_class($classFilter);
+$className = $window->get_class_name();
+echo("Found window with class: $className\n");
 
-// 1
-echo "1. Получим класс первого главного видимого окна , класс которого содержат букву a : ";
-echo $window->get_by_class("a")->get_class_name();
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>
