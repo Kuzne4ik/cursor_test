@@ -1,20 +1,32 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+// Scenario: Checking if a window is enabled (can receive user input).
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// step 1: Get all windows with the text "localhost"
+$windowText = "localhost";
+$targetWindows = WINDOW::$window->get_all_by_text($windowText);
+if ($targetWindows->count() > 0) {
+    $targetWindow = $targetWindows[0];
+    echo "Found window with text: '$windowText'.\n";
+    
+    // Example is_enable: Check if the window is enabled
+    echo "Example is_enable: Check if window is enabled: ";
+    $isEnabled = $targetWindow->is_enable();
+    if ($isEnabled) {
+        echo "Window is enabled (can receive user input).\n";
+    } else {
+        echo "Window is disabled (cannot receive user input).\n";
+    }
+} else {
+    echo "No window found with text: '$windowText'.\n";
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Проверим доступность главного видимого окна содержащего название приложения: ";
-echo $window->get_all_by_text("localhost")[0]->is_enable();
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

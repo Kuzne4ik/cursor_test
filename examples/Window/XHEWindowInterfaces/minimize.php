@@ -1,29 +1,53 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+// Scenario: Minimizing a window to the taskbar.
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// step 1: Get all windows with the text "localhost"
+$windowText = "localhost";
+$targetWindows = WINDOW::$window->get_all_by_text($windowText, false);
+if ($targetWindows->count() > 0) {
+    $targetWindow = $targetWindows[0];
+    echo "Found window with text: '$windowText'.\n";
+    
+    // Example minimize: Minimize the window
+    echo "Example minimize: Minimize the window: ";
+    $isMinimized = $targetWindow->minimize();
+    if ($isMinimized) {
+        echo "Window minimized successfully.\n";
+        sleep(1);
+    } else {
+        echo "Failed to minimize window.\n";
+    }
+    
+    // step 2: Maximize the window
+    echo "Step: Maximize the window: ";
+    $isMaximized = $targetWindow->maximize();
+    if ($isMaximized) {
+        echo "Window maximized successfully.\n";
+        sleep(1);
+    } else {
+        echo "Failed to maximize window.\n";
+    }
+    
+    // step 3: Restore the window to its original size
+    echo "Step: Restore the window to its original size: ";
+    $isRestored = $targetWindow->restore();
+    if ($isRestored) {
+        echo "Window restored successfully.\n";
+        sleep(1);
+    } else {
+        echo "Failed to restore window.\n";
+    }
+} else {
+    echo "No window found with text: '$windowText'.\n";
+}
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
-
-// 1 
-echo "1. Минимизируем приложение: ";
-$xhe=$window->get_all_by_text("localhost", false)[0];
-echo $xhe->minimize()."<br>";sleep(1);
-
-// 2 
-echo "2. Максимизируем приложение: ";
-echo $xhe->maximize()."<br>";sleep(1);
-
-// 3 
-echo "3. Восстановим приложение: ";
-echo $xhe->restore()."<br>";sleep(1);
-
-// конец
-echo "\n";
-
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

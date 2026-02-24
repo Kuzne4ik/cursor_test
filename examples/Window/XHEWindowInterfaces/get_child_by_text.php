@@ -1,26 +1,55 @@
-<?php $xhe_host = "127.0.0.1:7011";
+<?php
+// Scenario: Getting a child window by its text, retrieving its coordinates, and simulating a mouse click to close it.
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// step 1: Get the main window with the text "localhost"
+$windowText = "localhost";
+echo "Step 1: Get main window with text: $windowText\n";
+$mainWindowInterfaces = WINDOW::$window->get_all_by_text($windowText);
+if ($mainWindowInterfaces->count() > 0) {
+    $mainWindow = $mainWindowInterfaces[0];
+    echo "Main window found.\n";
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+    // step 2: Define the text of the child window (e.g., "Inspector")
+    $childWindowText = "Inspector";
+    echo "Step 2: Define child window text: $childWindowText\n";
 
-// 1 
-echo "1. Получим координаты инспектора в XHE : ";
-$xhe=$window->get_all_by_text("localhost")[0];
-$inspector=$xhe->get_child_by_text("Инспектор");
-echo $inspector->get_x()." ".$inspector->get_y();
+    // Example get_child_by_text: Get the child window by its text
+    echo "Example get_child_by_text: Get child window by text '$childWindowText': ";
+    $inspectorPane = $mainWindow->get_child_by_text($childWindowText);
+    if ($inspectorPane->is_exist()) {
+        $childX = $inspectorPane->get_x();
+        $childY = $inspectorPane->get_y();
+        echo "Child window found at coordinates: X=$childX, Y=$childY\n";
 
-// 2 
-echo "2. Закроем инспектор : ";
-echo $mouse->click_to_screen(intval($inspector->get_x())+intval($inspector->get_width())-8, intval($inspector->get_y())+8);
+        // step 3: Calculate click coordinates to close the pane
+        $clickOffsetX = 8;
+        $clickOffsetY = 8;
+        $clickX = intval($childX) + intval($inspectorPane->get_width()) - $clickOffsetX;
+        $clickY = intval($childY) + $clickOffsetY;
+        echo "Step 3: Calculated click coordinates to close pane: X=$clickX, Y=$clickY\n";
 
-// конец
-echo "\n";
+        // Example mouse_click: Click to close the inspector pane
+        echo "Example mouse_click: Close the inspector pane by clicking at ($clickX, $clickY): ";
+        $isClicked = SYSTEM::$mouse->click_to_screen($clickX, $clickY);
+        if ($isClicked) {
+            echo "Inspector pane closed successfully.\n";
+        } else {
+            echo "Failed to close inspector pane.\n";
+        }
+    } else {
+        echo "Child window with text '$childWindowText' not found.\n";
+    }
+} else {
+    echo "Main window with text '$windowText' not found.\n";
+}
 
-// Quit
-$app->quit();
+// Quit the application
+WINDOW::$app->quit();
 ?>

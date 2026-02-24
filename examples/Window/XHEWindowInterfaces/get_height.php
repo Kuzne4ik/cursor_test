@@ -1,24 +1,44 @@
-﻿<?php $xhe_host = "127.0.0.1:7010";
+<?php
+// Scenario: Getting the desktop position (x, y, width, height) of a window.
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// step 1: Get the main window with the text "Human"
+$windowText = "Human";
+echo "Step 1: Get main window with text: $windowText\n";
+$targetWindowInterfaces = WINDOW::$window->get_all_by_text($windowText, false); // false for including non-visible
+if ($targetWindowInterfaces->count() > 0) {
+    $targetWindow = $targetWindowInterfaces[0];
+    echo "Target window found.\n";
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+    // Example get_x: Get the X coordinate of the window
+    echo "Example get_x: Get X coordinate of '$windowText' window: ";
+    $winX = $targetWindow->get_x();
+    echo "X=$winX\n";
 
-// 1 
-echo "1. Получим положение XHE на рабочем столе : <br><br>";
-$skype=$window->get_all_by_text("Human",false)[0];
-echo "x=".$skype->get_x()."<br>";
-echo "y=".$skype->get_y()."<br>";
-echo "width=".$skype->get_width()."<br>";
-echo "height=".$skype->get_height()."<br>";
+    // Example get_y: Get the Y coordinate of the window
+    echo "Example get_y: Get Y coordinate of '$windowText' window: ";
+    $winY = $targetWindow->get_y();
+    echo "Y=$winY\n";
 
-// конец
-echo "\n";
+    // Example get_width: Get the width of the window
+    echo "Example get_width: Get width of '$windowText' window: ";
+    $winWidth = $targetWindow->get_width();
+    echo "Width=$winWidth\n";
 
-// Quit
-$app->quit();
+    // Example get_height: Get the height of the window
+    echo "Example get_height: Get height of '$windowText' window: ";
+    $winHeight = $targetWindow->get_height();
+    echo "Height=$winHeight\n";
+} else {
+    echo "Window with text '$windowText' not found.\n";
+}
+
+// Quit the application
+WINDOW::$app->quit();
 ?>

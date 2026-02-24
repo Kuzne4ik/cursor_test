@@ -1,45 +1,52 @@
 <?php
-$xhe_host = "127.0.0.1:7011";
+// Scenario: Getting a collection of windows by title, bringing one to the foreground, and setting focus.
+$xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-    $path="../../../Templates/init.php";
-require($path);
+// step 1: Get collection of windows with the title 'Notepad'
+$windowText = "Notepad";
+echo "Step 1: Get collection of windows with title '$windowText':\n";
+$windowInterfaces = WINDOW::$window->get_all_by_text($windowText, false);
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// step 2: Get the number of elements in the collection
+echo "Step 2: Number of elements in the collection: ";
+$windowInterfacesCount = $windowInterfaces->count();
+echo $windowInterfacesCount . "\n";
 
-// 1
-echo "\n1. Получить коллекцию окон с заголовком 'Блокнот': ";
-$windowInterfaces = WINDOW::$window->get_all_by_text("Блокнот", false);
-
-// 2
-echo "\n2. Сколько элементов в коллекции: ";
-$windowInterfacesCount = count($windowInterfaces);
-echo $windowInterfacesCount;
-
-// 3
-echo "\n3. Получить первый интерфейс из коллекции: ";
-if ($windowInterfacesCount == 0){
-    echo "Не нашли окон с текстом  'Блокнот'. Завершить работу.";
-    // Quit
+// step 3: Get the first interface from the collection
+echo "Step 3: Get the first interface from the collection: ";
+if ($windowInterfacesCount == 0) {
+    echo "No windows found with text '$windowText'. Quitting.\n";
+    // Quit the application
     WINDOW::$app->quit();
-}
-else
-{
+} else {
     $notepadWindowInterface = $windowInterfaces[0];
-    // 4
-    echo "\n4. Вынести окно 'Блокнот' на передний план: ";
-    echo $notepadWindowInterface->foreground() . " ";
+    echo "First interface obtained.\n";
 
-    // 5
-    echo "\n5. Дать фокус окну 'Блокнот': ";
-    echo $notepadWindowInterface->focus() . "<br>";
+    // Example foreground: Bring the 'Notepad' window to the foreground
+    echo "Example foreground: Bring '$windowText' window to the foreground: ";
+    $isForegrounded = $notepadWindowInterface->foreground();
+    if ($isForegrounded) {
+        echo "'$windowText' window brought to foreground successfully.\n";
+    } else {
+        echo "Failed to bring '$windowText' window to foreground.\n";
+    }
+
+    // Example focus: Set focus to the 'Notepad' window
+    echo "Example focus: Set focus to '$windowText' window: ";
+    $isFocused = $notepadWindowInterface->focus();
+    if ($isFocused) {
+        echo "'$windowText' window focused successfully.\n";
+    } else {
+        echo "Failed to focus '$windowText' window.\n";
+    }
 }
 
-// конец
-echo "\n";
-
-// Quit
+// Quit the application
 WINDOW::$app->quit();
 ?>

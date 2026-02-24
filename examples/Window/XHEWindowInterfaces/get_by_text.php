@@ -1,22 +1,31 @@
 <?php
+// Scenario: Getting a window by its text from a collection of all windows and retrieving its text.
 $xhe_host = "127.0.0.1:7010";
+if (!isset($path)){
+    // Path to the init.php file for connecting to the XHE API
+    $path = "../../../Templates/init.php";
+    // Including init.php grants access to all classes and functionality for working with the XHE API
+    require($path);
+}
 
-// подключим функциональные объекты, если еще не подключен
-if (!isset($path))
-  $path="../../../Templates/init.php";
-require($path);
+// step 1: Get all available windows
+echo "Step 1: Get collection of all windows.\n";
+$allWindows = WINDOW::$window->get_all();
 
-// начало
-echo "\n<font color=blue>windowinterface->".basename (__FILE__)."</font>\n";
+// step 2: Define the text to search for in the window title
+$windowText = "Notepad";
+echo "Step 2: Define target window text: $windowText\n";
 
-// 1 
-echo "1. Получим текст главного видимого окна содержащего название Блокнот: ";
-$all = WINDOW::$window->get_all();
-echo $all->get_by_text("Блокнот")->get_text();
+// Example get_by_text: Get the main visible window containing the specified text
+echo "Example get_by_text: Get text of main visible window containing '$windowText': ";
+$windowByText = $allWindows->get_by_text($windowText);
+if ($windowByText->is_exist()) {
+    $foundWindowText = $windowByText->get_text();
+    echo "Window text: '$foundWindowText'\n";
+} else {
+    echo "No window found containing text '$windowText'.\n";
+}
 
-// конец
-echo "\n";
-
-// Quit
+// Quit the application
 WINDOW::$app->quit();
 ?>
